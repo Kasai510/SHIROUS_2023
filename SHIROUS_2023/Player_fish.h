@@ -6,7 +6,7 @@
 #include"Player_shot.h"
 #include"Stage_object.h"
 
-class Fish
+class Player
 {
 
 
@@ -14,8 +14,8 @@ private:
 	myInput input;
 
 	String name = U"シラス";
-	Array<opt_Fish> options;
-
+	Array<std::shared_ptr<Option>> options;
+	
 	double width = 150.0;//自機の横幅(px)。
 	double height = 30.0;//自機の縦幅(px)。
 
@@ -32,9 +32,9 @@ private:
 
 public:
 
-	Fish();
-	Fish(Vec2 pos);
-	~Fish();
+	Player();
+	Player(Vec2 pos);
+	~Player();
 
 	void update();
 	void move();
@@ -88,7 +88,7 @@ public:
 	Line get_move_line_right() { return Line(get_pre_pos_right(), get_pos_right()); }
 
 	int get_opt_size() { return options.size(); }
-	opt_Fish get_opt(int i) { return options[i]; }
+	Option& get_opt(int i) { return *options[i]; }
 
 
 };

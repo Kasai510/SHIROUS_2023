@@ -1,11 +1,10 @@
 ﻿#include "Option_fish.h"
 
-opt_Fish::opt_Fish()
+Option::Option()
 {
 	name = U"シラス";
-
 }
-opt_Fish::opt_Fish(String n, Vec2 p)
+Option::Option(String n, Vec2 p)
 {
 	name = n;
 	pos = p;
@@ -14,18 +13,18 @@ opt_Fish::opt_Fish(String n, Vec2 p)
 }
 
 
-opt_Fish::~opt_Fish()
+Option::~Option()
 {
 
 }
-void opt_Fish::update(Vec2 player, int index)
+void Option::update(Vec2 player, int index)
 {
 	move(player, index);
 
 	if (shot_timer > 0)shot_timer--;
 
 }
-void opt_Fish::move(Vec2 player, int index)
+void Option::move(Vec2 player, int index)
 {
 	option_pos_timer++;
 	if (option_pos_timer > 2 * Math::Pi * 60 * (index + 1))option_pos_timer -= 2 * Math::Pi * 60 * (index + 1);
@@ -50,7 +49,7 @@ void opt_Fish::move(Vec2 player, int index)
 	speed /= 1.1;
 
 }
-void opt_Fish::move_intersect_stage(Stage_object stage)
+void Option::move_intersect_stage(Stage_object stage)
 {
 	if (get_rect().intersects(stage.get_rect()))
 	{
@@ -81,7 +80,7 @@ void opt_Fish::move_intersect_stage(Stage_object stage)
 
 
 }
-void  opt_Fish::check_limit_stage(myCamera camera)
+void  Option::check_limit_stage(myCamera camera)
 {
 	if (camera.get_limit_stage_min().y > get_pos_top().y)set_pos_top(camera.get_limit_stage_min().y);
 	if (camera.get_limit_stage_max().y < get_pos_bottom().y)set_pos_bottom(camera.get_limit_stage_max().y);
@@ -90,20 +89,20 @@ void  opt_Fish::check_limit_stage(myCamera camera)
 }
 
 
-bool opt_Fish::ready_shot()
+bool Option::ready_shot()
 {
 	if (shot_timer > 0)shot_timer--;
 	if (shot_timer == 0) return true;
 	return false;
 }
-Player_shot opt_Fish::shot()
+Player_shot Option::shot()
 {
 	shot_timer = shot_cool_time;
 	return Player_shot{ U"シラス" ,get_pos_right() };
 }
 
 
-void opt_Fish::draw(myCamera camera)
+void Option::draw(myCamera camera)
 {
 	// 自機の描画
 	/*get_rect().movedBy(-camera.get_center()).scaledAt({ 0,0 }, camera.get_scale()).movedBy(Scene::CenterF()).draw(Palette::Black);
@@ -114,15 +113,15 @@ void opt_Fish::draw(myCamera camera)
 
 
 	String texture_name = U"player_" + name;
-
+	
 
 
 }
-void opt_Fish::draw_back(myCamera camera)
+void Option::draw_back(myCamera camera)
 {
 
 }
-void opt_Fish::draw_front(myCamera camera)
+void Option::draw_front(myCamera camera)
 {
 
 }

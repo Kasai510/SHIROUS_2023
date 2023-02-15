@@ -1,41 +1,44 @@
 ﻿#include "Player_fish.h"
 
-Fish::Fish()
+
+
+Player::Player()
 {
 
 }
-Fish::Fish(Vec2 p)
+Player::Player(Vec2 p)
 {
 	pos = p;
 	pre_pos = p;
 
-	options << opt_Fish(U"イワシ", p);
-	options << opt_Fish(U"イワシ", p);
-	options << opt_Fish(U"イワシ", p);
-	options << opt_Fish(U"イワシ", p);
-	options << opt_Fish(U"イワシ", p);
-	options << opt_Fish(U"イワシ", p);
-	options << opt_Fish(U"イワシ", p);
-	options << opt_Fish(U"イワシ", p);
+	options << std::make_shared<Option>(U"イワシ", p);
+	options << std::make_shared<Option>(U"イワシ", p);
+	options << std::make_shared<Option>(U"イワシ", p);
+	options << std::make_shared<Option>(U"イワシ", p);
+	options << std::make_shared<Option>(U"イワシ", p);
+	options << std::make_shared<Option>(U"イワシ", p);
+	options << std::make_shared<Option>(U"イワシ", p);
+	options << std::make_shared<Option>(U"イワシ", p);
 }
 
 
-Fish::~Fish()
+Player::~Player()
 {
 
 }
-void Fish::update()
+void Player::update()
 {
 	move();
 
 	for (int i = 0; i < options.size(); i++)
 	{
-		options[i].move(get_pos(), i);
+		options[i]->move(get_pos(), i);
 	}
-	
+
+	options.remove_if([](const std::shared_ptr<Option>& option) {return option->get_is_dead(); });
 
 }
-void Fish::move()
+void Player::move()
 {
 	input.update();
 
@@ -59,7 +62,7 @@ void Fish::move()
 
 }
 
-void Fish::move_intersect_stage(Stage_object stage)
+void Player::move_intersect_stage(Stage_object stage)
 {
 	if (get_rect().intersects(stage.get_rect()))
 	{
@@ -90,11 +93,11 @@ void Fish::move_intersect_stage(Stage_object stage)
 
 	for (int i = 0; i < options.size(); i++)
 	{
-		options[i].move_intersect_stage(stage);
+		options[i]->move_intersect_stage(stage);
 	}
 
 }
-void  Fish::check_limit_stage(myCamera camera)
+void  Player::check_limit_stage(myCamera camera)
 {
 	if (camera.get_limit_stage_min().y > get_pos_top().y)set_pos_top(camera.get_limit_stage_min().y);
 	if (camera.get_limit_stage_max().y < get_pos_bottom().y)set_pos_bottom(camera.get_limit_stage_max().y);
@@ -103,33 +106,33 @@ void  Fish::check_limit_stage(myCamera camera)
 
 	for (int i = 0; i < options.size(); i++)
 	{
-		options[i].check_limit_stage(camera);
+		options[i]->check_limit_stage(camera);
 	}
 }
 
 
-bool Fish::ready_shot()
+bool Player::ready_shot()
 {
 	if (shot_timer > 0)shot_timer--;
 	if (shot_timer == 0 && input.get_myButton_A() > 0) return true;
 	return false;
 }
-Player_shot Fish::shot()
+Player_shot Player::shot()
 {
 	shot_timer = shot_cool_time;
 	return Player_shot{ U"シラス" ,get_pos_right()};
 }
-bool Fish::ready_opt_shot(int index)
+bool Player::ready_opt_shot(int index)
 {
-	if (options[index].ready_shot() && input.get_myButton_A() > 0) return true;
+	if (options[index]->ready_shot() && input.get_myButton_A() > 0) return true;
 	return false;
 }
-Player_shot Fish::opt_shot(int index)
+Player_shot Player::opt_shot(int index)
 {
-	return options[index].shot();
+	return options[index]->shot();
 }
 
-void Fish::draw(myCamera camera)
+void Player::draw(myCamera camera)
 {
 	// 自機の描画
 	//get_rect().movedBy(-camera.get_center()).scaledAt({ 0,0 }, camera.get_scale()).movedBy(Scene::CenterF()).draw(Palette::White);
@@ -138,15 +141,15 @@ void Fish::draw(myCamera camera)
 	//オプションの描画
 	for (int i = 0; i < options.size(); i++)
 	{
-		options[i].draw(camera);
+		options[i]->draw(camera);
 	}
 
 }
-void Fish::draw_back(myCamera camera)
+void Player::draw_back(myCamera camera)
 {
 
 }
-void Fish::draw_front(myCamera camera)
+void Player::draw_front(myCamera camera)
 {
 
 }

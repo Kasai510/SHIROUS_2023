@@ -114,12 +114,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Battle.cpp" />
+    <ClCompile Include="Fish.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="myCamera.cpp" />
     <ClCompile Include="myInput.cpp" />
     <ClCompile Include="myScene.cpp" />
     <ClCompile Include="Option_fish.cpp" />
+    <ClCompile Include="opt_Shirous.cpp" />
     <ClCompile Include="Player_fish.cpp" />
     <ClCompile Include="Player_shot.cpp" />
     <ClCompile Include="Stage_object.cpp" />
@@ -324,11 +326,13 @@
   <ItemGroup>
     <ClInclude Include="Asset_texture.h" />
     <ClInclude Include="Battle.h" />
+    <ClInclude Include="Fish.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="myCamera.h" />
     <ClInclude Include="myInput.h" />
     <ClInclude Include="myScene.h" />
     <ClInclude Include="Option_fish.h" />
+    <ClInclude Include="opt_Shirous.h" />
     <ClInclude Include="Player_fish.h" />
     <ClInclude Include="Player_shot.h" />
     <ClInclude Include="Stage_object.h" />

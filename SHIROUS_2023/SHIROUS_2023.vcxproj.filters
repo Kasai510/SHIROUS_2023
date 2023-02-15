@@ -201,6 +201,12 @@
     <ClCompile Include="Stage_object.cpp">
       <Filter>Source Files\Stage</Filter>
     </ClCompile>
+    <ClCompile Include="opt_Shirous.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Fish.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -861,6 +867,12 @@
       <Filter>Source Files\Stage</Filter>
     </ClInclude>
     <ClInclude Include="Asset_texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="opt_Shirous.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Fish.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -15,7 +15,7 @@ private:
 
 	myCamera camera;
 
-	Fish player{ {400,400} };
+	Player player{ {400,400} };
 	Array<Player_shot> player_shots;
 
 	Array<Stage_object> stages;

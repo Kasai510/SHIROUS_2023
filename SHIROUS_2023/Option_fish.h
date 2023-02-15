@@ -4,7 +4,7 @@
 #include"Stage_object.h"
 #include"Player_shot.h"
 
-class opt_Fish
+class Option
 {
 
 
@@ -24,15 +24,15 @@ private:
 
 	int option_pos_timer = 0;//群れっぽい上下の振れ幅に使う（フレーム）。
 
-
+	bool is_dead = false;
 
 
 
 public:
 
-	opt_Fish();
-	opt_Fish(String name, Vec2 pos);
-	~opt_Fish();
+	Option();
+	Option(String name, Vec2 pos);
+	~Option();
 
 	void update(Vec2 player, int index);
 	void move(Vec2 player, int index);
@@ -91,5 +91,5 @@ public:
 
 
 	String get_name() { return name; }
-
+	bool get_is_dead() { return is_dead; }
 };
