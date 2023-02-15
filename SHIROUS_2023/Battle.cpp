@@ -3,6 +3,7 @@
 Battle::Battle()
 {
 	stages << Stage_object({ 800,600 }, 200, 200);
+	stages << Stage_object({ 1400,600 }, 200, 200);
 }
 
 void Battle::update()

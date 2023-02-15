@@ -1,7 +1,6 @@
 ﻿#pragma once
 
 #include"Menu.h"
-//#include"Character_sellect.h"
 #include"Battle.h"
 
 class myScene
