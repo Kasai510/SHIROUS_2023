@@ -3,7 +3,7 @@
 #include"Asset_texture.h"
 
 
-
+//bottom
 void Main()
 {
 	// Windowのサイズ設定
