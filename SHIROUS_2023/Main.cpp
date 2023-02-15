@@ -2,6 +2,7 @@
 # include "myScene.h"
 #include"Asset_texture.h"
 
+//0215Kasai
 
 
 void Main()
