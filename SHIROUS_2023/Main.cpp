@@ -4,7 +4,7 @@
 
 //0215Kasai
 
-//bottom
+//bottom2
 void Main()
 {
 	// Windowのサイズ設定
