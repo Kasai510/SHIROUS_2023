@@ -110,7 +110,7 @@ bool Player::ready_shot()
 std::shared_ptr<Shot> Player::shot()
 {
 	shot_timer = shot_cool_time;
-	return std::make_shared<Shot>( get_pos_right());
+	return std::make_shared<Shot>( battle,get_pos_right());
 }
 bool Player::ready_opt_shot(int index)
 {

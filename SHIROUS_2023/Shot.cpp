@@ -1,7 +1,9 @@
 ﻿#include"Shot.h"
+#include"Battle.h"
 
-Shot::Shot(Vec2 p)
+Shot::Shot(Battle* battle,Vec2 p)
 {
+	this->battle = battle;
 	pos = p;
 }
 

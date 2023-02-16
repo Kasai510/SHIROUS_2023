@@ -1,4 +1,6 @@
 ﻿#include "Option.h"
+#include"OptionShot.h"
+#include"Battle.h"
 
 Option::Option(Battle* battle):Fish(battle)
 {
@@ -92,10 +94,11 @@ bool Option::ready_shot()
 	if (shot_timer == 0) return true;
 	return false;
 }
+
 std::shared_ptr<Shot> Option::shot()
 {
 	shot_timer = shot_cool_time;
-	return std::make_shared<OptionShot>( get_pos_right() );
+	return std::make_shared<OptionShot>(battle,get_pos_right() );
 }
 
 

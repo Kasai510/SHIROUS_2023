@@ -2,6 +2,7 @@
 # include "myCamera.h"
 
 class Fish;
+class Battle;
 
 struct Record
 {
@@ -20,7 +21,7 @@ protected:
 
 	double damage_span{ 0.5 };
 
-
+	Battle* battle;
 
 	Array<Record> records;//x:Fishのポインタ y:damage_span
 
@@ -28,7 +29,7 @@ protected:
 
 public:
 	Shot() {};
-	Shot(Vec2 p);
+	Shot(Battle*,Vec2 p);
 	~Shot() {};
 
 	virtual void update();
