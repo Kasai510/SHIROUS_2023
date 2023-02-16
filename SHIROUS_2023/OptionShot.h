@@ -3,6 +3,7 @@
 class OptionShot : public Shot
 {
 protected:
+	
 
 public:
 	OptionShot() {};
