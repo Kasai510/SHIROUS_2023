@@ -1,5 +1,5 @@
 ﻿#include "Player.h"
-
+#include"Battle.h"
 
 
 Player::Player(Battle* battle):Fish(battle)
@@ -122,23 +122,24 @@ std::shared_ptr<Shot> Player::opt_shot(int index)
 	return options[index]->shot();
 }
 
-void Player::draw(myCamera camera)
+void Player::draw()
 {
+	myCamera& camera = battle->get_camera();
 	// 自機の描画
-	TextureAsset(image_name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
-
+	TextureAsset(U"shirous").scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
+	
 	//オプションの描画
 	for (int i = 0; i < options.size(); i++)
 	{
-		options[i]->draw(camera);
+		options[i]->draw();
 	}
 
 }
-void Player::draw_back(myCamera camera)
+void Player::draw_back()
 {
 
 }
-void Player::draw_front(myCamera camera)
+void Player::draw_front()
 {
 
 }

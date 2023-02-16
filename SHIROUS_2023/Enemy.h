@@ -7,5 +7,6 @@ public:
 	Enemy(Battle* battle,Vec2 p);
 
 	virtual void update()=0;
+	void draw();
 };
 

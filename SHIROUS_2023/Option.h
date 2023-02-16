@@ -24,9 +24,9 @@ public:
 	virtual std::shared_ptr<Shot> shot();
 
 
-	virtual void draw(myCamera camera);
-	virtual void draw_back(myCamera camera);
-	virtual void draw_front(myCamera camera);
+	virtual void draw();
+	virtual void draw_back();
+	virtual void draw_front();
 
 	Font font{ 30 };
 };
