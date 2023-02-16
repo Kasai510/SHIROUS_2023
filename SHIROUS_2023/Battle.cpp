@@ -1,9 +1,11 @@
 ﻿#include"Battle.h"
+#include"EnemyColonyPikaia.h"
 
 Battle::Battle()
 {
 	stages << Stage_object({ 800,600 }, 200, 200);
 	stages << Stage_object({ 1400,600 }, 200, 200);
+	enemy_colonys << std::make_shared<EnemyColonyPikaia>(this);
 }
 
 void Battle::update()
@@ -12,7 +14,9 @@ void Battle::update()
 	//プレイヤーの更新。
 	player.update();
 	//エネミーの更新。
-	
+	for (auto enemy_colony : enemy_colonys) {
+		enemy_colony->update();
+	}
 	//ステージの更新。
 	for (int i = 0; i < stages.size(); i++)
 	{
@@ -73,6 +77,11 @@ void Battle::draw()
 	for (int i = 0; i < stages.size(); i++)
 	{
 		stages[i].draw(camera);
+	}
+
+	//敵描画
+	for (auto ec : enemy_colonys) {
+		ec->draw();
 	}
 
 	player.draw_back(camera);

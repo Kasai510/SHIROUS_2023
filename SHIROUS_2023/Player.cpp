@@ -2,23 +2,17 @@
 
 
 
-Player::Player()
+Player::Player(Battle* battle):Fish(battle)
 {
 
 }
-Player::Player(int id, Vec2 p):Fish(id, p)
+Player::Player(Battle* battle, Vec2 p):Fish(battle, p)
 {
 	set_name(U"シラス");
 	set_image_name(U"shirous");
-
-	options << std::make_shared<Option>(1, p);
-	options << std::make_shared<Option>(2, p);
-	options << std::make_shared<Option>(3, p);
-	options << std::make_shared<Option>(4, p);
-	options << std::make_shared<Option>(5, p);
-	options << std::make_shared<Option>(6, p);
-	options << std::make_shared<Option>(7, p);
-	options << std::make_shared<Option>(8, p);
+	for (int i : step(8)) {
+		options << std::make_shared<Option>(battle, p);
+	}
 }
 Player::~Player()
 {

@@ -114,6 +114,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Battle.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyColony.cpp" />
+    <ClCompile Include="EnemyColonyPikaia.cpp" />
+    <ClCompile Include="EnemyPikaia.cpp" />
     <ClCompile Include="Fish.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -328,6 +332,10 @@
   <ItemGroup>
     <ClInclude Include="AssetTexture.h" />
     <ClInclude Include="Battle.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyColony.h" />
+    <ClInclude Include="EnemyColonyPikaia.h" />
+    <ClInclude Include="EnemyPikaia.h" />
     <ClInclude Include="Fish.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="myCamera.h" />

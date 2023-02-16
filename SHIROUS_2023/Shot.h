@@ -1,9 +1,11 @@
 ﻿#pragma once
 # include "myCamera.h"
 
+class Fish;
+
 struct Record
 {
-	int id;
+	std::shared_ptr<Fish> fish;
 	double damage_span;
 };
 
@@ -16,11 +18,11 @@ protected:
 	double height = 20.0;
 
 
-	double damage_span{0.5};
+	double damage_span{ 0.5 };
 
 
 
-	Array<Record> records;//x:Fishのid y:damage_span
+	Array<Record> records;//x:Fishのポインタ y:damage_span
 
 	bool over = false;
 
@@ -31,7 +33,7 @@ public:
 
 	virtual void update();
 	virtual void move();
-	
+
 	virtual void draw(myCamera camera);
 
 

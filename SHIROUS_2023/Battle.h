@@ -1,6 +1,8 @@
 ﻿#pragma once
 #include"myCamera.h"
 # include"Player.h"
+#include"Enemy.h"
+#include"EnemyColony.h"
 #include"StageObject.h"
 
 
@@ -15,8 +17,11 @@ private:
 
 	myCamera camera;
 
-	Player player{ 0, {400,400} };
+	Player player{ this, {400,400} };
 	Array<std::shared_ptr<Shot>> player_shots;
+
+	//各種敵集団のコロニーの配列
+	Array<std::shared_ptr<EnemyColony>> enemy_colonys;
 
 	Array<Stage_object> stages;
 
@@ -27,4 +32,11 @@ public:
 
 	bool change_scene_check();
 	int change_scene();
+
+	myCamera& get_camera() { return camera; }
+	Player& get_player() { return player; }
+	Array<std::shared_ptr<Shot>>& get_player_shots() { return player_shots; }
+	Array<std::shared_ptr<EnemyColony>>& get_enemy_colonys() { return enemy_colonys; }
+	Array<Stage_object>& get_stages() { return stages; }
+
 };

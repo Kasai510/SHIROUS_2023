@@ -1,12 +1,18 @@
 ﻿#include "Fish.h"
+int Fish::count_id;
 
-Fish::Fish()
+
+Fish::Fish(Battle* battle)
 {
-
+	this->battle = battle;
+	ID = count_id;
+	count_id++;
 }
-Fish::Fish(int id, Vec2 p)
+Fish::Fish(Battle* battle, Vec2 p)
 {
-	ID = id;
+	this->battle = battle;
+	ID = count_id;
+	count_id++;
 	pos = p;
 	prev_pos = p;
 }

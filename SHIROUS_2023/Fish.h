@@ -4,6 +4,8 @@
 #include"StageObject.h"
 #include"Shot.h"
 
+class Battle;
+
 class Fish
 {
 protected:
@@ -12,6 +14,7 @@ protected:
 	String name = U"シラス（基底）";
 	String image_name = U"shirous";
 	int ID = -1;//-1は未設定。
+	static int count_id;
 	double width = 150.0;//自機の横幅(px)。
 	double height = 50.0;//自機の縦幅(px)。
 
@@ -25,13 +28,13 @@ protected:
 	int shot_timer = 0;//ショットのタイマー(フレーム)。
 
 	bool dead = false;
-
+	Battle* battle;
 
 
 public:
 
-	Fish();
-	Fish(int id, Vec2 pos);
+	Fish(Battle* battle);
+	Fish(Battle* battle, Vec2 pos);
 	~Fish();
 
 	void set_name(String n) { name = n; }

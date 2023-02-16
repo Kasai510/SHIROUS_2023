@@ -6,7 +6,7 @@
 #include"Option.h"
 #include"Shot.h"
 #include"StageObject.h"
-
+class Battle;
 class Player : public Fish
 {
 
@@ -16,8 +16,8 @@ protected:
 	
 public:
 
-	Player();
-	Player(int id, Vec2 pos);
+	Player(Battle* battle);
+	Player(Battle* battle, Vec2 pos);
 	~Player();
 
 	virtual void update();

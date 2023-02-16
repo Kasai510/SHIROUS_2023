@@ -1,11 +1,11 @@
 ﻿#include "Option.h"
 
-Option::Option()
+Option::Option(Battle* battle):Fish(battle)
 {
 	set_name(U"シラス");
 	set_image_name(U"shirous");
 }
-Option::Option(int id, Vec2 p):Fish(id, p)
+Option::Option(Battle* battle, Vec2 p):Fish(battle, p)
 {
 	set_name(U"シラス");
 	set_image_name(U"shirous");
@@ -104,7 +104,7 @@ void Option::draw(myCamera camera)
 	// 自機の描画
 	//TextureAsset(name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
 	TextureAsset(image_name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale(), Palette::Gray);
-
+	font(ID).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
 }
 void Option::draw_back(myCamera camera)
 {

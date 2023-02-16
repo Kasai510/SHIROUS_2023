@@ -11,8 +11,8 @@ protected:
 
 public:
 
-	Option();
-	Option(int id, Vec2 pos);
+	Option(Battle* battle);
+	Option(Battle* battle, Vec2 pos);
 	~Option();
 
 	virtual void update(Vec2 player, int index);
@@ -27,4 +27,6 @@ public:
 	virtual void draw(myCamera camera);
 	virtual void draw_back(myCamera camera);
 	virtual void draw_front(myCamera camera);
+
+	Font font{ 30 };
 };
