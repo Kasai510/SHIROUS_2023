@@ -10,6 +10,7 @@ protected:
 	myInput input;
 
 	String name = U"シラス（基底）";
+	String image_name = U"shirous";
 	int ID = -1;//-1は未設定。
 	double width = 150.0;//自機の横幅(px)。
 	double height = 50.0;//自機の縦幅(px)。
@@ -34,6 +35,7 @@ public:
 	~Fish();
 
 	void set_name(String n) { name = n; }
+	void set_image_name(String n) { image_name = n; }
 
 	virtual void update();
 	virtual void move();

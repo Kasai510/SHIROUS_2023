@@ -3,8 +3,6 @@
 
 void asset_texture()
 {
-	TextureAsset::Register(U"シラス（基底）", U"data/image/fish/shirous/シラス.png");
-	TextureAsset::Register(U"シラス（派生）", U"data/image/fish/shirous/シラス.png");
-
-	TextureAsset::Register(U"シラス", U"data/image/fish/shirous/シラス.png");
+	TextureAsset::Register(U"shirous", U"data/image/fish/shirous/シラス.png");
+	TextureAsset::Register(U"pikaia", U"data/image/fish/pikaia/pikaia.png");
 }

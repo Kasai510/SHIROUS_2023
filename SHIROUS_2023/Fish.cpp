@@ -95,7 +95,7 @@ std::shared_ptr<Shot> Fish::shot()
 void Fish::draw(myCamera camera)
 {
 	// 自機の描画
-	TextureAsset(name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
+	TextureAsset(image_name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
 }
 void Fish::draw_back(myCamera camera)
 {

@@ -9,6 +9,7 @@ Player::Player()
 Player::Player(int id, Vec2 p):Fish(id, p)
 {
 	set_name(U"シラス");
+	set_image_name(U"shirous");
 
 	options << std::make_shared<Option>(1, p);
 	options << std::make_shared<Option>(2, p);
@@ -130,7 +131,7 @@ std::shared_ptr<Shot> Player::opt_shot(int index)
 void Player::draw(myCamera camera)
 {
 	// 自機の描画
-	TextureAsset(name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
+	TextureAsset(image_name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
 
 	//オプションの描画
 	for (int i = 0; i < options.size(); i++)

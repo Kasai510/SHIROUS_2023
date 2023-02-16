@@ -2,11 +2,13 @@
 
 Option::Option()
 {
-	set_name(U"シラス（派生）");
+	set_name(U"シラス");
+	set_image_name(U"shirous");
 }
 Option::Option(int id, Vec2 p):Fish(id, p)
 {
-	set_name(U"シラス（派生）");
+	set_name(U"シラス");
+	set_image_name(U"shirous");
 	option_pos_timer = Random(0, 600);
 }
 
@@ -101,7 +103,7 @@ void Option::draw(myCamera camera)
 {
 	// 自機の描画
 	//TextureAsset(name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
-	TextureAsset(name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale(), Palette::Gray);
+	TextureAsset(image_name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale(), Palette::Gray);
 
 }
 void Option::draw_back(myCamera camera)
