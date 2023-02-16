@@ -2,6 +2,10 @@
 #include"OptionShot.h"
 #include"Battle.h"
 
+
+#include"OptionShirousShot.h"
+
+
 Option::Option(Battle* battle):Fish(battle)
 {
 	set_name(U"シラス");
@@ -98,7 +102,8 @@ bool Option::ready_shot()
 std::shared_ptr<Shot> Option::shot()
 {
 	shot_timer = shot_cool_time;
-	return std::make_shared<OptionShot>(battle,get_pos_right() );
+	//return std::make_shared<OptionShot>(battle,get_pos_right() );
+	return std::make_shared<OptionShirousShot>(battle,this);
 }
 
 

@@ -4,6 +4,7 @@
 #include"Enemy.h"
 #include"EnemyColony.h"
 #include"StageObject.h"
+#include"OptionShirousShot.h"
 
 
 
@@ -12,6 +13,8 @@
 class Battle
 {
 private:
+	double scene_del;//前のフレームからの経過時間
+
 	int scene_num = 2;
 	int change_scene_to = -1;
 
@@ -25,14 +28,18 @@ private:
 
 	Array<Stage_object> stages;
 
+
+
 public:
 	Battle();
 	void update();
 	void draw();
+	void debug_draw();//デバッグ用のdraw
 
 	bool change_scene_check();
 	int change_scene();
 
+	double get_scene_del() { return scene_del; }
 	myCamera& get_camera() { return camera; }
 	Player& get_player() { return player; }
 	Array<std::shared_ptr<Shot>>& get_player_shots() { return player_shots; }
