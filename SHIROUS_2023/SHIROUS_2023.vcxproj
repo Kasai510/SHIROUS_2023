@@ -120,11 +120,13 @@
     <ClCompile Include="myCamera.cpp" />
     <ClCompile Include="myInput.cpp" />
     <ClCompile Include="myScene.cpp" />
-    <ClCompile Include="Option_fish.cpp" />
-    <ClCompile Include="opt_Shirous.cpp" />
-    <ClCompile Include="Player_fish.cpp" />
-    <ClCompile Include="Player_shot.cpp" />
-    <ClCompile Include="Stage_object.cpp" />
+    <ClCompile Include="Option.cpp" />
+    <ClCompile Include="OptionShirous.cpp" />
+    <ClCompile Include="OptionShirousShot.cpp" />
+    <ClCompile Include="OptionShot.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Shot.cpp" />
+    <ClCompile Include="StageObject.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
@@ -324,18 +326,20 @@
     <Xml Include="App\example\xml\test.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Asset_texture.h" />
+    <ClInclude Include="AssetTexture.h" />
     <ClInclude Include="Battle.h" />
     <ClInclude Include="Fish.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="myCamera.h" />
     <ClInclude Include="myInput.h" />
     <ClInclude Include="myScene.h" />
-    <ClInclude Include="Option_fish.h" />
-    <ClInclude Include="opt_Shirous.h" />
-    <ClInclude Include="Player_fish.h" />
-    <ClInclude Include="Player_shot.h" />
-    <ClInclude Include="Stage_object.h" />
+    <ClInclude Include="Option.h" />
+    <ClInclude Include="OptionShirous.h" />
+    <ClInclude Include="OptionShirousShot.h" />
+    <ClInclude Include="OptionShot.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Shot.h" />
+    <ClInclude Include="StageObject.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>

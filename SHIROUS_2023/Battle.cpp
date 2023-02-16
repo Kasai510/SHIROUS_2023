@@ -33,10 +33,12 @@ void Battle::update()
 
 
 	//攻撃の追加
+	//自機は攻撃しない
 	/*if (player.ready_shot())
 	{
 		player_shots << player.shot();
 	}*/
+	//オプションの攻撃
 	for (int i = 0; i < player.get_opt_size(); i++)
 	{
 		if (player.ready_opt_shot(i))
@@ -48,7 +50,7 @@ void Battle::update()
 	//攻撃の更新
 	for (int i = 0; i < player_shots.size(); i++)
 	{
-		player_shots[i].update();
+		player_shots[i]->update();
 
 	}
 	//画面外に出た攻撃の消去。壁などに当たった弾も。
@@ -56,7 +58,7 @@ void Battle::update()
 	{
 		//判定。
 	}
-	player_shots.remove_if([](Player_shot p) {return (p.get_over()); });
+	player_shots.remove_if([](const std::shared_ptr<Shot> p) {return (p->get_over()); });
 
 	//攻撃の当たり判定
 	
@@ -79,7 +81,7 @@ void Battle::draw()
 
 	for (int i = 0; i < player_shots.size(); i++)
 	{
-		player_shots[i].draw(camera);
+		player_shots[i]->draw(camera);
 	}
 
 	camera.draw_stage_area();

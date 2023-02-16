@@ -145,18 +145,6 @@
     <Filter Include="Source Files\myCamera">
       <UniqueIdentifier>{81835b49-1547-4df6-b28f-f138e07d39d1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Player">
-      <UniqueIdentifier>{214f127f-3051-4d8d-8f2e-60b5027d9f5f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Player\Player_fish">
-      <UniqueIdentifier>{8d50b175-397f-43dc-bb85-b2125de87105}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Player\Option_fish">
-      <UniqueIdentifier>{0c970ae2-f3a0-459b-9c11-cadf6b23eca8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Player\Player_fish\Player_shot">
-      <UniqueIdentifier>{d8daf215-b603-47ae-bc05-5752ea310cf8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\myScene\Manu">
       <UniqueIdentifier>{aa416c52-01b9-4de4-b939-776f55b2204d}</UniqueIdentifier>
     </Filter>
@@ -165,6 +153,27 @@
     </Filter>
     <Filter Include="Source Files\Stage">
       <UniqueIdentifier>{d5b71b78-98dc-4f69-8cf4-2849eb9e91b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Fish">
+      <UniqueIdentifier>{214f127f-3051-4d8d-8f2e-60b5027d9f5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Fish\Player">
+      <UniqueIdentifier>{8d50b175-397f-43dc-bb85-b2125de87105}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Fish\Option">
+      <UniqueIdentifier>{0c970ae2-f3a0-459b-9c11-cadf6b23eca8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Fish\Option\Derived">
+      <UniqueIdentifier>{64139dda-5a7f-4413-afd7-8e53769d56c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Fish\Option\Derived\Shirous">
+      <UniqueIdentifier>{e5020517-941a-44a8-8f94-de97b112290b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Fish\Base">
+      <UniqueIdentifier>{8e8ec0fb-4ce7-4080-a667-d6a171f58cd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Fish\Option\Base">
+      <UniqueIdentifier>{359220d4-445a-4df6-b789-5c85d8a847ac}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -183,29 +192,35 @@
     <ClCompile Include="myCamera.cpp">
       <Filter>Source Files\myCamera</Filter>
     </ClCompile>
-    <ClCompile Include="Player_fish.cpp">
-      <Filter>Source Files\Player\Player_fish</Filter>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Fish\Player</Filter>
     </ClCompile>
     <ClCompile Include="Menu.cpp">
       <Filter>Source Files\myScene\Manu</Filter>
     </ClCompile>
-    <ClCompile Include="Option_fish.cpp">
-      <Filter>Source Files\Player\Option_fish</Filter>
-    </ClCompile>
-    <ClCompile Include="Player_shot.cpp">
-      <Filter>Source Files\Player\Player_fish\Player_shot</Filter>
-    </ClCompile>
     <ClCompile Include="Battle.cpp">
       <Filter>Source Files\myScene\Battle</Filter>
     </ClCompile>
-    <ClCompile Include="Stage_object.cpp">
+    <ClCompile Include="StageObject.cpp">
       <Filter>Source Files\Stage</Filter>
     </ClCompile>
-    <ClCompile Include="opt_Shirous.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="OptionShirous.cpp">
+      <Filter>Source Files\Fish\Option\Derived\Shirous</Filter>
     </ClCompile>
     <ClCompile Include="Fish.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Fish\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Shot.cpp">
+      <Filter>Source Files\Fish\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Option.cpp">
+      <Filter>Source Files\Fish\Option\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionShot.cpp">
+      <Filter>Source Files\Fish\Option\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionShirousShot.cpp">
+      <Filter>Source Files\Fish\Option\Derived\Shirous</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -848,32 +863,38 @@
     <ClInclude Include="myCamera.h">
       <Filter>Source Files\myCamera</Filter>
     </ClInclude>
-    <ClInclude Include="Player_fish.h">
-      <Filter>Source Files\Player\Player_fish</Filter>
+    <ClInclude Include="Player.h">
+      <Filter>Source Files\Fish\Player</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
       <Filter>Source Files\myScene\Manu</Filter>
     </ClInclude>
-    <ClInclude Include="Option_fish.h">
-      <Filter>Source Files\Player\Option_fish</Filter>
-    </ClInclude>
-    <ClInclude Include="Player_shot.h">
-      <Filter>Source Files\Player\Player_fish\Player_shot</Filter>
-    </ClInclude>
     <ClInclude Include="Battle.h">
       <Filter>Source Files\myScene\Battle</Filter>
     </ClInclude>
-    <ClInclude Include="Stage_object.h">
+    <ClInclude Include="StageObject.h">
       <Filter>Source Files\Stage</Filter>
     </ClInclude>
-    <ClInclude Include="Asset_texture.h">
+    <ClInclude Include="AssetTexture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="opt_Shirous.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="OptionShirous.h">
+      <Filter>Source Files\Fish\Option\Derived\Shirous</Filter>
     </ClInclude>
     <ClInclude Include="Fish.h">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\Fish\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Shot.h">
+      <Filter>Source Files\Fish\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Option.h">
+      <Filter>Source Files\Fish\Option\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionShot.h">
+      <Filter>Source Files\Fish\Option\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionShirousShot.h">
+      <Filter>Source Files\Fish\Option\Derived\Shirous</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

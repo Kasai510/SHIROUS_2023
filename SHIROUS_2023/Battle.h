@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include"myCamera.h"
-# include"Player_fish.h"
-#include"Stage_object.h"
+# include"Player.h"
+#include"StageObject.h"
 
 
 
@@ -15,8 +15,8 @@ private:
 
 	myCamera camera;
 
-	Player player{ {400,400} };
-	Array<Player_shot> player_shots;
+	Player player{ 0, {400,400} };
+	Array<std::shared_ptr<Shot>> player_shots;
 
 	Array<Stage_object> stages;
 

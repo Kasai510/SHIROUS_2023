@@ -1,6 +1,6 @@
 ﻿# include <Siv3D.hpp> // OpenSiv3D v0.6.3
 # include "myScene.h"
-#include"Asset_texture.h"
+#include"AssetTexture.h"
 
 //0215Kasai
 
