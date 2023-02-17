@@ -38,5 +38,5 @@ public:
 	Array<std::shared_ptr<Shot>>& get_player_shots() { return player_shots; }
 	Array<std::shared_ptr<EnemyColony>>& get_enemy_colonys() { return enemy_colonys; }
 	Array<Stage_object>& get_stages() { return stages; }
-
+	
 };

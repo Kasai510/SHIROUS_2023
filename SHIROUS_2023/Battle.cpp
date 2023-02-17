@@ -92,7 +92,7 @@ void Battle::draw()
 	{
 		player_shots[i]->draw(camera);
 	}
-
+	
 	camera.draw_stage_area();
 }
 
