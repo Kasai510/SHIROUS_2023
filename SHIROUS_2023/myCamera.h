@@ -35,7 +35,7 @@ public:
 	Vec2 get_limit_stage_min() { return limit_stage_min; }
 	Vec2 get_limit_stage_max() { return limit_stage_max; }
 	RectF get_limit_stage() { return RectF(Arg::center((limit_stage_min + limit_stage_max) / 2), limit_stage_max - limit_stage_min); }
-
+	
 	void draw_stage_area();
 
 	template<class drawable>void draw_texture(const drawable& tex, const Vec2& p) {

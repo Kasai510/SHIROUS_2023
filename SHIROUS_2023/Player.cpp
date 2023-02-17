@@ -126,7 +126,7 @@ void Player::draw()
 {
 	myCamera& camera = battle->get_camera();
 	// 自機の描画
-	TextureAsset(U"shirous").scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
+	TextureAsset(image_name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
 	
 	//オプションの描画
 	for (int i = 0; i < options.size(); i++)
