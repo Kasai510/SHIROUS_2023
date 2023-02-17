@@ -41,6 +41,13 @@ public:
 	template<class drawable>void draw_texture(const drawable& tex, const Vec2& p) {
 		tex.scaled(scale).drawAt(Scene::CenterF() + (p - center) * scale);
 	}
+	template<class drawable>void draw_texture(const drawable& rect,Color color) {
+		rect.movedBy(-center).scaledAt({ 0,0 }, scale).movedBy(Scene::CenterF()).draw(color);
+	}
+	/*void draw_texture(const Circle& c, Color color) {
+		c.movedBy(-center).scaled(scale).movedBy(Scene::CenterF()).draw(color);
+	}*/
+	
 };
 
 
