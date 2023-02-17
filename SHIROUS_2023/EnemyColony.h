@@ -10,6 +10,9 @@ public:
 	EnemyColony(Battle* battle);
 	void update();
 	void draw();
+	Array<std::shared_ptr<Enemy>>& get_enemys() {
+		return enemys;
+	}
 private:
 	Battle* battle;
 };
