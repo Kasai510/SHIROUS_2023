@@ -1,6 +1,7 @@
 ﻿#include"Shot.h"
 #include"Battle.h"
 
+
 Shot::Shot(Battle* battle,Vec2 p)
 {
 	this->battle = battle;
@@ -24,6 +25,11 @@ void Shot::move()
 RectF Shot::get_hitbox()
 {
 	return RectF(Arg::center(pos), width, height);
+}
+
+Circle Shot::get_hitcircle()
+{
+	return Circle(Arg::center(pos), width/2);
 }
 
 void Shot::draw()
