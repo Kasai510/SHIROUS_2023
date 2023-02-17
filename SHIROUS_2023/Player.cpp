@@ -1,5 +1,6 @@
 ﻿#include "Player.h"
 #include"Battle.h"
+#include"OptionShirousShot.h"
 
 
 Player::Player(Battle* battle):Fish(battle)
@@ -10,7 +11,7 @@ Player::Player(Battle* battle, Vec2 p):Fish(battle, p)
 {
 	set_name(U"シラス");
 	set_image_name(U"shirous");
-	for (int i : step(8)) {
+	for (int i : step(2)) {
 		options << std::make_shared<Option>(battle, p);
 	}
 }
@@ -110,7 +111,8 @@ bool Player::ready_shot()
 std::shared_ptr<Shot> Player::shot()
 {
 	shot_timer = shot_cool_time;
-	return std::make_shared<Shot>( get_pos_right());
+	return std::make_shared<Shot>( battle,get_pos_right());
+
 }
 bool Player::ready_opt_shot(int index)
 {

@@ -1,8 +1,16 @@
 ﻿#include"Shot.h"
+#include"Battle.h"
 
-Shot::Shot(Vec2 p)
+Shot::Shot(Battle* battle,Vec2 p)
 {
+	this->battle = battle;
 	pos = p;
+}
+
+Shot::Shot(Battle* battle, Fish* master)
+{
+	this->battle = battle;
+	this->master = master;
 }
 
 void Shot::update()
@@ -18,8 +26,8 @@ RectF Shot::get_hitbox()
 	return RectF(Arg::center(pos), width, height);
 }
 
-void Shot::draw(myCamera camera)
+void Shot::draw()
 {
-	get_hitbox().movedBy(-camera.get_center()).scaledAt({ 0,0 }, camera.get_scale()).movedBy(Scene::CenterF()).draw(Palette::Red);
+	get_hitbox().movedBy(-battle->get_camera().get_center()).scaledAt({ 0,0 }, battle->get_camera().get_scale()).movedBy(Scene::CenterF()).draw(Palette::Red);
 }
 

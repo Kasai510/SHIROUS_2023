@@ -92,7 +92,7 @@ bool Fish::ready_shot()
 std::shared_ptr<Shot> Fish::shot()
 {
 	shot_timer = shot_cool_time;
-	return std::make_shared<Shot>( get_pos_right() );
+	return std::make_shared<Shot>(battle,get_pos_right() );
 }
 
 

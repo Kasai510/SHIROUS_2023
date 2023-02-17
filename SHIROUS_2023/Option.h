@@ -2,6 +2,7 @@
 # include "Fish.h"
 #include"OptionShot.h"
 
+class Battle;
 
 class Option : public Fish
 {
