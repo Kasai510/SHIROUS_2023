@@ -14,6 +14,7 @@ public:
 	OptionShirousShot(Battle*,Fish*);
 	~OptionShirousShot() {};
 
+	void set_crash();
 	void update();
 	void update_attack();
 	void update_crash();

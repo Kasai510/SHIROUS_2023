@@ -1,6 +1,8 @@
 ﻿#include "OptionShirousShot.h"
 #include"Battle.h"
 #include"StageObject.h"
+#include"EnemyColony.h"
+#include"Enemy.h"
 
 OptionShirousShot::OptionShirousShot(Battle* battle, Fish* master)
 	:OptionShot(battle, master)
@@ -54,6 +56,8 @@ void OptionShirousShot::update()
 		}
 
 		if (pos.x >= battle->get_camera().get_center().x + 1000) { over = true; }
+
+		update_attack();
 	}
 	else
 	{
@@ -64,7 +68,41 @@ void OptionShirousShot::update()
 
 void OptionShirousShot::update_attack()
 {
+	//敵との当たり判定
+	if (shot_timer >= 0.6)
+	{
+		for (auto& enemycolony : battle->get_enemy_colonys())
+		{
+			for (auto& enemy : enemycolony->get_enemys())
+			{
+				
+				if (get_hitcircle().intersects(enemy->get_rect()))
+				{
+					set_crash();
+				}
+				
 
+				/*
+				for (auto& record : records)
+				{
+					if (record.fish != enemy)
+					{
+						if (get_hitcircle().intersects(enemy->get_rect()))
+						{
+							records << Record(enemy, damage_span);
+						}
+					}
+				}*/
+			}
+		}
+	}
+}
+
+
+void OptionShirousShot::set_crash()
+{
+	crash = true;
+	shot_timer = 0;
 }
 
 void OptionShirousShot::update_crash()
