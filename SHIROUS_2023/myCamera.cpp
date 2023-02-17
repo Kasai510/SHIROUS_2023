@@ -123,3 +123,4 @@ void myCamera::draw_stage_area()
 	//RectF(Arg::center((limit_stage_max + limit_stage_min)/2), limit_stage_max - limit_stage_min).movedBy(-center).scaledAt({ 0,0 }, scale).movedBy(Scene::Center()).drawFrame(10 * scale, Palette::White);
 	get_limit_stage().movedBy(-center).scaledAt({ 0,0 }, scale).movedBy(Scene::Center()).drawFrame(10 * scale, Palette::White);
 }
+

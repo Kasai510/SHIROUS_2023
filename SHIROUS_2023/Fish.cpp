@@ -1,4 +1,5 @@
 ﻿#include "Fish.h"
+#include"Battle.h"
 int Fish::count_id;
 
 
@@ -98,16 +99,17 @@ std::shared_ptr<Shot> Fish::shot()
 
 
 
-void Fish::draw(myCamera camera)
+void Fish::draw()
 {
+	myCamera& camera = battle->get_camera();
 	// 自機の描画
-	TextureAsset(image_name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
+	TextureAsset(image_name).resized(image_size_int).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
 }
-void Fish::draw_back(myCamera camera)
+void Fish::draw_back()
 {
 
 }
-void Fish::draw_front(myCamera camera)
+void Fish::draw_front()
 {
 
 }

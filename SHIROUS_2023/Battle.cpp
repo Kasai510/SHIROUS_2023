@@ -87,15 +87,15 @@ void Battle::draw()
 		ec->draw();
 	}
 
-	player.draw_back(camera);
-	player.draw(camera);
-	player.draw_front(camera);
+	player.draw_back();
+	player.draw();
+	player.draw_front();
 
 	for (int i = 0; i < player_shots.size(); i++)
 	{
 		player_shots[i]->draw();
 	}
-
+	
 	camera.draw_stage_area();
 
 	debug_draw();

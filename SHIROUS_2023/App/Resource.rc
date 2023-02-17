@@ -119,6 +119,7 @@ Resource(engine/soundfont/GMGSx.sf2.zstdcmp)
 //
 //////////////////////////////////////////////////////
 Resource(data/image/fish/shirous/シラス.png)
+Resource(data/image/fish/shirous/イカ.png)
 Resource(data/image/fish/pikaia/pikaia.png)
 
 

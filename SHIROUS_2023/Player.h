@@ -31,9 +31,9 @@ public:
 	virtual std::shared_ptr<Shot> opt_shot(int index);
 
 
-	virtual void draw(myCamera camera);
-	virtual void draw_back(myCamera camera);
-	virtual void draw_front(myCamera camera);
+	virtual void draw();
+	virtual void draw_back();
+	virtual void draw_front();
 
 
 	int get_opt_size() { return options.size(); }

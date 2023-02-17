@@ -17,6 +17,6 @@ void EnemyColony::update()
 void EnemyColony::draw()
 {
 	for (auto enemy : enemys) {
-		enemy->draw(battle->get_camera());
+		enemy->draw();
 	}
 }

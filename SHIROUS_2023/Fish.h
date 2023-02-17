@@ -13,6 +13,7 @@ protected:
 
 	String name = U"シラス（基底）";
 	String image_name = U"shirous";
+	int image_size_int = 161;
 	int ID = -1;//-1は未設定。
 	static int count_id;
 	double width = 150.0;//自機の横幅(px)。
@@ -29,6 +30,7 @@ protected:
 
 	bool dead = false;
 	Battle* battle;
+
 
 
 public:
@@ -49,9 +51,9 @@ public:
 	virtual std::shared_ptr<Shot> shot();
 
 
-	virtual void draw(myCamera camera);
-	virtual void draw_back(myCamera camera);
-	virtual void draw_front(myCamera camera);
+	virtual void draw();
+	virtual void draw_back();
+	virtual void draw_front();
 
 
 

@@ -107,18 +107,19 @@ std::shared_ptr<Shot> Option::shot()
 }
 
 
-void Option::draw(myCamera camera)
+void Option::draw()
 {
+	myCamera& camera = battle->get_camera();
 	// 自機の描画
 	//TextureAsset(name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
 	TextureAsset(image_name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale(), Palette::Gray);
 	font(ID).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
 }
-void Option::draw_back(myCamera camera)
+void Option::draw_back()
 {
 
 }
-void Option::draw_front(myCamera camera)
+void Option::draw_front()
 {
 
 }

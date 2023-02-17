@@ -175,6 +175,18 @@
     <Filter Include="Source Files\Fish\Option\Base">
       <UniqueIdentifier>{359220d4-445a-4df6-b789-5c85d8a847ac}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Fish\Enemy">
+      <UniqueIdentifier>{34b9039d-c3db-48ac-b65c-6028b960e75d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Fish\Enemy\Base">
+      <UniqueIdentifier>{d549019c-c01b-4f1b-a236-79275e6b9851}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Fish\Enemy\Derived">
+      <UniqueIdentifier>{a6ea9567-5435-4f90-a636-b424260323ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Fish\Enemy\Derived\Pikaia">
+      <UniqueIdentifier>{1fb001f9-fd90-4146-9665-858cbf4d6d06}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -221,6 +233,18 @@
     </ClCompile>
     <ClCompile Include="OptionShirousShot.cpp">
       <Filter>Source Files\Fish\Option\Derived\Shirous</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Source Files\Fish\Enemy\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyColony.cpp">
+      <Filter>Source Files\Fish\Enemy\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyColonyPikaia.cpp">
+      <Filter>Source Files\Fish\Enemy\Derived\Pikaia</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyPikaia.cpp">
+      <Filter>Source Files\Fish\Enemy\Derived\Pikaia</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -895,6 +919,18 @@
     </ClInclude>
     <ClInclude Include="OptionShirousShot.h">
       <Filter>Source Files\Fish\Option\Derived\Shirous</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Source Files\Fish\Enemy\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyColony.h">
+      <Filter>Source Files\Fish\Enemy\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyColonyPikaia.h">
+      <Filter>Source Files\Fish\Enemy\Derived\Pikaia</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyPikaia.h">
+      <Filter>Source Files\Fish\Enemy\Derived\Pikaia</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
