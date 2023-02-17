@@ -4,6 +4,7 @@
 class Fish;
 class Battle;
 
+
 struct Record
 {
 	std::shared_ptr<Fish> fish;
@@ -26,6 +27,7 @@ protected:
 
 	Array<Record> records;//x:Fishのポインタ y:damage_span
 
+	bool crash = false;//着弾した時に破裂する
 	bool over = false;
 
 public:
@@ -42,6 +44,7 @@ public:
 
 	Vec2 get_pos() { return pos; }
 	RectF get_hitbox();
+	Circle get_hitcircle();
 	bool get_over() { return over; }
 
 };

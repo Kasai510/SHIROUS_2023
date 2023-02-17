@@ -15,8 +15,10 @@ public:
 	~OptionShirousShot() {};
 
 	void update();
-	void attack();
+	void update_attack();
+	void update_crash();
 	void move();
 	void draw();
+	void draw_crash();
 };
 

@@ -1,5 +1,6 @@
 ﻿#include "OptionShirousShot.h"
 #include"Battle.h"
+#include"StageObject.h"
 
 OptionShirousShot::OptionShirousShot(Battle* battle, Fish* master)
 	:OptionShot(battle, master)
@@ -19,55 +20,104 @@ void OptionShirousShot::update()
 	shot_timer += battle->get_scene_del();
 
 
-
-	if (shot_timer <= 1.5)
+	if (crash == false)
 	{
-		
-		for (int i = 0; i < 6; i++)
+		if (shot_timer <= 0.5)
 		{
-			poss[i] = master->get_pos_right() + Vec2{ 50,0 } + (60 - 35 * shot_timer) * Vec2 { cos(60_deg * i + 360_deg * shot_timer), sin(60_deg * i + 45_deg * shot_timer) };
+
+			for (int i = 0; i < 6; i++)
+			{
+				poss[i] = master->get_pos_right() + Vec2{ 50,0 } + (60 - 120 * shot_timer) * Vec2 { cos(60_deg * i + 720_deg * shot_timer), sin(60_deg * i + 180_deg * shot_timer) };
+			}
 		}
+		else
+		{
+			if (set_init_pos == false)
+			{
+				pos = master->get_pos_right() + Vec2{ 50,0 };
+				set_init_pos = true;
+			}
+			move();
+		}
+
+		//壁との当たり判定
+		if (shot_timer >= 0.6)
+		{
+			for (auto& stage_object : battle->get_stages())
+			{
+				if (get_hitcircle().intersects(stage_object.get_rect()))
+				{
+					crash = true;
+					shot_timer = 0;
+				}
+			}
+		}
+
+		if (pos.x >= battle->get_camera().get_center().x + 1000) { over = true; }
 	}
 	else
 	{
-		if (set_init_pos == false)
-		{
-			pos = master->get_pos_right() + Vec2{ 50,0 };
-			set_init_pos = true;
-		}
-		move();
+		update_crash();
 	}
 
 }
 
-void OptionShirousShot::attack()
+void OptionShirousShot::update_attack()
 {
-	
+
+}
+
+void OptionShirousShot::update_crash()
+{
+
+	//発生から0.5秒たったら消す
+	if (shot_timer > 0.5)
+	{
+		over = true;
+	}
 }
 
 void OptionShirousShot::move()
 {
-	if (shot_timer >= 1.5)
+	if (shot_timer >= 0.6)
 	{
-		pos.x += 1600*battle->get_scene_del();
+		pos.x += 2000*battle->get_scene_del();
 	
 	}
 }
 
 void OptionShirousShot::draw()
 {
-	if (shot_timer <= 1.5)
+	if (crash == false)
 	{
-		for (auto& c_pos : poss)
+		if (shot_timer <= 0.6)
 		{
+			for (auto& c_pos : poss)
+			{
 
-			Circle(Scene::CenterF() + (c_pos - battle->get_camera().get_center()) * battle->get_camera().get_scale(), 20).draw(Palette::White);
-			Circle(Scene::CenterF() + (c_pos - battle->get_camera().get_center()) * battle->get_camera().get_scale(), 15).draw(Palette::Yellow);
+				Circle(Scene::CenterF() + (c_pos - battle->get_camera().get_center()) * battle->get_camera().get_scale(), 20).draw(Palette::White);
+				Circle(Scene::CenterF() + (c_pos - battle->get_camera().get_center()) * battle->get_camera().get_scale(), 15).draw(Palette::Yellow);
+			}
+
 		}
+		else {
 
-	}else{
+			get_hitcircle().movedBy(-battle->get_camera().get_center()).movedBy(Scene::CenterF()).draw(Palette::Yellow);
 
-		get_hitbox().movedBy(-battle->get_camera().get_center()).scaledAt({ 0,0 }, battle->get_camera().get_scale()).movedBy(Scene::CenterF()).draw(Palette::Yellow);
-
+		}
+	}
+	else
+	{
+		draw_crash();
 	}
 }
+
+
+void OptionShirousShot::draw_crash()
+{
+	// イージング
+	double e = EaseOutExpo(shot_timer);
+
+	Circle(Scene::CenterF() + (pos - battle->get_camera().get_center()) * battle->get_camera().get_scale(), (e * 100)).drawFrame((30.0 * (1.0 - e)), HSV(60, 1, 1, 0.7));
+}
+
