@@ -6,4 +6,5 @@ void asset_texture()
 	TextureAsset::Register(U"shirous", Resource(U"data/image/fish/shirous/シラス.png"));
 	TextureAsset::Register(U"ika", Resource(U"data/image/fish/shirous/イカ.png"));
 	TextureAsset::Register(U"pikaia", Resource(U"data/image/fish/pikaia/pikaia.png"));
+	TextureAsset::Register(U"seahorse", Resource(U"data/image/fish/seahorse/seahorse.png"));
 }

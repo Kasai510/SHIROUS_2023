@@ -8,14 +8,18 @@
 
 Option::Option(Battle* battle):Fish(battle)
 {
+	/*
 	set_name(U"シラス");
 	set_image_name(U"shirous");
+	*/
 }
 Option::Option(Battle* battle, Vec2 p):Fish(battle, p)
 {
+	/*
 	set_name(U"シラス");
 	set_image_name(U"shirous");
 	option_pos_timer = Random(0, 600);
+	*/
 }
 
 

@@ -1,5 +1,7 @@
 ﻿#include "Player.h"
 #include"Battle.h"
+#include"OptionShirous.h"
+#include"OptionSeahorse.h"
 #include"OptionShirousShot.h"
 
 
@@ -12,7 +14,7 @@ Player::Player(Battle* battle, Vec2 p):Fish(battle, p)
 	set_name(U"シラス");
 	set_image_name(U"shirous");
 	for (int i : step(2)) {
-		options << std::make_shared<Option>(battle, p);
+		options << std::make_shared<OptionSeahorse>(battle, p);
 	}
 }
 Player::~Player()
