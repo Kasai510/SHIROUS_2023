@@ -118,6 +118,8 @@
     <ClCompile Include="EnemyColony.cpp" />
     <ClCompile Include="EnemyColonyPikaia.cpp" />
     <ClCompile Include="EnemyPikaia.cpp" />
+    <ClCompile Include="EnemyShot.cpp" />
+    <ClCompile Include="EnemyShotPikaia.cpp" />
     <ClCompile Include="Fish.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -336,6 +338,8 @@
     <ClInclude Include="EnemyColony.h" />
     <ClInclude Include="EnemyColonyPikaia.h" />
     <ClInclude Include="EnemyPikaia.h" />
+    <ClInclude Include="EnemyShot.h" />
+    <ClInclude Include="EnemyShotPikaia.h" />
     <ClInclude Include="Fish.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="myCamera.h" />

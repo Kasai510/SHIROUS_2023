@@ -38,14 +38,25 @@ public:
 	
 	void draw_stage_area();
 
-	template<class drawable>void draw_texture(const drawable& tex, const Vec2& p) {
+	void draw_texture(const auto& tex, const Vec2& p) {
 		tex.scaled(scale).drawAt(Scene::CenterF() + (p - center) * scale);
 	}
-	template<class drawable>void draw_texture(const drawable& rect,Color color) {
+	void draw_texture(const auto& rect,Color color) {
 		rect.movedBy(-center).scaledAt({ 0,0 }, scale).movedBy(Scene::CenterF()).draw(color);
 	}
+	void draw_texture_rotated(const auto& tex, const Vec2& p,double angle) {
+		tex.scaled(scale).rotated(angle).drawAt(Scene::CenterF() + (p - center) * scale);
+	}
 	void draw_texture(const Circle& c, Color color) {
-		c.movedBy(-center).scaled(scale).setPos(c.movedBy(-center).center*scale).movedBy(Scene::CenterF()).draw(color);
+		const Circle& cmc = c.movedBy(-center);
+		cmc.scaled(scale).setPos(cmc.center*scale).movedBy(Scene::CenterF()).draw(color);
+	}
+	bool in_camera(const auto& obj) {
+		RectF camera_rect{ Arg::center(center),1920,1080};
+		return camera_rect.intersects(obj);
+	}
+	Vec2 windowpos_in_camera(Vec2 wp) {
+		return (wp - Scene::CenterF()) / scale + center;
 	}
 	
 };

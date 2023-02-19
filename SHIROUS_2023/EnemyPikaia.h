@@ -12,5 +12,6 @@ public:
 private:
 	Stopwatch time;
 	Array<TextureRegion> anime;
+	Array<int32> delays;
 };
 

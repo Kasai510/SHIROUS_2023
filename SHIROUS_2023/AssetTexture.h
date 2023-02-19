@@ -9,4 +9,5 @@ void asset_texture()
 	TextureAsset::Register(U"pikaia_1", Resource(U"data/image/fish/pikaia/pikaia_1.png"));
 	TextureAsset::Register(U"pikaia_2", Resource(U"data/image/fish/pikaia/pikaia_2.png"));
 	TextureAsset::Register(U"pikaia_3", Resource(U"data/image/fish/pikaia/pikaia_3.png"));
+	TextureAsset::Register(U"pikaia_shot", Resource(U"data/image/fish/pikaia/pikaia_shot.png"));
 }

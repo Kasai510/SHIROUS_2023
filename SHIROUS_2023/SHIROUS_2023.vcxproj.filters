@@ -246,6 +246,12 @@
     <ClCompile Include="EnemyPikaia.cpp">
       <Filter>Source Files\Fish\Enemy\Derived\Pikaia</Filter>
     </ClCompile>
+    <ClCompile Include="EnemyShot.cpp">
+      <Filter>Source Files\Fish\Enemy\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyShotPikaia.cpp">
+      <Filter>Source Files\Fish\Enemy\Derived\Pikaia</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -930,6 +936,12 @@
       <Filter>Source Files\Fish\Enemy\Derived\Pikaia</Filter>
     </ClInclude>
     <ClInclude Include="EnemyPikaia.h">
+      <Filter>Source Files\Fish\Enemy\Derived\Pikaia</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyShot.h">
+      <Filter>Source Files\Fish\Enemy\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyShotPikaia.h">
       <Filter>Source Files\Fish\Enemy\Derived\Pikaia</Filter>
     </ClInclude>
   </ItemGroup>
