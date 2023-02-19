@@ -35,6 +35,14 @@ void Battle::update()
 	{
 		player.move_intersect_stage(stages[i]);
 	}
+	for (auto& ec : enemy_colonys) {
+		for (auto& e : ec->get_enemys()) {
+			for (int i = 0; i < stages.size(); i++)
+			{
+				e->move_intersect_stage(stages[i]);
+			}
+		}
+	}
 
 
 
@@ -69,7 +77,9 @@ void Battle::update()
 	//攻撃の当たり判定
 	
 
-
+	for (auto& ec : enemy_colonys) {
+		ec->get_enemys().remove_if([](const std::shared_ptr<Enemy>& enemy) {return enemy->is_dead(); });
+	}
 	//camera.scroll(Vec2(2,0));//強制横スクロール
 	camera.set(player.get_pos());
 }

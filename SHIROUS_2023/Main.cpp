@@ -27,6 +27,7 @@ void Main()
 
 	while (System::Update())
 	{
+		ClearPrint();
 		myscene.update();
 
 		myscene.draw();

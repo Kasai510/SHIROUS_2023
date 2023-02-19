@@ -44,9 +44,9 @@ public:
 	template<class drawable>void draw_texture(const drawable& rect,Color color) {
 		rect.movedBy(-center).scaledAt({ 0,0 }, scale).movedBy(Scene::CenterF()).draw(color);
 	}
-	/*void draw_texture(const Circle& c, Color color) {
-		c.movedBy(-center).scaled(scale).movedBy(Scene::CenterF()).draw(color);
-	}*/
+	void draw_texture(const Circle& c, Color color) {
+		c.movedBy(-center).scaled(scale).setPos(c.movedBy(-center).center*scale).movedBy(Scene::CenterF()).draw(color);
+	}
 	
 };
 
