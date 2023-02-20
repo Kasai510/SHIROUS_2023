@@ -20,6 +20,7 @@ double EnemyShotPikaia::calc_angle()
 
 void EnemyShotPikaia::update()
 {
+	
 	if (mode_stop && time > 0.6s) {
 		mode_stop = false;
 		v += Vec2{ cos(angle),sin(angle) }*20;
@@ -47,6 +48,6 @@ void EnemyShotPikaia::update()
 void EnemyShotPikaia::draw()
 {
 	myCamera& camera = battle->get_camera();
-	camera.draw_texture_rotated(TextureAsset(U"pikaia_shot").resized(image_size_int),pos,angle - Math::Pi);
-	//camera.draw_texture(hit_box, Palette::Yellow);
+	camera.draw_texture(TextureAsset(U"pikaia_shot").resized(image_size_int).rotated(angle - Math::Pi), pos );
+	camera.draw_texture(hit_box, Palette::Yellow);
 }
