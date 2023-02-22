@@ -1,5 +1,6 @@
 ﻿#include"Battle.h"
 #include"EnemyColonyPikaia.h"
+#include"EnemyShotPikaia.h"
 
 Battle::Battle()
 {
@@ -35,6 +36,14 @@ void Battle::update()
 	{
 		player.move_intersect_stage(stages[i]);
 	}
+	for (auto& ec : enemy_colonys) {
+		for (auto& e : ec->get_enemys()) {
+			for (int i = 0; i < stages.size(); i++)
+			{
+				e->move_intersect_stage(stages[i]);
+			}
+		}
+	}
 
 
 
@@ -52,6 +61,10 @@ void Battle::update()
 			player_shots << player.opt_shot(i);
 		}
 	}
+	//仮
+	if (Key1.down()) {
+		enemy_shots << std::make_shared<EnemyShotPikaia>(this, Cursor::Pos());
+	}
 	
 	//攻撃の更新
 	for (int i = 0; i < player_shots.size(); i++)
@@ -59,23 +72,31 @@ void Battle::update()
 		player_shots[i]->update();
 
 	}
+	//enemyshot_update
+	for (auto& e : enemy_shots) {
+		e->update();
+	}
 	//画面外に出た攻撃の消去。壁などに当たった弾も。
 	for (int i = 0; i < player_shots.size(); i++)
 	{
 		//判定。
 	}
 	player_shots.remove_if([](const std::shared_ptr<Shot> p) {return (p->get_over()); });
-
+	enemy_shots.remove_if([](const std::shared_ptr<Shot> p) {return (p->get_over()); });
+	Print << enemy_shots.size();
 	//攻撃の当たり判定
 	
-
-
+	//enemy死
+	for (auto& ec : enemy_colonys) {
+		ec->get_enemys().remove_if([](const std::shared_ptr<Enemy>& enemy) {return enemy->is_dead(); });
+	}
 	//camera.scroll(Vec2(2,0));//強制横スクロール
 	camera.set(player.get_pos());
 }
 
 void Battle::draw()
 {
+	font30(camera.windowpos_in_camera(Cursor::Pos()).asPoint()).draw(Cursor::Pos());
 	for (int i = 0; i < stages.size(); i++)
 	{
 		stages[i].draw(camera);
@@ -93,6 +114,9 @@ void Battle::draw()
 	for (int i = 0; i < player_shots.size(); i++)
 	{
 		player_shots[i]->draw();
+	}
+	for (auto& e : enemy_shots) {
+		e->draw();
 	}
 	
 	camera.draw_stage_area();

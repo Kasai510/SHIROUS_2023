@@ -3,6 +3,7 @@
 myCamera::myCamera()
 {
 	ground_rect.push_back(RectF(Arg::center(1200, 750), 1600, 500));
+	calc_mat();
 }
 
 
@@ -69,7 +70,7 @@ void myCamera::set(Vec2 v)
 		limit_camera_min.x = center.x;
 		limit_stage_min.x = Max(limit_stage_min.x, center.x - 1920 / 2);
 	}
-
+	calc_mat();
 }
 void myCamera::set(Array<Vec2> vs)
 {
@@ -113,7 +114,7 @@ void myCamera::set(Array<Vec2> vs)
 		center += ((min + max) / 2.0 - center) / 20.0;
 	}
 	
-
+	calc_mat();
 }
 
 void myCamera::draw_stage_area()
@@ -121,6 +122,12 @@ void myCamera::draw_stage_area()
 	//RectF(Arg::center((limit_camera_max + limit_camera_min) / 2), limit_camera_max - limit_camera_min).movedBy(-center).scaledAt({ 0,0 }, scale).movedBy(Scene::Center()).drawFrame(10 * scale, Palette::White);
 
 	//RectF(Arg::center((limit_stage_max + limit_stage_min)/2), limit_stage_max - limit_stage_min).movedBy(-center).scaledAt({ 0,0 }, scale).movedBy(Scene::Center()).drawFrame(10 * scale, Palette::White);
-	get_limit_stage().movedBy(-center).scaledAt({ 0,0 }, scale).movedBy(Scene::Center()).drawFrame(10 * scale, Palette::White);
+	//get_limit_stage().movedBy(-center).scaledAt({ 0,0 }, scale).movedBy(Scene::Center()).drawFrame(10 * scale, Palette::White);
+	Transformer2D tf{mat};
+	get_limit_stage().drawFrame(10 * scale, Palette::White);
 }
 
+inline void myCamera::calc_mat()
+{
+	mat = Mat3x2::Translate(-center).scaled(scale,{0,0} ).translated(Scene::Center());
+}

@@ -249,6 +249,12 @@
     <ClCompile Include="EnemyPikaia.cpp">
       <Filter>Source Files\Fish\Enemy\Derived\Pikaia</Filter>
     </ClCompile>
+    <ClCompile Include="EnemyShot.cpp">
+      <Filter>Source Files\Fish\Enemy\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyShotPikaia.cpp">
+      <Filter>Source Files\Fish\Enemy\Derived\Pikaia</Filter>
+    </ClCompile>
     <ClCompile Include="OptionSeahorse.cpp">
       <Filter>Source Files\Fish\Option\Derived\Seahorse</Filter>
     </ClCompile>
@@ -940,12 +946,6 @@
     </ClInclude>
     <ClInclude Include="EnemyPikaia.h">
       <Filter>Source Files\Fish\Enemy\Derived\Pikaia</Filter>
-    </ClInclude>
-    <ClInclude Include="OptionSeahorse.h">
-      <Filter>Source Files\Fish\Option\Derived\Seahorse</Filter>
-    </ClInclude>
-    <ClInclude Include="OptionSeahorseShot.h">
-      <Filter>Source Files\Fish\Option\Derived\Seahorse</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

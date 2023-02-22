@@ -24,10 +24,18 @@ void Main()
 	myScene myscene;
 	//asset_texture();
 
+	bool is_pause = false;
 
 	while (System::Update())
 	{
-		myscene.update();
+		ClearPrint();
+		if (KeyP.down()) {
+			is_pause = not is_pause;
+		}
+		if (not is_pause) {
+			myscene.update();
+		}
+		
 
 		myscene.draw();
 

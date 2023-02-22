@@ -21,6 +21,10 @@ private:
 
 	Array<RectF> ground_rect;//stageの地面の情報。画面の縦揺れの軽減に使う。
 
+	Mat3x2 mat;
+
+	inline void calc_mat();
+
 public:
 	myCamera();
 	void scroll(Vec2 v);
@@ -38,15 +42,21 @@ public:
 	
 	void draw_stage_area();
 
-	template<class drawable>void draw_texture(const drawable& tex, const Vec2& p) {
-		tex.scaled(scale).drawAt(Scene::CenterF() + (p - center) * scale);
+	void draw_texture(const auto& tex, const Vec2& p) {
+		Transformer2D tf{ mat };
+		tex.drawAt(p);
 	}
-	template<class drawable>void draw_texture(const drawable& rect,Color color) {
-		rect.movedBy(-center).scaledAt({ 0,0 }, scale).movedBy(Scene::CenterF()).draw(color);
+	void draw_texture(const auto& drawable,Color color) {
+		Transformer2D tf{ mat };
+		drawable.draw(color);
 	}
-	/*void draw_texture(const Circle& c, Color color) {
-		c.movedBy(-center).scaled(scale).movedBy(Scene::CenterF()).draw(color);
-	}*/
+	bool in_camera(const auto& obj) {
+		RectF camera_rect{ Arg::center(center),1920,1080};
+		return camera_rect.intersects(obj);
+	}
+	Vec2 windowpos_in_camera(Vec2 wp) {
+		return (wp - Scene::CenterF()) / scale + center;
+	}
 	
 };
 
