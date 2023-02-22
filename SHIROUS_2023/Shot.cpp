@@ -26,6 +26,7 @@ void Shot::move()
 {
 	pos.x += 10;
 }
+
 Polygon Shot::get_hitbox()
 {
 	return hit_box;

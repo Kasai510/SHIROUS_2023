@@ -17,8 +17,7 @@ OptionShirousShot::OptionShirousShot(Battle* battle,const std::shared_ptr<class 
 
 	damage = 1;
 
-	double dis;
-	int target_index;	
+	hit_box_origin = Circle(0, 0, 30).asPolygon();
 
 }
 
@@ -46,6 +45,8 @@ void OptionShirousShot::update()
 		if (pos.x >= battle->get_camera().get_center().x + 1000) { over = true; }
 
 		update_attack();
+
+	
 	}
 	else
 	{
@@ -105,7 +106,8 @@ void OptionShirousShot::update_crash()
 void OptionShirousShot::move()
 {
 	pos.x += 1500*battle->get_scene_del();
-
+	
+	hit_box = hit_box_origin.movedBy(pos);
 }
 
 void OptionShirousShot::draw()
