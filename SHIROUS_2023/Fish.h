@@ -3,6 +3,7 @@
 #include"myInput.h"
 #include"StageObject.h"
 #include"Shot.h"
+#include<memory>
 
 class Battle;
 
@@ -30,7 +31,6 @@ protected:
 
 	bool dead = false;
 	Battle* battle;
-
 
 
 public:

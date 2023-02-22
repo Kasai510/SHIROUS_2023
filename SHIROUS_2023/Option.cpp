@@ -103,13 +103,6 @@ bool Option::ready_shot()
 	return false;
 }
 
-std::shared_ptr<Shot> Option::shot()
-{
-	shot_timer = shot_cool_time;
-	//return std::make_shared<OptionShot>(battle,get_pos_right() );
-	return std::make_shared<OptionShirousShot>(battle,this);
-}
-
 
 void Option::draw()
 {

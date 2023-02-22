@@ -127,6 +127,8 @@
     <ClCompile Include="myInput.cpp" />
     <ClCompile Include="myScene.cpp" />
     <ClCompile Include="Option.cpp" />
+    <ClCompile Include="OptionPoseidon.cpp" />
+    <ClCompile Include="OptionPoseidonShot.cpp" />
     <ClCompile Include="OptionSeahorse.cpp" />
     <ClCompile Include="OptionSeahorseShot.cpp" />
     <ClCompile Include="OptionShirous.cpp" />
@@ -348,6 +350,8 @@
     <ClInclude Include="myInput.h" />
     <ClInclude Include="myScene.h" />
     <ClInclude Include="Option.h" />
+    <ClInclude Include="OptionPoseidon.h" />
+    <ClInclude Include="OptionPoseidonShot.h" />
     <ClInclude Include="OptionSeahorse.h" />
     <ClInclude Include="OptionSeahorseShot.h" />
     <ClInclude Include="OptionShirous.h" />

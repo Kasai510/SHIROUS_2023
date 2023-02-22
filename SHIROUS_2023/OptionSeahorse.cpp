@@ -1,6 +1,7 @@
 ﻿#include "OptionSeahorse.h"
-#include"OptionShirousShot.h"
+#include"OptionSeahorseShot.h"
 #include"Battle.h"
+
 
 
 
@@ -9,6 +10,12 @@ OptionSeahorse::OptionSeahorse(Battle* battle)
 {
 	set_name(U"タツノオトシゴ");
 	set_image_name(U"seahorse");
+
+
+	width = 50;
+	height = 120;
+	shot_cool_time = 90;
+	shot_timer = shot_cool_time;
 }
 OptionSeahorse::OptionSeahorse(Battle* battle, Vec2 p)
 	: Option(battle, p)
@@ -19,6 +26,8 @@ OptionSeahorse::OptionSeahorse(Battle* battle, Vec2 p)
 
 	width = 50;
 	height = 120;
+	shot_cool_time = 90;
+	shot_timer = shot_cool_time;
 }
 
 
@@ -29,6 +38,8 @@ OptionSeahorse::~OptionSeahorse()
 void OptionSeahorse::update(int index)
 {
 	move(index);
+	attack();
+	
 }
 void OptionSeahorse::move(int index)
 {
@@ -98,16 +109,34 @@ void  OptionSeahorse::check_limit_stage(myCamera camera)
 bool OptionSeahorse::ready_shot()
 {
 	if (shot_timer > 0)shot_timer--;
-	if (shot_timer == 0) return true;
+
+	if (shot_timer == 0)
+	{
+		shot_timer = shot_cool_time;
+		return true;
+	}
 	return false;
 }
 
-std::shared_ptr<Shot> OptionSeahorse::shot()
+void OptionSeahorse::attack()
 {
-	shot_timer = shot_cool_time;
-	//return std::make_shared<OptionShot>(battle,get_pos_right() );
-	return std::make_shared<OptionShirousShot>(battle, this);
+	//攻撃の更新
+	for (int i = 0; i < optionshots.size(); i++)
+	{
+		optionshots[i]->update();
+
+	}
+
+
+	optionshots.remove_if([](const std::shared_ptr<Shot> p) {return (p->get_over()); });
+
+
+	if (ready_shot())
+	{
+		optionshots << std::make_shared<OptionSeahorseShot>(battle,shared_from_this());
+	}
 }
+
 
 
 void OptionSeahorse::draw()
@@ -116,9 +145,18 @@ void OptionSeahorse::draw()
 	// 自機の描画
 	//TextureAsset(name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
 
+	//当たり判定の描画
 	battle->get_camera().draw_texture(get_rect(), Palette::Red);
+
 	TextureAsset(image_name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
-	font(ID).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
+	font(shot_timer).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
+
+	//攻撃の描画
+	for (int i = 0; i < optionshots.size(); i++)
+	{
+		optionshots[i]->draw();
+
+	}
 }
 void OptionSeahorse::draw_back()
 {

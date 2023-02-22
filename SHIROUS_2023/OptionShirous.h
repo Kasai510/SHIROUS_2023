@@ -1,9 +1,12 @@
 ﻿#pragma once
 #include "Option.h"
 
+
 class Battle;
 
-class OptionShirous : public Option
+
+class OptionShirous
+	: public Option
 {
 public:
 	OptionShirous(Battle* battle);
@@ -16,7 +19,9 @@ public:
 	void check_limit_stage(myCamera camera);//現状、Fishクラスと同じ。
 
 	bool ready_shot();
-	std::shared_ptr<Shot> shot();
+
+
+	void attack();
 
 
 	void draw();

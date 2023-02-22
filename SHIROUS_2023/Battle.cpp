@@ -54,13 +54,15 @@ void Battle::update()
 		player_shots << player.shot();
 	}*/
 	//オプションの攻撃
+
 	for (int i = 0; i < player.get_opt_size(); i++)
 	{
 		if (player.ready_opt_shot(i))
 		{
-			player_shots << player.opt_shot(i);
+			//player_shots << player.opt_shot(i);
 		}
 	}
+
 	//仮
 	if (Key1.down()) {
 		enemy_shots << std::make_shared<EnemyShotPikaia>(this, Cursor::Pos());
@@ -83,7 +85,7 @@ void Battle::update()
 	}
 	player_shots.remove_if([](const std::shared_ptr<Shot> p) {return (p->get_over()); });
 	enemy_shots.remove_if([](const std::shared_ptr<Shot> p) {return (p->get_over()); });
-	Print << enemy_shots.size();
+	//Print << enemy_shots.size();
 	//攻撃の当たり判定
 	
 	//enemy死
@@ -96,7 +98,7 @@ void Battle::update()
 
 void Battle::draw()
 {
-	font30(camera.windowpos_in_camera(Cursor::Pos()).asPoint()).draw(Cursor::Pos());
+	//font30(camera.windowpos_in_camera(Cursor::Pos()).asPoint()).draw(Cursor::Pos());
 	for (int i = 0; i < stages.size(); i++)
 	{
 		stages[i].draw(camera);
@@ -126,7 +128,7 @@ void Battle::draw()
 
 void Battle::debug_draw()
 {
-	Print << player_shots.size();
+	//Print << player_shots.size();
 }
 
 bool Battle::change_scene_check()

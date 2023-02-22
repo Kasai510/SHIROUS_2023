@@ -9,7 +9,7 @@ public:
 	void draw();
 	void move();
 	void damage(double d);
-private:
+protected:
 	double hp = 50;
 };
 

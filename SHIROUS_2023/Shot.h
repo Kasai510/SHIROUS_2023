@@ -7,7 +7,7 @@ class Battle;
 
 struct Record
 {
-	std::shared_ptr<Fish> fish;
+	std::weak_ptr<Fish> fish;
 	double damage_span;
 };
 
@@ -19,11 +19,13 @@ protected:
 	double width = 20.0;
 	double height = 20.0;
 
+	int damage = 1;
 
 	double damage_span{ 0.5 };
 
 	Battle* battle;
-	Fish* master;//発射した人
+	std::weak_ptr<Fish> master;//発射した人
+
 
 	Array<Record> records;//x:Fishのポインタ y:damage_span
 
@@ -33,7 +35,7 @@ protected:
 public:
 	Shot() {};
 	Shot(Battle*,Vec2 p);
-	Shot(Battle*,Fish*);
+	Shot(Battle*, const std::shared_ptr<class Fish>& );
 	~Shot() {};
 
 	virtual void update();

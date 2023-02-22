@@ -190,6 +190,9 @@
     <Filter Include="Source Files\Fish\Option\Derived\Seahorse">
       <UniqueIdentifier>{ebb992db-3c7f-4c86-8f35-3073e892c40a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Fish\Option\Derived\Poseidon">
+      <UniqueIdentifier>{4192816c-6f4b-4057-ab12-201a7b48e424}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -260,6 +263,12 @@
     </ClCompile>
     <ClCompile Include="OptionSeahorseShot.cpp">
       <Filter>Source Files\Fish\Option\Derived\Seahorse</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionPoseidon.cpp">
+      <Filter>Source Files\Fish\Option\Derived\Poseidon</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionPoseidonShot.cpp">
+      <Filter>Source Files\Fish\Option\Derived\Poseidon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -946,6 +955,24 @@
     </ClInclude>
     <ClInclude Include="EnemyPikaia.h">
       <Filter>Source Files\Fish\Enemy\Derived\Pikaia</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyShot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyShotPikaia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionSeahorse.h">
+      <Filter>Source Files\Fish\Option\Derived\Seahorse</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionSeahorseShot.h">
+      <Filter>Source Files\Fish\Option\Derived\Seahorse</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionPoseidon.h">
+      <Filter>Source Files\Fish\Option\Derived\Poseidon</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionPoseidonShot.h">
+      <Filter>Source Files\Fish\Option\Derived\Poseidon</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

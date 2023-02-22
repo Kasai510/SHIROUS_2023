@@ -3,7 +3,8 @@
 
 class Battle;
 
-class OptionSeahorse : public Option
+class OptionSeahorse
+	: public Option
 {
 public:
 	OptionSeahorse(Battle* battle);
@@ -15,9 +16,11 @@ public:
 	void move_intersect_stage(Stage_object stage);//現状、Fishクラスと同じ。
 	void check_limit_stage(myCamera camera);//現状、Fishクラスと同じ。
 
-	bool ready_shot();
-	std::shared_ptr<Shot> shot();
 
+
+	bool ready_shot();
+
+	void attack();
 
 	void draw();
 	void draw_back();

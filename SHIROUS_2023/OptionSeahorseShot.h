@@ -11,7 +11,7 @@ protected:
 
 public:
 	OptionSeahorseShot() {};
-	OptionSeahorseShot(Battle*, Fish*);
+	OptionSeahorseShot(Battle*, const std::shared_ptr<class Fish>&);
 	~OptionSeahorseShot() {};
 
 	void set_crash();
