@@ -5,6 +5,7 @@
 Enemy::Enemy(Battle* battle, Vec2 p):Fish(battle,p)
 {
 	image_size_int = 300;
+	hp = 50;
 }
 
 void Enemy::update()
@@ -28,10 +29,5 @@ void Enemy::move()
 	prev_pos = pos;
 	if (speed.length() > 1.0)pos += max_speed * speed.normalized();
 	else pos += max_speed * speed;
-}
-
-void Enemy::damage(double d)
-{
-	hp -= d;
 }
 

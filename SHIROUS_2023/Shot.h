@@ -26,7 +26,8 @@ protected:
 	Battle* battle;
 	std::weak_ptr<Fish> master;//発射した人
 
-
+	Polygon hit_box;
+	Polygon hit_box_origin;
 
 	Array<Record> records;//x:Fishのポインタ y:damage_span
 
@@ -46,8 +47,7 @@ public:
 
 
 	Vec2 get_pos() { return pos; }
-	RectF get_hitbox();
-	Circle get_hitcircle();
+	Polygon get_hitbox();
 	bool get_over() { return over; }
 
 };

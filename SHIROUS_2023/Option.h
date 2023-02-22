@@ -5,7 +5,7 @@
 class Battle;
 
 class Option
-	: public Fish//, public std::enable_shared_from_this<Option>
+	: public Fish
 {
 protected:
 	int option_pos_timer = 0;//群れっぽい上下の振れ幅に使う（フレーム）。

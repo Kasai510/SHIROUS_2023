@@ -104,7 +104,7 @@ void OptionShirousShot::update_crash()
 
 void OptionShirousShot::move()
 {
-		pos.x += 1500*battle->get_scene_del();
+	pos.x += 1500*battle->get_scene_del();
 
 }
 
