@@ -37,7 +37,7 @@ void Player::update()
 	}
 
 	options.remove_if([](const std::shared_ptr<Option>& option) {return option->is_dead(); });
-
+	Print <<U"playerhp:" << hp;
 }
 void Player::move()
 {

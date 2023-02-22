@@ -10,7 +10,6 @@ EnemyPikaia::EnemyPikaia(Battle* battle,Vec2 p):Enemy(battle, p)
 	speed = { -5,0 };
 	width = 250;
 	height = 90;
-	time.restart();
 	anime << TextureAsset(U"pikaia_1").resized(image_size_int);
 	anime << TextureAsset(U"pikaia_2").resized(image_size_int);
 	anime << TextureAsset(U"pikaia_3").resized(image_size_int);
@@ -29,10 +28,11 @@ void EnemyPikaia::update()
 	{
 		double r_player = (battle->get_player().get_pos() - pos).length();
 		if (r_player <1000) {
-			battle->get_ememy_shots()<< std::make_shared<EnemyShotPikaia>(battle, pos,shared_from_this());
+			battle->get_ememy_shots()<< std::make_shared<EnemyShotPikaia>(battle, pos);
 			dead = true;
 		}
 	}
+	time++;
 }
 
 void EnemyPikaia::move()
@@ -45,7 +45,6 @@ void EnemyPikaia::draw()
 {
 	myCamera& camera = battle->get_camera();
 	camera.draw_texture(get_rect(), Palette::Orange);
-	//camera.draw_texture(Circle{pos,45}, Palette::Red);
-	camera.draw_texture(anime[AnimatedGIFReader::GetFrameIndex(time.sF(), delays)], pos);
+	camera.draw_texture(anime[AnimatedGIFReader::GetFrameIndex(time/60.0, delays)], pos);
 }
 
