@@ -263,12 +263,13 @@
     </ClCompile>
     <ClCompile Include="OptionSeahorseShot.cpp">
       <Filter>Source Files\Fish\Option\Derived\Seahorse</Filter>
+=========
+    <ClCompile Include="EnemyShot.cpp">
+      <Filter>Source Files\Fish\Enemy\Base</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyKurage.cpp">
-      <Filter>Source Files\Fish\Enemy\Derived\Kurage</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyColonyKurage.cpp">
-      <Filter>Source Files\Fish\Enemy\Derived\Kurage</Filter>
+    <ClCompile Include="EnemyShotPikaia.cpp">
+      <Filter>Source Files\Fish\Enemy\Derived\Pikaia</Filter>
+>>>>>>>>> Temporary merge branch 2
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -956,23 +957,19 @@
     <ClInclude Include="EnemyPikaia.h">
       <Filter>Source Files\Fish\Enemy\Derived\Pikaia</Filter>
     </ClInclude>
+<<<<<<<<< Temporary merge branch 1
     <ClInclude Include="OptionSeahorse.h">
       <Filter>Source Files\Fish\Option\Derived\Seahorse</Filter>
     </ClInclude>
     <ClInclude Include="OptionSeahorseShot.h">
       <Filter>Source Files\Fish\Option\Derived\Seahorse</Filter>
-    </ClInclude>
+=========
     <ClInclude Include="EnemyShot.h">
       <Filter>Source Files\Fish\Enemy\Base</Filter>
     </ClInclude>
     <ClInclude Include="EnemyShotPikaia.h">
       <Filter>Source Files\Fish\Enemy\Derived\Pikaia</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyKurage.h">
-      <Filter>Source Files\Fish\Enemy\Derived\Kurage</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyColonyKurage.h">
-      <Filter>Source Files\Fish\Enemy\Derived\Kurage</Filter>
+>>>>>>>>> Temporary merge branch 2
     </ClInclude>
   </ItemGroup>
 </Project>
