@@ -23,6 +23,13 @@ void EnemyKurage::move()
 	if (jump_wait_time == 120) {
 		jump_wait_time = 0;
 		speed.y += (first_level - pos.y)*0.1;
+		if (isGoRight) {
+			speed.x += 4;
+		}
+		else {
+			speed.x += -4;
+		}
+		isGoRight = not isGoRight;
 	}
 	jump_wait_time++;
 

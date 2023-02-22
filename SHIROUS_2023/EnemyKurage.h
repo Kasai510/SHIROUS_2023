@@ -11,5 +11,6 @@ public:
 private:
 	int jump_wait_time = 0;
 	int first_level;
+	bool isGoRight = true;
 };
 
