@@ -190,6 +190,9 @@
     <Filter Include="Source Files\Fish\Option\Derived\Seahorse">
       <UniqueIdentifier>{ebb992db-3c7f-4c86-8f35-3073e892c40a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Fish\Enemy\Derived\Kurage">
+      <UniqueIdentifier>{b3c88908-cbf5-4426-8ffc-ef2897b36d34}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -248,6 +251,24 @@
     </ClCompile>
     <ClCompile Include="EnemyPikaia.cpp">
       <Filter>Source Files\Fish\Enemy\Derived\Pikaia</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyShot.cpp">
+      <Filter>Source Files\Fish\Enemy\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyShotPikaia.cpp">
+      <Filter>Source Files\Fish\Enemy\Derived\Pikaia</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionSeahorse.cpp">
+      <Filter>Source Files\Fish\Option\Derived\Seahorse</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionSeahorseShot.cpp">
+      <Filter>Source Files\Fish\Option\Derived\Seahorse</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyKurage.cpp">
+      <Filter>Source Files\Fish\Enemy\Derived\Kurage</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyColonyKurage.cpp">
+      <Filter>Source Files\Fish\Enemy\Derived\Kurage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -934,6 +955,24 @@
     </ClInclude>
     <ClInclude Include="EnemyPikaia.h">
       <Filter>Source Files\Fish\Enemy\Derived\Pikaia</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionSeahorse.h">
+      <Filter>Source Files\Fish\Option\Derived\Seahorse</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionSeahorseShot.h">
+      <Filter>Source Files\Fish\Option\Derived\Seahorse</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyShot.h">
+      <Filter>Source Files\Fish\Enemy\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyShotPikaia.h">
+      <Filter>Source Files\Fish\Enemy\Derived\Pikaia</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyKurage.h">
+      <Filter>Source Files\Fish\Enemy\Derived\Kurage</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyColonyKurage.h">
+      <Filter>Source Files\Fish\Enemy\Derived\Kurage</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

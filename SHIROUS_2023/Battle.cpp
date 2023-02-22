@@ -1,5 +1,6 @@
 ﻿#include"Battle.h"
 #include"EnemyColonyPikaia.h"
+#include"EnemyColonyKurage.h"
 #include"EnemyShotPikaia.h"
 
 Battle::Battle()
@@ -7,6 +8,7 @@ Battle::Battle()
 	stages << Stage_object({ 800,600 }, 200, 200);
 	stages << Stage_object({ 1400,600 }, 200, 200);
 	enemy_colonys << std::make_shared<EnemyColonyPikaia>(this);
+	enemy_colonys << std::make_shared<EnemyColonyKurage>(this);
 }
 
 void Battle::update()

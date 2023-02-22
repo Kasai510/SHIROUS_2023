@@ -41,7 +41,7 @@ void EnemyPikaia::draw()
 {
 	myCamera& camera = battle->get_camera();
 	camera.draw_texture(get_rect(), Palette::Orange);
-	camera.draw_texture(Circle{pos,45}, Palette::Red);
+	//camera.draw_texture(Circle{pos,45}, Palette::Red);
 	camera.draw_texture(anime[AnimatedGIFReader::GetFrameIndex(time.sF(), delays)], pos);
 }
 
