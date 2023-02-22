@@ -8,9 +8,7 @@ public:
 	void update();
 	void draw();
 	void move();
-	void damage(double d);
 protected:
-	double hp = 50;
 	int time = 0;
 };
 

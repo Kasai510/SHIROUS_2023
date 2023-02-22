@@ -19,7 +19,7 @@ protected:
 	double width = 20.0;
 	double height = 20.0;
 
-	int damage = 1;
+	double damage = 1;
 
 	double damage_span{ 0.5 };
 

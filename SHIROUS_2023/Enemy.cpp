@@ -10,6 +10,9 @@ Enemy::Enemy(Battle* battle, Vec2 p):Fish(battle,p)
 void Enemy::update()
 {
 	move();
+	if (hp <= 0) {
+		dead = true;
+	}
 	time++;
 }
 

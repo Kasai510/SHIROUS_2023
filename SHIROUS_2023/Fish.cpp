@@ -114,4 +114,9 @@ void Fish::draw_front()
 
 }
 
+void Fish::damage(double d)
+{
+	hp -= d;
+}
+
 

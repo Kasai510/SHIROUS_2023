@@ -15,6 +15,9 @@ void EnemyKurage::update()
 {
 	
 	move();
+	if (hp <= 0) {
+		dead = true;
+	}
 	time++;
 }
 

@@ -6,6 +6,7 @@ Shot::Shot(Battle* battle,Vec2 p)
 {
 	this->battle = battle;
 	pos = p;
+	
 }
 
 Shot::Shot(Battle* battle, const std::shared_ptr<class Fish>& master)
@@ -19,20 +20,17 @@ Shot::Shot(Battle* battle, const std::shared_ptr<class Fish>& master)
 void Shot::update()
 {
 	move();
+	hit_box = hit_box_origin.moveBy(pos);
 }
 void Shot::move()
 {
 	pos.x += 10;
 }
-RectF Shot::get_hitbox()
+Polygon Shot::get_hitbox()
 {
-	return RectF(Arg::center(pos), width, height);
+	return hit_box;
 }
 
-Circle Shot::get_hitcircle()
-{
-	return Circle(Arg::center(pos), width/2);
-}
 
 void Shot::draw()
 {

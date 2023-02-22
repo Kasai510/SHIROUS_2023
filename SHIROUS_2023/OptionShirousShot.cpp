@@ -35,7 +35,7 @@ void OptionShirousShot::update()
 		//壁との当たり判定
 		for (auto& stage_object : battle->get_stages())
 		{
-			if (get_hitcircle().intersects(stage_object.get_rect()))
+			if (get_hitbox().intersects(stage_object.get_rect()))
 			{
 				crash = true;
 				shot_timer = 0;
@@ -62,7 +62,7 @@ void OptionShirousShot::update_attack()
 		for (auto& enemy : enemycolony->get_enemys())
 		{
 				
-			if (get_hitcircle().intersects(enemy->get_rect()))
+			if (get_hitbox().intersects(enemy->get_rect()))
 			{
 				enemy->damage(damage);
 				set_crash();
@@ -105,6 +105,7 @@ void OptionShirousShot::update_crash()
 void OptionShirousShot::move()
 {
 		pos.x += 1500*battle->get_scene_del();
+
 }
 
 void OptionShirousShot::draw()
@@ -112,7 +113,7 @@ void OptionShirousShot::draw()
 	if (crash == false)
 	{
 
-		get_hitcircle().movedBy(-battle->get_camera().get_center()).movedBy(Scene::CenterF()).draw(Palette::Red);
+		get_hitbox().movedBy(-battle->get_camera().get_center()).movedBy(Scene::CenterF()).draw(Palette::Red);
 
 		
 	}

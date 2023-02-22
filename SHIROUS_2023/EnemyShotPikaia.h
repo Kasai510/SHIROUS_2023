@@ -13,8 +13,6 @@ private:
 	double angle;
 	bool mode_stop;
 	double image_size_int;
-	Polygon hit_box_origin;
-	Polygon hit_box;
 	Stopwatch time;
 };
 

@@ -32,6 +32,7 @@ protected:
 	bool dead = false;
 	Battle* battle;
 
+	double hp=100;
 
 public:
 
@@ -55,7 +56,7 @@ public:
 	virtual void draw_back();
 	virtual void draw_front();
 
-
+	void damage(double d);
 
 
 
