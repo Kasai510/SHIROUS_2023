@@ -1,10 +1,10 @@
-﻿#include "OptionShirousShot.h"
+﻿#include"OptionSeahorseShot.h"
 #include"Battle.h"
 #include"StageObject.h"
 #include"EnemyColony.h"
 #include"Enemy.h"
 
-OptionShirousShot::OptionShirousShot(Battle* battle, Fish* master)
+OptionSeahorseShot::OptionSeahorseShot(Battle* battle, Fish* master)
 	:OptionShot(battle, master)
 {
 
@@ -17,7 +17,7 @@ OptionShirousShot::OptionShirousShot(Battle* battle, Fish* master)
 
 }
 
-void OptionShirousShot::update()
+void OptionSeahorseShot::update()
 {
 	shot_timer += battle->get_scene_del();
 
@@ -66,7 +66,7 @@ void OptionShirousShot::update()
 
 }
 
-void OptionShirousShot::update_attack()
+void OptionSeahorseShot::update_attack()
 {
 	//敵との当たり判定
 	if (shot_timer >= 0.6)
@@ -75,12 +75,12 @@ void OptionShirousShot::update_attack()
 		{
 			for (auto& enemy : enemycolony->get_enemys())
 			{
-				
+
 				if (get_hitcircle().intersects(enemy->get_rect()))
 				{
 					set_crash();
 				}
-				
+
 
 				/*
 				for (auto& record : records)
@@ -99,13 +99,13 @@ void OptionShirousShot::update_attack()
 }
 
 
-void OptionShirousShot::set_crash()
+void OptionSeahorseShot::set_crash()
 {
 	crash = true;
 	shot_timer = 0;
 }
 
-void OptionShirousShot::update_crash()
+void OptionSeahorseShot::update_crash()
 {
 
 	//発生から0.5秒たったら消す
@@ -115,16 +115,16 @@ void OptionShirousShot::update_crash()
 	}
 }
 
-void OptionShirousShot::move()
+void OptionSeahorseShot::move()
 {
 	if (shot_timer >= 0.6)
 	{
-		pos.x += 2000*battle->get_scene_del();
-	
+		pos.x += 2000 * battle->get_scene_del();
+
 	}
 }
 
-void OptionShirousShot::draw()
+void OptionSeahorseShot::draw()
 {
 	if (crash == false)
 	{
@@ -151,11 +151,10 @@ void OptionShirousShot::draw()
 }
 
 
-void OptionShirousShot::draw_crash()
+void OptionSeahorseShot::draw_crash()
 {
 	// イージング
 	double e = EaseOutExpo(shot_timer);
 
 	Circle(Scene::CenterF() + (pos - battle->get_camera().get_center()) * battle->get_camera().get_scale(), (e * 100)).drawFrame((30.0 * (1.0 - e)), HSV(60, 1, 1, 0.7));
 }
-

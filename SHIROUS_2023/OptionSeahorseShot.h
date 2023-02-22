@@ -2,7 +2,7 @@
 #include "OptionShot.h"
 
 
-class OptionShirousShot : public OptionShot
+class OptionSeahorseShot : public OptionShot
 {
 protected:
 	double shot_timer;
@@ -10,9 +10,9 @@ protected:
 	bool set_init_pos{ false };
 
 public:
-	OptionShirousShot() {};
-	OptionShirousShot(Battle*,Fish*);
-	~OptionShirousShot() {};
+	OptionSeahorseShot() {};
+	OptionSeahorseShot(Battle*, Fish*);
+	~OptionSeahorseShot() {};
 
 	void set_crash();
 	void update();
@@ -22,4 +22,3 @@ public:
 	void draw();
 	void draw_crash();
 };
-

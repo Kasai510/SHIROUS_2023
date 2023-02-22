@@ -3,12 +3,12 @@
 
 class Battle;
 
-class OptionShirous : public Option
+class OptionSeahorse : public Option
 {
 public:
-	OptionShirous(Battle* battle);
-	OptionShirous(Battle* battle, Vec2 pos);
-	~OptionShirous();
+	OptionSeahorse(Battle* battle);
+	OptionSeahorse(Battle* battle, Vec2 pos);
+	~OptionSeahorse();
 
 	void update(int index);
 	void move(int index);
@@ -25,4 +25,3 @@ public:
 
 	Font font{ 30 };
 };
-

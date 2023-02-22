@@ -1,33 +1,36 @@
-﻿#include "OptionShirous.h"
+﻿#include "OptionSeahorse.h"
 #include"OptionShirousShot.h"
 #include"Battle.h"
 
 
 
-OptionShirous::OptionShirous(Battle* battle)
+OptionSeahorse::OptionSeahorse(Battle* battle)
 	: Option(battle)
 {
-	set_name(U"シラス");
-	set_image_name(U"shirous");
+	set_name(U"タツノオトシゴ");
+	set_image_name(U"seahorse");
 }
-OptionShirous::OptionShirous(Battle* battle, Vec2 p)
+OptionSeahorse::OptionSeahorse(Battle* battle, Vec2 p)
 	: Option(battle, p)
 {
-	set_name(U"シラス");
-	set_image_name(U"shirous");
+	set_name(U"タツノオトシゴ");
+	set_image_name(U"seahorse");
 	option_pos_timer = Random(0, 600);
+
+	width = 50;
+	height = 120;
 }
 
 
-OptionShirous::~OptionShirous()
+OptionSeahorse::~OptionSeahorse()
 {
 
 }
-void OptionShirous::update(int index)
+void OptionSeahorse::update(int index)
 {
 	move(index);
 }
-void OptionShirous::move(int index)
+void OptionSeahorse::move(int index)
 {
 	option_pos_timer++;
 	if (option_pos_timer > 2 * Math::Pi * 60 * (index + 1))option_pos_timer -= 2 * Math::Pi * 60 * (index + 1);
@@ -52,7 +55,7 @@ void OptionShirous::move(int index)
 	speed /= 1.1;
 
 }
-void OptionShirous::move_intersect_stage(Stage_object stage)
+void OptionSeahorse::move_intersect_stage(Stage_object stage)
 {
 	if (get_rect().intersects(stage.get_rect()))
 	{
@@ -83,7 +86,7 @@ void OptionShirous::move_intersect_stage(Stage_object stage)
 
 
 }
-void  OptionShirous::check_limit_stage(myCamera camera)
+void  OptionSeahorse::check_limit_stage(myCamera camera)
 {
 	if (camera.get_limit_stage_min().y > get_pos_top().y)set_pos_top(camera.get_limit_stage_min().y);
 	if (camera.get_limit_stage_max().y < get_pos_bottom().y)set_pos_bottom(camera.get_limit_stage_max().y);
@@ -92,14 +95,14 @@ void  OptionShirous::check_limit_stage(myCamera camera)
 }
 
 
-bool OptionShirous::ready_shot()
+bool OptionSeahorse::ready_shot()
 {
 	if (shot_timer > 0)shot_timer--;
 	if (shot_timer == 0) return true;
 	return false;
 }
 
-std::shared_ptr<Shot> OptionShirous::shot()
+std::shared_ptr<Shot> OptionSeahorse::shot()
 {
 	shot_timer = shot_cool_time;
 	//return std::make_shared<OptionShot>(battle,get_pos_right() );
@@ -107,19 +110,21 @@ std::shared_ptr<Shot> OptionShirous::shot()
 }
 
 
-void OptionShirous::draw()
+void OptionSeahorse::draw()
 {
 	myCamera& camera = battle->get_camera();
 	// 自機の描画
 	//TextureAsset(name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
-	TextureAsset(image_name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale(), Palette::Gray);
+
+	battle->get_camera().draw_texture(get_rect(), Palette::Red);
+	TextureAsset(image_name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
 	font(ID).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
 }
-void OptionShirous::draw_back()
+void OptionSeahorse::draw_back()
 {
 
 }
-void OptionShirous::draw_front()
+void OptionSeahorse::draw_front()
 {
 
 }
