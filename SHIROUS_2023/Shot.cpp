@@ -14,6 +14,8 @@ Shot::Shot(Battle* battle, Fish* master)
 	this->master = master;
 }
 
+
+
 void Shot::update()
 {
 	move();

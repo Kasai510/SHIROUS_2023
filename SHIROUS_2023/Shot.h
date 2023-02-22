@@ -25,6 +25,7 @@ protected:
 	Battle* battle;
 	Fish* master;//発射した人
 
+
 	Array<Record> records;//x:Fishのポインタ y:damage_span
 
 	bool crash = false;//着弾した時に破裂する

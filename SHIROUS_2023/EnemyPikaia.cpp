@@ -25,7 +25,7 @@ void EnemyPikaia::update()
 	{
 		double r_player = (battle->get_player().get_pos() - pos).length();
 		if (r_player <1000) {
-			battle->get_ememy_shots()<< std::make_shared<EnemyShotPikaia>(battle, pos);
+			battle->get_ememy_shots()<< std::make_shared<EnemyShotPikaia>(battle, pos,shared_from_this());
 			dead = true;
 		}
 	}

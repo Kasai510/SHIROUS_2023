@@ -63,10 +63,7 @@ void Battle::update()
 			player_shots << player.opt_shot(i);
 		}
 	}
-	//仮
-	if (Key1.down()) {
-		enemy_shots << std::make_shared<EnemyShotPikaia>(this, Cursor::Pos());
-	}
+	
 	
 	//攻撃の更新
 	for (int i = 0; i < player_shots.size(); i++)

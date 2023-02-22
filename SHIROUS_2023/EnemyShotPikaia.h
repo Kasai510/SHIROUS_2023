@@ -4,7 +4,7 @@ class EnemyShotPikaia :
     public EnemyShot
 {
 public:
-	EnemyShotPikaia(Battle* battle, const Vec2 p);
+	EnemyShotPikaia(Battle* battle, const Vec2 p, const std::shared_ptr<class Fish>& s_master);
 	double calc_angle();
 	void update();
 

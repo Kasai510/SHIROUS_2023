@@ -1,8 +1,9 @@
 ﻿#include "stdafx.h"
 #include "EnemyShotPikaia.h"
 #include"Battle.h"
+#include"Fish.h"
 
-EnemyShotPikaia::EnemyShotPikaia(Battle* battle, const Vec2 p):EnemyShot(battle,p)
+EnemyShotPikaia::EnemyShotPikaia(Battle* battle, const Vec2 p, const std::shared_ptr<Fish>& s_master):EnemyShot(battle,p,s_master)
 {
 	image_size_int = 250;
 	angle = calc_angle();

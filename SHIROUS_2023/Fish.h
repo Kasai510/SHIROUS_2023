@@ -6,7 +6,7 @@
 
 class Battle;
 
-class Fish
+class Fish:public std::enable_shared_from_this<class Fish>
 {
 protected:
 	myInput input;
