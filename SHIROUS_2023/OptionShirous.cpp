@@ -1,7 +1,9 @@
 ﻿#include "OptionShirous.h"
 #include"OptionShirousShot.h"
 #include"Battle.h"
+#include"Fish.h"
 
+class Fish;
 
 
 OptionShirous::OptionShirous(Battle* battle)
@@ -16,6 +18,9 @@ OptionShirous::OptionShirous(Battle* battle, Vec2 p)
 	set_name(U"シラス");
 	set_image_name(U"shirous");
 	option_pos_timer = Random(0, 600);
+
+	shot_cool_time = 120;
+	shot_timer = shot_cool_time;
 }
 
 
@@ -26,6 +31,7 @@ OptionShirous::~OptionShirous()
 void OptionShirous::update(int index)
 {
 	move(index);
+	attack();
 }
 void OptionShirous::move(int index)
 {
@@ -95,16 +101,31 @@ void  OptionShirous::check_limit_stage(myCamera camera)
 bool OptionShirous::ready_shot()
 {
 	if (shot_timer > 0)shot_timer--;
-	if (shot_timer == 0) return true;
+	if (shot_timer == 0)
+	{
+		shot_timer = shot_cool_time;
+		return true;
+	}
 	return false;
 }
 
-std::shared_ptr<Shot> OptionShirous::shot()
+void OptionShirous::attack()
 {
-	shot_timer = shot_cool_time;
-	//return std::make_shared<OptionShot>(battle,get_pos_right() );
-	return std::make_shared<OptionShirousShot>(battle, this);
+	//攻撃の更新
+	for (int i = 0; i < optionshots.size(); i++)
+	{
+		optionshots[i]->update();
+
+	}
+
+	optionshots.remove_if([](const std::shared_ptr<Shot> p) {return (p->get_over()); });
+
+	if (ready_shot())
+	{
+		optionshots << std::make_shared<OptionShirousShot>(battle,shared_from_this());
+	}
 }
+
 
 
 void OptionShirous::draw()
@@ -112,8 +133,20 @@ void OptionShirous::draw()
 	myCamera& camera = battle->get_camera();
 	// 自機の描画
 	//TextureAsset(name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
+
+	//当たり判定の描画
+	battle->get_camera().draw_texture(get_rect(), Palette::Red);
+
 	TextureAsset(image_name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale(), Palette::Gray);
-	font(ID).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
+	font(shot_timer).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
+
+
+
+	//攻撃の描画
+	for (int i = 0; i < optionshots.size(); i++)
+	{
+		optionshots[i]->draw();
+	}
 }
 void OptionShirous::draw_back()
 {

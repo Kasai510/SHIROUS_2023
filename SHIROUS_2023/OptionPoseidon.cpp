@@ -1,15 +1,15 @@
-﻿#include "OptionSeahorse.h"
+﻿#include "stdafx.h"
+#include "OptionPoseidon.h"
 #include"OptionSeahorseShot.h"
 #include"Battle.h"
 
 
 
-
-OptionSeahorse::OptionSeahorse(Battle* battle)
+OptionPoseidon::OptionPoseidon(Battle* battle)
 	: Option(battle)
 {
-	set_name(U"タツノオトシゴ");
-	set_image_name(U"seahorse");
+	set_name(U"ポセイドン");
+	set_image_name(U"poseidon");
 
 
 	width = 50;
@@ -17,31 +17,31 @@ OptionSeahorse::OptionSeahorse(Battle* battle)
 	shot_cool_time = 90;
 	shot_timer = shot_cool_time;
 }
-OptionSeahorse::OptionSeahorse(Battle* battle, Vec2 p)
+OptionPoseidon::OptionPoseidon(Battle* battle, Vec2 p)
 	: Option(battle, p)
 {
-	set_name(U"タツノオトシゴ");
-	set_image_name(U"seahorse");
+	set_name(U"ポセイドン");
+	set_image_name(U"poseidon");
 	option_pos_timer = Random(0, 600);
 
-	width = 50;
-	height = 120;
+	width = 80;
+	height = 250;
 	shot_cool_time = 90;
 	shot_timer = shot_cool_time;
 }
 
 
-OptionSeahorse::~OptionSeahorse()
+OptionPoseidon::~OptionPoseidon()
 {
 
 }
-void OptionSeahorse::update(int index)
+void OptionPoseidon::update(int index)
 {
 	move(index);
 	attack();
-	
+
 }
-void OptionSeahorse::move(int index)
+void OptionPoseidon::move(int index)
 {
 	option_pos_timer++;
 	if (option_pos_timer > 2 * Math::Pi * 60 * (index + 1))option_pos_timer -= 2 * Math::Pi * 60 * (index + 1);
@@ -66,7 +66,7 @@ void OptionSeahorse::move(int index)
 	speed /= 1.1;
 
 }
-void OptionSeahorse::move_intersect_stage(Stage_object stage)
+void OptionPoseidon::move_intersect_stage(Stage_object stage)
 {
 	if (get_rect().intersects(stage.get_rect()))
 	{
@@ -97,7 +97,7 @@ void OptionSeahorse::move_intersect_stage(Stage_object stage)
 
 
 }
-void  OptionSeahorse::check_limit_stage(myCamera camera)
+void  OptionPoseidon::check_limit_stage(myCamera camera)
 {
 	if (camera.get_limit_stage_min().y > get_pos_top().y)set_pos_top(camera.get_limit_stage_min().y);
 	if (camera.get_limit_stage_max().y < get_pos_bottom().y)set_pos_bottom(camera.get_limit_stage_max().y);
@@ -106,7 +106,7 @@ void  OptionSeahorse::check_limit_stage(myCamera camera)
 }
 
 
-bool OptionSeahorse::ready_shot()
+bool OptionPoseidon::ready_shot()
 {
 	if (shot_timer > 0)shot_timer--;
 
@@ -118,7 +118,7 @@ bool OptionSeahorse::ready_shot()
 	return false;
 }
 
-void OptionSeahorse::attack()
+void OptionPoseidon::attack()
 {
 	//攻撃の更新
 	for (int i = 0; i < optionshots.size(); i++)
@@ -133,13 +133,15 @@ void OptionSeahorse::attack()
 
 	if (ready_shot())
 	{
-		optionshots << std::make_shared<OptionSeahorseShot>(battle,shared_from_this());
+		//optionshots << std::make_shared<OptionSeahorseShot>(battle, this);
 	}
 }
 
 
 
-void OptionSeahorse::draw()
+
+
+void OptionPoseidon::draw()
 {
 	myCamera& camera = battle->get_camera();
 	// 自機の描画
@@ -148,7 +150,7 @@ void OptionSeahorse::draw()
 	//当たり判定の描画
 	battle->get_camera().draw_texture(get_rect(), Palette::Red);
 
-	TextureAsset(image_name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
+	TextureAsset(image_name).scaled(camera.get_scale()*0.5).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
 	font(shot_timer).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
 
 	//攻撃の描画
@@ -158,11 +160,11 @@ void OptionSeahorse::draw()
 
 	}
 }
-void OptionSeahorse::draw_back()
+void OptionPoseidon::draw_back()
 {
 
 }
-void OptionSeahorse::draw_front()
+void OptionPoseidon::draw_front()
 {
 
 }

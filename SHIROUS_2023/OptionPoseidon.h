@@ -1,28 +1,24 @@
 ﻿#pragma once
 #include "Option.h"
-
-
-class Battle;
-
-
-class OptionShirous
-	: public Option
+class OptionPoseidon :
+    public Option, public std::enable_shared_from_this<OptionPoseidon>
 {
 public:
-	OptionShirous(Battle* battle);
-	OptionShirous(Battle* battle, Vec2 pos);
-	~OptionShirous();
+
+	OptionPoseidon(Battle* battle);
+	OptionPoseidon(Battle* battle, Vec2 pos);
+	~OptionPoseidon();
 
 	void update(int index);
 	void move(int index);
 	void move_intersect_stage(Stage_object stage);//現状、Fishクラスと同じ。
 	void check_limit_stage(myCamera camera);//現状、Fishクラスと同じ。
 
+
+
 	bool ready_shot();
 
-
 	void attack();
-
 
 	void draw();
 	void draw_back();

@@ -2,6 +2,7 @@
 #include"Battle.h"
 #include"OptionShirous.h"
 #include"OptionSeahorse.h"
+#include"OptionPoseidon.h"
 #include"OptionShirousShot.h"
 
 
@@ -13,9 +14,12 @@ Player::Player(Battle* battle, Vec2 p):Fish(battle, p)
 {
 	set_name(U"シラス");
 	set_image_name(U"shirous");
-	for (int i : step(2)) {
+	for (int i = 0; i < 1;i++) {
+		options << std::make_shared<OptionShirous>(battle, p);
 		options << std::make_shared<OptionSeahorse>(battle, p);
+
 	}
+
 }
 Player::~Player()
 {
@@ -28,7 +32,8 @@ void Player::update()
 
 	for (int i = 0; i < options.size(); i++)
 	{
-		options[i]->move(get_pos(), i);
+		//options[i]->move(get_pos(), i);
+		options[i]->update(i);
 	}
 
 	options.remove_if([](const std::shared_ptr<Option>& option) {return option->is_dead(); });
@@ -118,7 +123,8 @@ std::shared_ptr<Shot> Player::shot()
 }
 bool Player::ready_opt_shot(int index)
 {
-	if (options[index]->ready_shot() && input.get_myButton_A() > 0) return true;
+
+	//if (options[index]->ready_shot() && input.get_myButton_A() > 0) return true;
 	return false;
 }
 std::shared_ptr<Shot> Player::opt_shot(int index)

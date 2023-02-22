@@ -7,7 +7,7 @@ OptionShot::OptionShot(Battle* battle,Vec2 p)
 
 }
 
-OptionShot::OptionShot(Battle* battle,Fish* master)
+OptionShot::OptionShot(Battle* battle, const std::shared_ptr<class Fish>& master)
 	: Shot(battle, master)
 {
 

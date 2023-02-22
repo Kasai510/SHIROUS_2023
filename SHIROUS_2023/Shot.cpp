@@ -8,7 +8,7 @@ Shot::Shot(Battle* battle,Vec2 p)
 	pos = p;
 }
 
-Shot::Shot(Battle* battle, Fish* master)
+Shot::Shot(Battle* battle, const std::shared_ptr<class Fish>& master)
 {
 	this->battle = battle;
 	this->master = master;

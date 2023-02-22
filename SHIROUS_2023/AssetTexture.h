@@ -12,4 +12,5 @@ void asset_texture()
 	TextureAsset::Register(U"pikaia_shot", Resource(U"data/image/fish/pikaia/pikaia_shot.png"));
 	TextureAsset::Register(U"kurage", Resource(U"data/image/fish/kurage/kurage.png"));
 	TextureAsset::Register(U"seahorse", Resource(U"data/image/fish/seahorse/seahorse.png"));
+	TextureAsset::Register(U"poseidon", Resource(U"data/image/fish/poseidon/poseidon.png"));
 }

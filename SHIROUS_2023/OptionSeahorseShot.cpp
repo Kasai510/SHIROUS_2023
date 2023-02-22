@@ -4,7 +4,7 @@
 #include"EnemyColony.h"
 #include"Enemy.h"
 
-OptionSeahorseShot::OptionSeahorseShot(Battle* battle, Fish* master)
+OptionSeahorseShot::OptionSeahorseShot(Battle* battle, const std::shared_ptr<class Fish>& master)
 	:OptionShot(battle, master)
 {
 
@@ -14,6 +14,7 @@ OptionSeahorseShot::OptionSeahorseShot(Battle* battle, Fish* master)
 
 	shot_timer = 0;
 
+	damage = 3;
 
 }
 
@@ -24,23 +25,35 @@ void OptionSeahorseShot::update()
 
 	if (crash == false)
 	{
-		if (shot_timer <= 0.5)
-		{
 
-			for (int i = 0; i < 6; i++)
+		if (master.lock())
+		{
+			std::shared_ptr shared_ptr_master = master.lock();
+
+
+			if (shot_timer <= 0.5)
 			{
-				poss[i] = master->get_pos_right() + Vec2{ 50,0 } + (60 - 120 * shot_timer) * Vec2 { cos(60_deg * i + 720_deg * shot_timer), sin(60_deg * i + 180_deg * shot_timer) };
+
+				for (int i = 0; i < 6; i++)
+				{
+					poss[i] = shared_ptr_master->get_pos_right() + Vec2{ 50,0 } + (60 - 120 * shot_timer) * Vec2 { cos(60_deg * i + 720_deg * shot_timer), sin(60_deg * i + 180_deg * shot_timer) };
+				}
+			}
+			else
+			{
+				if (set_init_pos == false)
+				{
+					pos = shared_ptr_master->get_pos_right() + Vec2{ 50,0 };
+					set_init_pos = true;
+				}
+				move();
 			}
 		}
 		else
 		{
-			if (set_init_pos == false)
-			{
-				pos = master->get_pos_right() + Vec2{ 50,0 };
-				set_init_pos = true;
-			}
-			move();
+			set_crash();
 		}
+
 
 		//壁との当たり判定
 		if (shot_timer >= 0.6)
@@ -68,9 +81,9 @@ void OptionSeahorseShot::update()
 
 void OptionSeahorseShot::update_attack()
 {
-	//敵との当たり判定
-	if (shot_timer >= 0.6)
+	if (shot_timer >= 0.5)
 	{
+		//敵との当たり判定
 		for (auto& enemycolony : battle->get_enemy_colonys())
 		{
 			for (auto& enemy : enemycolony->get_enemys())
@@ -78,24 +91,13 @@ void OptionSeahorseShot::update_attack()
 
 				if (get_hitcircle().intersects(enemy->get_rect()))
 				{
+					enemy->damage(damage);
 					set_crash();
 				}
-
-
-				/*
-				for (auto& record : records)
-				{
-					if (record.fish != enemy)
-					{
-						if (get_hitcircle().intersects(enemy->get_rect()))
-						{
-							records << Record(enemy, damage_span);
-						}
-					}
-				}*/
 			}
 		}
 	}
+	
 }
 
 
@@ -119,7 +121,7 @@ void OptionSeahorseShot::move()
 {
 	if (shot_timer >= 0.6)
 	{
-		pos.x += 2000 * battle->get_scene_del();
+		pos.x += 2500 * battle->get_scene_del();
 
 	}
 }
