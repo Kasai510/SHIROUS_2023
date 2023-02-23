@@ -76,14 +76,18 @@ void Battle::update()
 	for (auto& e : enemy_shots) {
 		e->update();
 	}
+	for (auto& e : effects) {
+		e->update();
+	}
+
 	//画面外に出た攻撃の消去。壁などに当たった弾も。
 	for (int i = 0; i < player_shots.size(); i++)
 	{
 		//判定。
 	}
-	player_shots.remove_if([](const std::shared_ptr<Shot> p) {return (p->get_over()); });
-	enemy_shots.remove_if([](const std::shared_ptr<Shot> p) {return (p->get_over()); });
-	//Print << enemy_shots.size();
+	player_shots.remove_if([](const std::shared_ptr<Shot>& p) {return (p->get_over()); });
+	enemy_shots.remove_if([](const std::shared_ptr<Shot>& p) {return (p->get_over()); });
+	effects.remove_if([](const std::unique_ptr<myIEffect>& p) {return (p->isdead()); });
 	//攻撃の当たり判定
 	
 	//enemy死
@@ -116,6 +120,9 @@ void Battle::draw()
 		player_shots[i]->draw();
 	}
 	for (auto& e : enemy_shots) {
+		e->draw();
+	}
+	for (auto& e : effects) {
 		e->draw();
 	}
 	

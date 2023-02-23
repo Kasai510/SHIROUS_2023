@@ -2,6 +2,7 @@
 #include "EnemyShotPikaia.h"
 #include"Battle.h"
 #include"Fish.h"
+#include"myIEffectBubble.h"
 
 EnemyShotPikaia::EnemyShotPikaia(Battle* battle, const Vec2 p):EnemyShot(battle,p)
 {
@@ -31,6 +32,8 @@ void EnemyShotPikaia::update()
 	}
 	else{
 		v += Vec2{ cos(angle),sin(angle)} * 1;
+		battle->get_effects() << std::make_unique<myIEffectBubble>(battle, pos + RandomVec2() * Random() * 30, Random() * 10);
+
 	}
 	move();
 	hit_box = hit_box_origin.rotated(angle).movedBy(pos);
