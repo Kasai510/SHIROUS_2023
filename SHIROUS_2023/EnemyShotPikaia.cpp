@@ -60,5 +60,5 @@ void EnemyShotPikaia::draw()
 {
 	myCamera& camera = battle->get_camera();
 	camera.draw_texture(TextureAsset(U"pikaia_shot").resized(image_size_int).rotated(angle - Math::Pi), pos );
-	camera.draw_texture(hit_box, Palette::Yellow);
+	//camera.draw_texture(hit_box, Palette::Yellow);
 }
