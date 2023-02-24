@@ -5,6 +5,7 @@
 #include"StageObject.h"
 #include"EnemyColony.h"
 #include"Enemy.h"
+#include"myIEffectBubble.h"
 
 OptionPoseidonShot::OptionPoseidonShot(Battle* battle, const std::shared_ptr<class Fish>& master)
 	:OptionShot(battle, master)
@@ -150,6 +151,13 @@ void OptionPoseidonShot::move()
 		{
 			hit_r_l += 7000 * battle->get_scene_del();
 		}
+
+
+		if (RandomBool(0.5))
+		{
+			battle->get_effects() << std::make_unique<myIEffectBubble>(battle, hit_r.pos + Vec2{ Random() * hit_r_l, hit_r_h / 2 } + RandomVec2() * Random() * 50, Random() * 20, HSV(Random(0, 150), 1, 1,0.5));
+		}
+
 	}
 	else
 	{

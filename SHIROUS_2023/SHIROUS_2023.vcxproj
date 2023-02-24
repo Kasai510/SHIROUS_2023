@@ -127,6 +127,7 @@
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="myCamera.cpp" />
     <ClCompile Include="myIEffectBubble.cpp" />
+    <ClCompile Include="myIEffectClash.cpp" />
     <ClCompile Include="myInput.cpp" />
     <ClCompile Include="myScene.cpp" />
     <ClCompile Include="Option.cpp" />
@@ -355,6 +356,7 @@
     <ClInclude Include="myCamera.h" />
     <ClInclude Include="myIEffect.h" />
     <ClInclude Include="myIEffectBubble.h" />
+    <ClInclude Include="myIEffectClash.h" />
     <ClInclude Include="myInput.h" />
     <ClInclude Include="myScene.h" />
     <ClInclude Include="Option.h" />

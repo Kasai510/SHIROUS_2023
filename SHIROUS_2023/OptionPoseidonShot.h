@@ -13,8 +13,11 @@ protected:
 
 	std::weak_ptr<Fish> target;
 
+	//当たり判定
 	Circle hit_c;
 	RectF hit_r;
+
+
 	double max_hit_c_r{0};//hit_cの最大半径
 	double hit_c_r{ 0 };//hit_cの半径
 

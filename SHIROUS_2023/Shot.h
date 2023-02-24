@@ -11,6 +11,21 @@ struct Record
 	double damage_span;
 };
 
+
+class Hit_Box
+{
+private:
+	Polygon hit_box_origin;
+	Polygon hit_box;
+
+public:
+	Hit_Box(Polygon hit_box_origin)
+		: hit_box_origin{ hit_box_origin }
+	{};
+
+	void update(Vec2 pos,double angle = 0){ hit_box = hit_box_origin.rotated(angle).movedBy(pos); }
+};
+
 class Shot
 {
 protected:
@@ -26,8 +41,8 @@ protected:
 	Battle* battle;
 	std::weak_ptr<Fish> master;//発射した人
 
-	Polygon hit_box;
-	Polygon hit_box_origin;
+	Array<Hit_Box> hit_boies;//当たり判定
+
 
 	Array<Record> records;//x:Fishのポインタ y:damage_span
 
@@ -45,6 +60,7 @@ public:
 
 	virtual void draw();
 
+	virtual void add_hit_box(){}
 
 	Vec2 get_pos() { return pos; }
 	Polygon get_hitbox();
