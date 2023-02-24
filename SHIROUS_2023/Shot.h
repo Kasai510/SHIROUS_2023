@@ -52,6 +52,15 @@ public:
 	virtual void add_hit_box(){}
 
 	void update_hit_box(int num,const Vec2& pos,double angle=0.0);
+	bool hit_boxs_intersects(auto& rect) {
+		bool is_inse = false;
+		for (auto& h : hit_boxs) {
+			if (h.intersects(rect)) {
+				is_inse = true;
+			}
+		}
+		return true;
+	}
 
 	Vec2 get_pos() { return pos; }
 	const Array<Polygon>& get_hitboxs() {

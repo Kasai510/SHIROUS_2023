@@ -36,7 +36,9 @@ void EnemyShotPikaia::update()
 
 	}
 	move();
-	hit_box = hit_box_origin.rotated(angle).movedBy(pos);
+	for (int i : step(hit_boxs.size())) {
+		update_hit_box(i, pos,angle);
+	}
 
 	
 	if (battle->get_player().get_rect().intersects(hit_box)) {
