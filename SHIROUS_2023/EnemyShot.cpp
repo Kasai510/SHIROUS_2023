@@ -14,9 +14,7 @@ EnemyShot::EnemyShot(Battle* battle,const  Vec2& p,  const std::shared_ptr<class
 void EnemyShot::update()
 {
 	move();
-	for (int i : step(hit_boxs.size())) {
-		update_hit_box(i, pos);
-	}
+	hit_boxs = hit_box_origins.movedBy(pos);
 	time++;
 }
 

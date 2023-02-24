@@ -41,16 +41,16 @@ void EnemyShotPikaia::update()
 	}
 
 	
-	if (battle->get_player().get_rect().intersects(hit_box)) {
+	if (battle->get_player().get_rect().intersects(hit_boxs)) {
 		battle->get_player().damage(30);
 		over = true;
 	}
-	if (not battle->get_camera().in_camera(hit_box)) {
+	if (not battle->get_camera().in_camera(hit_boxs)) {
 		over = true;
 	}
 	for (auto& stage_object : battle->get_stages())
 	{
-		if (hit_box.intersects(stage_object.get_rect()))
+		if (hit_boxs.intersects(stage_object.get_rect()))
 		{
 			over = true;
 		}

@@ -20,9 +20,7 @@ Shot::Shot(Battle* battle, const std::shared_ptr<class Fish>& master)
 void Shot::update()
 {
 	move();
-	for (int i : step(hit_boxs.size())) {
-		update_hit_box(i, pos);
-	}
+	hit_boxs = hit_box_origins.movedBy(pos);
 }
 void Shot::move()
 {
