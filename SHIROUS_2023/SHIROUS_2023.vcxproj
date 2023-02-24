@@ -131,6 +131,7 @@
     <ClCompile Include="Option.cpp" />
     <ClCompile Include="OptionPoseidon.cpp" />
     <ClCompile Include="OptionPoseidonShot.cpp" />
+    <ClCompile Include="OptionPoseidonShot2.cpp" />
     <ClCompile Include="OptionSeahorse.cpp" />
     <ClCompile Include="OptionSeahorseShot.cpp" />
     <ClCompile Include="OptionShirous.cpp" />
@@ -356,6 +357,7 @@
     <ClInclude Include="Option.h" />
     <ClInclude Include="OptionPoseidon.h" />
     <ClInclude Include="OptionPoseidonShot.h" />
+    <ClInclude Include="OptionPoseidonShot2.h" />
     <ClInclude Include="OptionSeahorse.h" />
     <ClInclude Include="OptionSeahorseShot.h" />
     <ClInclude Include="OptionShirous.h" />

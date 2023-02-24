@@ -1,7 +1,10 @@
 ﻿#pragma once
+
+
 #include "Option.h"
+
 class OptionPoseidon :
-    public Option, public std::enable_shared_from_this<OptionPoseidon>
+    public Option
 {
 public:
 
