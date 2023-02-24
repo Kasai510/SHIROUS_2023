@@ -7,6 +7,7 @@ Battle::Battle()
 {
 	stages << Stage_object({ 800,600 }, 200, 200);
 	stages << Stage_object({ 1400,600 }, 200, 200);
+	stages << Stage_object({ -100,900 , 19200+200, 200 });
 	enemy_colonys << std::make_shared<EnemyColonyPikaia>(this);
 	enemy_colonys << std::make_shared<EnemyColonyKurage>(this);
 }
@@ -76,14 +77,18 @@ void Battle::update()
 	for (auto& e : enemy_shots) {
 		e->update();
 	}
+	for (auto& e : effects) {
+		e->update();
+	}
+
 	//画面外に出た攻撃の消去。壁などに当たった弾も。
 	for (int i = 0; i < player_shots.size(); i++)
 	{
 		//判定。
 	}
-	player_shots.remove_if([](const std::shared_ptr<Shot> p) {return (p->get_over()); });
-	enemy_shots.remove_if([](const std::shared_ptr<Shot> p) {return (p->get_over()); });
-	//Print << enemy_shots.size();
+	player_shots.remove_if([](const std::shared_ptr<Shot>& p) {return (p->get_over()); });
+	enemy_shots.remove_if([](const std::shared_ptr<Shot>& p) {return (p->get_over()); });
+	effects.remove_if([](const std::unique_ptr<myIEffect>& p) {return (p->isdead()); });
 	//攻撃の当たり判定
 	
 	//enemy死
@@ -92,11 +97,37 @@ void Battle::update()
 	}
 	//camera.scroll(Vec2(2,0));//強制横スクロール
 	camera.set(player.get_pos());
+
+
+	//camera control
+	if (KeyC.pressed()) {
+		double mw = Mouse::Wheel();
+		if (mw > 0) {
+			camera.set_scale(camera.get_scale() * 0.9);
+		}
+		else if (mw < 0) {
+			camera.set_scale(camera.get_scale() * 1.1);
+		}
+
+		if (Key1.pressed()) {
+			camera.set_scale(1);
+		}
+		if (Key9.pressed()) {
+			camera.set_scale(0.9);
+		}
+
+		//if (MouseM.down()) {
+		//	down_p = camera.windowpos_in_camera(Cursor::Pos());
+		//}
+		//if (MouseM.pressed()) {
+		//	Vec2 add = camera.windowpos_in_camera(Cursor::Pos()) - down_p;
+		//	camera.set_center(camera.get_center() + add);
+		//}
+	}
 }
 
 void Battle::draw()
 {
-	//font30(camera.windowpos_in_camera(Cursor::Pos()).asPoint()).draw(Cursor::Pos());
 	for (int i = 0; i < stages.size(); i++)
 	{
 		stages[i].draw(camera);
@@ -118,6 +149,9 @@ void Battle::draw()
 	for (auto& e : enemy_shots) {
 		e->draw();
 	}
+	for (auto& e : effects) {
+		e->draw();
+	}
 	
 	camera.draw_stage_area();
 
@@ -127,6 +161,7 @@ void Battle::draw()
 void Battle::debug_draw()
 {
 	//Print << player_shots.size();
+	font30(camera.windowpos_in_camera(Cursor::Pos()).asPoint()).draw(Cursor::Pos());
 }
 
 bool Battle::change_scene_check()

@@ -46,7 +46,7 @@ void myCamera::set(Vec2 v)
 	max.y = Min(max.y, limit_camera_max.y);
 
 	//scaleの更新
-	if (true)
+	if (false)
 	{
 		double r = Min((max.x - min.x) / std_width, (max.y - min.y) / std_height);
 		r = Max(r, 1 / max_scale);

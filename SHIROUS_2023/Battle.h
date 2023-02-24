@@ -5,6 +5,7 @@
 #include"EnemyColony.h"
 #include"StageObject.h"
 #include"OptionShirousShot.h"
+#include"myIEffect.h"
 
 
 
@@ -30,6 +31,9 @@ private:
 	Array<Stage_object> stages;
 	Font font30{ 30 };
 
+	Array<std::unique_ptr<myIEffect>> effects;
+
+	Vec2 camera_control_down_p;
 
 public:
 	Battle();
@@ -47,5 +51,6 @@ public:
 	Array<std::shared_ptr<Shot>>& get_ememy_shots() { return enemy_shots; }
 	Array<std::shared_ptr<EnemyColony>>& get_enemy_colonys() { return enemy_colonys; }
 	Array<Stage_object>& get_stages() { return stages; }
+	Array<std::unique_ptr<myIEffect>>& get_effects() { return effects; }
 	
 };

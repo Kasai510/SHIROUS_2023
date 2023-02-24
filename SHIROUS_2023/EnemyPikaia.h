@@ -10,7 +10,6 @@ public:
 	void move();
 	void draw();
 private:
-	Stopwatch time;
 	Array<TextureRegion> anime;
 	Array<int32> delays;
 };

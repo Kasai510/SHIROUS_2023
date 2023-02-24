@@ -21,7 +21,7 @@ private:
 
 	Array<RectF> ground_rect;//stageの地面の情報。画面の縦揺れの軽減に使う。
 
-	Mat3x2 mat;
+	Mat3x2 mat;//for draw_texture
 
 	inline void calc_mat();
 
@@ -39,7 +39,7 @@ public:
 	Vec2 get_limit_stage_min() { return limit_stage_min; }
 	Vec2 get_limit_stage_max() { return limit_stage_max; }
 	RectF get_limit_stage() { return RectF(Arg::center((limit_stage_min + limit_stage_max) / 2), limit_stage_max - limit_stage_min); }
-	
+	const Mat3x2& get_mat() { return mat; };
 	void draw_stage_area();
 
 	void draw_texture(const auto& tex, const Vec2& p) {

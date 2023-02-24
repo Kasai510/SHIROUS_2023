@@ -131,21 +131,24 @@ void OptionSeahorseShot::move()
 
 void OptionSeahorseShot::draw()
 {
+	myCamera& camera = battle->get_camera();
 	if (crash == false)
 	{
 		if (shot_timer <= 0.6)
 		{
 			for (auto& c_pos : poss)
 			{
-
-				Circle(Scene::CenterF() + (c_pos - battle->get_camera().get_center()) * battle->get_camera().get_scale(), 20).draw(Palette::White);
-				Circle(Scene::CenterF() + (c_pos - battle->get_camera().get_center()) * battle->get_camera().get_scale(), 15).draw(Palette::Yellow);
+				
+				camera.draw_texture(Circle{ c_pos,20 }, Palette::White);
+				camera.draw_texture(Circle{ c_pos,15 }, Palette::Yellow);
+				//Circle(Scene::CenterF() + (c_pos - battle->get_camera().get_center()) * battle->get_camera().get_scale(), 20).draw(Palette::White);
+				//Circle(Scene::CenterF() + (c_pos - battle->get_camera().get_center()) * battle->get_camera().get_scale(), 15).draw(Palette::Yellow);
 			}
 
 		}
 		else {
-
-			get_hitbox().movedBy(-battle->get_camera().get_center()).movedBy(Scene::CenterF()).draw(Palette::Yellow);
+			camera.draw_texture(get_hitbox(), Palette::Yellow);
+			//get_hitbox().movedBy(-battle->get_camera().get_center()).movedBy(Scene::CenterF()).draw(Palette::Yellow);
 
 		}
 	}
@@ -160,6 +163,8 @@ void OptionSeahorseShot::draw_crash()
 {
 	// イージング
 	double e = EaseOutExpo(shot_timer);
-
-	Circle(Scene::CenterF() + (pos - battle->get_camera().get_center()) * battle->get_camera().get_scale(), (e * 100)).drawFrame((30.0 * (1.0 - e)), HSV(60, 1, 1, 0.7));
+	myCamera& camera = battle->get_camera();
+	Transformer2D tf{ camera.get_mat() };
+	Circle{ pos,e * 100 }.drawFrame((30.0 * (1.0 - e)), HSV(60, 1, 1, 0.7));
+	//Circle(Scene::CenterF() + (pos - battle->get_camera().get_center()) * battle->get_camera().get_scale(), (e * 100)).drawFrame((30.0 * (1.0 - e)), HSV(60, 1, 1, 0.7));
 }

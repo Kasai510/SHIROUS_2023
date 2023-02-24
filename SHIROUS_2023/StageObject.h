@@ -12,7 +12,7 @@ protected:
 
 public:
 	Stage_object(Vec2 p, double w, double h);
-
+	Stage_object(const Rect& rect);
 	void update();
 
 	void draw(myCamera camera);

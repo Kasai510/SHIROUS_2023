@@ -115,8 +115,9 @@ void OptionShirousShot::draw()
 	if (crash == false)
 	{
 
-		get_hitbox().movedBy(-battle->get_camera().get_center()).movedBy(Scene::CenterF()).draw(Palette::Red);
-
+		//get_hitbox().movedBy(-battle->get_camera().get_center()).movedBy(Scene::CenterF()).draw(Palette::Red);
+		myCamera& camera=battle->get_camera();
+		camera.draw_texture(get_hitbox(), Palette::Red);
 		
 	}
 	else
@@ -131,6 +132,9 @@ void OptionShirousShot::draw_crash()
 	// イージング
 	double e = EaseOutExpo(shot_timer);
 
-	Circle(Scene::CenterF() + (pos - battle->get_camera().get_center()) * battle->get_camera().get_scale(), (e * 100)).drawFrame((30.0 * (1.0 - e)), HSV(1, 1, 1, 0.7));
+	//Circle(Scene::CenterF() + (pos - battle->get_camera().get_center()) * battle->get_camera().get_scale(), (e * 100)).drawFrame((30.0 * (1.0 - e)), HSV(1, 1, 1, 0.7));
+	myCamera& camera = battle->get_camera();
+	Transformer2D tf{ camera.get_mat() };
+	Circle{ pos,e * 100 }.drawFrame((30.0 * (1.0 - e)), HSV(1, 1, 1, 0.7));
 }
 

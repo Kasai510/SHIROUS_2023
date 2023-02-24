@@ -28,7 +28,7 @@
     <ClCompile Include="Shot.cpp" />
     <ClCompile Include="StageObject.cpp" />
     <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="OptionPoseidonShot2.cpp" />
+    <ClCompile Include="myIEffectBubble.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetTexture.h" />
@@ -58,7 +58,8 @@
     <ClInclude Include="Shot.h" />
     <ClInclude Include="StageObject.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="OptionPoseidonShot2.h" />
+    <ClInclude Include="myIEffect.h" />
+    <ClInclude Include="myIEffectBubble.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="App\Resource.rc" />
