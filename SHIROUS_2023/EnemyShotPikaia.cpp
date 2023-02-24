@@ -10,7 +10,7 @@ EnemyShotPikaia::EnemyShotPikaia(Battle* battle, const Vec2 p):EnemyShot(battle,
 	angle = calc_angle();
 	mode_stop = true;
 	v = { 0, 0 };
-	hit_box_origin = Ellipse{ 0,0,100,20 }.asPolygon();
+	hit_box_origins << Ellipse{ 0,0,100,20 }.asPolygon();
 }
 
 double EnemyShotPikaia::calc_angle()
