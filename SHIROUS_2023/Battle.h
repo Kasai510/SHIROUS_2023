@@ -33,6 +33,8 @@ private:
 
 	Array<std::unique_ptr<myIEffect>> effects;
 
+	Vec2 camera_control_down_p;
+
 public:
 	Battle();
 	void update();
