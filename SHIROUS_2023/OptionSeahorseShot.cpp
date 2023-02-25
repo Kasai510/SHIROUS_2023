@@ -17,7 +17,7 @@ OptionSeahorseShot::OptionSeahorseShot(Battle* battle, const std::shared_ptr<cla
 
 	damage = 3;
 
-	hit_box_origin = Circle(0, 0, 30).asPolygon();
+	hit_box_origins << Circle(0, 0, 30).asPolygon();
 
 }
 
@@ -58,7 +58,7 @@ void OptionSeahorseShot::update()
 	{
 		for (auto& stage_object : battle->get_stages())
 		{
-			if (get_hitbox().intersects(stage_object.get_rect()))
+			if (get_hitboxs().intersects(stage_object.get_rect()))
 			{
 				crash = true;
 				shot_timer = 0;
@@ -83,7 +83,7 @@ void OptionSeahorseShot::update_attack()
 			for (auto& enemy : enemycolony->get_enemys())
 			{
 
-				if (get_hitbox().intersects(enemy->get_rect()))
+				if (get_hitboxs().intersects(enemy->get_rect()))
 				{
 					enemy->damage(damage);
 					set_crash();
@@ -107,7 +107,7 @@ void OptionSeahorseShot::move()
 	if (shot_timer >= 0.6)
 	{
 		pos.x += 2500 * battle->get_scene_del();
-		hit_box = hit_box_origin.movedBy(pos);
+		hit_boxs = hit_box_origins.movedBy(pos);
 
 	}
 }
@@ -127,7 +127,7 @@ void OptionSeahorseShot::draw()
 
 	}
 	else {
-		camera.draw_texture(get_hitbox(), Palette::Yellow);
+		camera.draw_texture(get_hitboxs(), Palette::Yellow);
 		
 
 	}

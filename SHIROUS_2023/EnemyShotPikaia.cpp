@@ -36,9 +36,7 @@ void EnemyShotPikaia::update()
 
 	}
 	move();
-	for (int i : step(hit_boxs.size())) {
-		update_hit_box(i, pos,angle);
-	}
+	hit_boxs = hit_box_origins.rotated(angle).movedBy(pos);
 
 	
 	if (battle->get_player().get_rect().intersects(hit_boxs)) {
@@ -62,5 +60,5 @@ void EnemyShotPikaia::draw()
 {
 	myCamera& camera = battle->get_camera();
 	camera.draw_texture(TextureAsset(U"pikaia_shot").resized(image_size_int).rotated(angle - Math::Pi), pos );
-	//camera.draw_texture(hit_box, Palette::Yellow);
+	camera.draw_texture(hit_boxs, Palette::Yellow);
 }

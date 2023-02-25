@@ -18,8 +18,7 @@ OptionShirousShot::OptionShirousShot(Battle* battle,const std::shared_ptr<class 
 
 	damage = 1;
 
-	hit_boies << Hit_Box()
-	hit_box_origin = Circle(0, 0, 30).asPolygon();
+	hit_box_origins << Circle(0, 0, 30).asPolygon();
 
 }
 
@@ -32,7 +31,7 @@ void OptionShirousShot::update()
 	//壁との当たり判定
 	for (auto& stage_object : battle->get_stages())
 	{
-		if (get_hitbox().intersects(stage_object.get_rect()))
+		if (get_hitboxs().intersects(stage_object.get_rect()))
 		{
 			set_crash();
 		}
@@ -55,7 +54,7 @@ void OptionShirousShot::update_attack()
 		for (auto& enemy : enemycolony->get_enemys())
 		{
 				
-			if (get_hitbox().intersects(enemy->get_rect()))
+			if (get_hitboxs().intersects(enemy->get_rect()))
 			{
 				enemy->damage(damage);
 				set_crash();
@@ -80,14 +79,14 @@ void OptionShirousShot::move()
 {
 	pos.x += 1500*battle->get_scene_del();
 	
-	hit_box = hit_box_origin.movedBy(pos);
+	hit_boxs = hit_box_origins.movedBy(pos);
 }
 
 void OptionShirousShot::draw()
 {
 	//get_hitbox().movedBy(-battle->get_camera().get_center()).movedBy(Scene::CenterF()).draw(Palette::Red);
 	myCamera& camera = battle->get_camera();
-	camera.draw_texture(get_hitbox(), Palette::Red);
+	camera.draw_texture(get_hitboxs(), Palette::Red);
 	
 }
 

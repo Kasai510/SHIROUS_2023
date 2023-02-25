@@ -36,8 +36,9 @@ void Shot::update_hit_box(int num, const Vec2& pos, double angle)
 
 void Shot::draw()
 {
-	for (auto& h : hit_boxs) {
-		battle->get_camera().draw_texture(h, Palette::Red);
-	}
+	
+	battle->get_camera().draw_texture(hit_boxs, Palette::Red);
+	
+
 }
 
