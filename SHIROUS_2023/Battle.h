@@ -6,6 +6,7 @@
 #include"StageObject.h"
 #include"OptionShirousShot.h"
 #include"myIEffect.h"
+#include"Background.h"
 
 
 
@@ -34,6 +35,7 @@ private:
 	Array<std::unique_ptr<myIEffect>> effects;
 
 	Vec2 camera_control_down_p;
+	Background background{this};
 
 public:
 	Battle();
@@ -52,5 +54,5 @@ public:
 	Array<std::shared_ptr<EnemyColony>>& get_enemy_colonys() { return enemy_colonys; }
 	Array<Stage_object>& get_stages() { return stages; }
 	Array<std::unique_ptr<myIEffect>>& get_effects() { return effects; }
-	
+
 };

@@ -16,4 +16,7 @@ void asset_texture()
 	TextureAsset::Register(U"poseidon", Resource(U"data/image/fish/poseidon/poseidon.png"));
 	TextureAsset::Register(U"poseidonshot0", U"data/image/fish/poseidon/poseidonshot0.png");
 	TextureAsset::Register(U"poseidonshot1", U"data/image/fish/poseidon/poseidonshot1.png");
+
+	TextureAsset::Register(U"rock_1", U"data/image/object/rock/rock_1.png");
+	TextureAsset::Register(U"kaimen_1", U"data/image/object/living/kaimen_1.png");
 }

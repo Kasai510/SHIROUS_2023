@@ -128,6 +128,9 @@ void Battle::update()
 
 void Battle::draw()
 {
+	//背景
+	background.draw();
+
 	for (int i = 0; i < stages.size(); i++)
 	{
 		stages[i].draw(camera);

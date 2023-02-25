@@ -113,6 +113,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Background.cpp" />
     <ClCompile Include="Battle.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyColony.cpp" />
@@ -342,6 +343,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetTexture.h" />
+    <ClInclude Include="Background.h" />
     <ClInclude Include="Battle.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyColony.h" />
