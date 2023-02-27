@@ -5,23 +5,29 @@
 Background::Background(Battle* battle)
 {
 	this->battle = battle;
-	Array<Vec2> arrayv;
-	for (int i : step(-2,40)) {
-		arrayv << Vec2{ i * 500+Random(-100,100,rng1),Random(750,800,rng1)};
-	}
-	arrayv= Spline2D{ arrayv }.asLineString(8);
-	arrayv << Vec2{ 40 * 500, 1000 } << Vec2{-2 * 500, 1000};
-	ground1 = Polygon(arrayv);
+
+	//make_ground1();
+	//make_ground2();
+	//write_file_ground();
+	read_file_ground();
+	
+	
 }
 
 void Background::draw()
 {
 	myCamera& camera = battle->get_camera();
-
 	{
-		Mat3x2 mat = Mat3x2::Translate(-camera.get_center() * 1).scaled(camera.get_scale(), { 0,0 }).translated(Scene::Center());
+		Mat3x2 mat = Mat3x2::Translate((Scene::Center() - camera.get_center()) * 0.2).scaled(camera.get_scale(), Scene::Center());
 		Transformer2D tf{ mat };
-		ground1.draw(Color(175, 120, 72));
+		ground2.draw(Color(165, 110, 72));
+		TextureAsset(U"rock_1").resized(300).drawAt(0, 800);
+		//TextureAsset(U"rock_1").resized(300).drawAt(1000, 800);
+	}
+	{
+		Mat3x2 mat = Mat3x2::Translate(Scene::Center() - camera.get_center()).scaled(camera.get_scale(), Scene::Center());
+		Transformer2D tf{ mat };
+		ground1.draw(Color(185, 130, 82));
 
 		TextureAsset(U"rock_1").resized(300).drawAt(0, 800);
 		TextureAsset(U"kaimen_1").resized(400).drawAt(200, 760);
@@ -29,13 +35,7 @@ void Background::draw()
 		TextureAsset(U"kaimen_1").resized(300).drawAt(1200,750);
 		
 	}
-	{
-		Mat3x2 mat = Mat3x2::Translate(-camera.get_center() * 0.9).scaled(camera.get_scale(), { 0,0 }).translated(Scene::Center());
-		Transformer2D tf{ mat };
-
-		//TextureAsset(U"rock_1").resized(300).drawAt(0, 800);
-		//TextureAsset(U"rock_1").resized(300).drawAt(1000, 800);
-	}
+	
 	
 	sea_gradation.draw();
 
@@ -59,4 +59,53 @@ Image Background::make_sea_gradation()
 		image[p] = Color(0, 100, d, d);
 	}
 	return image;
+}
+
+void Background::make_ground1()
+{
+	
+	Array<Vec2> arrayv;
+	for (int i : step(-2, 50)) {
+		arrayv << Vec2{ i * 500 + Random(-100,100,rng1),Random(750,800,rng1) };
+	}
+	arrayv = Spline2D{ arrayv }.asLineString(4);
+	arrayv << Vec2{ 50 * 500, 1000 } << Vec2{ -2 * 500, 1000 };
+	ground1 = Polygon(arrayv);
+}
+
+void Background::make_ground2()
+{
+	
+	Array<Vec2> arrayv2;
+	for (int i : step(-2, 50)) {
+		arrayv2 << Vec2{ i * 100 + Random(-30,30,rng1),Random(670,700,rng1) };
+	}
+	arrayv2 = Spline2D{ arrayv2 }.asLineString(4);
+	arrayv2 << Vec2{ 50 * 100, 1000 } << Vec2{ -2 * 100, 1000 };
+	ground2 = Polygon(arrayv2);
+
+}
+
+
+void Background::write_file_ground()
+{
+	// 書き込み用のバイナリファイルをオープン
+	Serializer<BinaryWriter> writer{ U"data/binary/background/ground_cumbria.bin" };
+	if (not writer) // もしオープンに失敗したら
+	{
+		throw Error{ U"Failed to open `data/binary/background/ground_cumbria.bin`" };
+	}
+	writer(ground1, ground2);
+}
+
+void Background::read_file_ground()
+{
+	Deserializer<BinaryReader> reader{ U"data/binary/background/ground_cumbria.bin" };
+
+	if (not reader) // もしオープンに失敗したら
+	{
+		throw Error{ U"Failed to open `data/binary/background/ground_cumbria.bin`" };
+	}
+
+	reader(ground1, ground2);
 }

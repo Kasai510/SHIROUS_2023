@@ -8,9 +8,11 @@ public:
 
 	void update();
 	void move();
+	void draw();
 private:
 	int jump_wait_time = 0;
 	int first_level;
 	bool isGoRight = true;
+	MultiPolygon hit_boxs;
 };
 

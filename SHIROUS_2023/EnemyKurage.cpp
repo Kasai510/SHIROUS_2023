@@ -1,5 +1,6 @@
 ﻿#include "stdafx.h"
 #include "EnemyKurage.h"
+#include "Battle.h"
 
 EnemyKurage::EnemyKurage(Battle* battle, Vec2 p):Enemy(battle,p)
 {
@@ -40,4 +41,13 @@ void EnemyKurage::move()
 	speed *= 0.9;
 	prev_pos = pos;
 	pos += speed;
+}
+
+void EnemyKurage::draw()
+{
+	
+	myCamera& camera = battle->get_camera();
+	//camera.draw_texture(get_rect(), Palette::Orange);
+	camera.draw_texture(TextureAsset(image_name).resized(image_size_int), pos);
+	
 }
