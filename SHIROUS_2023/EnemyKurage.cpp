@@ -1,6 +1,7 @@
 ﻿#include "stdafx.h"
 #include "EnemyKurage.h"
 #include "Battle.h"
+#include"myIEffectBubble.h"
 
 EnemyKurage::EnemyKurage(Battle* battle, Vec2 p):Enemy(battle,p)
 {
@@ -32,6 +33,10 @@ void EnemyKurage::move()
 		}
 		else {
 			speed.x += -4;
+		}
+		for (int i : step(10)) {
+			battle->get_effects() << std::make_unique<myIEffectBubble>(battle, RandomVec2(get_rect()), Random() * 5);
+
 		}
 		isGoRight = not isGoRight;
 	}

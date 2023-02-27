@@ -5,6 +5,7 @@ class myIEffectBubble :
 {
 public:
 	myIEffectBubble(class Battle* battle,const Vec2& p,const double r,Color c = Palette::White);
+	myIEffectBubble(class Battle* battle, const Vec2& p, const Vec2& v, const double r, Color c = Palette::White);
 	void update();
 	void draw();
 private:

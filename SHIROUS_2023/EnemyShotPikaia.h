@@ -12,6 +12,7 @@ public:
 private:
 	double angle;
 	bool mode_stop;
+	bool draw_edge;
 	double image_size_int;
 	int time=0;
 };
