@@ -130,6 +130,7 @@ Resource(data/image/fish/pikaia/pikaia_shot.png)
 Resource(data/image/fish/kurage/kurage.png)
 Resource(data/image/object/rock/rock_1.png)
 Resource(data/image/object/living/kaimen_1.png)
+Resource(data/binary/background/ground_cumbria.bin)
 
 
 

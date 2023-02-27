@@ -77,11 +77,11 @@ void Background::make_ground2()
 {
 	
 	Array<Vec2> arrayv2;
-	for (int i : step(-2, 50)) {
+	for (int i : step(-2, 60)) {
 		arrayv2 << Vec2{ i * 100 + Random(-30,30,rng1),Random(670,700,rng1) };
 	}
 	arrayv2 = Spline2D{ arrayv2 }.asLineString(4);
-	arrayv2 << Vec2{ 50 * 100, 1000 } << Vec2{ -2 * 100, 1000 };
+	arrayv2 << Vec2{ 60 * 100, 1000 } << Vec2{ -2 * 100, 1000 };
 	ground2 = Polygon(arrayv2);
 
 }
