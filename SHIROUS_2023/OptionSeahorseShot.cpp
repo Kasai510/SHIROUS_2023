@@ -1,7 +1,6 @@
 ﻿#include"OptionSeahorseShot.h"
 #include"Battle.h"
 #include"StageObject.h"
-#include"EnemyColony.h"
 #include"myIEffectClash.h"
 #include"Enemy.h"
 
@@ -78,18 +77,17 @@ void OptionSeahorseShot::update_attack()
 	if (shot_timer >= 0.5)
 	{
 		//敵との当たり判定
-		for (auto& enemycolony : battle->get_enemy_colonys())
+		
+		for (auto& enemy : battle->get_enemies())
 		{
-			for (auto& enemy : enemycolony->get_enemys())
-			{
 
-				if (get_hitboxs().intersects(enemy->get_rect()))
-				{
-					enemy->damage(damage);
-					set_crash();
-				}
+			if (get_hitboxs().intersects(enemy->get_rect()))
+			{
+				enemy->damage(damage);
+				set_crash();
 			}
 		}
+		
 	}
 	
 }

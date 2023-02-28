@@ -3,7 +3,6 @@
 #include "OptionShirousShot.h"
 #include"Battle.h"
 #include"StageObject.h"
-#include"EnemyColony.h"
 #include"Enemy.h"
 
 OptionPoseidonShot2::OptionPoseidonShot2(Battle* battle, const std::shared_ptr<class Fish>& master)
@@ -90,43 +89,42 @@ void OptionPoseidonShot2::update_attack()
 
 
 	//敵との当たり判定
-	for (auto& enemycolony : battle->get_enemy_colonys())
+	
+	for (auto& enemy : battle->get_enemies())
 	{
-		for (auto& enemy : enemycolony->get_enemys())
+		bool hit = false;//攻撃があたっているか
+		if (hit_r.intersects(enemy->get_rect()) || hit_c.intersects(enemy->get_rect()))
 		{
-			bool hit = false;//攻撃があたっているか
-			if (hit_r.intersects(enemy->get_rect()) || hit_c.intersects(enemy->get_rect()))
-			{
-				hit = true;
-			}
+			hit = true;
+		}
 
-			//あたっているなら
-			if (hit)
+		//あたっているなら
+		if (hit)
+		{
+			bool be_record = false;//すでにrecordの中に入っているか
+			for (auto& record : records)
 			{
-				bool be_record = false;//すでにrecordの中に入っているか
-				for (auto& record : records)
+				if (auto s_record_fish = record.fish.lock())
 				{
-					if (auto s_record_fish = record.fish.lock())
+					if (s_record_fish == enemy)
 					{
-						if (s_record_fish == enemy)
-						{
-							be_record = true;
-							break;
-						}
+						be_record = true;
+						break;
 					}
 				}
-
-				if (be_record == false)
-				{
-
-					enemy->damage(damage - 8);
-					enemy->set_speed(enemy->get_speed() + Vec2{ 100,0 });
-					records << Record(enemy, damage_span);
-				}
-
 			}
+
+			if (be_record == false)
+			{
+
+				enemy->damage(damage - 8);
+				enemy->set_speed(enemy->get_speed() + Vec2{ 100,0 });
+				records << Record(enemy, damage_span);
+			}
+
 		}
 	}
+	
 
 }
 

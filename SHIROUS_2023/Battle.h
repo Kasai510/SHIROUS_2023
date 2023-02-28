@@ -2,7 +2,6 @@
 #include"myCamera.h"
 # include"Player.h"
 #include"Enemy.h"
-#include"EnemyColony.h"
 #include"StageObject.h"
 #include"OptionShirousShot.h"
 #include"myIEffect.h"
@@ -26,8 +25,8 @@ private:
 	Array<std::shared_ptr<Shot>> player_shots;
 	Array<std::shared_ptr<Shot>> enemy_shots;
 
-	//各種敵集団のコロニーの配列
-	Array<std::shared_ptr<EnemyColony>> enemy_colonys;
+	//敵配列
+	Array<std::shared_ptr<Enemy>> enemies;
 
 	Array<Stage_object> stages;
 	Font font30{ 30 };
@@ -46,12 +45,14 @@ public:
 	bool change_scene_check();
 	int change_scene();
 
+	void initialize_enemies();
+
 	double get_scene_del() { return scene_del; }
 	myCamera& get_camera() { return camera; }
 	Player& get_player() { return player; }
 	Array<std::shared_ptr<Shot>>& get_player_shots() { return player_shots; }
 	Array<std::shared_ptr<Shot>>& get_ememy_shots() { return enemy_shots; }
-	Array<std::shared_ptr<EnemyColony>>& get_enemy_colonys() { return enemy_colonys; }
+	Array<std::shared_ptr<Enemy>>& get_enemies() { return enemies; }
 	Array<Stage_object>& get_stages() { return stages; }
 	Array<std::unique_ptr<myIEffect>>& get_effects() { return effects; }
 

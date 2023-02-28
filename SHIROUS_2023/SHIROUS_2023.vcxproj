@@ -116,9 +116,6 @@
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="Battle.cpp" />
     <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="EnemyColony.cpp" />
-    <ClCompile Include="EnemyColonyKurage.cpp" />
-    <ClCompile Include="EnemyColonyPikaia.cpp" />
     <ClCompile Include="EnemyHallucigenia.cpp" />
     <ClCompile Include="EnemyKurage.cpp" />
     <ClCompile Include="EnemyPikaia.cpp" />
@@ -347,9 +344,6 @@
     <ClInclude Include="Background.h" />
     <ClInclude Include="Battle.h" />
     <ClInclude Include="Enemy.h" />
-    <ClInclude Include="EnemyColony.h" />
-    <ClInclude Include="EnemyColonyKurage.h" />
-    <ClInclude Include="EnemyColonyPikaia.h" />
     <ClInclude Include="EnemyHallucigenia.h" />
     <ClInclude Include="EnemyKurage.h" />
     <ClInclude Include="EnemyPikaia.h" />

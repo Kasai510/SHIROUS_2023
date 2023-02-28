@@ -1,7 +1,6 @@
 ﻿#include "OptionShirousShot.h"
 #include"Battle.h"
 #include"StageObject.h"
-#include"EnemyColony.h"
 #include"myIEffectClash.h"
 #include"Enemy.h"
 
@@ -49,21 +48,20 @@ void OptionShirousShot::update()
 void OptionShirousShot::update_attack()
 {
 	//敵との当たり判定
-	for (auto& enemycolony : battle->get_enemy_colonys())
+	
+	for (auto& enemy : battle->get_enemies())
 	{
-		for (auto& enemy : enemycolony->get_enemys())
+				
+		if (get_hitboxs().intersects(enemy->get_rect()))
 		{
-				
-			if (get_hitboxs().intersects(enemy->get_rect()))
-			{
-				enemy->damage(damage);
-				set_crash();
-			}
-				
-
-
+			enemy->damage(damage);
+			set_crash();
 		}
+				
+
+
 	}
+	
 	
 }
 
