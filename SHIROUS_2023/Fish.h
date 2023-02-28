@@ -37,7 +37,7 @@ protected:
 public:
 
 	Fish(Battle* battle);
-	Fish(Battle* battle, Vec2 pos);
+	Fish(Battle* battle,const Vec2& pos);
 	~Fish();
 
 	void set_name(String n) { name = n; }

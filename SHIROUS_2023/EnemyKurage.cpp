@@ -3,7 +3,7 @@
 #include "Battle.h"
 #include"myIEffectBubble.h"
 
-EnemyKurage::EnemyKurage(Battle* battle, Vec2 p):Enemy(battle,p)
+EnemyKurage::EnemyKurage(Battle* battle,const Vec2& p):Enemy(battle,p)
 {
 	image_name = U"kurage";
 	image_size_int = 300;

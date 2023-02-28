@@ -2,7 +2,7 @@
 #include "Enemy.h"
 #include"Battle.h"
 
-Enemy::Enemy(Battle* battle, Vec2 p):Fish(battle,p)
+Enemy::Enemy(Battle* battle,const Vec2& p):Fish(battle,p)
 {
 	image_size_int = 300;
 	hp = 50;

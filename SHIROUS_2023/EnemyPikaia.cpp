@@ -3,7 +3,7 @@
 #include"EnemyShotPikaia.h"
 #include"Battle.h"
 
-EnemyPikaia::EnemyPikaia(Battle* battle,Vec2 p):Enemy(battle, p)
+EnemyPikaia::EnemyPikaia(Battle* battle,const Vec2& p):Enemy(battle, p)
 {
 	image_name = U"pikaia";
 	image_size_int = 300;

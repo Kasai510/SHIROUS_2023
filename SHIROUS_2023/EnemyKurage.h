@@ -4,7 +4,7 @@ class EnemyKurage :
     public Enemy
 {
 public:
-	EnemyKurage(Battle* battle, Vec2 p);
+	EnemyKurage(Battle* battle,const  Vec2& p);
 
 	void update();
 	void move();

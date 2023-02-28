@@ -31,6 +31,8 @@
     <ClCompile Include="StageObject.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="myIEffectClash.cpp" />
+    <ClCompile Include="Background.cpp" />
+    <ClCompile Include="EnemyHallucigenia.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetTexture.h" />
@@ -64,6 +66,8 @@
     <ClInclude Include="StageObject.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="myIEffectClash.h" />
+    <ClInclude Include="Background.h" />
+    <ClInclude Include="EnemyHallucigenia.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="App\Resource.rc" />

@@ -4,7 +4,7 @@
 #include"Fish.h"
 #include"myIEffectBubble.h"
 
-EnemyShotPikaia::EnemyShotPikaia(Battle* battle, const Vec2 p):EnemyShot(battle,p)
+EnemyShotPikaia::EnemyShotPikaia(Battle* battle, const Vec2& p):EnemyShot(battle,p)
 {
 	image_size_int = 250;
 	angle = calc_angle();
