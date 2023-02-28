@@ -36,6 +36,6 @@ void EnemyHallucigenia::move()
 void EnemyHallucigenia::draw()
 {
 	myCamera& camera = battle->get_camera();
-	camera.draw_texture(get_rect(), Palette::Orange);
+	//camera.draw_texture(get_rect(), Palette::Orange);
 	camera.draw_texture(TextureAsset(image_name).resized(image_size_int), pos);
 }
