@@ -1,15 +1,15 @@
 ﻿#include"Battle.h"
-#include"EnemyColonyPikaia.h"
-#include"EnemyColonyKurage.h"
+#include"EnemyPikaia.h"
+#include"EnemyKurage.h"
 #include"EnemyShotPikaia.h"
+#include"EnemyHallucigenia.h"
 
 Battle::Battle()
 {
 	stages << Stage_object({ 800,600 }, 200, 200);
 	stages << Stage_object({ 1400,600 }, 200, 200);
 	stages << Stage_object({ -100,900 , 19200+200, 200 });
-	enemy_colonys << std::make_shared<EnemyColonyPikaia>(this);
-	enemy_colonys << std::make_shared<EnemyColonyKurage>(this);
+	initialize_enemies();//これはのちにEnemiesManagerとかがするかも知れない
 }
 
 void Battle::update()
@@ -21,8 +21,8 @@ void Battle::update()
 	//プレイヤーの更新。
 	player.update();
 	//エネミーの更新。
-	for (auto enemy_colony : enemy_colonys) {
-		enemy_colony->update();
+	for (auto& enemy : enemies) {
+		enemy->update();
 	}
 	//ステージの更新。
 	for (int i = 0; i < stages.size(); i++)
@@ -39,14 +39,14 @@ void Battle::update()
 	{
 		player.move_intersect_stage(stages[i]);
 	}
-	for (auto& ec : enemy_colonys) {
-		for (auto& e : ec->get_enemys()) {
-			for (int i = 0; i < stages.size(); i++)
-			{
-				e->move_intersect_stage(stages[i]);
-			}
+	
+	for (auto& e : enemies) {
+		for (int i = 0; i < stages.size(); i++)
+		{
+			e->move_intersect_stage(stages[i]);
 		}
 	}
+	
 
 
 
@@ -92,9 +92,8 @@ void Battle::update()
 	//攻撃の当たり判定
 	
 	//enemy死
-	for (auto& ec : enemy_colonys) {
-		ec->get_enemys().remove_if([](const std::shared_ptr<Enemy>& enemy) {return enemy->is_dead(); });
-	}
+	enemies.remove_if([](const std::shared_ptr<Enemy>& enemy) {return enemy->is_dead(); });
+	
 	//camera.scroll(Vec2(2,0));//強制横スクロール
 	camera.set(player.get_pos());
 
@@ -128,14 +127,14 @@ void Battle::update()
 
 void Battle::draw()
 {
-	for (int i = 0; i < stages.size(); i++)
-	{
-		stages[i].draw(camera);
-	}
+	//背景
+	background.draw();
+
+	
 
 	//敵描画
-	for (auto ec : enemy_colonys) {
-		ec->draw();
+	for (auto& e : enemies) {
+		e->draw();
 	}
 
 	player.draw_back();
@@ -151,6 +150,11 @@ void Battle::draw()
 	}
 	for (auto& e : effects) {
 		e->draw();
+	}
+
+	for (int i = 0; i < stages.size(); i++)
+	{
+		stages[i].draw(camera);
 	}
 	
 	camera.draw_stage_area();
@@ -175,4 +179,12 @@ int Battle::change_scene()
 	int i = change_scene_to;
 	change_scene_to = -1;
 	return i;
+}
+
+void Battle::initialize_enemies()
+{
+	//enemys << std::make_shared<EnemyPikaia>(battle, Vec2(2100,500));
+	enemies << std::make_shared<EnemyHallucigenia>(this, Vec2(2000, 600));
+	enemies << std::make_shared<EnemyKurage>(this, Vec2(1700, 400));
+	enemies << std::make_shared<EnemyPikaia>(this, Vec2(2000, 400));
 }

@@ -11,6 +11,9 @@ struct Record
 	double damage_span;
 };
 
+
+
+
 class Shot
 {
 protected:
@@ -26,8 +29,9 @@ protected:
 	Battle* battle;
 	std::weak_ptr<Fish> master;//発射した人
 
-	Polygon hit_box;
-	Polygon hit_box_origin;
+	MultiPolygon hit_boxs;//当たり判定
+	MultiPolygon hit_box_origins;
+
 
 	Array<Record> records;//x:Fishのポインタ y:damage_span
 
@@ -45,9 +49,14 @@ public:
 
 	virtual void draw();
 
+	virtual void add_hit_box(){}
+
+	void update_hit_box(int num,const Vec2& pos,double angle=0.0);
 
 	Vec2 get_pos() { return pos; }
-	Polygon get_hitbox();
+	const MultiPolygon& get_hitboxs() {
+		return hit_boxs;
+	}
 	bool get_over() { return over; }
 
 };

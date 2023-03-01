@@ -10,7 +10,16 @@ void asset_texture()
 	TextureAsset::Register(U"pikaia_2", Resource(U"data/image/fish/pikaia/pikaia_2.png"));
 	TextureAsset::Register(U"pikaia_3", Resource(U"data/image/fish/pikaia/pikaia_3.png"));
 	TextureAsset::Register(U"pikaia_shot", Resource(U"data/image/fish/pikaia/pikaia_shot.png"));
+	TextureAsset::Register(U"pikaia_shot_white", Resource(U"data/image/fish/pikaia/pikaia_shot_white.png"));
 	TextureAsset::Register(U"kurage", Resource(U"data/image/fish/kurage/kurage.png"));
 	TextureAsset::Register(U"seahorse", Resource(U"data/image/fish/seahorse/seahorse.png"));
+	TextureAsset::Register(U"hallucigenia", Resource(U"data/image/fish/hallucigenia/hallucigenia.png"));
+
 	TextureAsset::Register(U"poseidon", Resource(U"data/image/fish/poseidon/poseidon.png"));
+	TextureAsset::Register(U"poseidonshot0", U"data/image/fish/poseidon/poseidonshot0.png");
+	TextureAsset::Register(U"poseidonshot1", U"data/image/fish/poseidon/poseidonshot1.png");
+
+	TextureAsset::Register(U"rock_1", U"data/image/object/rock/rock_1.png");
+	TextureAsset::Register(U"kaimen_1", U"data/image/object/living/kaimen_1.png");
+	TextureAsset::Register(U"bubble", U"data/image/object/bubble/bubble.png");
 }

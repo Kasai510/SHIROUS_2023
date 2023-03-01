@@ -25,6 +25,5 @@ void OptionShot::move()
 
 void OptionShot::draw()
 {
-	//get_hitbox().movedBy(-camera.get_center()).scaledAt({ 0,0 }, camera.get_scale()).movedBy(Scene::CenterF()).draw(Palette::Gray);
-	get_hitbox().movedBy(-battle->get_camera().get_center()).scaledAt({ 0,0 }, battle->get_camera().get_scale()).movedBy(Scene::CenterF()).draw(Palette::Gray);
+	battle->get_camera().draw_texture(hit_boxs, Palette::Gray);
 }

@@ -127,7 +127,14 @@ Resource(data/image/fish/pikaia/pikaia_1.png)
 Resource(data/image/fish/pikaia/pikaia_2.png)
 Resource(data/image/fish/pikaia/pikaia_3.png)
 Resource(data/image/fish/pikaia/pikaia_shot.png)
+Resource(data/image/fish/pikaia/pikaia_shot_white.png)
 Resource(data/image/fish/kurage/kurage.png)
+Resource(data/image/object/rock/rock_1.png)
+Resource(data/image/object/living/kaimen_1.png)
+Resource(data/image/object/bubble/bubble.png)
+Resource(data/binary/background/ground_cumbria.bin)
+Resource(data/image/fish/hallucigenia/hallucigenia.png)
+
 
 
 

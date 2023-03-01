@@ -3,7 +3,7 @@
 #include"EnemyShotPikaia.h"
 #include"Battle.h"
 
-EnemyPikaia::EnemyPikaia(Battle* battle,Vec2 p):Enemy(battle, p)
+EnemyPikaia::EnemyPikaia(Battle* battle,const Vec2& p):Enemy(battle, p)
 {
 	image_name = U"pikaia";
 	image_size_int = 300;
@@ -44,7 +44,7 @@ void EnemyPikaia::move()
 void EnemyPikaia::draw()
 {
 	myCamera& camera = battle->get_camera();
-	camera.draw_texture(get_rect(), Palette::Orange);
+	//camera.draw_texture(get_rect(), Palette::Orange);
 	camera.draw_texture(anime[AnimatedGIFReader::GetFrameIndex(time/60.0, delays)], pos);
 }
 

@@ -16,7 +16,8 @@ Player::Player(Battle* battle, Vec2 p):Fish(battle, p)
 	set_image_name(U"shirous");
 	for (int i = 0; i < 1;i++) {
 		options << std::make_shared<OptionShirous>(battle, p);
-		options << std::make_shared<OptionSeahorse>(battle, p);
+		//options << std::make_shared<OptionSeahorse>(battle, p);
+		//options << std::make_shared<OptionPoseidon>(battle, p);
 
 	}
 

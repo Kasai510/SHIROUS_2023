@@ -1,7 +1,7 @@
 ﻿#include"OptionSeahorseShot.h"
 #include"Battle.h"
 #include"StageObject.h"
-#include"EnemyColony.h"
+#include"myIEffectClash.h"
 #include"Enemy.h"
 
 OptionSeahorseShot::OptionSeahorseShot(Battle* battle, const std::shared_ptr<class Fish>& master)
@@ -16,68 +16,59 @@ OptionSeahorseShot::OptionSeahorseShot(Battle* battle, const std::shared_ptr<cla
 
 	damage = 3;
 
-	hit_box_origin = Circle(0, 0, 30).asPolygon();
+	hit_box_origins << Circle(0, 0, 30).asPolygon();
 
 }
 
 void OptionSeahorseShot::update()
 {
+
 	shot_timer += battle->get_scene_del();
 
 
-	if (crash == false)
+	if (master.lock())
 	{
+		std::shared_ptr shared_ptr_master = master.lock();
 
-		if (master.lock())
+
+		if (shot_timer <= 0.5)
 		{
-			std::shared_ptr shared_ptr_master = master.lock();
 
-
-			if (shot_timer <= 0.5)
+			for (int i = 0; i < 6; i++)
 			{
-
-				for (int i = 0; i < 6; i++)
-				{
-					poss[i] = shared_ptr_master->get_pos_right() + Vec2{ 50,0 } + (60 - 120 * shot_timer) * Vec2 { cos(60_deg * i + 720_deg * shot_timer), sin(60_deg * i + 180_deg * shot_timer) };
-				}
-			}
-			else
-			{
-				if (set_init_pos == false)
-				{
-					pos = shared_ptr_master->get_pos_right() + Vec2{ 50,0 };
-					set_init_pos = true;
-				}
-				move();
+				poss[i] = shared_ptr_master->get_pos_right() + Vec2{ 50,0 } + (60 - 120 * shot_timer) * Vec2 { cos(60_deg * i + 720_deg * shot_timer), sin(60_deg * i + 180_deg * shot_timer) };
 			}
 		}
 		else
 		{
-			set_crash();
-		}
-
-
-		//壁との当たり判定
-		if (shot_timer >= 0.6)
-		{
-			for (auto& stage_object : battle->get_stages())
+			if (set_init_pos == false)
 			{
-				if (get_hitbox().intersects(stage_object.get_rect()))
-				{
-					crash = true;
-					shot_timer = 0;
-				}
+				pos = shared_ptr_master->get_pos_right() + Vec2{ 50,0 };
+				set_init_pos = true;
+			}
+			move();
+		}
+	}
+
+
+
+	//壁との当たり判定
+	if (shot_timer >= 0.6)
+	{
+		for (auto& stage_object : battle->get_stages())
+		{
+			if (get_hitboxs().intersects(stage_object.get_rect()))
+			{
+				crash = true;
+				shot_timer = 0;
 			}
 		}
-
-		if (pos.x >= battle->get_camera().get_center().x + 1000) { over = true; }
-
-		update_attack();
 	}
-	else
-	{
-		update_crash();
-	}
+
+	if (pos.x >= battle->get_camera().get_center().x + 1000) { over = true; }
+
+	update_attack();
+
 
 }
 
@@ -86,18 +77,17 @@ void OptionSeahorseShot::update_attack()
 	if (shot_timer >= 0.5)
 	{
 		//敵との当たり判定
-		for (auto& enemycolony : battle->get_enemy_colonys())
+		
+		for (auto& enemy : battle->get_enemies())
 		{
-			for (auto& enemy : enemycolony->get_enemys())
-			{
 
-				if (get_hitbox().intersects(enemy->get_rect()))
-				{
-					enemy->damage(damage);
-					set_crash();
-				}
+			if (get_hitboxs().intersects(enemy->get_rect()))
+			{
+				enemy->damage(damage);
+				set_crash();
 			}
 		}
+		
 	}
 	
 }
@@ -105,26 +95,17 @@ void OptionSeahorseShot::update_attack()
 
 void OptionSeahorseShot::set_crash()
 {
-	crash = true;
-	shot_timer = 0;
+	battle->get_effects() << std::make_unique<myIEffectClash>(battle, pos);
+	over = true;
 }
 
-void OptionSeahorseShot::update_crash()
-{
-
-	//発生から0.5秒たったら消す
-	if (shot_timer > 0.5)
-	{
-		over = true;
-	}
-}
 
 void OptionSeahorseShot::move()
 {
 	if (shot_timer >= 0.6)
 	{
 		pos.x += 2500 * battle->get_scene_del();
-		hit_box = hit_box_origin.movedBy(pos);
+		hit_boxs = hit_box_origins.movedBy(pos);
 
 	}
 }
@@ -132,39 +113,21 @@ void OptionSeahorseShot::move()
 void OptionSeahorseShot::draw()
 {
 	myCamera& camera = battle->get_camera();
-	if (crash == false)
+
+	if (shot_timer <= 0.6)
 	{
-		if (shot_timer <= 0.6)
+		for (auto& c_pos : poss)
 		{
-			for (auto& c_pos : poss)
-			{
 				
-				camera.draw_texture(Circle{ c_pos,20 }, Palette::White);
-				camera.draw_texture(Circle{ c_pos,15 }, Palette::Yellow);
-				//Circle(Scene::CenterF() + (c_pos - battle->get_camera().get_center()) * battle->get_camera().get_scale(), 20).draw(Palette::White);
-				//Circle(Scene::CenterF() + (c_pos - battle->get_camera().get_center()) * battle->get_camera().get_scale(), 15).draw(Palette::Yellow);
-			}
-
+			camera.draw_texture(Circle{ c_pos,20 }, Palette::White);
+			camera.draw_texture(Circle{ c_pos,15 }, Palette::Yellow);
 		}
-		else {
-			camera.draw_texture(get_hitbox(), Palette::Yellow);
-			//get_hitbox().movedBy(-battle->get_camera().get_center()).movedBy(Scene::CenterF()).draw(Palette::Yellow);
 
-		}
 	}
-	else
-	{
-		draw_crash();
+	else {
+		camera.draw_texture(get_hitboxs(), Palette::Yellow);
+		
+
 	}
-}
 
-
-void OptionSeahorseShot::draw_crash()
-{
-	// イージング
-	double e = EaseOutExpo(shot_timer);
-	myCamera& camera = battle->get_camera();
-	Transformer2D tf{ camera.get_mat() };
-	Circle{ pos,e * 100 }.drawFrame((30.0 * (1.0 - e)), HSV(60, 1, 1, 0.7));
-	//Circle(Scene::CenterF() + (pos - battle->get_camera().get_center()) * battle->get_camera().get_scale(), (e * 100)).drawFrame((30.0 * (1.0 - e)), HSV(60, 1, 1, 0.7));
 }

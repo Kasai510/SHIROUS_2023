@@ -37,7 +37,7 @@ protected:
 public:
 
 	Fish(Battle* battle);
-	Fish(Battle* battle, Vec2 pos);
+	Fish(Battle* battle,const Vec2& pos);
 	~Fish();
 
 	void set_name(String n) { name = n; }
@@ -58,7 +58,8 @@ public:
 
 	void damage(double d);
 
-
+	Vec2 get_speed() { return speed; }
+	void set_speed(Vec2 s) { speed = s; }
 
 	double get_width() { return width; }
 	double get_height() { return height; }
@@ -83,6 +84,7 @@ public:
 	void set_pos_bottom(double y) { pos.y = y - height / 2.0; }
 	void set_pos_left(double x) { pos.x = x + width / 2.0; }
 	void set_pos_right(double x) { pos.x = x - width / 2.0; }
+
 
 	RectF get_rect() { return RectF(Arg::center(get_pos()), width, height); }
 	RectF get_pre_rect() { return RectF(Arg::center(get_pre_pos()), width, height); }

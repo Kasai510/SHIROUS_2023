@@ -14,11 +14,13 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="myCamera.cpp" />
+    <ClCompile Include="myIEffectBubble.cpp" />
     <ClCompile Include="myInput.cpp" />
     <ClCompile Include="myScene.cpp" />
     <ClCompile Include="Option.cpp" />
     <ClCompile Include="OptionPoseidon.cpp" />
     <ClCompile Include="OptionPoseidonShot.cpp" />
+    <ClCompile Include="OptionPoseidonShot2.cpp" />
     <ClCompile Include="OptionSeahorse.cpp" />
     <ClCompile Include="OptionSeahorseShot.cpp" />
     <ClCompile Include="OptionShirous.cpp" />
@@ -28,7 +30,9 @@
     <ClCompile Include="Shot.cpp" />
     <ClCompile Include="StageObject.cpp" />
     <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="myIEffectBubble.cpp" />
+    <ClCompile Include="myIEffectClash.cpp" />
+    <ClCompile Include="Background.cpp" />
+    <ClCompile Include="EnemyHallucigenia.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetTexture.h" />
@@ -44,11 +48,14 @@
     <ClInclude Include="Fish.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="myCamera.h" />
+    <ClInclude Include="myIEffect.h" />
+    <ClInclude Include="myIEffectBubble.h" />
     <ClInclude Include="myInput.h" />
     <ClInclude Include="myScene.h" />
     <ClInclude Include="Option.h" />
     <ClInclude Include="OptionPoseidon.h" />
     <ClInclude Include="OptionPoseidonShot.h" />
+    <ClInclude Include="OptionPoseidonShot2.h" />
     <ClInclude Include="OptionSeahorse.h" />
     <ClInclude Include="OptionSeahorseShot.h" />
     <ClInclude Include="OptionShirous.h" />
@@ -58,8 +65,9 @@
     <ClInclude Include="Shot.h" />
     <ClInclude Include="StageObject.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="myIEffect.h" />
-    <ClInclude Include="myIEffectBubble.h" />
+    <ClInclude Include="myIEffectClash.h" />
+    <ClInclude Include="Background.h" />
+    <ClInclude Include="EnemyHallucigenia.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="App\Resource.rc" />

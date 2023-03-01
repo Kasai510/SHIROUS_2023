@@ -1,7 +1,7 @@
 ﻿#include "OptionShirousShot.h"
 #include"Battle.h"
 #include"StageObject.h"
-#include"EnemyColony.h"
+#include"myIEffectClash.h"
 #include"Enemy.h"
 
 OptionShirousShot::OptionShirousShot(Battle* battle,const std::shared_ptr<class Fish>& master)
@@ -17,7 +17,7 @@ OptionShirousShot::OptionShirousShot(Battle* battle,const std::shared_ptr<class 
 
 	damage = 1;
 
-	hit_box_origin = Circle(0, 0, 30).asPolygon();
+	hit_box_origins << Circle(0, 0, 30).asPolygon();
 
 }
 
@@ -25,116 +25,67 @@ void OptionShirousShot::update()
 {
 	shot_timer += battle->get_scene_del();
 
+	move();
 
-	if (crash == false)
+	//壁との当たり判定
+	for (auto& stage_object : battle->get_stages())
 	{
-
-		move();
-
-		//壁との当たり判定
-		for (auto& stage_object : battle->get_stages())
+		if (get_hitboxs().intersects(stage_object.get_rect()))
 		{
-			if (get_hitbox().intersects(stage_object.get_rect()))
-			{
-				crash = true;
-				shot_timer = 0;
-			}
+			set_crash();
 		}
+	}
 		
 
-		if (pos.x >= battle->get_camera().get_center().x + 1000) { over = true; }
+	if (pos.x >= battle->get_camera().get_center().x + 1000) { over = true; }
 
-		update_attack();
+	update_attack();
 
-	
-	}
-	else
-	{
-		update_crash();
-	}
+
 
 }
 
 void OptionShirousShot::update_attack()
 {
 	//敵との当たり判定
-	for (auto& enemycolony : battle->get_enemy_colonys())
+	
+	for (auto& enemy : battle->get_enemies())
 	{
-		for (auto& enemy : enemycolony->get_enemys())
-		{
 				
-			if (get_hitbox().intersects(enemy->get_rect()))
-			{
-				enemy->damage(damage);
-				set_crash();
-			}
+		if (get_hitboxs().intersects(enemy->get_rect()))
+		{
+			enemy->damage(damage);
+			set_crash();
+		}
 				
 
-			/*
-			for (auto& record : records)
-			{
-				if (record.fish != enemy)
-				{
-					if (get_hitcircle().intersects(enemy->get_rect()))
-					{
-						records << Record(enemy, damage_span);
-					}
-				}
-			}*/
-		}
+
 	}
+	
 	
 }
 
 
 void OptionShirousShot::set_crash()
 {
-	crash = true;
-	shot_timer = 0;
+	battle->get_effects() << std::make_unique<myIEffectClash>(battle, pos);
+	over = true;
 }
 
-void OptionShirousShot::update_crash()
-{
-
-	//発生から0.5秒たったら消す
-	if (shot_timer > 0.5)
-	{
-		over = true;
-	}
-}
 
 void OptionShirousShot::move()
 {
 	pos.x += 1500*battle->get_scene_del();
 	
-	hit_box = hit_box_origin.movedBy(pos);
+	hit_boxs = hit_box_origins.movedBy(pos);
 }
 
 void OptionShirousShot::draw()
 {
-	if (crash == false)
-	{
-
-		//get_hitbox().movedBy(-battle->get_camera().get_center()).movedBy(Scene::CenterF()).draw(Palette::Red);
-		myCamera& camera=battle->get_camera();
-		camera.draw_texture(get_hitbox(), Palette::Red);
-		
-	}
-	else
-	{
-		draw_crash();
-	}
-}
-
-
-void OptionShirousShot::draw_crash()
-{
-	// イージング
-	double e = EaseOutExpo(shot_timer);
-
-	//Circle(Scene::CenterF() + (pos - battle->get_camera().get_center()) * battle->get_camera().get_scale(), (e * 100)).drawFrame((30.0 * (1.0 - e)), HSV(1, 1, 1, 0.7));
+	//get_hitbox().movedBy(-battle->get_camera().get_center()).movedBy(Scene::CenterF()).draw(Palette::Red);
 	myCamera& camera = battle->get_camera();
-	Transformer2D tf{ camera.get_mat() };
-	Circle{ pos,e * 100 }.drawFrame((30.0 * (1.0 - e)), HSV(1, 1, 1, 0.7));
+	camera.draw_texture(get_hitboxs(), Palette::Red);
+	
 }
+
 

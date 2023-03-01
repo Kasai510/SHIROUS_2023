@@ -129,5 +129,6 @@ void myCamera::draw_stage_area()
 
 inline void myCamera::calc_mat()
 {
-	mat = Mat3x2::Translate(-center).scaled(scale,{0,0} ).translated(Scene::Center());
+	mat = Mat3x2::Translate(Scene::Center() - center).scaled(scale, Scene::Center());
+
 }

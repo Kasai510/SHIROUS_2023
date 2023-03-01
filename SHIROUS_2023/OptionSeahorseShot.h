@@ -17,8 +17,7 @@ public:
 	void set_crash();
 	void update();
 	void update_attack();
-	void update_crash();
+
 	void move();
 	void draw();
-	void draw_crash();
 };

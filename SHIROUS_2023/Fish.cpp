@@ -9,7 +9,7 @@ Fish::Fish(Battle* battle)
 	ID = count_id;
 	count_id++;
 }
-Fish::Fish(Battle* battle, Vec2 p)
+Fish::Fish(Battle* battle,const Vec2& p)
 {
 	this->battle = battle;
 	ID = count_id;

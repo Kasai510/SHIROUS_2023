@@ -1,6 +1,6 @@
 ﻿#include "stdafx.h"
 #include "OptionPoseidon.h"
-#include"OptionSeahorseShot.h"
+#include"OptionPoseidonShot.h"
 #include"Battle.h"
 
 
@@ -13,7 +13,7 @@ OptionPoseidon::OptionPoseidon(Battle* battle)
 
 
 	width = 50;
-	height = 120;
+	height = 80;
 	shot_cool_time = 90;
 	shot_timer = shot_cool_time;
 }
@@ -24,8 +24,8 @@ OptionPoseidon::OptionPoseidon(Battle* battle, Vec2 p)
 	set_image_name(U"poseidon");
 	option_pos_timer = Random(0, 600);
 
-	width = 80;
-	height = 250;
+	width = 100;
+	height = 200;
 	shot_cool_time = 90;
 	shot_timer = shot_cool_time;
 }
@@ -108,8 +108,10 @@ void  OptionPoseidon::check_limit_stage(myCamera camera)
 
 bool OptionPoseidon::ready_shot()
 {
-	if (shot_timer > 0)shot_timer--;
-
+	if (optionshots.size() == 0)
+	{
+		if (shot_timer > 0)shot_timer--;
+	}
 	if (shot_timer == 0)
 	{
 		shot_timer = shot_cool_time;
@@ -133,7 +135,7 @@ void OptionPoseidon::attack()
 
 	if (ready_shot())
 	{
-		//optionshots << std::make_shared<OptionSeahorseShot>(battle, this);
+		optionshots << std::make_shared<OptionPoseidonShot>(battle,shared_from_this());
 	}
 }
 
@@ -150,7 +152,9 @@ void OptionPoseidon::draw()
 	//当たり判定の描画
 	battle->get_camera().draw_texture(get_rect(), Palette::Red);
 
-	TextureAsset(image_name).scaled(camera.get_scale()*0.5).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
+	
+	battle->get_camera().draw_texture(TextureAsset(image_name).resized(width,height), pos);
+
 	font(shot_timer).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
 
 	//攻撃の描画

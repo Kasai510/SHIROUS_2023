@@ -54,6 +54,7 @@ public:
 		RectF camera_rect{ Arg::center(center),1920,1080};
 		return camera_rect.intersects(obj);
 	}
+
 	Vec2 windowpos_in_camera(Vec2 wp) {
 		return (wp - Scene::CenterF()) / scale + center;
 	}

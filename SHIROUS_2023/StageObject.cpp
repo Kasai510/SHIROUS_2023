@@ -24,5 +24,5 @@ void Stage_object::update()
 void Stage_object::draw(myCamera camera)
 {
 	//get_rect().movedBy(-camera.get_center()).scaledAt({ 0,0 }, camera.get_scale()).movedBy(Scene::CenterF()).draw(Palette::Blue);
-	camera.draw_texture(get_rect(), Palette::Blue);
+	camera.draw_texture(get_rect(), Color(80,40,20));
 }
