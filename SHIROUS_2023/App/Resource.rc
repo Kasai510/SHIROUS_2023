@@ -134,6 +134,7 @@ Resource(data/image/object/living/kaimen_1.png)
 Resource(data/image/object/bubble/bubble.png)
 Resource(data/binary/background/ground_cumbria.bin)
 Resource(data/image/fish/hallucigenia/hallucigenia.png)
+Resource(data/image/fish/hallucigenia/hallucigenia_shot.png)
 
 
 

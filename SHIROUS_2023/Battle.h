@@ -41,6 +41,7 @@ public:
 	void update();
 	void draw();
 	void debug_draw();//デバッグ用のdraw
+	Font getFont30() { return font30; };
 
 	bool change_scene_check();
 	int change_scene();

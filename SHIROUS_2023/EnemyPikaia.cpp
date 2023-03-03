@@ -32,6 +32,9 @@ void EnemyPikaia::update()
 			dead = true;
 		}
 	}
+	if (hp <= 0) {
+		dead = true;
+	}
 	time++;
 }
 

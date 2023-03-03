@@ -88,6 +88,13 @@
     <ClCompile Include="myIEffectClash.cpp">
       <Filter>File\myEffect\Clash</Filter>
     </ClCompile>
+    <ClCompile Include="EnemyShotHallucigenia.cpp">
+      <Filter>File\Fish\Enemy\Hallucigenia</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyShotKurage.cpp">
+      <Filter>File\Fish\Enemy\Kurage</Filter>
+    </ClCompile>
+    <ClCompile Include="myIEffectAfterimage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetTexture.h">
@@ -180,6 +187,13 @@
     <ClInclude Include="myIEffectClash.h">
       <Filter>File\myEffect\Clash</Filter>
     </ClInclude>
+    <ClInclude Include="EnemyShotHallucigenia.h">
+      <Filter>File\Fish\Enemy\Hallucigenia</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyShotKurage.h">
+      <Filter>File\Fish\Enemy\Kurage</Filter>
+    </ClInclude>
+    <ClInclude Include="myIEffectAfterimage.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="App\example\xml\config.xml">

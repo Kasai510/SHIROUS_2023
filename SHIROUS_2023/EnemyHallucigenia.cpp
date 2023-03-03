@@ -1,5 +1,6 @@
 ﻿#include "stdafx.h"
 #include "EnemyHallucigenia.h"
+#include"EnemyShotHallucigenia.h"
 #include"Battle.h"
 
 EnemyHallucigenia::EnemyHallucigenia(Battle* battle,const Vec2& p) :Enemy(battle, p)
@@ -14,6 +15,13 @@ EnemyHallucigenia::EnemyHallucigenia(Battle* battle,const Vec2& p) :Enemy(battle
 void EnemyHallucigenia::update()
 {
 	move();
+	{
+		double r_player = abs(battle->get_player().get_pos().x - pos.x);
+		if (r_player < 100) {
+			battle->get_ememy_shots() << std::make_shared<EnemyShotHallucigenia>(battle, pos+Vec2{0,-10});
+			dead = true;
+		}
+	}
 	if (pos.y > 1500) {
 		dead = true;
 	}
