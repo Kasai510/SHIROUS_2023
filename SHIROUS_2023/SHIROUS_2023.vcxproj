@@ -129,6 +129,7 @@
     <ClCompile Include="myCamera.cpp" />
     <ClCompile Include="myIEffectAfterimage.cpp" />
     <ClCompile Include="myIEffectBubble.cpp" />
+    <ClCompile Include="myIEffectCirclestar.cpp" />
     <ClCompile Include="myIEffectClash.cpp" />
     <ClCompile Include="myInput.cpp" />
     <ClCompile Include="myScene.cpp" />
@@ -360,6 +361,7 @@
     <ClInclude Include="myIEffect.h" />
     <ClInclude Include="myIEffectAfterimage.h" />
     <ClInclude Include="myIEffectBubble.h" />
+    <ClInclude Include="myIEffectCirclestar.h" />
     <ClInclude Include="myIEffectClash.h" />
     <ClInclude Include="myInput.h" />
     <ClInclude Include="myScene.h" />

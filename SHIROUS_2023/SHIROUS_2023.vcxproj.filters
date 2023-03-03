@@ -94,7 +94,12 @@
     <ClCompile Include="EnemyShotKurage.cpp">
       <Filter>File\Fish\Enemy\Kurage</Filter>
     </ClCompile>
-    <ClCompile Include="myIEffectAfterimage.cpp" />
+    <ClCompile Include="myIEffectAfterimage.cpp">
+      <Filter>File\myEffect\Afterimage</Filter>
+    </ClCompile>
+    <ClCompile Include="myIEffectCirclestar.cpp">
+      <Filter>File\myEffect\Circlestar</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetTexture.h">
@@ -193,7 +198,12 @@
     <ClInclude Include="EnemyShotKurage.h">
       <Filter>File\Fish\Enemy\Kurage</Filter>
     </ClInclude>
-    <ClInclude Include="myIEffectAfterimage.h" />
+    <ClInclude Include="myIEffectAfterimage.h">
+      <Filter>File\myEffect\Afterimage</Filter>
+    </ClInclude>
+    <ClInclude Include="myIEffectCirclestar.h">
+      <Filter>File\myEffect\Circlestar</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="App\example\xml\config.xml">
@@ -891,6 +901,12 @@
     </Filter>
     <Filter Include="File\myEffect\Clash">
       <UniqueIdentifier>{01fdcc7c-695d-4fa5-a3e2-f3d237c30bbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\myEffect\Afterimage">
+      <UniqueIdentifier>{c46679cb-5891-4ede-a39f-486b5b108dd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\myEffect\Circlestar">
+      <UniqueIdentifier>{f2631cf4-8289-404d-ab73-6957f37e23f4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -47,7 +47,7 @@ void Battle::update()
 		}
 	}
 	
-
+	
 
 
 	//攻撃の追加
