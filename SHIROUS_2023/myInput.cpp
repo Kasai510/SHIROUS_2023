@@ -265,7 +265,17 @@ void myInput::update_myButton()
 
 	for (int i = 0; i < (int)myButton_num::size; i++)
 	{
-		myButton[i] = new_myButton[i];
+		if (new_myButton[i] == 1)
+		{
+			if (myButton[i] > 0) myButton[i]++;
+			else myButton[i] = 1;
+		}
+		else
+		{
+			if(myButton[i] > 0)myButton[i] = -1;
+			else myButton[i] = 0;
+		}
+			
 	}
 	for (int i = 0; i < (int)mySlidePad_num::size - 4; i++)
 	{
