@@ -8,7 +8,6 @@
 EnemyShotHallucigenia::EnemyShotHallucigenia(Battle* battle, const Vec2& p) :EnemyShot(battle, p)
 {
 	image_size_int = 200;
-	angle = calc_angle();
 	image_angle = 0;
 	mode_stop = true;
 	v = { 0, 0 };
@@ -26,24 +25,25 @@ void EnemyShotHallucigenia::update()
 
 	if (mode_stop && time > 36) {
 		mode_stop = false;
-		v += Vec2{ cos(angle),sin(angle) }*20;
+		v += Vec2{ Random(-10,10),-10};
 	}
 
 	if (mode_stop) {
-		angle = calc_angle();
-		Vec2 angle_nv = Vec2{ cos(angle),sin(angle) };
-		Vec2 cross = { angle_nv.y,-angle_nv.x };
-		Vec2 out_p1 = -angle_nv * 80 + cross * 20;
-		Vec2 out_p2 = -angle_nv * 80 - cross * 20;
 		if (time % 2 == 0) {
-			battle->get_effects() << std::make_unique<myIEffectBubble>(battle, pos + out_p1, -angle_nv * 20 + RandomVec2() * 5, Random() * 5);
-			battle->get_effects() << std::make_unique<myIEffectBubble>(battle, pos + out_p2, -angle_nv * 20 + RandomVec2() * 5, Random() * 5);
+			battle->get_effects() << std::make_unique<myIEffectBubble>(battle, pos+RandomVec2()*Random(50), Random() * 5);
 		}
 	}
 	else {
-		Vec2 angle_nv = Vec2{ cos(angle),sin(angle) };
-		v += angle_nv * 1;
-		battle->get_effects() << std::make_unique<myIEffectBubble>(battle, pos - angle_nv * 50 + RandomVec2() * Random() * 30, Random() * 10);
+		Vec2 r = battle->get_player().get_pos() - pos;
+		Vec2 addv = Vec2{ -v.y,v.x }.normalized() * 0.1;
+		double z = v.cross(r);
+		if (z > 0) {//player is right
+			v += addv;
+		}
+		else {//player is left
+			v -= addv;
+		}
+		battle->get_effects() << std::make_unique<myIEffectBubble>(battle, pos - v.normalized() * 50 + RandomVec2() * Random() * 30, Random() * 10);
 		if (time % 3 == 0) {
 			battle->get_effects() << std::make_unique<myIEffectAfterimage>(battle, pos, TextureAsset(U"hallucigenia_shot").resized(image_size_int).rotated(image_angle), Color(0, 255, 0));
 		}
