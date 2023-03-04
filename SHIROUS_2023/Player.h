@@ -10,9 +10,19 @@ class Battle;
 class Player : public Fish
 {
 
-
 protected:
+	enum class FishType
+	{
+		Shirous,
+		Seahorse,
+		Poseidon,
+		size
+	};
+
 	Array<std::shared_ptr<Option>> options;
+	int spawning = 0;//0:通常モード。1～14:モード変更中。15:産卵モード。
+	int select_spawn = 1;
+	int select_spawn_counter = 0;//アニメーション用。
 	
 public:
 
@@ -30,14 +40,18 @@ public:
 	virtual bool ready_opt_shot(int index);
 	virtual std::shared_ptr<Shot> opt_shot(int index);
 
+	void spawn();
+
 
 	virtual void draw();
 	virtual void draw_back();
 	virtual void draw_front();
 
+	void draw_spawning();
+
 
 	int get_opt_size() { return options.size(); }
 	Option& get_opt(int i) { return *options[i]; }
 
-
+	Texture get_fish_texture(int type);
 };
