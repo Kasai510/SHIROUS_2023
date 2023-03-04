@@ -10,7 +10,7 @@ protected:
 	bool set_init_pos{ false };
 
 public:
-	OptionSeahorseShot() {};
+	//OptionSeahorseShot() {};
 	OptionSeahorseShot(Battle*, const std::shared_ptr<class Fish>&);
 	~OptionSeahorseShot() {};
 

@@ -2,12 +2,12 @@
 #include "myIEffectAfterimage.h"
 #include"Battle.h"
 
-myIEffectAfterimage::myIEffectAfterimage(Battle* battle, const Vec2& p, const TexturedQuad& tex,const Color& color):myIEffect(battle)
+myIEffectAfterimage::myIEffectAfterimage(Battle* battle, const Vec2& p, const TexturedQuad& tex,const Color& color,int life):myIEffect(battle)
 {
 	this->p = p;
 	this->tex = tex;
 	this->color = color;
-	life = 10;
+	this->life = life;
 }
 
 void myIEffectAfterimage

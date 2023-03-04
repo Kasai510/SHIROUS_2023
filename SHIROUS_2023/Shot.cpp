@@ -2,17 +2,16 @@
 #include"Battle.h"
 
 
-Shot::Shot(Battle* battle,Vec2 p)
+Shot::Shot(Battle* battle,Vec2 p):BattleObject(battle)
 {
-	this->battle = battle;
 	pos = p;
-	
+	draw_order = 6;
 }
 
-Shot::Shot(Battle* battle, const std::shared_ptr<class Fish>& master)
+Shot::Shot(Battle* battle, const std::shared_ptr<class Fish>& master) :BattleObject(battle)
 {
-	this->battle = battle;
 	this->master = master;
+	draw_order = 6;
 }
 
 

@@ -1,9 +1,10 @@
 ﻿# include"myCamera.h"
 
-myCamera::myCamera()
+myCamera::myCamera(Battle* battle):BattleObject(battle)
 {
 	ground_rect.push_back(RectF(Arg::center(1200, 750), 1600, 500));
 	calc_mat();
+	draw_order = 100;
 }
 
 

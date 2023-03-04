@@ -4,10 +4,12 @@
 #include"StageObject.h"
 #include"Shot.h"
 #include<memory>
+#include"BattleObject.h"
 
 class Battle;
+class BattleObject;
 
-class Fish:public std::enable_shared_from_this<class Fish>
+class Fish:public BattleObject,public std::enable_shared_from_this<class Fish>
 {
 protected:
 	myInput input;
@@ -30,7 +32,6 @@ protected:
 	int shot_timer = 0;//ショットのタイマー(フレーム)。
 
 	bool dead = false;
-	Battle* battle;
 
 	double hp=100;
 

@@ -10,7 +10,6 @@ public:
 
 	void draw();
 private:
-	double angle;
 	double image_angle;
 	bool mode_stop;
 	double image_size_int;

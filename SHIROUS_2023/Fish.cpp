@@ -3,19 +3,19 @@
 int Fish::count_id;
 
 
-Fish::Fish(Battle* battle)
+Fish::Fish(Battle* battle):BattleObject(battle)
 {
-	this->battle = battle;
 	ID = count_id;
 	count_id++;
+	draw_order = 5;
 }
-Fish::Fish(Battle* battle,const Vec2& p)
+Fish::Fish(Battle* battle,const Vec2& p) :BattleObject(battle)
 {
-	this->battle = battle;
 	ID = count_id;
 	count_id++;
 	pos = p;
 	prev_pos = p;
+	draw_order = 5;
 }
 Fish::~Fish()
 {

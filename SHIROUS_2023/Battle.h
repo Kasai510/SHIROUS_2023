@@ -19,7 +19,7 @@ private:
 	int scene_num = 2;
 	int change_scene_to = -1;
 
-	myCamera camera;
+	myCamera camera = myCamera(this);
 
 	Player player{ this, {400,400} };
 	Array<std::shared_ptr<Shot>> player_shots;
@@ -33,6 +33,8 @@ private:
 
 	Array<std::unique_ptr<myIEffect>> effects;
 
+	Array<std::weak_ptr<BattleObject>> draw_objects;
+
 	Vec2 camera_control_down_p;
 	Background background{this};
 
@@ -42,6 +44,7 @@ public:
 	void draw();
 	void debug_draw();//デバッグ用のdraw
 	Font getFont30() { return font30; };
+	void camera_control();
 
 	bool change_scene_check();
 	int change_scene();
@@ -56,5 +59,5 @@ public:
 	Array<std::shared_ptr<Enemy>>& get_enemies() { return enemies; }
 	Array<Stage_object>& get_stages() { return stages; }
 	Array<std::unique_ptr<myIEffect>>& get_effects() { return effects; }
-
+	void add_draw_objects(std::shared_ptr<BattleObject>);
 };

@@ -1,8 +1,8 @@
 ﻿#pragma once
 #include"myCamera.h"
+#include"BattleObject.h"
 
-
-class Stage_object
+class Stage_object:public BattleObject
 {
 protected:
 	Vec2 pos;
@@ -11,8 +11,8 @@ protected:
 	double height;
 
 public:
-	Stage_object(Vec2 p, double w, double h);
-	Stage_object(const Rect& rect);
+	Stage_object(Battle* battle,Vec2 p, double w, double h);
+	Stage_object(Battle* battle, const Rect& rect);
 	void update();
 
 	void draw(myCamera camera);

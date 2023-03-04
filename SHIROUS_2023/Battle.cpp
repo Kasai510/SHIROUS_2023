@@ -6,9 +6,9 @@
 
 Battle::Battle()
 {
-	stages << Stage_object({ 800,600 }, 200, 200);
-	stages << Stage_object({ 1400,600 }, 200, 200);
-	stages << Stage_object({ -100,900 , 19200+200, 200 });
+	stages << Stage_object(this,{ 800,600 }, 200, 200);
+	stages << Stage_object(this, { 1400,600 }, 200, 200);
+	stages << Stage_object(this, { -100,900 , 19200+200, 200 });
 	initialize_enemies();//これはのちにEnemiesManagerとかがするかも知れない
 }
 
@@ -52,19 +52,9 @@ void Battle::update()
 
 	//攻撃の追加
 	//自機は攻撃しない
-	/*if (player.ready_shot())
-	{
-		player_shots << player.shot();
-	}*/
 	//オプションの攻撃
 
-	for (int i = 0; i < player.get_opt_size(); i++)
-	{
-		if (player.ready_opt_shot(i))
-		{
-			//player_shots << player.opt_shot(i);
-		}
-	}
+	
 	
 	
 	//攻撃の更新
@@ -80,6 +70,9 @@ void Battle::update()
 	for (auto& e : effects) {
 		e->update();
 	}
+
+
+
 
 	//画面外に出た攻撃の消去。壁などに当たった弾も。
 	for (int i = 0; i < player_shots.size(); i++)
@@ -97,32 +90,8 @@ void Battle::update()
 	//camera.scroll(Vec2(2,0));//強制横スクロール
 	camera.set(player.get_pos());
 
-
-	//camera control
-	if (KeyC.pressed()) {
-		double mw = Mouse::Wheel();
-		if (mw > 0) {
-			camera.set_scale(camera.get_scale() * 0.9);
-		}
-		else if (mw < 0) {
-			camera.set_scale(camera.get_scale() * 1.1);
-		}
-
-		if (Key1.pressed()) {
-			camera.set_scale(1);
-		}
-		if (Key9.pressed()) {
-			camera.set_scale(0.9);
-		}
-
-		//if (MouseM.down()) {
-		//	down_p = camera.windowpos_in_camera(Cursor::Pos());
-		//}
-		//if (MouseM.pressed()) {
-		//	Vec2 add = camera.windowpos_in_camera(Cursor::Pos()) - down_p;
-		//	camera.set_center(camera.get_center() + add);
-		//}
-	}
+	//for debug
+	camera_control();
 }
 
 void Battle::draw()
@@ -168,6 +137,35 @@ void Battle::debug_draw()
 	font30(camera.windowpos_in_camera(Cursor::Pos()).asPoint()).draw(Cursor::Pos());
 }
 
+void Battle::camera_control()
+{
+
+	if (KeyC.pressed()) {
+		double mw = Mouse::Wheel();
+		if (mw > 0) {
+			camera.set_scale(camera.get_scale() * 0.9);
+		}
+		else if (mw < 0) {
+			camera.set_scale(camera.get_scale() * 1.1);
+		}
+
+		if (Key1.pressed()) {
+			camera.set_scale(1);
+		}
+		if (Key9.pressed()) {
+			camera.set_scale(0.9);
+		}
+
+		//if (MouseM.down()) {
+		//	down_p = camera.windowpos_in_camera(Cursor::Pos());
+		//}
+		//if (MouseM.pressed()) {
+		//	Vec2 add = camera.windowpos_in_camera(Cursor::Pos()) - down_p;
+		//	camera.set_center(camera.get_center() + add);
+		//}
+	}
+}
+
 bool Battle::change_scene_check()
 {
 	if (change_scene_to == -1)return false;
@@ -187,4 +185,9 @@ void Battle::initialize_enemies()
 	enemies << std::make_shared<EnemyHallucigenia>(this, Vec2(2000, 600));
 	enemies << std::make_shared<EnemyKurage>(this, Vec2(1700, 400));
 	enemies << std::make_shared<EnemyPikaia>(this, Vec2(2000, 400));
+}
+
+void Battle::add_draw_objects(std::shared_ptr<BattleObject>)
+{
+	//draw_order順に配列に組み込まれるような処理
 }

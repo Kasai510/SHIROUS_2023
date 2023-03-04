@@ -8,7 +8,7 @@ class OptionShot : public Shot
 protected:
 
 public:
-	OptionShot() {};
+	OptionShot(Battle* battle):Shot(battle) {};
 	OptionShot(Battle*,Vec2 p);
 	OptionShot(Battle*, const std::shared_ptr<class Fish>&);
 	~OptionShot() {};

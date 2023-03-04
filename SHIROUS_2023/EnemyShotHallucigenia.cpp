@@ -44,8 +44,8 @@ void EnemyShotHallucigenia::update()
 			v -= addv;
 		}
 		battle->get_effects() << std::make_unique<myIEffectBubble>(battle, pos - v.normalized() * 50 + RandomVec2() * Random() * 30, Random() * 10);
-		if (time % 3 == 0) {
-			battle->get_effects() << std::make_unique<myIEffectAfterimage>(battle, pos, TextureAsset(U"hallucigenia_shot").resized(image_size_int).rotated(image_angle), Color(0, 255, 0));
+		if (time % 10 == 0) {
+			battle->get_effects() << std::make_unique<myIEffectAfterimage>(battle, pos, TextureAsset(U"hallucigenia_shot").resized(image_size_int).rotated(image_angle), Color(0, 255, 0),25);
 		}
 	}
 	

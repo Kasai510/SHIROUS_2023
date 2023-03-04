@@ -1,9 +1,10 @@
 ﻿#pragma once
-class myIEffect
+#include"BattleObject.h"
+class myIEffect:public BattleObject
 {
 public:
-	myIEffect(class Battle* b) {
-		battle = b;
+	myIEffect(class Battle* b):BattleObject(b) {
+		draw_order = 8;
 	}
 	virtual void update() = 0;
 	virtual void draw() = 0;
@@ -11,7 +12,6 @@ public:
 		return dead;
 	}
 protected:
-	Battle* battle;
 	int time = 0;
 	bool dead = false;
 };

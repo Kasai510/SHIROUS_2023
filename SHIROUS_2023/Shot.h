@@ -1,5 +1,6 @@
 ﻿#pragma once
 # include "myCamera.h"
+#include"BattleObject.h"
 
 class Fish;
 class Battle;
@@ -14,7 +15,7 @@ struct Record
 
 
 
-class Shot
+class Shot:public BattleObject
 {
 protected:
 
@@ -26,7 +27,6 @@ protected:
 
 	double damage_span{ 0.5 };
 
-	Battle* battle;
 	std::weak_ptr<Fish> master;//発射した人
 
 	MultiPolygon hit_boxs;//当たり判定
@@ -39,7 +39,7 @@ protected:
 	bool over = false;
 
 public:
-	Shot() {};
+	Shot(Battle* battle) :BattleObject(battle){};
 	Shot(Battle*,Vec2 p);
 	Shot(Battle*, const std::shared_ptr<class Fish>& );
 	~Shot() {};

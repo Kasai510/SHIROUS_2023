@@ -100,6 +100,7 @@
     <ClCompile Include="myIEffectCirclestar.cpp">
       <Filter>File\myEffect\Circlestar</Filter>
     </ClCompile>
+    <ClCompile Include="BattleObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetTexture.h">
@@ -204,6 +205,7 @@
     <ClInclude Include="myIEffectCirclestar.h">
       <Filter>File\myEffect\Circlestar</Filter>
     </ClInclude>
+    <ClInclude Include="BattleObject.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="App\example\xml\config.xml">

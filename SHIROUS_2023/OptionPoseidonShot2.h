@@ -27,7 +27,7 @@ protected:
 	double max_hit_r_h{ 0 };//hit_rの最大高さ
 
 public:
-	OptionPoseidonShot2() {};
+	//OptionPoseidonShot2() {};
 	OptionPoseidonShot2(Battle*, const std::shared_ptr<class Fish>&);
 	~OptionPoseidonShot2() {};
 

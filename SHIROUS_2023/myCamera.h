@@ -1,7 +1,8 @@
 ﻿#pragma once
 #include "stdafx.h"
+#include"BattleObject.h"
 
-class myCamera
+class myCamera:public BattleObject
 {
 private:
 	Vec2 center = { 1920/2,1080/2 };//中心座標
@@ -26,7 +27,7 @@ private:
 	inline void calc_mat();
 
 public:
-	myCamera();
+	myCamera(Battle* battle);
 	void scroll(Vec2 v);
 	void set(Vec2 v);
 	void set(Array<Vec2> vs);

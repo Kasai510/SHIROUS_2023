@@ -12,7 +12,7 @@ protected:
 	std::weak_ptr<Fish> target;
 
 public:
-	OptionShirousShot() {};
+	//OptionShirousShot() {};
 	OptionShirousShot(Battle*, const std::shared_ptr<class Fish>&);
 	~OptionShirousShot() {};
 

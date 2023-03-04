@@ -2,15 +2,14 @@
 #include "Background.h"
 #include"Battle.h"
 
-Background::Background(Battle* battle)
+Background::Background(Battle* battle):BattleObject(battle)
 {
-	this->battle = battle;
 
 	//make_ground1();
 	//make_ground2();
 	//write_file_ground();
 	read_file_ground();
-	
+	draw_order = 1;
 	
 }
 

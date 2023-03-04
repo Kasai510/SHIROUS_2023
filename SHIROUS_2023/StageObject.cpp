@@ -1,19 +1,21 @@
 ﻿#include"StageObject.h"
 
-Stage_object::Stage_object(Vec2 p, double w, double h)
+Stage_object::Stage_object(Battle* battle, Vec2 p, double w, double h):BattleObject(battle)
 {
 	pos = p;
 	pre_pos = pos;
 	width = w;
 	height = h;
+	draw_order = 10;
 }
 
-Stage_object::Stage_object(const Rect& rect)
+Stage_object::Stage_object(Battle* battle, const Rect& rect) :BattleObject(battle)
 {
 	pos = rect.center();
 	pre_pos = pos;
 	width = rect.size.x;
 	height = rect.size.y;
+	draw_order = 10;
 }
 
 void Stage_object::update()
