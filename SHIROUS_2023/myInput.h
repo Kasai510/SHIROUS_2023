@@ -82,6 +82,7 @@ public:
 	void load_setting_controller1();
 
 	bool press_any_myButton();
+	//押した瞬間は1。離した瞬間は-1。押している間はプラス。離している間は非正。
 	int get_myButton(int num) { return myButton[num]; }
 	int get_myButton_Up() { return myButton[(int)myButton_num::Up]; }
 	int get_myButton_Down() { return myButton[(int)myButton_num::Down]; }
