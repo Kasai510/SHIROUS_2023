@@ -15,6 +15,9 @@ void asset_texture()
 	TextureAsset::Register(U"seahorse", Resource(U"data/image/fish/seahorse/seahorse.png"));
 	TextureAsset::Register(U"hallucigenia", Resource(U"data/image/fish/hallucigenia/hallucigenia.png"));
 	TextureAsset::Register(U"hallucigenia_shot", Resource(U"data/image/fish/hallucigenia/hallucigenia_shot.png"));
+	TextureAsset::Register(U"opabinia", Resource(U"data/image/fish/opabinia/opabinia.png"));
+	TextureAsset::Register(U"opabinia_mouth_close", Resource(U"data/image/fish/opabinia/opabinia_mouth_close.png"));
+	TextureAsset::Register(U"opabinia_mouth_open", Resource(U"data/image/fish/opabinia/opabinia_mouth_open.png"));
 
 	TextureAsset::Register(U"poseidon", Resource(U"data/image/fish/poseidon/poseidon.png"));
 	TextureAsset::Register(U"poseidonshot0", U"data/image/fish/poseidon/poseidonshot0.png");
