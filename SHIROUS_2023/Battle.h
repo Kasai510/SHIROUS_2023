@@ -42,6 +42,7 @@ public:
 	Battle();
 	void update();
 	void draw();
+	void draw_UI();
 	void debug_draw();//デバッグ用のdraw
 	Font getFont30() { return font30; };
 	void camera_control();

@@ -98,5 +98,6 @@ public:
 
 	String get_name() { return name; }
 	bool is_dead() { return dead; }
+	double get_HP() { return hp; }
 };
 

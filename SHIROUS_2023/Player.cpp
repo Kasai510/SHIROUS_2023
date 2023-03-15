@@ -36,6 +36,7 @@ void Player::update()
 		options[i]->update(i);
 	}
 
+	LP = Min(LP + 1, Max_LP);
 	spawn();
 
 	options.remove_if([](const std::shared_ptr<Option>& option) {return option->is_dead(); });
@@ -173,9 +174,22 @@ void Player::spawn()
 
 			if (input.get_myButton_L() == 1 || input.get_myButton_A() == 1)
 			{
-				if (select_spawn == (int)FishType::Shirous) options << std::make_shared<OptionShirous>(battle, get_pos());//産卵。
-				if (select_spawn == (int)FishType::Seahorse) options << std::make_shared<OptionSeahorse>(battle, get_pos());
-				if (select_spawn == (int)FishType::Poseidon) options << std::make_shared<OptionPoseidon>(battle, get_pos());
+				//産卵。
+				if (select_spawn == (int)FishType::Shirous && LP >= 100)
+				{
+					options << std::make_shared<OptionShirous>(battle, get_pos());
+					LP -= 100;
+				}
+				if (select_spawn == (int)FishType::Seahorse && LP >= 200)
+				{
+					options << std::make_shared<OptionSeahorse>(battle, get_pos());
+					LP -= 200;
+				}
+				if (select_spawn == (int)FishType::Poseidon && LP >= 300)
+				{
+					options << std::make_shared<OptionPoseidon>(battle, get_pos());
+					LP -= 300;
+				}
 
 
 				spawning = 0;
