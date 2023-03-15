@@ -54,7 +54,7 @@ void OptionShirous::move(int index)
 	double dx = -100 * (i-1) + 10 * sin(option_pos_timer / 60.0 / (2 * i));
 	double dy = 100 * (j - 0.5 * (i + 1)) + 20 * sin(option_pos_timer / 60.0 / (2 * j));
 
-	Vec2 place = battle->get_player().get_pos().movedBy(dx, dy);
+	place = battle->get_player().get_pos().movedBy(dx, dy);
 	speed += (place - get_pos()) / slowness;
 	if (speed.length() > max_speed) speed = speed.normalized() * max_speed;
 
@@ -95,7 +95,14 @@ void OptionShirous::move_intersect_stage(Stage_object stage)
 
 	}
 
-	
+	if (get_rect().intersects(stage.get_near_rect()))
+	{
+		Vec2 v = get_pos() - stage.get_pos();
+		double k = (place - get_pos()).length() / 150.0;//÷150がOptionShirousに合わせたものだから、調整が要るかも。
+
+		speed += v.normalized() * k;
+
+	}
 }
 void  OptionShirous::check_limit_stage(myCamera camera)
 {

@@ -90,7 +90,14 @@ void Option::move_intersect_stage(Stage_object stage)
 
 	}
 
-	
+	if (get_rect().intersects(stage.get_near_rect()))
+	{
+		Vec2 v = get_pos() - stage.get_pos();
+		double k = (place - get_pos()).length() / 150.0;//÷150がOptionShirousに合わせたものだから、調整が要るかも。
+
+		speed += v.normalized() * k;
+
+	}
 
 
 }
