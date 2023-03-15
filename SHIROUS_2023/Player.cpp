@@ -187,6 +187,11 @@ void Player::spawn()
 					options << std::make_shared<OptionSeahorse>(battle, get_pos());
 					LP -= 200;
 				}
+				if (select_spawn == (int)FishType::Harisenbong && LP >= 200)
+				{
+					options << std::make_shared<OptionHarisenbong>(battle, get_pos());
+					LP -= 200;
+				}
 				if (select_spawn == (int)FishType::Poseidon && LP >= 300)
 				{
 					options << std::make_shared<OptionPoseidon>(battle, get_pos());
@@ -271,6 +276,7 @@ Texture Player::get_fish_texture(int type)
 
 	if (type == (int)FishType::Shirous)return TextureAsset(U"shirous");
 	if (type == (int)FishType::Seahorse)return TextureAsset(U"seahorse");
+	if (type == (int)FishType::Harisenbong)return TextureAsset(U"harisenbong");
 	if (type == (int)FishType::Poseidon)return TextureAsset(U"poseidon");
 
 	return TextureAsset(U"shirous");
