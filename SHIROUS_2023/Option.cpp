@@ -1,9 +1,8 @@
 ﻿#include "Option.h"
 #include"OptionShot.h"
 #include"Battle.h"
-
-
 #include"OptionShirousShot.h"
+
 
 
 Option::Option(Battle* battle):Fish(battle)

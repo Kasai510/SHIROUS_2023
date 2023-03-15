@@ -4,6 +4,8 @@
 #include"OptionSeahorse.h"
 #include"OptionPoseidon.h"
 #include"OptionShirousShot.h"
+#include"OptionCupinlaoyui.h"
+#include"OptionHarisenbong.h"
 
 
 Player::Player(Battle* battle):Fish(battle)
@@ -15,7 +17,7 @@ Player::Player(Battle* battle, Vec2 p):Fish(battle, p)
 	set_name(U"シラス");
 	set_image_name(U"shirous");
 	for (int i = 0; i < 1;i++) {
-		options << std::make_shared<OptionShirous>(battle, p);
+		options << std::make_shared<OptionHarisenbong>(battle, p);
 		//options << std::make_shared<OptionSeahorse>(battle, p);
 		//options << std::make_shared<OptionPoseidon>(battle, p);
 
