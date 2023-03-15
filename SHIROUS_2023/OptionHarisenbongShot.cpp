@@ -132,6 +132,10 @@ void OptionHarisenbongShot::move()
 			pos = master_pos + 360*0.5* Vec2{ cos(init_shot_arg),sin(init_shot_arg) };
 
 		}
+		else
+		{
+			shot_phase = 3;
+		}
 	}
 	else if(shot_phase == 3)
 	{
