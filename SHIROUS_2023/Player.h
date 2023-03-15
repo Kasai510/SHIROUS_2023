@@ -15,6 +15,7 @@ protected:
 	{
 		Shirous,
 		Seahorse,
+		Harisenbong,
 		Poseidon,
 		size
 	};
