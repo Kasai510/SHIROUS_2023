@@ -101,6 +101,9 @@
       <Filter>File\myEffect\Circlestar</Filter>
     </ClCompile>
     <ClCompile Include="BattleObject.cpp" />
+    <ClCompile Include="EnemyOpabinia.cpp">
+      <Filter>File\Fish\Enemy\Opabinia</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetTexture.h">
@@ -206,6 +209,9 @@
       <Filter>File\myEffect\Circlestar</Filter>
     </ClInclude>
     <ClInclude Include="BattleObject.h" />
+    <ClInclude Include="EnemyOpabinia.h">
+      <Filter>File\Fish\Enemy\Opabinia</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="App\example\xml\config.xml">
@@ -909,6 +915,9 @@
     </Filter>
     <Filter Include="File\myEffect\Circlestar">
       <UniqueIdentifier>{f2631cf4-8289-404d-ab73-6957f37e23f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\Fish\Enemy\Opabinia">
+      <UniqueIdentifier>{645b9e69-341d-4411-86d3-be2d0056ea12}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

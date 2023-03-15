@@ -136,6 +136,9 @@ Resource(data/binary/background/ground_cumbria.bin)
 Resource(data/binary/effect/particle_circlestar.bin)
 Resource(data/image/fish/hallucigenia/hallucigenia.png)
 Resource(data/image/fish/hallucigenia/hallucigenia_shot.png)
+Resource(data/image/fish/opabinia/opabinia.png)
+Resource(data/image/fish/opabinia/opabinia_mouth_close.png)
+Resource(data/image/fish/opabinia/opabinia_mouth_open.png)
 
 
 

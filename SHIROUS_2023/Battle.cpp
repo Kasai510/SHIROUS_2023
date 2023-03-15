@@ -3,6 +3,7 @@
 #include"EnemyKurage.h"
 #include"EnemyShotPikaia.h"
 #include"EnemyHallucigenia.h"
+#include"EnemyOpabinia.h"
 
 Battle::Battle()
 {
@@ -197,6 +198,7 @@ void Battle::initialize_enemies()
 	enemies << std::make_shared<EnemyHallucigenia>(this, Vec2(2000, 600));
 	enemies << std::make_shared<EnemyKurage>(this, Vec2(1700, 400));
 	enemies << std::make_shared<EnemyPikaia>(this, Vec2(2000, 400));
+	enemies << std::make_shared<EnemyOpabinia>(this, Vec2(2000, 200));
 }
 
 void Battle::add_draw_objects(std::shared_ptr<BattleObject>)
