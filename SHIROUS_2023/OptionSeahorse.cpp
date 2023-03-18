@@ -56,7 +56,7 @@ void OptionSeahorse::move(int index)
 		j += i;
 	}
 
-	Vec2 place = battle->get_player().get_pre_pos_left().movedBy(-100 * i + 10 * sin(option_pos_timer / 60.0 / (index + 1)), 30 * i * sin(option_pos_timer / 60.0 / (index + 1)));
+	place = battle->get_player().get_pre_pos_left().movedBy(-100 * i + 10 * sin(option_pos_timer / 60.0 / (index + 1)), 30 * i * sin(option_pos_timer / 60.0 / (index + 1)));
 	speed += (place - get_pos()) / slowness;
 	if (speed.length() > max_speed) speed = speed.normalized() * max_speed;
 

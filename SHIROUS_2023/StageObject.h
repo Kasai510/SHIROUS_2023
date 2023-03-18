@@ -22,7 +22,7 @@ public:
 	double get_width() { return width; }
 	double get_height() { return height; }
 
-	Vec2 get_pos() { return pos; }
+	Vec2 get_pos() { return pos; }//中心座標
 	double get_top() { return (get_pos().y - height / 2.0); }
 	double get_bottom() { return (get_pos().y + height / 2.0); }
 	double get_left() { return (get_pos().x - width / 2.0); }
@@ -33,5 +33,6 @@ public:
 	double get_pre_left() { return (get_pre_pos().x - width / 2.0); }
 	double get_pre_right() { return (get_pre_pos().x + width / 2.0); }
 	RectF get_rect() { return RectF(Arg::center(get_pos()), width, height); }
+	RectF get_near_rect() { return RectF(Arg::center(get_pos()), width + 200, height + 200); }
 };
 

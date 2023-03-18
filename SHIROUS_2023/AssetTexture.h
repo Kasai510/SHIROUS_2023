@@ -23,6 +23,9 @@ void asset_texture()
 	TextureAsset::Register(U"poseidonshot0", U"data/image/fish/poseidon/poseidonshot0.png");
 	TextureAsset::Register(U"poseidonshot1", U"data/image/fish/poseidon/poseidonshot1.png");
 
+	TextureAsset::Register(U"harisenbong", Resource(U"data/image/fish/harisenbong/ハリセンボン.png"));
+	TextureAsset::Register(U"harisenbongshot", Resource(U"data/image/fish/harisenbong/ハリセンボンショット.png"));
+
 	TextureAsset::Register(U"rock_1", U"data/image/object/rock/rock_1.png");
 	TextureAsset::Register(U"kaimen_1", U"data/image/object/living/kaimen_1.png");
 	TextureAsset::Register(U"bubble", U"data/image/object/bubble/bubble.png");

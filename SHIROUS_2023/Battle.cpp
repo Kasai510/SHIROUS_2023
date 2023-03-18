@@ -9,7 +9,7 @@ Battle::Battle()
 {
 	stages << Stage_object(this,{ 800,600 }, 200, 200);
 	stages << Stage_object(this, { 1400,600 }, 200, 200);
-	stages << Stage_object(this, { -100,900 , 19200+200, 200 });
+	stages << Stage_object(this, { -100,1000 , 19200+200, 200 });
 	initialize_enemies();//これはのちにEnemiesManagerとかがするかも知れない
 }
 
@@ -129,7 +129,19 @@ void Battle::draw()
 	
 	camera.draw_stage_area();
 
+	draw_UI();
 	debug_draw();
+}
+void Battle::draw_UI()
+{
+	camera.draw_texture(RectF{ Arg::center(camera.get_center().movedBy(0,-465)),1920,150 }, Palette::Black);
+	camera.draw_texture(font30(U"HP"), camera.get_center().movedBy(-1920 / 2 + 50, -500));
+	camera.draw_texture(font30(U"LP"), camera.get_center().movedBy(-1920 / 2 + 50, -430));
+
+	camera.draw_texture(RectF{ camera.get_center().movedBy(-1920 / 2 + 100, -500), player.get_HP(), 20 }, Palette::Lightgreen);
+	camera.draw_texture(RectF{ camera.get_center().movedBy(-1920 / 2 + 100, -430), player.get_Max_LP(), 20 }, Palette::Gray);
+	camera.draw_texture(RectF{ camera.get_center().movedBy(-1920 / 2 + 100, -430), player.get_LP(), 20 }, Palette::Lightgreen);
+
 }
 
 void Battle::debug_draw()

@@ -17,7 +17,7 @@ private:
 	Vec2 limit_camera_min = { 1920 / 2, 1080 / 2 };		//カメラワーク限界の左上の座標
 	Vec2 limit_camera_max = { 19200,1080 / 2 };		//カメラワーク限界の右下の座標
 	//ステージ限界の座標。
-	Vec2 limit_stage_min = { 0, 0 };			//ステージ限界の左上の座標
+	Vec2 limit_stage_min = { 0, 150 };			//ステージ限界の左上の座標
 	Vec2 limit_stage_max = { 19200,1080 };		//ステージ限界の右下の座標
 
 	Array<RectF> ground_rect;//stageの地面の情報。画面の縦揺れの軽減に使う。

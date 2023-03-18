@@ -1,37 +1,44 @@
-﻿#include "Option.h"
-#include"OptionShot.h"
+﻿#include "stdafx.h"
+#include "OptionCupinlaoyui.h"
+#include"OptionCupinlaoyuiShot.h"
 #include"Battle.h"
-#include"OptionShirousShot.h"
+#include"Fish.h"
+
+class Fish;
 
 
-
-Option::Option(Battle* battle):Fish(battle)
+OptionCupinlaoyui::OptionCupinlaoyui(Battle* battle)
+	: Option(battle)
 {
-	/*
-	set_name(U"シラス");
-	set_image_name(U"shirous");
-	*/
+	set_name(U"キューピンラオユイ");
+	set_image_name(U"cupinlaoyui");
 }
-Option::Option(Battle* battle, Vec2 p):Fish(battle, p)
+OptionCupinlaoyui::OptionCupinlaoyui(Battle* battle, Vec2 p)
+	: Option(battle, p)
 {
-	/*
-	set_name(U"シラス");
-	set_image_name(U"shirous");
+	set_name(U"キューピンラオユイ");
+	set_image_name(U"cupinlaoyui");
 	option_pos_timer = Random(0, 600);
-	*/
+
+	shot_cool_time = 120;
+	shot_timer = shot_cool_time;
 }
 
 
-Option::~Option()
+OptionCupinlaoyui::~OptionCupinlaoyui()
 {
 
 }
-void Option::update(Vec2 player, int index)
+void OptionCupinlaoyui::update(int index)
 {
-	move(player, index);
+	move(index);
+	attack();
 }
-void Option::move(Vec2 player, int index)
+
+void OptionCupinlaoyui::move(int index)
 {
+
+
 	double slowness = 100.0;
 
 	int i = 1;
@@ -58,10 +65,11 @@ void Option::move(Vec2 player, int index)
 
 	speed /= 1.1;
 
-}
-void Option::move_intersect_stage(Stage_object stage)
-{
 
+
+}
+void OptionCupinlaoyui::move_intersect_stage(Stage_object stage)
+{
 	if (get_rect().intersects(stage.get_rect()))
 	{
 		double dx = get_pos().x - stage.get_pos().x;
@@ -97,10 +105,8 @@ void Option::move_intersect_stage(Stage_object stage)
 		speed += v.normalized() * k;
 
 	}
-
-
 }
-void  Option::check_limit_stage(myCamera camera)
+void  OptionCupinlaoyui::check_limit_stage(myCamera camera)
 {
 	if (camera.get_limit_stage_min().y > get_pos_top().y)set_pos_top(camera.get_limit_stage_min().y);
 	if (camera.get_limit_stage_max().y < get_pos_bottom().y)set_pos_bottom(camera.get_limit_stage_max().y);
@@ -109,27 +115,61 @@ void  Option::check_limit_stage(myCamera camera)
 }
 
 
-bool Option::ready_shot()
+bool OptionCupinlaoyui::ready_shot()
 {
 	if (shot_timer > 0)shot_timer--;
-	if (shot_timer == 0) return true;
+	if (shot_timer == 0)
+	{
+		shot_timer = shot_cool_time;
+		return true;
+	}
 	return false;
 }
 
+void OptionCupinlaoyui::attack()
+{
+	//攻撃の更新
+	for (int i = 0; i < optionshots.size(); i++)
+	{
+		optionshots[i]->update();
 
-void Option::draw()
+	}
+
+	optionshots.remove_if([](const std::shared_ptr<Shot> p) {return (p->get_over()); });
+
+	if (ready_shot())
+	{
+		optionshots << std::make_shared<OptionShirousShot>(battle, shared_from_this());
+	}
+}
+
+
+
+void OptionCupinlaoyui::draw()
 {
 	myCamera& camera = battle->get_camera();
 	// 自機の描画
 	//TextureAsset(name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
+
+	//当たり判定の描画
+	battle->get_camera().draw_texture(get_rect(), Palette::Red);
+
 	TextureAsset(image_name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale(), Palette::Gray);
-	font(ID).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
+	font(shot_timer).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
+
+
+
+	//攻撃の描画
+	for (int i = 0; i < optionshots.size(); i++)
+	{
+		optionshots[i]->draw();
+	}
 }
-void Option::draw_back()
+void OptionCupinlaoyui::draw_back()
 {
 
 }
-void Option::draw_front()
+void OptionCupinlaoyui::draw_front()
 {
 
 }

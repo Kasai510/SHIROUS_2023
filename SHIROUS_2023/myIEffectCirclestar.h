@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "myIEffect.h"
+
 class myIEffectCirclestar :
     public myIEffect
 {

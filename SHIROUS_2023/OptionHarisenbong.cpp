@@ -1,60 +1,63 @@
-﻿#include "OptionShirous.h"
-#include"OptionShirousShot.h"
+﻿#include "stdafx.h"
+#include "OptionHarisenbong.h"
+#include"OptionHarisenbongShot.h"
 #include"Battle.h"
-#include"Fish.h"
-
-class Fish;
 
 
-OptionShirous::OptionShirous(Battle* battle)
+
+
+OptionHarisenbong::OptionHarisenbong(Battle* battle)
 	: Option(battle)
 {
-	set_name(U"シラス");
-	set_image_name(U"shirous");
+	set_name(U"ハリセンボン");
+	set_image_name(U"harisenbong");
+
+
+	width = 100;
+	height = 100;
+	shot_cool_time = 90;
+	shot_timer = shot_cool_time;
 }
-OptionShirous::OptionShirous(Battle* battle, Vec2 p)
+OptionHarisenbong::OptionHarisenbong(Battle* battle, Vec2 p)
 	: Option(battle, p)
 {
-	set_name(U"シラス");
-	set_image_name(U"shirous");
+	set_name(U"ハリセンボン");
+	set_image_name(U"harisenbong");
 	option_pos_timer = Random(0, 600);
 
-	shot_cool_time = 120;
+	width = 100;
+	height = 100;
+	shot_cool_time = 90;
 	shot_timer = shot_cool_time;
 }
 
 
-OptionShirous::~OptionShirous()
+OptionHarisenbong::~OptionHarisenbong()
 {
 
 }
-void OptionShirous::update(int index)
+void OptionHarisenbong::update(int index)
 {
 	move(index);
 	attack();
+
 }
-void OptionShirous::move(int index)
+void OptionHarisenbong::move(int index)
 {
-	
+	option_pos_timer++;
+	if (option_pos_timer > 2 * Math::Pi * 60 * (index + 1))option_pos_timer -= 2 * Math::Pi * 60 * (index + 1);
 
 	double slowness = 100.0;
 
 	int i = 1;
-	int j = 1;
-	while (j < index + 2)
+	int j = 0;
+	while (j < index)
 	{
 		i++;
 		j += i;
 	}
-	j = i - (j - (index + 2));
 
-	option_pos_timer++;
-	if (option_pos_timer > 2 * Math::Pi * 60 * 2 * i * j)option_pos_timer -= 2 * Math::Pi * 60 * 2 * i * j;
-
-	double dx = -100 * (i-1) + 10 * sin(option_pos_timer / 60.0 / (2 * i));
-	double dy = 100 * (j - 0.5 * (i + 1)) + 20 * sin(option_pos_timer / 60.0 / (2 * j));
-
-	place = battle->get_player().get_pos().movedBy(dx, dy);
+	place = battle->get_player().get_pre_pos_left().movedBy(-100 * i + 10 * sin(option_pos_timer / 60.0 / (index + 1)), 30 * i * sin(option_pos_timer / 60.0 / (index + 1)));
 	speed += (place - get_pos()) / slowness;
 	if (speed.length() > max_speed) speed = speed.normalized() * max_speed;
 
@@ -63,10 +66,8 @@ void OptionShirous::move(int index)
 
 	speed /= 1.1;
 
-	
-
 }
-void OptionShirous::move_intersect_stage(Stage_object stage)
+void OptionHarisenbong::move_intersect_stage(Stage_object stage)
 {
 	if (get_rect().intersects(stage.get_rect()))
 	{
@@ -95,16 +96,9 @@ void OptionShirous::move_intersect_stage(Stage_object stage)
 
 	}
 
-	if (get_rect().intersects(stage.get_near_rect()))
-	{
-		Vec2 v = get_pos() - stage.get_pos();
-		double k = (place - get_pos()).length() / 150.0;//÷150がOptionShirousに合わせたものだから、調整が要るかも。
 
-		speed += v.normalized() * k;
-
-	}
 }
-void  OptionShirous::check_limit_stage(myCamera camera)
+void  OptionHarisenbong::check_limit_stage(myCamera camera)
 {
 	if (camera.get_limit_stage_min().y > get_pos_top().y)set_pos_top(camera.get_limit_stage_min().y);
 	if (camera.get_limit_stage_max().y < get_pos_bottom().y)set_pos_bottom(camera.get_limit_stage_max().y);
@@ -113,9 +107,10 @@ void  OptionShirous::check_limit_stage(myCamera camera)
 }
 
 
-bool OptionShirous::ready_shot()
+bool OptionHarisenbong::ready_shot()
 {
-	if (shot_timer > 0)shot_timer--;
+	if (shot_timer > 0 && optionshots.size() == 0)shot_timer--;
+
 	if (shot_timer == 0)
 	{
 		shot_timer = shot_cool_time;
@@ -124,7 +119,7 @@ bool OptionShirous::ready_shot()
 	return false;
 }
 
-void OptionShirous::attack()
+void OptionHarisenbong::attack()
 {
 	//攻撃の更新
 	for (int i = 0; i < optionshots.size(); i++)
@@ -133,17 +128,22 @@ void OptionShirous::attack()
 
 	}
 
+
 	optionshots.remove_if([](const std::shared_ptr<Shot> p) {return (p->get_over()); });
+
 
 	if (ready_shot())
 	{
-		optionshots << std::make_shared<OptionShirousShot>(battle,shared_from_this());
+		for (int i = 0; i <= 5; i++)
+		{
+			optionshots << std::make_shared<OptionHarisenbongShot>(battle, shared_from_this(),60_deg*i);
+		}
 	}
 }
 
 
 
-void OptionShirous::draw()
+void OptionHarisenbong::draw()
 {
 	myCamera& camera = battle->get_camera();
 	// 自機の描画
@@ -152,22 +152,21 @@ void OptionShirous::draw()
 	//当たり判定の描画
 	battle->get_camera().draw_texture(get_rect(), Palette::Red);
 
-	TextureAsset(image_name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale(), Palette::Gray);
+	TextureAsset(image_name).resized(width).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
 	font(shot_timer).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
-
-
 
 	//攻撃の描画
 	for (int i = 0; i < optionshots.size(); i++)
 	{
 		optionshots[i]->draw();
+
 	}
 }
-void OptionShirous::draw_back()
+void OptionHarisenbong::draw_back()
 {
 
 }
-void OptionShirous::draw_front()
+void OptionHarisenbong::draw_front()
 {
 
 }
