@@ -9,6 +9,9 @@ public:
 	void move();
 	void draw();
 private:
-	Vec2 mouth_pos;
+	Vec2 mouth_local_pos;
+	Vec2 mouth_go_local_pos;
+	Vec2 mouth_v;
+	bool mouth_is_open;
 };
 
