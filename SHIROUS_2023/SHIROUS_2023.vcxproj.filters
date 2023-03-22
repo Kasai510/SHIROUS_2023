@@ -104,6 +104,29 @@
     <ClCompile Include="EnemyOpabinia.cpp">
       <Filter>File\Fish\Enemy\Opabinia</Filter>
     </ClCompile>
+    <ClCompile Include="OptionCupinlaoyui.cpp" />
+    <ClCompile Include="OptionCupinlaoyuiShot.cpp" />
+    <ClCompile Include="OptionHarisenbong.cpp">
+      <Filter>File\Fish\Option\Harisenbong</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionHarisenbongShot.cpp">
+      <Filter>File\Fish\Option\Harisenbong</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionAnnkou.cpp">
+      <Filter>File\Fish\Option\Annkou</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionAnnkouShot.cpp">
+      <Filter>File\Fish\Option\Annkou</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyAnomalocaris.cpp">
+      <Filter>File\Fish\Enemy\anomalocaris</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyAnomalocaris_standby.cpp">
+      <Filter>File\Fish\Enemy\anomalocaris</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyAnomalocaris_hurtle.cpp">
+      <Filter>File\Fish\Enemy\anomalocaris</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetTexture.h">
@@ -211,6 +234,23 @@
     <ClInclude Include="BattleObject.h" />
     <ClInclude Include="EnemyOpabinia.h">
       <Filter>File\Fish\Enemy\Opabinia</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionCupinlaoyui.h" />
+    <ClInclude Include="OptionCupinlaoyuiShot.h" />
+    <ClInclude Include="OptionHarisenbongShot.h">
+      <Filter>File\Fish\Option\Harisenbong</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionHarisenbong.h">
+      <Filter>File\Fish\Option\Harisenbong</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionAnnkou.h">
+      <Filter>File\Fish\Option\Annkou</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionAnnkouShot.h">
+      <Filter>File\Fish\Option\Annkou</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyAnomalocaris.h">
+      <Filter>File\Fish\Enemy\anomalocaris</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -918,6 +958,15 @@
     </Filter>
     <Filter Include="File\Fish\Enemy\Opabinia">
       <UniqueIdentifier>{645b9e69-341d-4411-86d3-be2d0056ea12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\Fish\Option\Harisenbong">
+      <UniqueIdentifier>{c4b26eeb-316f-4213-ab10-3f3b451dbc02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\Fish\Option\Annkou">
+      <UniqueIdentifier>{f1420af1-6b3e-4953-bc37-643544e3d583}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\Fish\Enemy\anomalocaris">
+      <UniqueIdentifier>{9e0ad3de-524c-400c-85e2-d6fd6b839788}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -7,6 +7,7 @@ public:
 	Enemy(Battle* battle,const Vec2& p);
 	void update();
 	void draw();
+	virtual void move_intersect_stage(Stage_object stage) ;
 	void move();
 protected:
 	int time = 0;

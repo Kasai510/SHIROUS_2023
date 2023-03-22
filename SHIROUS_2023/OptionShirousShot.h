@@ -6,7 +6,7 @@ class OptionShirousShot : public OptionShot
 {
 protected:
 	double shot_timer;
-	Vec2 poss[6];
+
 	bool set_init_pos{ false };
 
 	std::weak_ptr<Fish> target;

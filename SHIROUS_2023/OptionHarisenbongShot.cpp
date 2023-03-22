@@ -70,7 +70,7 @@ void OptionHarisenbongShot::update_attack()
 
 void OptionHarisenbongShot::set_crash()
 {
-	battle->get_effects() << std::make_unique<myIEffectClash>(battle, pos);
+	battle->get_effects() << std::make_unique<myIEffectClash>(battle, pos, Palette::Yellow);
 	over = true;
 }
 
@@ -98,11 +98,14 @@ void OptionHarisenbongShot::move()
 			//targetの決定
 			for (auto& enemy : battle->get_enemies())
 			{
-				if ( decide_target == false||(enemy->get_pos() - master_pos).length() <= (target_pos - master_pos).length())
+				if (battle->get_camera().in_camera(enemy->get_rect()) && (enemy->get_pos() - pos).length() <= 1500)
 				{
-					decide_target = true;
+					if (decide_target == false || (enemy->get_pos() - master_pos).length() <= (target_pos - master_pos).length())
+					{
+						decide_target = true;
 
-					target_pos = enemy->get_pos()+70*RandomVec2();
+						target_pos = enemy->get_pos() + 70 * RandomVec2();
+					}
 				}
 			}
 
@@ -121,7 +124,7 @@ void OptionHarisenbongShot::move()
 		{
 			//shot_argを変える
 			shot_arg += (target_shot_arg - shot_arg) / 8;
-
+			//shot_arg += 20_deg;
 
 			if (shot_timer>= 1)
 			{

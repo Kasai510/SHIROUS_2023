@@ -117,6 +117,9 @@
     <ClCompile Include="Battle.cpp" />
     <ClCompile Include="BattleObject.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyAnomalocaris.cpp" />
+    <ClCompile Include="EnemyAnomalocaris_hurtle.cpp" />
+    <ClCompile Include="EnemyAnomalocaris_standby.cpp" />
     <ClCompile Include="EnemyHallucigenia.cpp" />
     <ClCompile Include="EnemyKurage.cpp" />
     <ClCompile Include="EnemyOpabinia.cpp" />
@@ -136,6 +139,8 @@
     <ClCompile Include="myInput.cpp" />
     <ClCompile Include="myScene.cpp" />
     <ClCompile Include="Option.cpp" />
+    <ClCompile Include="OptionAnnkou.cpp" />
+    <ClCompile Include="OptionAnnkouShot.cpp" />
     <ClCompile Include="OptionCupinlaoyui.cpp" />
     <ClCompile Include="OptionCupinlaoyuiShot.cpp" />
     <ClCompile Include="OptionHarisenbong.cpp" />
@@ -355,6 +360,7 @@
     <ClInclude Include="Battle.h" />
     <ClInclude Include="BattleObject.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyAnomalocaris.h" />
     <ClInclude Include="EnemyHallucigenia.h" />
     <ClInclude Include="EnemyKurage.h" />
     <ClInclude Include="EnemyOpabinia.h" />
@@ -374,6 +380,8 @@
     <ClInclude Include="myInput.h" />
     <ClInclude Include="myScene.h" />
     <ClInclude Include="Option.h" />
+    <ClInclude Include="OptionAnnkou.h" />
+    <ClInclude Include="OptionAnnkouShot.h" />
     <ClInclude Include="OptionCupinlaoyui.h" />
     <ClInclude Include="OptionCupinlaoyuiShot.h" />
     <ClInclude Include="OptionHarisenbong.h" />

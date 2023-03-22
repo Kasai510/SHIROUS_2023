@@ -36,7 +36,6 @@ void OptionShirous::update(int index)
 void OptionShirous::move(int index)
 {
 	
-
 	double slowness = 100.0;
 
 	int i = 1;
@@ -51,7 +50,7 @@ void OptionShirous::move(int index)
 	option_pos_timer++;
 	if (option_pos_timer > 2 * Math::Pi * 60 * 2 * i * j)option_pos_timer -= 2 * Math::Pi * 60 * 2 * i * j;
 
-	double dx = -100 * (i-1) + 10 * sin(option_pos_timer / 60.0 / (2 * i));
+	double dx = -100 * (i - 1) + 10 * sin(option_pos_timer / 60.0 / (2 * i));
 	double dy = 100 * (j - 0.5 * (i + 1)) + 20 * sin(option_pos_timer / 60.0 / (2 * j));
 
 	place = battle->get_player().get_pos().movedBy(dx, dy);
@@ -62,8 +61,6 @@ void OptionShirous::move(int index)
 	pos += speed;
 
 	speed /= 1.1;
-
-	
 
 }
 void OptionShirous::move_intersect_stage(Stage_object stage)

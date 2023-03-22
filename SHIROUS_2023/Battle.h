@@ -15,6 +15,8 @@ class Battle
 {
 private:
 	double scene_del;//前のフレームからの経過時間
+	Vec2 scene_size{ Scene::Size() };//シーンの大きさ
+
 
 	int scene_num = 2;
 	int change_scene_to = -1;
@@ -52,6 +54,7 @@ public:
 
 	void initialize_enemies();
 
+	Vec2 get_scene_size() { return scene_size; }
 	double get_scene_del() { return scene_del; }
 	myCamera& get_camera() { return camera; }
 	Player& get_player() { return player; }

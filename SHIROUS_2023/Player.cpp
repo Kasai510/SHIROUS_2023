@@ -6,6 +6,7 @@
 #include"OptionShirousShot.h"
 #include"OptionCupinlaoyui.h"
 #include"OptionHarisenbong.h"
+#include"OptionAnnkou.h"
 
 
 Player::Player(Battle* battle):Fish(battle)

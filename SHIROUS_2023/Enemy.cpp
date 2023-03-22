@@ -24,6 +24,36 @@ void Enemy::draw()
 	camera.draw_texture(TextureAsset(image_name).resized(image_size_int), pos);
 }
 
+void Enemy::move_intersect_stage(Stage_object stage)
+{
+	if (get_rect().intersects(stage.get_rect()))
+	{
+		double dx = get_pos().x - stage.get_pos().x;
+
+		if (stage.get_pre_pos().y + dx / (get_width() + stage.get_width()) * (get_height() + stage.get_height()) < get_pre_pos().y
+			&& stage.get_pre_pos().y - dx / (get_width() + stage.get_width()) * (get_height() + stage.get_height()) < get_pre_pos().y)
+		{
+			set_pos_top(stage.get_bottom());
+		}
+		if (stage.get_pre_pos().y + dx / (get_width() + stage.get_width()) * (get_height() + stage.get_height()) > get_pre_pos().y
+			&& stage.get_pre_pos().y - dx / (get_width() + stage.get_width()) * (get_height() + stage.get_height()) > get_pre_pos().y)
+		{
+			set_pos_bottom(stage.get_top());
+		}
+		if (stage.get_pre_pos().y + dx / (get_width() + stage.get_width()) * (get_height() + stage.get_height()) > get_pre_pos().y
+			&& stage.get_pre_pos().y - dx / (get_width() + stage.get_width()) * (get_height() + stage.get_height()) < get_pre_pos().y)
+		{
+			set_pos_left(stage.get_right());
+		}
+		if (stage.get_pre_pos().y + dx / (get_width() + stage.get_width()) * (get_height() + stage.get_height()) < get_pre_pos().y
+			&& stage.get_pre_pos().y - dx / (get_width() + stage.get_width()) * (get_height() + stage.get_height()) > get_pre_pos().y)
+		{
+			set_pos_right(stage.get_left());
+		}
+
+	}
+}
+
 void Enemy::move()
 {
 	prev_pos = pos;

@@ -43,20 +43,24 @@ void OptionSeahorse::update(int index)
 }
 void OptionSeahorse::move(int index)
 {
-	option_pos_timer++;
-	if (option_pos_timer > 2 * Math::Pi * 60 * (index + 1))option_pos_timer -= 2 * Math::Pi * 60 * (index + 1);
-
 	double slowness = 100.0;
 
 	int i = 1;
-	int j = 0;
-	while (j < index)
+	int j = 1;
+	while (j < index + 2)
 	{
 		i++;
 		j += i;
 	}
+	j = i - (j - (index + 2));
 
-	place = battle->get_player().get_pre_pos_left().movedBy(-100 * i + 10 * sin(option_pos_timer / 60.0 / (index + 1)), 30 * i * sin(option_pos_timer / 60.0 / (index + 1)));
+	option_pos_timer++;
+	if (option_pos_timer > 2 * Math::Pi * 60 * 2 * i * j)option_pos_timer -= 2 * Math::Pi * 60 * 2 * i * j;
+
+	double dx = -100 * (i - 1) + 10 * sin(option_pos_timer / 60.0 / (2 * i));
+	double dy = 100 * (j - 0.5 * (i + 1)) + 20 * sin(option_pos_timer / 60.0 / (2 * j));
+
+	place = battle->get_player().get_pos().movedBy(dx, dy);
 	speed += (place - get_pos()) / slowness;
 	if (speed.length() > max_speed) speed = speed.normalized() * max_speed;
 
@@ -64,7 +68,6 @@ void OptionSeahorse::move(int index)
 	pos += speed;
 
 	speed /= 1.1;
-
 }
 void OptionSeahorse::move_intersect_stage(Stage_object stage)
 {
