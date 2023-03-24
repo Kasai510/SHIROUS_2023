@@ -104,6 +104,13 @@
     <ClCompile Include="EnemyOpabinia.cpp">
       <Filter>File\Fish\Enemy\Opabinia</Filter>
     </ClCompile>
+    <ClCompile Include="OptionCupinlaoyui.cpp" />
+    <ClCompile Include="OptionCupinlaoyuiShot.cpp" />
+    <ClCompile Include="OptionHarisenbong.cpp" />
+    <ClCompile Include="OptionHarisenbongShot.cpp" />
+    <ClCompile Include="EnemyShotOpabinia.cpp">
+      <Filter>File\Fish\Enemy\Opabinia</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetTexture.h">
@@ -210,6 +217,13 @@
     </ClInclude>
     <ClInclude Include="BattleObject.h" />
     <ClInclude Include="EnemyOpabinia.h">
+      <Filter>File\Fish\Enemy\Opabinia</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionCupinlaoyui.h" />
+    <ClInclude Include="OptionCupinlaoyuiShot.h" />
+    <ClInclude Include="OptionHarisenbong.h" />
+    <ClInclude Include="OptionHarisenbongShot.h" />
+    <ClInclude Include="EnemyShotOpabinia.h">
       <Filter>File\Fish\Enemy\Opabinia</Filter>
     </ClInclude>
   </ItemGroup>

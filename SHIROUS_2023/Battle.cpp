@@ -198,7 +198,7 @@ void Battle::initialize_enemies()
 	enemies << std::make_shared<EnemyHallucigenia>(this, Vec2(2000, 600));
 	enemies << std::make_shared<EnemyKurage>(this, Vec2(1700, 400));
 	enemies << std::make_shared<EnemyPikaia>(this, Vec2(2000, 400));
-	enemies << std::make_shared<EnemyOpabinia>(this, Vec2(2000, 200));
+	enemies << std::make_shared<EnemyOpabinia>(this, Vec2(2000, 300));
 }
 
 void Battle::add_draw_objects(std::shared_ptr<BattleObject>)
