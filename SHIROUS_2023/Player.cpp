@@ -268,6 +268,17 @@ void Player::draw_spawning()
 		}
 	}
 
+	for (int i = -2; i < (int)FishType::size + 2; i++)
+	{
+		if(i == select_spawn % (int)FishType::size)
+			battle->get_camera().draw_texture(get_fish_texture(i).resized(90), get_pos().movedBy(0, +50).movedBy(150 * cos(ToRadians(30 + 4 * spawning)), -150 * sin(ToRadians(30 + 4 * spawning))));
+		else if(i == select_spawn % (int)FishType::size + 1 || i == select_spawn % (int)FishType::size - 1)
+			battle->get_camera().draw_texture(get_fish_texture(i).resized(50), get_pos().movedBy(0, +50).movedBy(150 * cos(ToRadians(30 + (4 + 2 * (select_spawn - i)) * spawning)), -150 * sin(ToRadians(30 + (4 + 2 * (select_spawn - i)) * spawning))));
+		else if (i == select_spawn % (int)FishType::size + 2 || i == select_spawn % (int)FishType::size - 2)
+			battle->get_camera().draw_texture(get_fish_texture(i).resized(30), get_pos().movedBy(0, +50).movedBy(150 * cos(ToRadians(30 + (4 + 1.75 * (select_spawn - i)) * spawning)), -150 * sin(ToRadians(30 + (4 + 1.75 * (select_spawn - i)) * spawning))));
+
+	}
+
 
 	
 }
