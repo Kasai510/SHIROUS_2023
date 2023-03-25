@@ -6,6 +6,7 @@
 #include"OptionShirousShot.h"
 #include"myIEffect.h"
 #include"Background.h"
+#include"ItemLP.h"
 
 
 
@@ -32,6 +33,8 @@ private:
 	Font font30{ 30 };
 
 	Array<std::unique_ptr<myIEffect>> effects;
+
+	Array<std::shared_ptr<Item>> items;
 
 	Array<std::weak_ptr<BattleObject>> draw_objects;
 

@@ -126,6 +126,7 @@
     <ClCompile Include="EnemyShotKurage.cpp" />
     <ClCompile Include="EnemyShotPikaia.cpp" />
     <ClCompile Include="Fish.cpp" />
+    <ClCompile Include="ItemLP.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="myCamera.cpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="OptionShirous.cpp" />
     <ClCompile Include="OptionShirousShot.cpp" />
     <ClCompile Include="OptionShot.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Shot.cpp" />
     <ClCompile Include="StageObject.cpp" />
@@ -364,6 +366,7 @@
     <ClInclude Include="EnemyShotKurage.h" />
     <ClInclude Include="EnemyShotPikaia.h" />
     <ClInclude Include="Fish.h" />
+    <ClInclude Include="ItemLP.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="myCamera.h" />
     <ClInclude Include="myIEffect.h" />
@@ -386,6 +389,7 @@
     <ClInclude Include="OptionShirous.h" />
     <ClInclude Include="OptionShirousShot.h" />
     <ClInclude Include="OptionShot.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Shot.h" />
     <ClInclude Include="StageObject.h" />

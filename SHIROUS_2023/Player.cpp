@@ -38,7 +38,7 @@ void Player::update()
 		options[i]->update(i);
 	}
 
-	LP = Min(LP + 1, Max_LP);
+	//LP = Min(LP + 1, Max_LP);
 	spawn();
 
 	options.remove_if([](const std::shared_ptr<Option>& option) {return option->is_dead(); });

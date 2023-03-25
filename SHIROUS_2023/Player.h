@@ -60,4 +60,5 @@ public:
 	Texture get_fish_texture(int type);
 	double get_Max_LP() { return Max_LP; }
 	double get_LP() { return LP; }
+	void add_LP(double lp) { LP = Min(LP + lp, Max_LP); }
 };

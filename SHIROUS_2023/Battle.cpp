@@ -30,6 +30,12 @@ void Battle::update()
 	{
 		stages[i].update();
 	}
+	//アイテムの更新。
+	if(MouseL.down())items << std::make_shared<ItemLP>(this, camera.windowpos_in_camera(Cursor::Pos()), 10);
+	for (auto& item : items) {
+		item->update();
+	}
+
 
 	//移動後の衝突処理。ぶつかっていたり通り抜けていたりしたら、修正する
 	//ステージの限界
@@ -87,6 +93,9 @@ void Battle::update()
 	
 	//enemy死
 	enemies.remove_if([](const std::shared_ptr<Enemy>& enemy) {return enemy->is_dead(); });
+
+	//item削除
+	items.remove_if([](const std::shared_ptr<Item>& item) {return item->is_dead(); });
 	
 	//camera.scroll(Vec2(2,0));//強制横スクロール
 	camera.set(player.get_pos());
@@ -121,6 +130,10 @@ void Battle::draw()
 	for (auto& e : effects) {
 		e->draw();
 	}
+	for (auto& item : items) {
+		item->draw();
+	}
+	
 
 	for (int i = 0; i < stages.size(); i++)
 	{

@@ -104,6 +104,16 @@
     <ClCompile Include="EnemyOpabinia.cpp">
       <Filter>File\Fish\Enemy\Opabinia</Filter>
     </ClCompile>
+    <ClCompile Include="OptionCupinlaoyui.cpp" />
+    <ClCompile Include="OptionCupinlaoyuiShot.cpp" />
+    <ClCompile Include="OptionHarisenbong.cpp" />
+    <ClCompile Include="OptionHarisenbongShot.cpp" />
+    <ClCompile Include="Item.cpp">
+      <Filter>File\Item\Particle\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemLP.cpp">
+      <Filter>File\Item\Particle\LP</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetTexture.h">
@@ -211,6 +221,16 @@
     <ClInclude Include="BattleObject.h" />
     <ClInclude Include="EnemyOpabinia.h">
       <Filter>File\Fish\Enemy\Opabinia</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionCupinlaoyui.h" />
+    <ClInclude Include="OptionCupinlaoyuiShot.h" />
+    <ClInclude Include="OptionHarisenbong.h" />
+    <ClInclude Include="OptionHarisenbongShot.h" />
+    <ClInclude Include="Item.h">
+      <Filter>File\Item\Particle\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemLP.h">
+      <Filter>File\Item\Particle\LP</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -918,6 +938,18 @@
     </Filter>
     <Filter Include="File\Fish\Enemy\Opabinia">
       <UniqueIdentifier>{645b9e69-341d-4411-86d3-be2d0056ea12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\Item">
+      <UniqueIdentifier>{140859dc-af64-4c8e-8e0f-9ebb1fdbd459}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\Item\Particle">
+      <UniqueIdentifier>{25d6279b-9206-463a-98b7-c87a573583a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\Item\Particle\LP">
+      <UniqueIdentifier>{23bb57c5-2843-47be-a21b-518460055fb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\Item\Particle\Base">
+      <UniqueIdentifier>{938e2528-ca7c-4d5c-a66f-f9b4c8f1580e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
