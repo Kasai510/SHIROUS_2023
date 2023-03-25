@@ -118,6 +118,7 @@
     <ClCompile Include="BattleObject.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyAnomalocaris.cpp" />
+    <ClCompile Include="EnemyAnomalocaris_shot1.cpp" />
     <ClCompile Include="EnemyAnomalocaris_hurtle.cpp" />
     <ClCompile Include="EnemyAnomalocaris_standby.cpp" />
     <ClCompile Include="EnemyHallucigenia.cpp" />
@@ -125,6 +126,7 @@
     <ClCompile Include="EnemyOpabinia.cpp" />
     <ClCompile Include="EnemyPikaia.cpp" />
     <ClCompile Include="EnemyShot.cpp" />
+    <ClCompile Include="EnemyShotAnomalocaris1.cpp" />
     <ClCompile Include="EnemyShotHallucigenia.cpp" />
     <ClCompile Include="EnemyShotKurage.cpp" />
     <ClCompile Include="EnemyShotPikaia.cpp" />
@@ -366,6 +368,7 @@
     <ClInclude Include="EnemyOpabinia.h" />
     <ClInclude Include="EnemyPikaia.h" />
     <ClInclude Include="EnemyShot.h" />
+    <ClInclude Include="EnemyShotAnomalocaris1.h" />
     <ClInclude Include="EnemyShotHallucigenia.h" />
     <ClInclude Include="EnemyShotKurage.h" />
     <ClInclude Include="EnemyShotPikaia.h" />

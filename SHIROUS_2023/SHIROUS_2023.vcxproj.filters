@@ -121,11 +121,17 @@
     <ClCompile Include="EnemyAnomalocaris.cpp">
       <Filter>File\Fish\Enemy\anomalocaris</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyAnomalocaris_standby.cpp">
-      <Filter>File\Fish\Enemy\anomalocaris</Filter>
-    </ClCompile>
     <ClCompile Include="EnemyAnomalocaris_hurtle.cpp">
-      <Filter>File\Fish\Enemy\anomalocaris</Filter>
+      <Filter>File\Fish\Enemy\anomalocaris\motion</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyAnomalocaris_standby.cpp">
+      <Filter>File\Fish\Enemy\anomalocaris\motion</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyAnomalocaris_shot1.cpp">
+      <Filter>File\Fish\Enemy\anomalocaris\motion</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyShotAnomalocaris1.cpp">
+      <Filter>File\Fish\Enemy\anomalocaris\Shot</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -251,6 +257,9 @@
     </ClInclude>
     <ClInclude Include="EnemyAnomalocaris.h">
       <Filter>File\Fish\Enemy\anomalocaris</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyShotAnomalocaris1.h">
+      <Filter>File\Fish\Enemy\anomalocaris\Shot</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -967,6 +976,12 @@
     </Filter>
     <Filter Include="File\Fish\Enemy\anomalocaris">
       <UniqueIdentifier>{9e0ad3de-524c-400c-85e2-d6fd6b839788}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\Fish\Enemy\anomalocaris\Shot">
+      <UniqueIdentifier>{dfe1bd54-7e39-4bd2-a7c6-5c8b950c5d95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File\Fish\Enemy\anomalocaris\motion">
+      <UniqueIdentifier>{2fb31cad-6c31-42b2-adba-a088f3eb3160}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

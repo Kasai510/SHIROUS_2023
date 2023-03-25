@@ -11,10 +11,11 @@ void EnemyAnomalocaris::update_motion_standby()
 {
 	motion_timer += battle->get_scene_del();
 
-	if (motion_timer >= 2)
+	if (motion_timer >= 1.5)
 	{
 		//一定時間たったら次のモーションに移行
-		change_motion(Motion_Kind(Random(1, motion_kind_num - 1)));
+		//change_motion(Motion_Kind(Random(1, motion_kind_num - 1)));
+		change_motion();
 	}
 
 }

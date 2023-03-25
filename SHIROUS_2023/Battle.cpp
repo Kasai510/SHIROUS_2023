@@ -6,10 +6,12 @@
 #include"EnemyOpabinia.h"
 #include"EnemyAnomalocaris.h"
 
+
 Battle::Battle()
 {
-	stages << Stage_object(this,{ 800,600 }, 200, 200);
-	stages << Stage_object(this, { 1400,600 }, 200, 200);
+
+	//stages << Stage_object(this,{ 800,600 }, 200, 200);
+	//stages << Stage_object(this, { 1400,600 }, 200, 200);
 	stages << Stage_object(this, { -100,1000 , 19200+200, 200 });
 	initialize_enemies();//これはのちにEnemiesManagerとかがするかも知れない
 }
@@ -101,7 +103,10 @@ void Battle::draw()
 	//背景
 	background.draw();
 
-	
+	for (int i = 0; i < stages.size(); i++)
+	{
+		stages[i].draw(camera);
+	}
 
 	//敵描画
 	for (auto& e : enemies) {
@@ -123,10 +128,7 @@ void Battle::draw()
 		e->draw();
 	}
 
-	for (int i = 0; i < stages.size(); i++)
-	{
-		stages[i].draw(camera);
-	}
+	
 	
 	camera.draw_stage_area();
 

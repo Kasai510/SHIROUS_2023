@@ -34,6 +34,11 @@ void EnemyAnomalocaris::update_motion_hurtle()
 			pos = start_pos + Vec2{ 0,-600 - height };
 		}
 
+		//ダメージ
+		if (battle->get_player().get_rect().intersects(get_rect())) {
+			battle->get_player().damage(10);
+		}
+
 		if (RandomBool(0.7))
 		{
 			battle->get_effects() << std::make_unique<myIEffectBubble>(battle, pos + RandomVec2() * Random() * 100, Random() * 15, HSV(Random(0, 150)));
@@ -49,7 +54,8 @@ void EnemyAnomalocaris::update_motion_hurtle()
 			{
 
 				pos = start_pos;
-				change_motion(motion_kind_standby);
+				//change_motion(motion_kind_standby);
+				change_motion();
 			}
 		}
 	

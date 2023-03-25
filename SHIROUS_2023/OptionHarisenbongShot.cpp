@@ -79,26 +79,27 @@ void OptionHarisenbongShot::move()
 {
 	if (auto s_master = master.lock())
 	{
-		
+
 		master_pos = s_master->get_pos();
 	}
+
 
 	if (shot_phase == 1)
 	{
 
 		//バッと広がる
-		pos =master_pos + 360*shot_timer * Vec2{ cos(init_shot_arg),sin(init_shot_arg) };
+		pos = master_pos + 360 * shot_timer * Vec2{ cos(init_shot_arg),sin(init_shot_arg) };
 
 		if (shot_timer >= 0.5)
 		{
 			shot_phase = 2;
-			
+
 			shot_timer = 0;
 
 			//targetの決定
 			for (auto& enemy : battle->get_enemies())
 			{
-				if (battle->get_camera().in_camera(enemy->get_rect()) && (enemy->get_pos() - pos).length() <= 1500)
+				if (battle->get_camera().in_camera(enemy->get_rect()) && (enemy->get_pos() - master_pos).length() <= 1500)
 				{
 					if (decide_target == false || (enemy->get_pos() - master_pos).length() <= (target_pos - master_pos).length())
 					{
@@ -111,9 +112,9 @@ void OptionHarisenbongShot::move()
 
 			if (decide_target)
 			{
-				
+
 				target_shot_arg = atan2(target_pos.y - pos.y, target_pos.x - pos.x);
-				
+
 			}
 		}
 
@@ -126,13 +127,13 @@ void OptionHarisenbongShot::move()
 			shot_arg += (target_shot_arg - shot_arg) / 8;
 			//shot_arg += 20_deg;
 
-			if (shot_timer>= 1)
+			if (shot_timer >= 1)
 			{
 				shot_arg = target_shot_arg;
 				shot_phase = 3;
 			}
 
-			pos = master_pos + 360*0.5* Vec2{ cos(init_shot_arg),sin(init_shot_arg) };
+			pos = master_pos + 360 * 0.5 * Vec2{ cos(init_shot_arg),sin(init_shot_arg) };
 
 		}
 		else
@@ -140,12 +141,13 @@ void OptionHarisenbongShot::move()
 			shot_phase = 3;
 		}
 	}
-	else if(shot_phase == 3)
+	else if (shot_phase == 3)
 	{
 		pos += 3000 * Vec2{ cos(shot_arg),sin(shot_arg) }*battle->get_scene_del();
 	}
 
 
+	
 
 	hit_boxs = hit_box_origins.rotated(shot_arg).movedBy(pos);
 	
