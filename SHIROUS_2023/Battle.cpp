@@ -222,12 +222,12 @@ void Battle::initialize_enemies()
 	enemies << std::make_shared<EnemyKurage>(this, Vec2(4000, 400));
 	enemies << std::make_shared<EnemyKurage>(this, Vec2(4100, 300));
 	enemies << std::make_shared<EnemyKurage>(this, Vec2(4200, 600));
-	enemies << std::make_shared<EnemyHallucigenia>(this, Vec2(5500, 600));
-	enemies << std::make_shared<EnemyPikaia>(this, Vec2(6000, 300));
-	enemies << std::make_shared<EnemyHallucigenia>(this, Vec2(6500, 600));
-	enemies << std::make_shared<EnemyPikaia>(this, Vec2(9000, 300));
-	enemies << std::make_shared<EnemyPikaia>(this, Vec2(9100, 200));
-	enemies << std::make_shared<EnemyPikaia>(this, Vec2(9200, 400));
+	enemies << std::make_shared<EnemyHallucigenia>(this, Vec2(5700, 950));
+	enemies << std::make_shared<EnemyPikaia>(this, Vec2(6500, 300));
+	enemies << std::make_shared<EnemyHallucigenia>(this, Vec2(6700, 950));
+	enemies << std::make_shared<EnemyPikaia>(this, Vec2(9500, 300));
+	enemies << std::make_shared<EnemyPikaia>(this, Vec2(9600, 200));
+	enemies << std::make_shared<EnemyPikaia>(this, Vec2(9800, 400));
 
 	//enemys << std::make_shared<EnemyPikaia>(battle, Vec2(2100,500));
 	//enemies << std::make_shared<EnemyHallucigenia>(this, Vec2(2000, 600));

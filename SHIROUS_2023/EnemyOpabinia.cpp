@@ -14,12 +14,20 @@ EnemyOpabinia::EnemyOpabinia(Battle* battle, const Vec2& p):Enemy(battle,p)
 
 void EnemyOpabinia::update()
 {
-	move();
-	if (hp <= 0) {
-		dead = true;
-		drop_item();
+	if (!active)
+	{
+		if (battle->get_camera().in_camera(get_pos()))active = true;
 	}
-	time++;
+	if (active)
+	{
+		move();
+		if (hp <= 0) {
+			dead = true;
+			drop_item();
+		}
+		time++;
+	}
+	
 }
 
 void EnemyOpabinia::move()

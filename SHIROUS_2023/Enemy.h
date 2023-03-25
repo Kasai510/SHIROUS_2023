@@ -12,5 +12,6 @@ public:
 	void drop_LP();
 protected:
 	int time = 0;
+	bool active = false;//画面内に入るまで動かない。
 };
 
