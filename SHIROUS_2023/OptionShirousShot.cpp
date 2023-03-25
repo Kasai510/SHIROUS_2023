@@ -15,7 +15,7 @@ OptionShirousShot::OptionShirousShot(Battle* battle,const std::shared_ptr<class 
 	shot_timer = 0;
 	pos = master->get_pos_right();
 
-	damage = 1;
+	damage = 10;
 
 	hit_box_origins << Circle(0, 0, 30).asPolygon();
 

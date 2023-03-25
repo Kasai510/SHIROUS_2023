@@ -7,9 +7,19 @@
 
 Battle::Battle()
 {
-	stages << Stage_object(this,{ 800,600 }, 200, 200);
-	stages << Stage_object(this, { 1400,600 }, 200, 200);
 	stages << Stage_object(this, { -100,1000 , 19200+200, 200 });
+
+	stages << Stage_object(this, { 1800,1000 }, 200, 200);
+	stages << Stage_object(this, { 3000,300 }, 200, 200);
+	stages << Stage_object(this, { 4500,1000 }, 200, 300);
+	stages << Stage_object(this, { 5000,200 }, 200, 500);
+	stages << Stage_object(this, { 7000,1000 }, 200, 500);
+	stages << Stage_object(this, { 8500,1000 }, 200, 200);
+	stages << Stage_object(this, { 12000,200 }, 200, 500);
+	stages << Stage_object(this, { 12000,1000 }, 200, 600);
+
+	//stages << Stage_object(this, { 800,600 }, 200, 200);
+	//stages << Stage_object(this, { 1400,600 }, 200, 200);
 	initialize_enemies();//これはのちにEnemiesManagerとかがするかも知れない
 }
 
@@ -208,11 +218,22 @@ int Battle::change_scene()
 
 void Battle::initialize_enemies()
 {
+	enemies << std::make_shared<EnemyKurage>(this, Vec2(2400, 400));
+	enemies << std::make_shared<EnemyKurage>(this, Vec2(4000, 400));
+	enemies << std::make_shared<EnemyKurage>(this, Vec2(4100, 300));
+	enemies << std::make_shared<EnemyKurage>(this, Vec2(4200, 600));
+	enemies << std::make_shared<EnemyHallucigenia>(this, Vec2(5500, 600));
+	enemies << std::make_shared<EnemyPikaia>(this, Vec2(6000, 300));
+	enemies << std::make_shared<EnemyHallucigenia>(this, Vec2(6500, 600));
+	enemies << std::make_shared<EnemyPikaia>(this, Vec2(9000, 300));
+	enemies << std::make_shared<EnemyPikaia>(this, Vec2(9100, 200));
+	enemies << std::make_shared<EnemyPikaia>(this, Vec2(9200, 400));
+
 	//enemys << std::make_shared<EnemyPikaia>(battle, Vec2(2100,500));
-	enemies << std::make_shared<EnemyHallucigenia>(this, Vec2(2000, 600));
-	enemies << std::make_shared<EnemyKurage>(this, Vec2(1700, 400));
-	enemies << std::make_shared<EnemyPikaia>(this, Vec2(2000, 400));
-	enemies << std::make_shared<EnemyOpabinia>(this, Vec2(2000, 200));
+	//enemies << std::make_shared<EnemyHallucigenia>(this, Vec2(2000, 600));
+	//enemies << std::make_shared<EnemyKurage>(this, Vec2(1700, 400));
+	//enemies << std::make_shared<EnemyPikaia>(this, Vec2(2000, 400));
+	//enemies << std::make_shared<EnemyOpabinia>(this, Vec2(2000, 200));
 }
 
 void Battle::add_draw_objects(std::shared_ptr<BattleObject>)
