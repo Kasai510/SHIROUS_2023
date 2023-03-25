@@ -13,6 +13,7 @@ void Enemy::update()
 	move();
 	if (hp <= 0) {
 		dead = true;
+		drop_item();
 	}
 	time++;
 }
@@ -29,5 +30,18 @@ void Enemy::move()
 	prev_pos = pos;
 	if (speed.length() > 1.0)pos += max_speed * speed.normalized();
 	else pos += max_speed * speed;
+}
+
+
+void  Enemy::drop_item()
+{
+	drop_LP();
+}
+void  Enemy::drop_LP()
+{
+	for (int i = 0; i < 5; i++)
+	{
+		battle->get_items() << std::make_shared<ItemLP>(battle, get_pos(), 10);
+	}
 }
 

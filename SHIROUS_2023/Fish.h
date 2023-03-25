@@ -34,6 +34,7 @@ protected:
 	bool dead = false;
 
 	double hp=100;
+	double LP = 100;
 
 public:
 
@@ -99,5 +100,6 @@ public:
 	String get_name() { return name; }
 	bool is_dead() { return dead; }
 	double get_HP() { return hp; }
+	
 };
 

@@ -92,7 +92,7 @@ void Battle::update()
 	//攻撃の当たり判定
 	
 	//enemy死
-	enemies.remove_if([](const std::shared_ptr<Enemy>& enemy) {return enemy->is_dead(); });
+	enemies.remove_if([](const std::shared_ptr<Enemy>& enemy) {if(enemy->is_dead()) return enemy->is_dead(); });
 
 	//item削除
 	items.remove_if([](const std::shared_ptr<Item>& item) {return item->is_dead(); });
@@ -151,6 +151,7 @@ void Battle::draw_UI()
 	camera.draw_texture(font30(U"HP"), camera.get_center().movedBy(-1920 / 2 + 50, -500));
 	camera.draw_texture(font30(U"LP"), camera.get_center().movedBy(-1920 / 2 + 50, -430));
 
+	camera.draw_texture(RectF{ camera.get_center().movedBy(-1920 / 2 + 100, -500), player.get_Max_HP(), 20 }, Palette::Gray);
 	camera.draw_texture(RectF{ camera.get_center().movedBy(-1920 / 2 + 100, -500), player.get_HP(), 20 }, Palette::Lightgreen);
 	camera.draw_texture(RectF{ camera.get_center().movedBy(-1920 / 2 + 100, -430), player.get_Max_LP(), 20 }, Palette::Gray);
 	camera.draw_texture(RectF{ camera.get_center().movedBy(-1920 / 2 + 100, -430), player.get_LP(), 20 }, Palette::Lightgreen);

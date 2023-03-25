@@ -20,8 +20,8 @@ protected:
 		size
 	};
 
+	double Max_HP = 1000;
 	double Max_LP = 1000;
-	double LP = Max_LP / 2.0;
 
 	Array<std::shared_ptr<Option>> options;
 	int spawning = 0;//0:通常モード。1～14:モード変更中。15:産卵モード。
@@ -58,6 +58,7 @@ public:
 	Option& get_opt(int i) { return *options[i]; }
 
 	Texture get_fish_texture(int type);
+	double get_Max_HP() { return Max_HP; }
 	double get_Max_LP() { return Max_LP; }
 	double get_LP() { return LP; }
 	void add_LP(double lp) { LP = Min(LP + lp, Max_LP); }

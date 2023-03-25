@@ -8,6 +8,8 @@ public:
 	void update();
 	void draw();
 	void move();
+	void drop_item();
+	void drop_LP();
 protected:
 	int time = 0;
 };

@@ -63,5 +63,6 @@ public:
 	Array<std::shared_ptr<Enemy>>& get_enemies() { return enemies; }
 	Array<Stage_object>& get_stages() { return stages; }
 	Array<std::unique_ptr<myIEffect>>& get_effects() { return effects; }
+	Array<std::shared_ptr<Item>>& get_items() { return items; }
 	void add_draw_objects(std::shared_ptr<BattleObject>);
 };
