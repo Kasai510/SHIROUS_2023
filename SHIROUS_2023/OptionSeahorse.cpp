@@ -123,20 +123,10 @@ bool OptionSeahorse::ready_shot()
 
 void OptionSeahorse::attack()
 {
-	//攻撃の更新
-	for (int i = 0; i < optionshots.size(); i++)
-	{
-		optionshots[i]->update();
-
-	}
-
-
-	optionshots.remove_if([](const std::shared_ptr<Shot> p) {return (p->get_over()); });
-
 
 	if (ready_shot())
 	{
-		optionshots << std::make_shared<OptionSeahorseShot>(battle,shared_from_this());
+		battle->get_player_shots() << std::make_shared<OptionSeahorseShot>(battle,shared_from_this());
 	}
 }
 
@@ -154,12 +144,6 @@ void OptionSeahorse::draw()
 	TextureAsset(image_name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
 	font(shot_timer).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
 
-	//攻撃の描画
-	for (int i = 0; i < optionshots.size(); i++)
-	{
-		optionshots[i]->draw();
-
-	}
 }
 void OptionSeahorse::draw_back()
 {

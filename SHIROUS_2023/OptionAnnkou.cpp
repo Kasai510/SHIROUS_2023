@@ -141,14 +141,6 @@ bool OptionAnnkou::ready_shot()
 
 void OptionAnnkou::attack()
 {
-	//攻撃の更新
-	for (int i = 0; i < optionshots.size(); i++)
-	{
-		optionshots[i]->update();
-
-	}
-
-	optionshots.remove_if([](const std::shared_ptr<Shot> p) {return (p->get_over()); });
 
 	if(now_attack_motion == false)
 	{
@@ -176,7 +168,7 @@ void OptionAnnkou::attack_motion_update()
 		attack_span = 0;
 		for (int i = 0; i < 3;i++)
 		{
-			optionshots << std::make_shared<OptionAnnkouShot>(battle, shared_from_this(), Random(5_deg, 85_deg));
+			battle->get_player_shots() << std::make_shared<OptionAnnkouShot>(battle, shared_from_this(), Random(5_deg, 85_deg));
 		}
 	}
 
@@ -202,11 +194,6 @@ void OptionAnnkou::draw()
 
 
 
-	//攻撃の描画
-	for (int i = 0; i < optionshots.size(); i++)
-	{
-		optionshots[i]->draw();
-	}
 
 	if (now_attack_motion)
 	{

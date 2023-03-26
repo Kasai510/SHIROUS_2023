@@ -123,18 +123,9 @@ bool OptionShirous::ready_shot()
 
 void OptionShirous::attack()
 {
-	//攻撃の更新
-	for (int i = 0; i < optionshots.size(); i++)
-	{
-		optionshots[i]->update();
-
-	}
-
-	optionshots.remove_if([](const std::shared_ptr<Shot> p) {return (p->get_over()); });
-
 	if (ready_shot())
 	{
-		optionshots << std::make_shared<OptionShirousShot>(battle,shared_from_this());
+		battle->get_player_shots() << std::make_shared<OptionShirousShot>(battle,shared_from_this());
 	}
 }
 
@@ -152,13 +143,6 @@ void OptionShirous::draw()
 	TextureAsset(image_name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale(), Palette::Gray);
 	font(shot_timer).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
 
-
-
-	//攻撃の描画
-	for (int i = 0; i < optionshots.size(); i++)
-	{
-		optionshots[i]->draw();
-	}
 }
 void OptionShirous::draw_back()
 {

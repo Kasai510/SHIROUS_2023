@@ -37,7 +37,7 @@ void EnemyAnomalocaris::update()
 
 void EnemyAnomalocaris::init_motion()
 {
-	Console << now_motion_kind;
+	
 
 	switch (now_motion_kind)
 	{

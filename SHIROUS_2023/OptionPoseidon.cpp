@@ -14,7 +14,7 @@ OptionPoseidon::OptionPoseidon(Battle* battle)
 
 	width = 50;
 	height = 80;
-	shot_cool_time = 90;
+	shot_cool_time = 190;
 	shot_timer = shot_cool_time;
 }
 OptionPoseidon::OptionPoseidon(Battle* battle, Vec2 p)
@@ -26,8 +26,8 @@ OptionPoseidon::OptionPoseidon(Battle* battle, Vec2 p)
 
 	width = 100;
 	height = 200;
-	shot_cool_time = 90;
-	shot_timer = shot_cool_time;
+	shot_cool_time = 430;
+	shot_timer = 120;
 }
 
 
@@ -112,10 +112,9 @@ void  OptionPoseidon::check_limit_stage(myCamera camera)
 
 bool OptionPoseidon::ready_shot()
 {
-	if (optionshots.size() == 0)
-	{
-		if (shot_timer > 0)shot_timer--;
-	}
+	
+	if (shot_timer > 0)shot_timer--;
+	
 	if (shot_timer == 0)
 	{
 		shot_timer = shot_cool_time;
@@ -126,20 +125,9 @@ bool OptionPoseidon::ready_shot()
 
 void OptionPoseidon::attack()
 {
-	//攻撃の更新
-	for (int i = 0; i < optionshots.size(); i++)
-	{
-		optionshots[i]->update();
-
-	}
-
-
-	optionshots.remove_if([](const std::shared_ptr<Shot> p) {return (p->get_over()); });
-
-
 	if (ready_shot())
 	{
-		optionshots << std::make_shared<OptionPoseidonShot>(battle,shared_from_this());
+		battle->get_player_shots() << std::make_shared<OptionPoseidonShot>(battle,shared_from_this());
 	}
 }
 
@@ -161,12 +149,7 @@ void OptionPoseidon::draw()
 
 	font(shot_timer).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
 
-	//攻撃の描画
-	for (int i = 0; i < optionshots.size(); i++)
-	{
-		optionshots[i]->draw();
 
-	}
 }
 void OptionPoseidon::draw_back()
 {

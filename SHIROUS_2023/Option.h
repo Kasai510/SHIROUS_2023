@@ -11,7 +11,7 @@ protected:
 	int option_pos_timer = 0;//群れっぽい上下の振れ幅に使う（フレーム）。
 
 	Vec2 place;//群れにおけるオプションの位置。
-	Array<std::shared_ptr<Shot>> optionshots;
+	//Array<std::shared_ptr<Shot>> optionshots;
 
 
 public:
