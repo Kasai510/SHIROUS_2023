@@ -129,6 +129,7 @@
     <ClCompile Include="EnemyShotAnomalocaris1.cpp" />
     <ClCompile Include="EnemyShotHallucigenia.cpp" />
     <ClCompile Include="EnemyShotKurage.cpp" />
+    <ClCompile Include="EnemyShotOpabinia.cpp" />
     <ClCompile Include="EnemyShotPikaia.cpp" />
     <ClCompile Include="Fish.cpp" />
     <ClCompile Include="ItemLP.cpp" />
@@ -373,6 +374,7 @@
     <ClInclude Include="EnemyShotAnomalocaris1.h" />
     <ClInclude Include="EnemyShotHallucigenia.h" />
     <ClInclude Include="EnemyShotKurage.h" />
+    <ClInclude Include="EnemyShotOpabinia.h" />
     <ClInclude Include="EnemyShotPikaia.h" />
     <ClInclude Include="Fish.h" />
     <ClInclude Include="ItemLP.h" />

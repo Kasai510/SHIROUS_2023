@@ -25,7 +25,7 @@ void EnemyShotHallucigenia::update()
 
 	if (mode_stop && time > 36) {
 		mode_stop = false;
-		v += Vec2{ Random(-10,10),-10};
+		v += Vec2{ Random(-5,5),-10};
 	}
 
 	if (mode_stop) {

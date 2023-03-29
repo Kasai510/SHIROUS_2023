@@ -139,6 +139,8 @@
     </ClCompile>
     <ClCompile Include="EnemyShotAnomalocaris1.cpp">
       <Filter>File\Fish\Enemy\anomalocaris\Shot</Filter>
+    <ClCompile Include="EnemyShotOpabinia.cpp">
+      <Filter>File\Fish\Enemy\Opabinia</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -274,6 +276,8 @@
     </ClInclude>
     <ClInclude Include="EnemyShotAnomalocaris1.h">
       <Filter>File\Fish\Enemy\anomalocaris\Shot</Filter>
+    <ClInclude Include="EnemyShotOpabinia.h">
+      <Filter>File\Fish\Enemy\Opabinia</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
