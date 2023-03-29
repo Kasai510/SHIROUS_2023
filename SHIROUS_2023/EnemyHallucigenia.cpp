@@ -11,6 +11,9 @@ EnemyHallucigenia::EnemyHallucigenia(Battle* battle,const Vec2& p) :Enemy(battle
 	speed = { 0,0 };
 	width = 120;
 	height = 90;
+
+
+	enemy_kind = enemy_kind_hallucigenia;
 }
 
 void EnemyHallucigenia::update()

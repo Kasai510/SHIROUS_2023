@@ -81,4 +81,6 @@ void EnemyAnomalocaris::draw_motion_hurtle()
 		battle->get_camera().draw_texture(RectF(Arg::center(pos), width, height), Palette::Yellow);
 	}
 
+	battle->get_camera().draw_texture(TextureAsset(U"anomalocaris"), pos);
+
 }

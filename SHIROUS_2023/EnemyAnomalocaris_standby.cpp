@@ -5,6 +5,7 @@
 //待機
 void EnemyAnomalocaris::init_motion_standby()
 {
+
 }
 
 void EnemyAnomalocaris::update_motion_standby()
@@ -23,5 +24,6 @@ void EnemyAnomalocaris::update_motion_standby()
 void EnemyAnomalocaris::draw_motion_standby()
 {
 	battle->get_camera().draw_texture(RectF(Arg::center(pos), width, height), Palette::Yellow);
+	battle->get_camera().draw_texture(TextureAsset(U"anomalocaris"), pos);
 	
 }

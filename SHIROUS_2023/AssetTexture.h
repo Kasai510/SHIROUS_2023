@@ -30,6 +30,7 @@ void asset_texture()
 	TextureAsset::Register(U"annkou", Resource(U"data/image/fish/annkou/アンコウ.png"));
 	TextureAsset::Register(U"annkou_attack_effect", Resource(U"data/image/fish/annkou/アンコウエフェクト.png"));
 
+	TextureAsset::Register(U"anomalocaris", Resource(U"data/image/fish/anomalocaris/anomalocaris_standby.png"));
 
 
 	TextureAsset::Register(U"rock_1", U"data/image/object/rock/rock_1.png");
