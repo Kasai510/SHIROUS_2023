@@ -128,18 +128,9 @@ bool OptionCupinlaoyui::ready_shot()
 
 void OptionCupinlaoyui::attack()
 {
-	//攻撃の更新
-	for (int i = 0; i < optionshots.size(); i++)
-	{
-		optionshots[i]->update();
-
-	}
-
-	optionshots.remove_if([](const std::shared_ptr<Shot> p) {return (p->get_over()); });
-
 	if (ready_shot())
 	{
-		optionshots << std::make_shared<OptionShirousShot>(battle, shared_from_this());
+		battle->get_player_shots() << std::make_shared<OptionShirousShot>(battle, shared_from_this());
 	}
 }
 
@@ -159,11 +150,7 @@ void OptionCupinlaoyui::draw()
 
 
 
-	//攻撃の描画
-	for (int i = 0; i < optionshots.size(); i++)
-	{
-		optionshots[i]->draw();
-	}
+
 }
 void OptionCupinlaoyui::draw_back()
 {

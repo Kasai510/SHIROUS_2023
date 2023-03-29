@@ -14,6 +14,7 @@ void Main()
 	Window::Resize(1280, 720);
 	Scene::Resize(1920, 1080);
 
+
 	// 背景の色を設定 | Set background color
 	Scene::SetBackground(Palette::Lightskyblue);
 

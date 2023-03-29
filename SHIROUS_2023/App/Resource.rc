@@ -141,7 +141,8 @@ Resource(data/image/fish/opabinia/opabinia_mouth_close.png)
 Resource(data/image/fish/opabinia/opabinia_mouth_open.png)
 Resource(data/image/fish/harisenbong/ハリセンボン.png)
 Resource(data/image/fish/harisenbong/ハリセンボンショット.png)
-
+Resource(data/image/fish/annkou/アンコウ.png)
+Resource(data/image/fish/annkou/アンコウエフェクト.png)
 
 
 /* examples 

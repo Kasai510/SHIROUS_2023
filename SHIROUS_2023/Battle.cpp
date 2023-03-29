@@ -4,6 +4,8 @@
 #include"EnemyShotPikaia.h"
 #include"EnemyHallucigenia.h"
 #include"EnemyOpabinia.h"
+#include"EnemyAnomalocaris.h"
+
 
 Battle::Battle()
 {
@@ -119,7 +121,10 @@ void Battle::draw()
 	//背景
 	background.draw();
 
-	
+	for (int i = 0; i < stages.size(); i++)
+	{
+		stages[i].draw(camera);
+	}
 
 	//敵描画
 	for (auto& e : enemies) {
@@ -145,10 +150,6 @@ void Battle::draw()
 	}
 	
 
-	for (int i = 0; i < stages.size(); i++)
-	{
-		stages[i].draw(camera);
-	}
 	
 	camera.draw_stage_area();
 
