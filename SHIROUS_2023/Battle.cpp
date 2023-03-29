@@ -33,7 +33,6 @@ Battle::Battle()
 
 Battle::~Battle()
 {
-	save_enemies();
 }
 
 void Battle::update()
