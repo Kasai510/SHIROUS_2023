@@ -11,6 +11,12 @@ Battle::Battle()
 	stages << Stage_object(this, { 1400,600 }, 200, 200);
 	stages << Stage_object(this, { -100,1000 , 19200+200, 200 });
 	initialize_enemies();//これはのちにEnemiesManagerとかがするかも知れない
+	Deserializer<BinaryReader> reader{ U"data/binary/effect/particle_circlestar.bin" };
+	if (not reader) // もしオープンに失敗したら
+	{
+		throw Error{ U"Failed to open `data/binary/effect/particle_circlestar.bin`" };
+	}
+	reader(circlestar_effect);
 }
 
 void Battle::update()

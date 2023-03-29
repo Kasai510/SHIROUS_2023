@@ -11,6 +11,5 @@ public:
 private:
 	Vec2 p;
 	double r;
-	Array<Array<Polygon>> multis;
 };
 

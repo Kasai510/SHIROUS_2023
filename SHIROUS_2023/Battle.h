@@ -38,6 +38,8 @@ private:
 	Vec2 camera_control_down_p;
 	Background background{this};
 
+	Array<Array<Polygon>> circlestar_effect;
+
 public:
 	Battle();
 	void update();
@@ -61,4 +63,6 @@ public:
 	Array<Stage_object>& get_stages() { return stages; }
 	Array<std::unique_ptr<myIEffect>>& get_effects() { return effects; }
 	void add_draw_objects(std::shared_ptr<BattleObject>);
+
+	const Array<Array<Polygon>>& get_circlestar_effect() { return circlestar_effect; }
 };
