@@ -13,7 +13,7 @@ private:
 		motion_kind_standby = 0,//待機
 		motion_kind_hurtle,//突進
 		motion_kind_shot1,//普通の弾
-
+	
 		motion_kind_num//kindの合計
 	};
 

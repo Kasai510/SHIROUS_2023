@@ -16,9 +16,8 @@ EnemyPikaia::EnemyPikaia(Battle* battle,const Vec2& p):Enemy(battle, p)
 	anime << TextureAsset(U"pikaia_2").resized(image_size_int);
 	delays = Array<int32>{ 320,320,320,320 };
 
-
-	//TAKEがかいた（消してもいい）
-	hp = 10;
+	enemy_kind = enemy_kind_pikaia;
+	
 }
 
 void EnemyPikaia::update()

@@ -10,6 +10,8 @@ EnemyOpabinia::EnemyOpabinia(Battle* battle, const Vec2& p):Enemy(battle,p)
 	width = 250;
 	height = 90;
 	mouth_pos = { -150,50 };
+
+	enemy_kind = enemy_kind_opabinia;
 }
 
 void EnemyOpabinia::update()

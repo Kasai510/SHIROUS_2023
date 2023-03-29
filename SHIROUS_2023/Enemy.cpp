@@ -6,6 +6,7 @@ Enemy::Enemy(Battle* battle,const Vec2& p):Fish(battle,p)
 {
 	image_size_int = 300;
 	hp = 50;
+	spon_pos = p;
 }
 
 void Enemy::update()

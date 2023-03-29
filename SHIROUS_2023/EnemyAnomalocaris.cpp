@@ -21,6 +21,8 @@ EnemyAnomalocaris::EnemyAnomalocaris(Battle* battle, const Vec2& p) :Enemy(battl
 	now_motion_patarn_index = 0;
 	now_motion_kind = motion_patarns[now_motion_patarns_index][now_motion_patarn_index];
 	init_motion();
+
+	enemy_kind = enemy_kind_anomalocaris;
 }
 
 void EnemyAnomalocaris::update()
@@ -37,7 +39,7 @@ void EnemyAnomalocaris::update()
 
 void EnemyAnomalocaris::init_motion()
 {
-	
+
 
 	switch (now_motion_kind)
 	{
