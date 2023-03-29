@@ -16,7 +16,7 @@ Player::Player(Battle* battle, Vec2 p):Fish(battle, p)
 {
 	set_name(U"シラス");
 	set_image_name(U"shirous");
-	Max_HP = 100;
+	Max_HP = 500;
 	Max_LP = 1000;
 	LP = 100;
 	for (int i = 0; i < 1;i++) {

@@ -12,11 +12,11 @@ Battle::Battle()
 	stages << Stage_object(this, { 1800,1000 }, 200, 200);
 	stages << Stage_object(this, { 3000,300 }, 200, 200);
 	stages << Stage_object(this, { 4500,1000 }, 200, 300);
-	stages << Stage_object(this, { 5000,200 }, 200, 500);
+	stages << Stage_object(this, { 5000,150 }, 200, 700);
 	stages << Stage_object(this, { 7000,1000 }, 200, 500);
 	stages << Stage_object(this, { 8500,1000 }, 200, 200);
-	stages << Stage_object(this, { 12000,200 }, 200, 500);
-	stages << Stage_object(this, { 12000,1000 }, 200, 600);
+	stages << Stage_object(this, { 12000,150 }, 200, 300);
+	stages << Stage_object(this, { 12000,1000 }, 200, 400);
 
 	//stages << Stage_object(this, { 800,600 }, 200, 200);
 	//stages << Stage_object(this, { 1400,600 }, 200, 200);
@@ -158,13 +158,25 @@ void Battle::draw()
 void Battle::draw_UI()
 {
 	camera.draw_texture(RectF{ Arg::center(camera.get_center().movedBy(0,-465)),1920,150 }, Palette::Black);
-	camera.draw_texture(font30(U"HP"), camera.get_center().movedBy(-1920 / 2 + 50, -500));
-	camera.draw_texture(font30(U"LP"), camera.get_center().movedBy(-1920 / 2 + 50, -430));
 
+	camera.draw_texture(font30(U"HP"), camera.get_center().movedBy(-1920 / 2 + 50, -500));
+	camera.draw_texture(RectF{ camera.get_center().movedBy(-1920 / 2 + 100, -500), 1000, 20 }, Palette::White);
 	camera.draw_texture(RectF{ camera.get_center().movedBy(-1920 / 2 + 100, -500), player.get_Max_HP(), 20 }, Palette::Gray);
 	camera.draw_texture(RectF{ camera.get_center().movedBy(-1920 / 2 + 100, -500), player.get_HP(), 20 }, Palette::Lightgreen);
+
+	camera.draw_texture(font30(U"LP"), camera.get_center().movedBy(-1920 / 2 + 50, -430));
 	camera.draw_texture(RectF{ camera.get_center().movedBy(-1920 / 2 + 100, -430), player.get_Max_LP(), 20 }, Palette::Gray);
 	camera.draw_texture(RectF{ camera.get_center().movedBy(-1920 / 2 + 100, -430), player.get_LP(), 20 }, Palette::Lightgreen);
+
+	camera.draw_texture(font30(U"世代数"), camera.get_center().movedBy(450, -500));
+	camera.draw_texture(font50(player.get_gen()), camera.get_center().movedBy(450, -440));
+
+	camera.draw_texture(font30(U"群れ"), camera.get_center().movedBy(650, -500));
+	camera.draw_texture(font50(player.get_opt_size()), camera.get_center().movedBy(650, -440));
+
+	camera.draw_texture(font30(U"ステージ"), camera.get_center().movedBy(850, -500));
+	camera.draw_texture(font50(U"仮"), camera.get_center().movedBy(850, -440));
+	
 
 }
 

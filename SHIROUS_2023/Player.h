@@ -20,6 +20,7 @@ protected:
 		size
 	};
 
+	int generation = 1;//世代数。レベルみたいなもの。
 	double Max_HP = 1000;
 	double Max_LP = 1000;
 
@@ -62,4 +63,5 @@ public:
 	double get_Max_LP() { return Max_LP; }
 	double get_LP() { return LP; }
 	void add_LP(double lp) { LP = Min(LP + lp, Max_LP); }
+	int get_gen() { return generation; }
 };
