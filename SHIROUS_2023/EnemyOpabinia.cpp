@@ -27,8 +27,6 @@ EnemyOpabinia::EnemyOpabinia(Battle* battle, const Vec2& p):Enemy(battle,p)
 		attack_points << Vec2{ cos(theta), sin(theta) }*150;
 		theta += Math::HalfPi / 6;
 	}
-	
-	mouth_pos = { -150,50 };
 
 	enemy_kind = enemy_kind_opabinia;
 }
