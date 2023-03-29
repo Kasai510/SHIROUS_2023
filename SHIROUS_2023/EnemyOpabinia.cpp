@@ -27,23 +27,33 @@ EnemyOpabinia::EnemyOpabinia(Battle* battle, const Vec2& p):Enemy(battle,p)
 		attack_points << Vec2{ cos(theta), sin(theta) }*150;
 		theta += Math::HalfPi / 6;
 	}
-	
+
+	enemy_kind = enemy_kind_opabinia;
 }
 
 void EnemyOpabinia::update()
 {
-	if (find_player) {
-		move();
+	if (!active)
+	{
+		if (battle->get_camera().in_camera(get_pos()))active = true;
+	}
+	if (active)
+	{
+		if (find_player) {
+			move();
+		}
+
+		if (battle->get_player().get_pos().x - pos.x < -200 and not find_player) {
+			find_player = true;
+		}
+		if (hp <= 0) {
+			dead = true;
+		}
+		time++;
 	}
 	
-	if (battle->get_player().get_pos().x - pos.x < -200 and not find_player) {
-		find_player = true;
-	}
-	if (hp <= 0) {
-		dead = true;
-	}
-	time++;
 }
+
 
 void EnemyOpabinia::move()
 {

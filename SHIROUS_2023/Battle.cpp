@@ -4,12 +4,24 @@
 #include"EnemyShotPikaia.h"
 #include"EnemyHallucigenia.h"
 #include"EnemyOpabinia.h"
+#include"EnemyAnomalocaris.h"
+
 
 Battle::Battle()
 {
-	stages << Stage_object(this,{ 800,600 }, 200, 200);
-	stages << Stage_object(this, { 1400,600 }, 200, 200);
 	stages << Stage_object(this, { -100,1000 , 19200+200, 200 });
+
+	stages << Stage_object(this, { 1800,1000 }, 200, 200);
+	stages << Stage_object(this, { 3000,300 }, 200, 200);
+	stages << Stage_object(this, { 4500,1000 }, 200, 300);
+	stages << Stage_object(this, { 5000,150 }, 200, 700);
+	stages << Stage_object(this, { 7000,1000 }, 200, 500);
+	stages << Stage_object(this, { 8500,1000 }, 200, 200);
+	stages << Stage_object(this, { 12000,150 }, 200, 300);
+	stages << Stage_object(this, { 12000,1000 }, 200, 400);
+
+	//stages << Stage_object(this, { 800,600 }, 200, 200);
+	//stages << Stage_object(this, { 1400,600 }, 200, 200);
 	initialize_enemies();//これはのちにEnemiesManagerとかがするかも知れない
 	Deserializer<BinaryReader> reader{ U"data/binary/effect/particle_circlestar.bin" };
 	if (not reader) // もしオープンに失敗したら
@@ -19,64 +31,89 @@ Battle::Battle()
 	reader(circlestar_effect);
 }
 
+Battle::~Battle()
+{
+	save_enemies();
+}
+
 void Battle::update()
 {
+	if (KeyM.down())
+	{
+		//map_make
+		now_map_make = not now_map_make;
+	}
+
+
+
 
 	scene_del = Scene::DeltaTime();
 
-	//状態の更新。
+	if (now_map_make)
+	{
+		update_map_make();
+	}
+	else
+	{
+
+		//状態の更新。
 	//プレイヤーの更新。
-	player.update();
-	//エネミーの更新。
-	for (auto& enemy : enemies) {
-		enemy->update();
-	}
-	//ステージの更新。
-	for (int i = 0; i < stages.size(); i++)
-	{
-		stages[i].update();
-	}
-
-	//移動後の衝突処理。ぶつかっていたり通り抜けていたりしたら、修正する
-	//ステージの限界
-	player.check_limit_stage(camera);
-
-	//stageの壁・床
-	for (int i = 0; i < stages.size(); i++)
-	{
-		player.move_intersect_stage(stages[i]);
-	}
-	
-	for (auto& e : enemies) {
+		player.update();
+		//エネミーの更新。
+		for (auto& enemy : enemies) {
+			enemy->update();
+		}
+		//ステージの更新。
 		for (int i = 0; i < stages.size(); i++)
 		{
-			e->move_intersect_stage(stages[i]);
+			stages[i].update();
 		}
-	}
-	
-	
+		//アイテムの更新。
+		if (MouseL.down())items << std::make_shared<ItemLP>(this, camera.windowpos_in_camera(Cursor::Pos()), 10);
+		for (auto& item : items) {
+			item->update();
+		}
+
+		//移動後の衝突処理。ぶつかっていたり通り抜けていたりしたら、修正する
+		//ステージの限界
+		player.check_limit_stage(camera);
+
+		//stageの壁・床
+		for (int i = 0; i < stages.size(); i++)
+		{
+			player.move_intersect_stage(stages[i]);
+		}
+
+		for (auto& e : enemies) {
+			for (int i = 0; i < stages.size(); i++)
+			{
+				e->move_intersect_stage(stages[i]);
+			}
+		}
 
 
-	//攻撃の追加
-	//自機は攻撃しない
-	//オプションの攻撃
 
-	
-	
-	
-	//攻撃の更新
-	for (int i = 0; i < player_shots.size(); i++)
-	{
-		player_shots[i]->update();
 
-	}
-	//enemyshot_update
-	for (auto& e : enemy_shots) {
-		e->update();
-	}
-	for (auto& e : effects) {
-		e->update();
-	}
+		//攻撃の追加
+		//自機は攻撃しない
+		//オプションの攻撃
+
+
+
+
+		//攻撃の更新
+		for (int i = 0; i < player_shots.size(); i++)
+		{
+			player_shots[i]->update();
+
+		}
+		//enemyshot_update
+		for (auto& e : enemy_shots) {
+			e->update();
+		}
+		for (auto& e : effects) {
+			e->update();
+		}
 
 
 
@@ -92,21 +129,152 @@ void Battle::update()
 	//攻撃の当たり判定
 	
 	//enemy死
-	enemies.remove_if([](const std::shared_ptr<Enemy>& enemy) {return enemy->is_dead(); });
+	enemies.remove_if([](const std::shared_ptr<Enemy>& enemy) {if(enemy->is_dead()) return enemy->is_dead(); });
+
+	//item削除
+	items.remove_if([](const std::shared_ptr<Item>& item) {return item->is_dead(); });
 	
 	//camera.scroll(Vec2(2,0));//強制横スクロール
 	camera.set(player.get_pos());
 
-	//for debug
-	camera_control();
+		//for debug
+		camera_control();
+	}
+}
+
+void Battle::update_map_make()
+{
+	//カメラの上下左右移動
+	if (KeyRight.pressed())
+	{
+		camera.set_center(camera.get_center() + Vec2{ 10,0 });
+	}
+	if (KeyLeft.pressed())
+	{
+		camera.set_center(camera.get_center() + Vec2{ -10,0 });
+	}
+	if (KeyUp.pressed())
+	{
+		camera.set_center(camera.get_center() + Vec2{ 0,-10 });
+	}
+	if (KeyDown.pressed())
+	{
+		camera.set_center(camera.get_center() + Vec2{ 0,10 });
+	}
+
+	camera.calc_mat();
+
+	//Save
+	if (KeyS.down())
+	{
+		save_enemies();
+	}
+
+	//配置する敵の変更
+	if (KeyC.down())
+	{
+		if (select_enemy_kind + 1 == enemy_kind_num)
+		{
+			select_enemy_kind = Enemy_Kind(0);
+		}
+		else
+		{
+			select_enemy_kind = Enemy_Kind(select_enemy_kind + 1);
+		}
+
+	}
+
+	//敵の配置
+	Vec2 cursor_window_pos = camera.windowpos_in_camera(Cursor::Pos());
+	if (KeySpace.down())
+	{
+		
+		
+		switch (Enemy_Kind(select_enemy_kind))
+		{
+		case enemy_kind_pikaia:
+			enemies << std::make_shared<EnemyPikaia>(this, cursor_window_pos);
+			break;
+		case enemy_kind_opabinia:
+			enemies << std::make_shared<EnemyOpabinia>(this, cursor_window_pos);
+			break;
+		case enemy_kind_kurage:
+			enemies << std::make_shared<EnemyKurage>(this, cursor_window_pos);
+			break;
+		case enemy_kind_hallucigenia:
+			enemies << std::make_shared<EnemyHallucigenia>(this, cursor_window_pos);
+			break;
+		case enemy_kind_anomalocaris:
+			enemies << std::make_shared<EnemyAnomalocaris>(this, cursor_window_pos);
+			break;
+		default:
+			break;
+		}
+	}
+
+
+	//敵の削除
+	if (MouseL.down())
+	{
+		enemies.remove_if([&](const std::shared_ptr<Enemy>& enemy)
+			{
+
+					if (enemy->get_rect().intersects(Circle(cursor_window_pos, 2)))
+					{
+						return true;
+					}
+					return false;
+		});
+	}
+}
+
+void Battle::draw_map_make()
+{
+	font30(U"[M]で終了").draw(0, 0, Palette::Black);
+	font30(U"[S]でsave").draw(0, 200, Palette::Black);
+	font30(U"[Space]で敵を配置").draw(0, 250, Palette::Black);
+	font30(U"[左クリック]で敵を削除").draw(0, 300, Palette::Black);
+	font30(U"[C]で配置する敵の種類を変更").draw(0, 350, Palette::Black);
+
+	String select_enemy_name;
+	switch (Enemy_Kind(select_enemy_kind))
+	{
+	case enemy_kind_pikaia:
+		select_enemy_name = U"pikaia";
+		break;
+	case enemy_kind_opabinia:
+		select_enemy_name = U"opabinia";
+		break;
+	case enemy_kind_kurage:
+		select_enemy_name = U"kurage";
+		break;
+	case enemy_kind_hallucigenia:
+		select_enemy_name = U"hallucigenia";
+		break;
+	case enemy_kind_anomalocaris:
+		select_enemy_name = U"anomalocaris";
+		break;
+	default:
+		break;
+	}
+
+	RectF enemy_tex_box(1700, 200, 200, 200);
+	enemy_tex_box.draw(HSV(0, 0, 0, 0.7));
+	TextureAsset(select_enemy_name).resized(180).drawAt(enemy_tex_box.center());
+
 }
 
 void Battle::draw()
 {
+
+
 	//背景
 	background.draw();
 
-	
+	for (int i = 0; i < stages.size(); i++)
+	{
+		stages[i].draw(camera);
+	}
 
 	//敵描画
 	for (auto& e : enemies) {
@@ -127,11 +295,11 @@ void Battle::draw()
 	for (auto& e : effects) {
 		e->draw();
 	}
-
-	for (int i = 0; i < stages.size(); i++)
-	{
-		stages[i].draw(camera);
+	for (auto& item : items) {
+		item->draw();
 	}
+	
+
 	
 	camera.draw_stage_area();
 
@@ -141,13 +309,29 @@ void Battle::draw()
 void Battle::draw_UI()
 {
 	camera.draw_texture(RectF{ Arg::center(camera.get_center().movedBy(0,-465)),1920,150 }, Palette::Black);
-	camera.draw_texture(font30(U"HP"), camera.get_center().movedBy(-1920 / 2 + 50, -500));
-	camera.draw_texture(font30(U"LP"), camera.get_center().movedBy(-1920 / 2 + 50, -430));
 
+	camera.draw_texture(font30(U"HP"), camera.get_center().movedBy(-1920 / 2 + 50, -500));
+	camera.draw_texture(RectF{ camera.get_center().movedBy(-1920 / 2 + 100, -500), 1000, 20 }, Palette::White);
+	camera.draw_texture(RectF{ camera.get_center().movedBy(-1920 / 2 + 100, -500), player.get_Max_HP(), 20 }, Palette::Gray);
 	camera.draw_texture(RectF{ camera.get_center().movedBy(-1920 / 2 + 100, -500), player.get_HP(), 20 }, Palette::Lightgreen);
+
+	camera.draw_texture(font30(U"LP"), camera.get_center().movedBy(-1920 / 2 + 50, -430));
 	camera.draw_texture(RectF{ camera.get_center().movedBy(-1920 / 2 + 100, -430), player.get_Max_LP(), 20 }, Palette::Gray);
 	camera.draw_texture(RectF{ camera.get_center().movedBy(-1920 / 2 + 100, -430), player.get_LP(), 20 }, Palette::Lightgreen);
 
+	camera.draw_texture(font30(U"世代数"), camera.get_center().movedBy(450, -500));
+	camera.draw_texture(font50(player.get_gen()), camera.get_center().movedBy(450, -440));
+
+	camera.draw_texture(font30(U"群れ"), camera.get_center().movedBy(650, -500));
+	camera.draw_texture(font50(player.get_opt_size()), camera.get_center().movedBy(650, -440));
+
+	camera.draw_texture(font30(U"ステージ"), camera.get_center().movedBy(850, -500));
+	camera.draw_texture(font50(U"仮"), camera.get_center().movedBy(850, -440));
+	
+	if (now_map_make)
+	{
+		draw_map_make();
+	}
 }
 
 void Battle::debug_draw()
@@ -200,11 +384,89 @@ int Battle::change_scene()
 
 void Battle::initialize_enemies()
 {
-	//enemys << std::make_shared<EnemyPikaia>(battle, Vec2(2100,500));
-	enemies << std::make_shared<EnemyHallucigenia>(this, Vec2(2000, 600));
-	enemies << std::make_shared<EnemyKurage>(this, Vec2(1700, 400));
-	enemies << std::make_shared<EnemyPikaia>(this, Vec2(2000, 400));
-	enemies << std::make_shared<EnemyOpabinia>(this, Vec2(2000, 300));
+	
+	// 読み込み先のデータ
+	{
+		// バイナリファイルをオープン
+		String fail_name = U"data/binary/Stage_Data/Stage{}/Enemy_Data.bin"_fmt(stage_index);
+		Deserializer<BinaryReader> reader{ fail_name };
+
+		if (not reader) // もしオープンに失敗したら
+		{
+			throw Error{ U"Failed to open `enemy_data.bin`" };
+		}
+
+		// バイナリファイルからシリアライズ対応型のデータを読み込む
+		// （Array は自動でリサイズが行われる）
+
+	
+		reader(enemy_datas);
+
+
+		// reader のデストラクタで自動的にファイルがクローズされる
+	}
+
+	for (auto& enemy_data : enemy_datas)
+	{
+
+		switch (Enemy_Kind(enemy_data.enemy_kind))
+		{
+		case enemy_kind_pikaia:
+			enemies << std::make_shared<EnemyPikaia>(this, enemy_data.spon_pos);
+			break;
+		case enemy_kind_opabinia:
+			enemies << std::make_shared<EnemyOpabinia>(this, enemy_data.spon_pos);
+			break;
+		case enemy_kind_kurage:
+			enemies << std::make_shared<EnemyKurage>(this, enemy_data.spon_pos);
+			break;
+		case enemy_kind_hallucigenia:
+			enemies << std::make_shared<EnemyHallucigenia>(this, enemy_data.spon_pos);
+			break;
+		case enemy_kind_anomalocaris:
+			enemies << std::make_shared<EnemyAnomalocaris>(this, enemy_data.spon_pos);
+			break;
+		default:
+			break;
+		}
+
+	}
+}
+
+void Battle::save_enemies()
+{
+	
+	{
+		
+		// 記録したいデータ
+		
+		enemy_datas.clear();
+		for (auto& enemy : enemies)
+		{
+
+			enemy_datas << Enemy_Data(enemy->get_enemy_kind(), enemy->get_spon_pos());
+		}
+
+		// バイナリファイルをオープン
+
+		String fail_name = U"data/binary/Stage_Data/Stage{}/Enemy_Data.bin"_fmt(stage_index);
+
+		Serializer<BinaryWriter> writer{ fail_name };
+
+		if (not writer) // もしオープンに失敗したら
+		{
+			throw Error{ U"Failed to open `enemy_data.bin`" };
+		}
+
+
+		// シリアライズに対応したデータを記録
+		
+		writer(enemy_datas);	
+
+		// writer のデストラクタで自動的にファイルがクローズされる
+		
+	}
+
 }
 
 void Battle::add_draw_objects(std::shared_ptr<BattleObject>)

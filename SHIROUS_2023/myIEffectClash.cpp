@@ -10,6 +10,14 @@ myIEffectClash::myIEffectClash(class Battle* battle, const Vec2& p, const double
 	time = 0;
 }
 
+myIEffectClash::myIEffectClash(class Battle* battle, const Vec2& p, Color color) :myIEffect(battle)
+{
+	this->pos = p;
+	this->max_r = 30;
+	this->color = color;
+	time = 0;
+}
+
 void myIEffectClash::update()
 {
 	effect_timer += battle->get_scene_del();
@@ -28,5 +36,5 @@ void myIEffectClash::draw()
 
 	myCamera& camera = battle->get_camera();
 	Transformer2D tf{ camera.get_mat() };
-	Circle{ pos,e * 100 }.drawFrame((max_r * (1.0 - e)), HSV(1, 1, 1, 0.7));
+	Circle{ pos,e * 100 }.drawFrame((max_r * (1.0 - e)), color);
 }

@@ -11,16 +11,26 @@ EnemyKurage::EnemyKurage(Battle* battle,const Vec2& p):Enemy(battle,p)
 	width = 150;
 	height = 150;
 	first_level = pos.y;
+
+	enemy_kind = enemy_kind_kurage;
 }
 
 void EnemyKurage::update()
 {
-	
-	move();
-	if (hp <= 0) {
-		dead = true;
+	if (!active)
+	{
+		if (battle->get_camera().in_camera(get_pos()))active = true;
 	}
-	time++;
+	if (active)
+	{
+		move();
+		if (hp <= 0) {
+			dead = true;
+			drop_item();
+		}
+		time++;
+	}
+	
 }
 
 void EnemyKurage::move()

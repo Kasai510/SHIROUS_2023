@@ -1,20 +1,20 @@
 ﻿#pragma once
 #include "OptionShot.h"
-
-
-class OptionShirousShot : public OptionShot
+class OptionAnnkouShot :
+    public OptionShot
 {
-protected:
 	double shot_timer;
-
+	double shot_arg;
 	bool set_init_pos{ false };
 
 	std::weak_ptr<Fish> target;
 
+
+
 public:
-	//OptionShirousShot() {};
-	OptionShirousShot(Battle*, const std::shared_ptr<class Fish>&);
-	~OptionShirousShot() {};
+
+	OptionAnnkouShot(Battle*, const std::shared_ptr<class Fish>&,double shot_arg);
+	~OptionAnnkouShot() {};
 
 	void set_crash();
 	void update();

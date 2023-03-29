@@ -24,9 +24,11 @@ private:
 
 	Mat3x2 mat;//for draw_texture
 
-	inline void calc_mat();
+	
 
 public:
+	inline void calc_mat();
+
 	myCamera(Battle* battle);
 	void scroll(Vec2 v);
 	void set(Vec2 v);

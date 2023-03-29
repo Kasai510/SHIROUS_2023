@@ -15,7 +15,7 @@ OptionHarisenbong::OptionHarisenbong(Battle* battle)
 
 	width = 100;
 	height = 100;
-	shot_cool_time = 90;
+	shot_cool_time = 240;
 	shot_timer = shot_cool_time;
 }
 OptionHarisenbong::OptionHarisenbong(Battle* battle, Vec2 p)
@@ -27,7 +27,7 @@ OptionHarisenbong::OptionHarisenbong(Battle* battle, Vec2 p)
 
 	width = 100;
 	height = 100;
-	shot_cool_time = 90;
+	shot_cool_time = 150;
 	shot_timer = shot_cool_time;
 }
 
@@ -44,20 +44,24 @@ void OptionHarisenbong::update(int index)
 }
 void OptionHarisenbong::move(int index)
 {
-	option_pos_timer++;
-	if (option_pos_timer > 2 * Math::Pi * 60 * (index + 1))option_pos_timer -= 2 * Math::Pi * 60 * (index + 1);
-
 	double slowness = 100.0;
 
 	int i = 1;
-	int j = 0;
-	while (j < index)
+	int j = 1;
+	while (j < index + 2)
 	{
 		i++;
 		j += i;
 	}
+	j = i - (j - (index + 2));
 
-	place = battle->get_player().get_pre_pos_left().movedBy(-100 * i + 10 * sin(option_pos_timer / 60.0 / (index + 1)), 30 * i * sin(option_pos_timer / 60.0 / (index + 1)));
+	option_pos_timer++;
+	if (option_pos_timer > 2 * Math::Pi * 60 * 2 * i * j)option_pos_timer -= 2 * Math::Pi * 60 * 2 * i * j;
+
+	double dx = -100 * (i - 1) + 10 * sin(option_pos_timer / 60.0 / (2 * i));
+	double dy = 100 * (j - 0.5 * (i + 1)) + 20 * sin(option_pos_timer / 60.0 / (2 * j));
+
+	place = battle->get_player().get_pos().movedBy(dx, dy);
 	speed += (place - get_pos()) / slowness;
 	if (speed.length() > max_speed) speed = speed.normalized() * max_speed;
 
@@ -65,7 +69,6 @@ void OptionHarisenbong::move(int index)
 	pos += speed;
 
 	speed /= 1.1;
-
 }
 void OptionHarisenbong::move_intersect_stage(Stage_object stage)
 {
@@ -109,7 +112,7 @@ void  OptionHarisenbong::check_limit_stage(myCamera camera)
 
 bool OptionHarisenbong::ready_shot()
 {
-	if (shot_timer > 0 && optionshots.size() == 0)shot_timer--;
+	if (shot_timer > 0)shot_timer--;
 
 	if (shot_timer == 0)
 	{
@@ -121,22 +124,12 @@ bool OptionHarisenbong::ready_shot()
 
 void OptionHarisenbong::attack()
 {
-	//攻撃の更新
-	for (int i = 0; i < optionshots.size(); i++)
-	{
-		optionshots[i]->update();
-
-	}
-
-
-	optionshots.remove_if([](const std::shared_ptr<Shot> p) {return (p->get_over()); });
-
 
 	if (ready_shot())
 	{
 		for (int i = 0; i <= 5; i++)
 		{
-			optionshots << std::make_shared<OptionHarisenbongShot>(battle, shared_from_this(),60_deg*i);
+			battle->get_player_shots() << std::make_shared<OptionHarisenbongShot>(battle, shared_from_this(),60_deg*i);
 		}
 	}
 }
@@ -154,13 +147,6 @@ void OptionHarisenbong::draw()
 
 	TextureAsset(image_name).resized(width).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
 	font(shot_timer).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
-
-	//攻撃の描画
-	for (int i = 0; i < optionshots.size(); i++)
-	{
-		optionshots[i]->draw();
-
-	}
 }
 void OptionHarisenbong::draw_back()
 {
