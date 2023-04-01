@@ -14,7 +14,6 @@ public:
 private:
 	Vec2 p;
 	double r;
-	Array<Array<Polygon>> multis;
 	Color color{ Color(255) };
 	std::weak_ptr<Fish> master;
 	bool be_following{ false };

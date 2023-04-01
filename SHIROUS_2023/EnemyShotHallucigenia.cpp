@@ -25,7 +25,7 @@ void EnemyShotHallucigenia::update()
 
 	if (mode_stop && time > 36) {
 		mode_stop = false;
-		v += Vec2{ Random(-10,10),-10};
+		v += Vec2{ Random(-5,5),-10};
 	}
 
 	if (mode_stop) {
@@ -47,6 +47,7 @@ void EnemyShotHallucigenia::update()
 		if (time % 10 == 0) {
 			battle->get_effects() << std::make_unique<myIEffectAfterimage>(battle, pos, TextureAsset(U"hallucigenia_shot").resized(image_size_int).rotated(image_angle), Color(0, 255, 0),25);
 		}
+		if(time % 15 == 0 && time < 200)battle->get_items() << std::make_shared<ItemLP>(battle, get_pos(), 10);
 	}
 	
 	image_angle += 0.2;

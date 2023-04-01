@@ -6,6 +6,7 @@
 #include"OptionShirousShot.h"
 #include"myIEffect.h"
 #include"Background.h"
+#include"ItemLP.h"
 
 //敵のデータ
 struct Enemy_Data
@@ -50,13 +51,18 @@ private:
 
 	Array<Stage_object> stages;
 	Font font30{ 30 };
+	Font font50{ 50 };
 
 	Array<std::unique_ptr<myIEffect>> effects;
+
+	Array<std::shared_ptr<Item>> items;
 
 	Array<std::weak_ptr<BattleObject>> draw_objects;
 
 	Vec2 camera_control_down_p;
 	Background background{this};
+
+	Array<Array<Polygon>> circlestar_effect;
 
 public:
 	Battle();
@@ -89,5 +95,8 @@ public:
 	Array<std::shared_ptr<Enemy>>& get_enemies() { return enemies; }
 	Array<Stage_object>& get_stages() { return stages; }
 	Array<std::unique_ptr<myIEffect>>& get_effects() { return effects; }
+	Array<std::shared_ptr<Item>>& get_items() { return items; }
 	void add_draw_objects(std::shared_ptr<BattleObject>);
+
+	const Array<Array<Polygon>>& get_circlestar_effect() { return circlestar_effect; }
 };

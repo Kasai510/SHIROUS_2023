@@ -19,6 +19,9 @@ Player::Player(Battle* battle, Vec2 p):Fish(battle, p)
 {
 	set_name(U"シラス");
 	set_image_name(U"shirous");
+	Max_HP = 500;
+	Max_LP = 1000;
+	LP = 100;
 	for (int i = 0; i < 1;i++) {
 		options << std::make_shared<OptionShirous>(battle, p);
 
@@ -39,7 +42,7 @@ void Player::update()
 		options[i]->update(i);
 	}
 
-	LP = Min(LP + 1, Max_LP);
+	//LP = Min(LP + 1, Max_LP);
 	spawn();
 
 	options.remove_if([](const std::shared_ptr<Option>& option) {return option->is_dead(); });
@@ -188,6 +191,11 @@ void Player::spawn()
 					options << std::make_shared<OptionSeahorse>(battle, get_pos());
 					LP -= 200;
 				}
+				if (select_spawn == (int)FishType::Harisenbong && LP >= 200)
+				{
+					options << std::make_shared<OptionHarisenbong>(battle, get_pos());
+					LP -= 200;
+				}
 				if (select_spawn == (int)FishType::Poseidon && LP >= 300)
 				{
 					options << std::make_shared<OptionPoseidon>(battle, get_pos());
@@ -261,6 +269,17 @@ void Player::draw_spawning()
 		}
 	}
 
+	for (int i = -2; i < (int)FishType::size + 2; i++)
+	{
+		if(i == select_spawn % (int)FishType::size)
+			battle->get_camera().draw_texture(get_fish_texture(i).resized(90), get_pos().movedBy(0, +50).movedBy(150 * cos(ToRadians(30 + 4 * spawning)), -150 * sin(ToRadians(30 + 4 * spawning))));
+		else if(i == select_spawn % (int)FishType::size + 1 || i == select_spawn % (int)FishType::size - 1)
+			battle->get_camera().draw_texture(get_fish_texture(i).resized(50), get_pos().movedBy(0, +50).movedBy(150 * cos(ToRadians(30 + (4 + 2 * (select_spawn - i)) * spawning)), -150 * sin(ToRadians(30 + (4 + 2 * (select_spawn - i)) * spawning))));
+		else if (i == select_spawn % (int)FishType::size + 2 || i == select_spawn % (int)FishType::size - 2)
+			battle->get_camera().draw_texture(get_fish_texture(i).resized(30), get_pos().movedBy(0, +50).movedBy(150 * cos(ToRadians(30 + (4 + 1.75 * (select_spawn - i)) * spawning)), -150 * sin(ToRadians(30 + (4 + 1.75 * (select_spawn - i)) * spawning))));
+
+	}
+
 
 	
 }
@@ -272,6 +291,7 @@ Texture Player::get_fish_texture(int type)
 
 	if (type == (int)FishType::Shirous)return TextureAsset(U"shirous");
 	if (type == (int)FishType::Seahorse)return TextureAsset(U"seahorse");
+	if (type == (int)FishType::Harisenbong)return TextureAsset(U"harisenbong");
 	if (type == (int)FishType::Poseidon)return TextureAsset(U"poseidon");
 
 	return TextureAsset(U"shirous");

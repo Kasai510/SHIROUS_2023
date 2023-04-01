@@ -18,7 +18,7 @@ OptionHarisenbongShot::OptionHarisenbongShot(Battle* battle, const std::shared_p
 	master_pos = master->get_pos();
 	pos = master->get_pos();
 	
-	damage = 10;
+	damage = 5;
 
 	hit_box_origins << RectF(Arg::center(0, 0), width,height).asPolygon();
 }

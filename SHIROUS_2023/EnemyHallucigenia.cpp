@@ -18,22 +18,31 @@ EnemyHallucigenia::EnemyHallucigenia(Battle* battle,const Vec2& p) :Enemy(battle
 
 void EnemyHallucigenia::update()
 {
-	move();
+	if (!active)
 	{
-		double r_player = abs(battle->get_player().get_pos().x - pos.x);
-		if (r_player < 100) {
-			battle->get_ememy_shots() << std::make_shared<EnemyShotHallucigenia>(battle, pos + Vec2{ 0,-10 });
-			battle->get_effects() << std::make_unique<myIEffectCirclestar>(battle, pos+Vec2{0,-10},70);
+		if (battle->get_camera().in_camera(get_pos()))active = true;
+	}
+	if (active)
+	{
+		move();
+		{
+			double r_player = abs(battle->get_player().get_pos().x - pos.x);
+			if (r_player < 100) {
+				battle->get_ememy_shots() << std::make_shared<EnemyShotHallucigenia>(battle, pos + Vec2{ 0,-10 });
+				battle->get_effects() << std::make_unique<myIEffectCirclestar>(battle, pos + Vec2{ 0,-10 }, 70);
+				dead = true;
+			}
+		}
+		if (pos.y > 1500) {
 			dead = true;
 		}
+		if (hp <= 0) {
+			dead = true;
+			drop_item();
+		}
+		time++;
 	}
-	if (pos.y > 1500) {
-		dead = true;
-	}
-	if (hp <= 0) {
-		dead = true;
-	}
-	time++;
+	
 }
 
 void EnemyHallucigenia::move()

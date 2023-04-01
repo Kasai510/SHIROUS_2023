@@ -25,9 +25,12 @@ public:
 	void move();
 	int get_enemy_kind() { return enemy_kind; }
 	Vec2 get_spon_pos() { return spon_pos; }
+	void drop_item();
+	void drop_LP();
 protected:
 	int time = 0;
 	Enemy_Kind enemy_kind{ enemy_kind_pikaia };
 	Vec2 spon_pos{ 0,0 };
+	bool active = false;//画面内に入るまで動かない。
 };
 

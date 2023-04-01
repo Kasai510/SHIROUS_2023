@@ -47,6 +47,7 @@ void EnemyShotPikaia::update()
 		v += angle_nv * 1;
 		battle->get_effects() << std::make_unique<myIEffectBubble>(battle, pos - angle_nv*50 + RandomVec2() * Random() * 30, Random() * 10);
 
+		if (time % 6 == 0)battle->get_items() << std::make_shared<ItemLP>(battle, get_pos(), 10);
 	}
 	move();
 	hit_boxs = hit_box_origins.rotated(angle).movedBy(pos);
