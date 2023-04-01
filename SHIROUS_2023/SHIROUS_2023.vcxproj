@@ -116,6 +116,8 @@
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="Battle.cpp" />
     <ClCompile Include="BattleObject.cpp" />
+    <ClCompile Include="Battle_battle.cpp" />
+    <ClCompile Include="Battle_map_make.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyAnomalocaris.cpp" />
     <ClCompile Include="EnemyAnomalocaris_shot1.cpp" />

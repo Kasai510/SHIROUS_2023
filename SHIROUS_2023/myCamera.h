@@ -53,6 +53,13 @@ public:
 		Transformer2D tf{ mat };
 		drawable.draw(color);
 	}
+
+	void draw_textureframe(const auto& drawable, double fat,Color color) {
+		Transformer2D tf{ mat };
+		drawable.drawFrame(fat,color);
+	}
+
+
 	bool in_camera(const auto& obj) {
 		RectF camera_rect{ Arg::center(center),1920,1080};
 		return camera_rect.intersects(obj);
