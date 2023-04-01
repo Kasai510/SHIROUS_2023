@@ -83,6 +83,7 @@ private:
 	Array<Stage_object> stages;
 	Font font30{ 30 };
 	Font font50{ 50 };
+	Font font90{ 90 };
 
 	Array<std::unique_ptr<myIEffect>> effects;
 

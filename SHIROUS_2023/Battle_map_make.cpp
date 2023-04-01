@@ -59,7 +59,7 @@ void Battle::update_map_make()
 		save();
 	}
 
-	if (KeyG.down())
+	if (KeyA.down())
 	{
 		now_put_enemies = not now_put_enemies;
 	}
@@ -226,7 +226,7 @@ void Battle::draw_map_make()
 
 void Battle::draw_map_make_put_enemy()
 {
-	font50(U"[G]でオブジェクト配置に変更").draw(0, 120, Palette::Black);
+	font50(U"[A]でオブジェクト配置に変更").draw(0, 120, Palette::Black);
 	font50(U"[Space]で敵を配置").draw(0, 190, Palette::Black);
 	font50(U"[左クリック]で敵を削除").draw(0, 250, Palette::Black);
 	font50(U"[C]で配置する敵の種類を変更").draw(0, 310, Palette::Black);
@@ -262,7 +262,10 @@ void Battle::draw_map_make_put_enemy()
 
 void Battle::draw_map_make_put_stage_object()
 {
-	font50(U"[G]で敵配置に変更").draw(0, 120, Palette::Black);
+	font50(U"[A]で敵配置に変更").draw(0, 120, Palette::Black);
+
+	font90(U"→").drawAt(1710, 610,Palette::Black);
+	font90(U"↑").drawAt(1700, 590, Palette::Black);
 
 	for(int i = 0; i < 4; i++)
 	{
