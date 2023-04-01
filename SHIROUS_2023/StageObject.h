@@ -10,6 +10,7 @@ protected:
 	double width;
 	double height;
 
+	bool exist{ true };
 public:
 	Stage_object(Battle* battle,Vec2 p, double w, double h);
 	Stage_object(Battle* battle, const Rect& rect);
@@ -18,7 +19,8 @@ public:
 	void draw(myCamera camera);
 
 
-
+	bool get_exist() { return exist; }
+	void set_exist(bool t) { exist = t; }
 	double get_width() { return width; }
 	double get_height() { return height; }
 

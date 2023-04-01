@@ -59,10 +59,12 @@ void Battle::update_map_make()
 		save();
 	}
 
+	//置くオブジェクトの種類の変更
 	if (KeyA.down())
 	{
 		now_put_enemies = not now_put_enemies;
 	}
+
 
 	if (now_put_enemies)
 	{
@@ -142,6 +144,26 @@ void Battle::update_map_make_put_stage_object()
 	if (KeySpace.down())
 	{
 		stages << Stage_object(this,cursor_window_pos, put_object_width, put_object_height);
+	}
+
+	if (KeyD.down())
+	{
+		for (auto& stage : stages)
+		{
+			if (stage.get_width() <= 10000)
+			{
+				if (stage.get_rect().intersects(Circle(cursor_window_pos, 1)))
+				{
+					stage.set_exist(false);
+					break;
+				}
+			}
+		}
+
+		stages.remove_if([](Stage_object stage)
+			{
+				return stage.get_exist() == false;
+		});
 	}
 
 	for (int i = 0; i < 4; i++)
@@ -263,6 +285,9 @@ void Battle::draw_map_make_put_enemy()
 void Battle::draw_map_make_put_stage_object()
 {
 	font50(U"[A]で敵配置に変更").draw(0, 120, Palette::Black);
+	font50(U"[Space]で配置").draw(0, 180, Palette::Black);
+	font50(U"[D]でオブジェクトの削除").draw(0, 240, Palette::Black);
+
 
 	font90(U"→").drawAt(1710, 610,Palette::Black);
 	font90(U"↑").drawAt(1700, 590, Palette::Black);
@@ -272,11 +297,11 @@ void Battle::draw_map_make_put_stage_object()
 		change_object_scale_box[i].draw(Palette::Black);
 		if (i == 0 || i == 1)
 		{
-			font50(U"＋").draw(change_object_scale_box[i].center(), Palette::White);
+			font50(U"＋").drawAt(change_object_scale_box[i].center(), Palette::White);
 		}
 		else
 		{
-			font50(U"－").draw(change_object_scale_box[i].center(), Palette::White);
+			font50(U"－").drawAt(change_object_scale_box[i].center(), Palette::White);
 		}
 	}
 
