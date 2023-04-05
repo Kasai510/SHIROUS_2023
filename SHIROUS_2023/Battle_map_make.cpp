@@ -31,6 +31,7 @@ void Battle::update_map_make()
 	{
 		//map_make
 		change_battle_scene(Battle_Scene::battle);
+	
 	}
 
 	//カメラの上下左右移動
@@ -110,7 +111,7 @@ void Battle::update_map_make_put_enemy()
 	}
 
 	//敵の削除
-	if (MouseL.down())
+	if (KeyD.down())
 	{
 		enemies.remove_if([&](const std::shared_ptr<Enemy>& enemy)
 			{
@@ -168,6 +169,8 @@ void Battle::update_map_make_put_stage_object()
 
 	for (int i = 0; i < 4; i++)
 	{
+		
+
 		//置くobjectの選択
 		if (change_object_scale_box[i].leftPressed())
 		{
@@ -250,7 +253,7 @@ void Battle::draw_map_make_put_enemy()
 {
 	font50(U"[A]でオブジェクト配置に変更").draw(0, 120, Palette::Black);
 	font50(U"[Space]で敵を配置").draw(0, 190, Palette::Black);
-	font50(U"[左クリック]で敵を削除").draw(0, 250, Palette::Black);
+	font50(U"[D]で敵を削除").draw(0, 250, Palette::Black);
 	font50(U"[C]で配置する敵の種類を変更").draw(0, 310, Palette::Black);
 
 

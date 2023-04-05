@@ -39,7 +39,8 @@ void Battle::init()
 void Battle::update()
 {
 	scene_del = Scene::DeltaTime();
-	
+
+
 	switch (now_battle_scene)
 	{
 	case Battle::Battle_Scene::battle:

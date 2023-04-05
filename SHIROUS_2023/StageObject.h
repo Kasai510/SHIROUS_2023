@@ -5,6 +5,7 @@
 class Stage_object:public BattleObject
 {
 protected:
+	
 	Vec2 pos;
 	Vec2 pre_pos;
 	double width;

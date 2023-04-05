@@ -112,6 +112,8 @@ void Battle::draw_battle()
 	//背景
 	background.draw();
 
+	font50(U"[M]でmap_make").draw(0, 0, Palette::Black);
+
 	for (int i = 0; i < stages.size(); i++)
 	{
 		stages[i].draw(camera);
