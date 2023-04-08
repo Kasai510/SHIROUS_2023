@@ -3,7 +3,11 @@
 
 void asset_texture()
 {
+
 	TextureAsset::Register(U"shirous", Resource(U"data/image/fish/shirous/シラス.png"));
+	TextureAsset::Register(U"shirous_opt", Resource(U"data/image/fish/shirous/シラス黒.png"));
+	TextureAsset::Register(U"shirous_dead", Resource(U"data/image/fish/shirous/シラス死.png"));
+	TextureAsset::Register(U"egg", Resource(U"data/image/fish/shirous/egg.png"));
 	TextureAsset::Register(U"ika", Resource(U"data/image/fish/shirous/イカ.png"));
 	TextureAsset::Register(U"pikaia", Resource(U"data/image/fish/pikaia/pikaia.png"));
 	TextureAsset::Register(U"pikaia_1", Resource(U"data/image/fish/pikaia/pikaia_1.png"));
@@ -36,4 +40,5 @@ void asset_texture()
 	TextureAsset::Register(U"rock_1", U"data/image/object/rock/rock_1.png");
 	TextureAsset::Register(U"kaimen_1", U"data/image/object/living/kaimen_1.png");
 	TextureAsset::Register(U"bubble", U"data/image/object/bubble/bubble.png");
+	TextureAsset::Register(U"heart", U"data/image/object/heart/heart.png");
 }

@@ -53,6 +53,10 @@ public:
 		Transformer2D tf{ mat };
 		drawable.draw(color);
 	}
+	void draw_texture(const auto& tex, const Vec2& p, Color color) {
+		Transformer2D tf{ mat };
+		tex.drawAt(p, color);
+	}
 	bool in_camera(const auto& obj) {
 		RectF camera_rect{ Arg::center(center),1920,1080};
 		return camera_rect.intersects(obj);

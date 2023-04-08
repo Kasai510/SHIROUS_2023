@@ -140,6 +140,7 @@
     <ClCompile Include="myIEffectBubble.cpp" />
     <ClCompile Include="myIEffectCirclestar.cpp" />
     <ClCompile Include="myIEffectClash.cpp" />
+    <ClCompile Include="myIEffectHeart.cpp" />
     <ClCompile Include="myInput.cpp" />
     <ClCompile Include="myScene.cpp" />
     <ClCompile Include="Option.cpp" />
@@ -385,6 +386,7 @@
     <ClInclude Include="myIEffectBubble.h" />
     <ClInclude Include="myIEffectCirclestar.h" />
     <ClInclude Include="myIEffectClash.h" />
+    <ClInclude Include="myIEffectHeart.h" />
     <ClInclude Include="myInput.h" />
     <ClInclude Include="myScene.h" />
     <ClInclude Include="Option.h" />

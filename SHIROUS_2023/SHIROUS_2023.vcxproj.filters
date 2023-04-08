@@ -148,6 +148,9 @@
     <ClCompile Include="Shot.cpp">
       <Filter>Source\Fish\Base</Filter>
     </ClCompile>
+    <ClCompile Include="myIEffectHeart.cpp">
+      <Filter>Source\myEffect</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetTexture.h">
@@ -290,6 +293,9 @@
     </ClInclude>
     <ClInclude Include="Shot.h">
       <Filter>Source\Fish\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="myIEffectHeart.h">
+      <Filter>Source\myEffect</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
