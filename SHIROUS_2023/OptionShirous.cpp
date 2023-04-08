@@ -10,13 +10,13 @@ OptionShirous::OptionShirous(Battle* battle)
 	: Option(battle)
 {
 	set_name(U"シラス");
-	set_image_name(U"shirous");
+	set_image_name(U"shirous_opt");
 }
 OptionShirous::OptionShirous(Battle* battle, Vec2 p)
 	: Option(battle, p)
 {
 	set_name(U"シラス");
-	set_image_name(U"shirous");
+	set_image_name(U"shirous_opt");
 	option_pos_timer = Random(0, 600);
 
 	shot_cool_time = 120;
@@ -140,7 +140,7 @@ void OptionShirous::draw()
 	//当たり判定の描画
 	battle->get_camera().draw_texture(get_rect(), Palette::Red);
 
-	TextureAsset(image_name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale(), Palette::Gray);
+	TextureAsset(image_name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
 	font(shot_timer).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
 
 }

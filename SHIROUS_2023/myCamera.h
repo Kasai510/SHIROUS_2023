@@ -53,6 +53,10 @@ public:
 		Transformer2D tf{ mat };
 		drawable.draw(color);
 	}
+	void draw_texture(const auto& tex, const Vec2& p, Color color) {
+		Transformer2D tf{ mat };
+		tex.drawAt(p, color);
+	}
 
 	void draw_textureframe(const auto& drawable, double fat,Color color) {
 		Transformer2D tf{ mat };

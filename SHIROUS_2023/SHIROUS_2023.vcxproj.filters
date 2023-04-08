@@ -101,6 +101,302 @@
     <ClInclude Include="Shot.h" />
     <ClInclude Include="StageObject.h" />
     <ClInclude Include="stdafx.h" />
+    <ClCompile Include="BattleObject.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="myInput.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Background.cpp">
+      <Filter>Source\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle.cpp">
+      <Filter>Source\myScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Source\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemLP.cpp">
+      <Filter>Source\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source\myScene</Filter>
+    </ClCompile>
+    <ClCompile Include="myCamera.cpp">
+      <Filter>Source\myCamera</Filter>
+    </ClCompile>
+    <ClCompile Include="myIEffectAfterimage.cpp">
+      <Filter>Source\myEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="myIEffectBubble.cpp">
+      <Filter>Source\myEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="myIEffectCirclestar.cpp">
+      <Filter>Source\myEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="myIEffectClash.cpp">
+      <Filter>Source\myEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="myScene.cpp">
+      <Filter>Source\myScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source\Fish\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="StageObject.cpp">
+      <Filter>Source\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Source\Fish\Enemy\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyAnomalocaris.cpp">
+      <Filter>Source\Fish\Enemy\Anomalocaris</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyAnomalocaris_hurtle.cpp">
+      <Filter>Source\Fish\Enemy\Anomalocaris</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyAnomalocaris_shot1.cpp">
+      <Filter>Source\Fish\Enemy\Anomalocaris</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyAnomalocaris_standby.cpp">
+      <Filter>Source\Fish\Enemy\Anomalocaris</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyHallucigenia.cpp">
+      <Filter>Source\Fish\Enemy\Hallucigenia</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyKurage.cpp">
+      <Filter>Source\Fish\Enemy\Kurage</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyOpabinia.cpp">
+      <Filter>Source\Fish\Enemy\Opabinia</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyPikaia.cpp">
+      <Filter>Source\Fish\Enemy\Pikaia</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyShot.cpp">
+      <Filter>Source\Fish\Enemy\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyShotAnomalocaris1.cpp">
+      <Filter>Source\Fish\Enemy\Anomalocaris</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyShotHallucigenia.cpp">
+      <Filter>Source\Fish\Enemy\Hallucigenia</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyShotKurage.cpp">
+      <Filter>Source\Fish\Enemy\Kurage</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyShotOpabinia.cpp">
+      <Filter>Source\Fish\Enemy\Opabinia</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyShotPikaia.cpp">
+      <Filter>Source\Fish\Enemy\Pikaia</Filter>
+    </ClCompile>
+    <ClCompile Include="Option.cpp">
+      <Filter>Source\Fish\Option\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionAnnkou.cpp">
+      <Filter>Source\Fish\Option\Annkou</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionAnnkouShot.cpp">
+      <Filter>Source\Fish\Option\Annkou</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionCupinlaoyui.cpp">
+      <Filter>Source\Fish\Option\Cupinlaoyui</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionCupinlaoyuiShot.cpp">
+      <Filter>Source\Fish\Option\Cupinlaoyui</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionHarisenbong.cpp">
+      <Filter>Source\Fish\Option\Harisenbong</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionHarisenbongShot.cpp">
+      <Filter>Source\Fish\Option\Harisenbong</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionPoseidon.cpp">
+      <Filter>Source\Fish\Option\Poseidon</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionPoseidonShot.cpp">
+      <Filter>Source\Fish\Option\Poseidon</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionPoseidonShot2.cpp">
+      <Filter>Source\Fish\Option\Poseidon</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionSeahorse.cpp">
+      <Filter>Source\Fish\Option\Seahorse</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionSeahorseShot.cpp">
+      <Filter>Source\Fish\Option\Seahorse</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionShirous.cpp">
+      <Filter>Source\Fish\Option\Shirous</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionShirousShot.cpp">
+      <Filter>Source\Fish\Option\Shirous</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionShot.cpp">
+      <Filter>Source\Fish\Option\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Fish.cpp">
+      <Filter>Source\Fish\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Shot.cpp">
+      <Filter>Source\Fish\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="myIEffectHeart.cpp">
+      <Filter>Source\myEffect</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AssetTexture.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleObject.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="myInput.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>Source\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle.h">
+      <Filter>Source\myScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Source\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemLP.h">
+      <Filter>Source\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Source\myScene</Filter>
+    </ClInclude>
+    <ClInclude Include="myCamera.h">
+      <Filter>Source\myCamera</Filter>
+    </ClInclude>
+    <ClInclude Include="myIEffect.h">
+      <Filter>Source\myEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="myIEffectAfterimage.h">
+      <Filter>Source\myEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="myIEffectBubble.h">
+      <Filter>Source\myEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="myIEffectCirclestar.h">
+      <Filter>Source\myEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="myIEffectClash.h">
+      <Filter>Source\myEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="myScene.h">
+      <Filter>Source\myScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Source\Fish\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="StageObject.h">
+      <Filter>Source\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Source\Fish\Enemy\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyAnomalocaris.h">
+      <Filter>Source\Fish\Enemy\Anomalocaris</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyHallucigenia.h">
+      <Filter>Source\Fish\Enemy\Hallucigenia</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyKurage.h">
+      <Filter>Source\Fish\Enemy\Kurage</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyOpabinia.h">
+      <Filter>Source\Fish\Enemy\Opabinia</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyPikaia.h">
+      <Filter>Source\Fish\Enemy\Pikaia</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyShot.h">
+      <Filter>Source\Fish\Enemy\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyShotAnomalocaris1.h">
+      <Filter>Source\Fish\Enemy\Anomalocaris</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyShotHallucigenia.h">
+      <Filter>Source\Fish\Enemy\Hallucigenia</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyShotKurage.h">
+      <Filter>Source\Fish\Enemy\Kurage</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyShotOpabinia.h">
+      <Filter>Source\Fish\Enemy\Opabinia</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyShotPikaia.h">
+      <Filter>Source\Fish\Enemy\Pikaia</Filter>
+    </ClInclude>
+    <ClInclude Include="Option.h">
+      <Filter>Source\Fish\Option\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionAnnkou.h">
+      <Filter>Source\Fish\Option\Annkou</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionAnnkouShot.h">
+      <Filter>Source\Fish\Option\Annkou</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionCupinlaoyui.h">
+      <Filter>Source\Fish\Option\Cupinlaoyui</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionCupinlaoyuiShot.h">
+      <Filter>Source\Fish\Option\Cupinlaoyui</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionHarisenbong.h">
+      <Filter>Source\Fish\Option\Harisenbong</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionHarisenbongShot.h">
+      <Filter>Source\Fish\Option\Harisenbong</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionPoseidon.h">
+      <Filter>Source\Fish\Option\Poseidon</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionPoseidonShot.h">
+      <Filter>Source\Fish\Option\Poseidon</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionPoseidonShot2.h">
+      <Filter>Source\Fish\Option\Poseidon</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionSeahorse.h">
+      <Filter>Source\Fish\Option\Seahorse</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionSeahorseShot.h">
+      <Filter>Source\Fish\Option\Seahorse</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionShirous.h">
+      <Filter>Source\Fish\Option\Shirous</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionShirousShot.h">
+      <Filter>Source\Fish\Option\Shirous</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionShot.h">
+      <Filter>Source\Fish\Option\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Fish.h">
+      <Filter>Source\Fish\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Shot.h">
+      <Filter>Source\Fish\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="myIEffectHeart.h">
+      <Filter>Source\myEffect</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="App\Resource.rc" />

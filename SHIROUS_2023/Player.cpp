@@ -8,6 +8,8 @@
 #include"OptionHarisenbong.h"
 #include"OptionAnnkou.h"
 
+#include"myIEffectHeart.h"
+
 
 Player::Player(Battle* battle):Fish(battle)
 {
@@ -20,8 +22,11 @@ Player::Player(Battle* battle, Vec2 p):Fish(battle, p)
 	set_name(U"シラス");
 	set_image_name(U"shirous");
 	Max_HP = 500;
-	Max_LP = 1000;
-	LP = 100;
+	Max_LP = 500;
+	hp = Max_HP;
+	LP = Max_LP / 2;
+	draw_HP = hp;
+	draw_LP = LP;
 	for (int i = 0; i < 1;i++) {
 		options << std::make_shared<OptionShirous>(battle, p);
 
@@ -35,18 +40,38 @@ Player::~Player()
 
 void Player::update()
 {
+	if (baby_counter < 180) baby_counter++;
 	move();
 	for (int i = 0; i < options.size(); i++)
 	{
-		//options[i]->move(get_pos(), i);
 		options[i]->update(i);
 	}
 
-	//LP = Min(LP + 1, Max_LP);
 	spawn();
 
 	options.remove_if([](const std::shared_ptr<Option>& option) {return option->is_dead(); });
-	Print <<U"playerhp:" << hp;
+
+	if (get_draw_HP() > get_HP())
+	{
+		if (get_draw_HP() > get_HP() + 3)draw_HP -= 3;
+		else draw_HP = get_HP();
+	}
+	else if (get_draw_HP() < get_HP())
+	{
+		if (get_draw_HP() < get_HP() - 3)draw_HP += 3;
+		else draw_HP = get_HP();
+	}
+	if (get_draw_LP() > get_LP())
+	{
+		if (get_draw_LP() > get_LP() + 3)draw_LP -= 3;
+		else draw_LP = get_LP();
+	}
+	else if (get_draw_LP() < get_LP())
+	{
+		if (get_draw_LP() > get_LP() - 3)draw_LP += 3;
+		else draw_LP = get_LP();
+	}
+
 }
 void Player::move()
 {
@@ -155,7 +180,7 @@ void Player::spawn()
 {
 	if (spawning == 0 && input.get_myButton_L() == 1)
 	{
-		spawning = 1;
+		spawning = 1;//産卵モード
 		return;
 	}
 	if (spawning > 0 && spawning < 15)spawning++;
@@ -178,28 +203,46 @@ void Player::spawn()
 			else if (input.get_myButton_Right() == 1) select_spawn_counter = +1;
 
 
-			if (input.get_myButton_L() == 1 || input.get_myButton_A() == 1)
+			if (input.get_myButton_A() == 1 && get_LP() >= 0.9 * get_Max_LP())
+			{
+				//Zキーで世代交代。
+				LP -= 0.9 * get_Max_LP();
+				generation_up();
+				for (int i = 0; i < 5; i++)
+					battle->get_effects() << std::make_unique<myIEffectHeart>(battle, pos + RandomVec2() * Random() * 30, RandomVec2() * (1.0 + Random()) * 5, 15);
+				baby_counter = 0;
+				spawning = 0;
+			}
+			if (input.get_myButton_L() == 1)
 			{
 				//産卵。
 				if (select_spawn == (int)FishType::Shirous && LP >= 100)
 				{
 					options << std::make_shared<OptionShirous>(battle, get_pos());
 					LP -= 100;
+					for (int i = 0; i < 5; i++)
+						battle->get_effects() << std::make_unique<myIEffectHeart>(battle, pos + RandomVec2() * Random() * 30, RandomVec2() * (1.0 + Random()) * 5, 15);
 				}
 				if (select_spawn == (int)FishType::Seahorse && LP >= 200)
 				{
 					options << std::make_shared<OptionSeahorse>(battle, get_pos());
 					LP -= 200;
+					for (int i = 0; i < 5; i++)
+						battle->get_effects() << std::make_unique<myIEffectHeart>(battle, pos + RandomVec2() * Random() * 30, RandomVec2() * (1.0 + Random()) * 5, 15);
 				}
 				if (select_spawn == (int)FishType::Harisenbong && LP >= 200)
 				{
 					options << std::make_shared<OptionHarisenbong>(battle, get_pos());
 					LP -= 200;
+					for (int i = 0; i < 5; i++)
+						battle->get_effects() << std::make_unique<myIEffectHeart>(battle, pos + RandomVec2() * Random() * 30, RandomVec2() * (1.0 + Random()) * 5, 15);
 				}
 				if (select_spawn == (int)FishType::Poseidon && LP >= 300)
 				{
 					options << std::make_shared<OptionPoseidon>(battle, get_pos());
 					LP -= 300;
+					for (int i = 0; i < 5; i++)
+						battle->get_effects() << std::make_unique<myIEffectHeart>(battle, pos + RandomVec2() * Random() * 30, RandomVec2() * (1.0 + Random()) * 5, 15);
 				}
 
 
@@ -227,12 +270,28 @@ void Player::spawn()
 	}
 }
 
+void Player::generation_up()
+{
+	generation = Min(generation + 1, 10);
+	Max_HP = 100 * generation;
+	hp = Max_HP;
+	Max_LP = 100 * generation;
+}
+
 void Player::draw()
 {
 	myCamera& camera = battle->get_camera();
 	// 自機の描画
 	//TextureAsset(image_name).scaled(camera.get_scale()).drawAt(Scene::CenterF() + (get_pos() - camera.get_center()) * camera.get_scale());
-	battle->get_camera().draw_texture(TextureAsset(image_name), get_pos());
+	if (baby_counter < 180)
+	{
+		battle->get_camera().draw_texture(TextureAsset(U"shirous_dead"), get_pos().movedBy(0, -baby_counter), ColorF(1.0, 1.0, 1.0, 1.0 - baby_counter / 180.0));
+
+		if (baby_counter < 90)battle->get_camera().draw_texture(TextureAsset(U"egg"), get_pos());
+		else battle->get_camera().draw_texture(TextureAsset(image_name).scaled(baby_counter / 180.0), get_pos());
+	}
+	else battle->get_camera().draw_texture(TextureAsset(image_name), get_pos());
+	
 	
 	//オプションの描画
 	for (int i = 0; i < options.size(); i++)
@@ -289,7 +348,7 @@ Texture Player::get_fish_texture(int type)
 	while (type < 0)type += (int)FishType::size;
 	while (type >= (int)FishType::size)type -= (int)FishType::size;
 
-	if (type == (int)FishType::Shirous)return TextureAsset(U"shirous");
+	if (type == (int)FishType::Shirous)return TextureAsset(U"shirous_opt");
 	if (type == (int)FishType::Seahorse)return TextureAsset(U"seahorse");
 	if (type == (int)FishType::Harisenbong)return TextureAsset(U"harisenbong");
 	if (type == (int)FishType::Poseidon)return TextureAsset(U"poseidon");

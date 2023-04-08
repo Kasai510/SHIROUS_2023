@@ -20,14 +20,18 @@ protected:
 		size
 	};
 
-	int generation = 1;//世代数。レベルみたいなもの。
+	int generation = 5;//世代数。レベルみたいなもの。
 	double Max_HP = 1000;
 	double Max_LP = 1000;
+	double draw_HP = Max_HP;
+	double draw_LP = Max_LP;
 
 	Array<std::shared_ptr<Option>> options;
 	int spawning = 0;//0:通常モード。1～14:モード変更中。15:産卵モード。
-	int select_spawn = 0;
-	int select_spawn_counter = 0;//アニメーション用。
+	int select_spawn = 0;//産卵選択中のオプション。
+	int select_spawn_counter = 0;//産卵するオプションの選択アニメーション用。
+	int baby_counter = 180;//世代交代後のアニメーション用。
+	int spawning_counter = 0;//産卵アニメーション用。
 	
 public:
 
@@ -46,6 +50,7 @@ public:
 	virtual std::shared_ptr<Shot> opt_shot(int index);
 
 	void spawn();
+	void generation_up();//世代交代(レベルアップみたいなもの)した際の強化
 
 
 	virtual void draw();
@@ -61,6 +66,8 @@ public:
 	Texture get_fish_texture(int type);
 	double get_Max_HP() { return Max_HP; }
 	double get_Max_LP() { return Max_LP; }
+	double get_draw_HP() { return draw_HP; }
+	double get_draw_LP() { return draw_LP; }
 	double get_LP() { return LP; }
 	void add_LP(double lp) { LP = Min(LP + lp, Max_LP); }
 	int get_gen() { return generation; }
