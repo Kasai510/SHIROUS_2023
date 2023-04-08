@@ -436,6 +436,7 @@ void Battle::initialize_stage_object()
 		// reader のデストラクタで自動的にファイルがクローズされる
 	}
 
+	stages.clear();
 	for (auto& stage_object_data : stage_object_datas)
 	{
 		stages << Stage_object(this, stage_object_data.spon_pos, stage_object_data.width, stage_object_data.height);
