@@ -1,6 +1,14 @@
 ﻿#pragma once
 #include "stdafx.h"
 #include"BattleObject.h"
+template<class T>
+concept Drawable = requires(T & t) {
+	t.draw();
+};
+template<class T>
+concept DrawAtable = requires(T & t) {
+	t.drawAt(Vec2{});
+};
 
 class myCamera:public BattleObject
 {
@@ -45,11 +53,15 @@ public:
 	const Mat3x2& get_mat() { return mat; };
 	void draw_stage_area();
 
-	void draw_texture(const auto& tex, const Vec2& p) {
+
+	template<DrawAtable T> 
+	void draw_texture(const T& tex, const Vec2& p) {
 		Transformer2D tf{ mat };
 		tex.drawAt(p);
 	}
-	void draw_texture(const auto& drawable,Color color) {
+
+	template<Drawable T>
+	void draw_texture(const T& drawable,Color color) {
 		Transformer2D tf{ mat };
 		drawable.draw(color);
 	}

@@ -1,1001 +1,324 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="BattleObject.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="myInput.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Background.cpp">
-      <Filter>Source\Stage</Filter>
-    </ClCompile>
-    <ClCompile Include="Battle.cpp">
-      <Filter>Source\myScene</Filter>
-    </ClCompile>
-    <ClCompile Include="Item.cpp">
-      <Filter>Source\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="ItemLP.cpp">
-      <Filter>Source\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>Source\myScene</Filter>
-    </ClCompile>
-    <ClCompile Include="myCamera.cpp">
-      <Filter>Source\myCamera</Filter>
-    </ClCompile>
-    <ClCompile Include="myIEffectAfterimage.cpp">
-      <Filter>Source\myEffect</Filter>
-    </ClCompile>
-    <ClCompile Include="myIEffectBubble.cpp">
-      <Filter>Source\myEffect</Filter>
-    </ClCompile>
-    <ClCompile Include="myIEffectCirclestar.cpp">
-      <Filter>Source\myEffect</Filter>
-    </ClCompile>
-    <ClCompile Include="myIEffectClash.cpp">
-      <Filter>Source\myEffect</Filter>
-    </ClCompile>
-    <ClCompile Include="myScene.cpp">
-      <Filter>Source\myScene</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source\Fish\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="StageObject.cpp">
-      <Filter>Source\Stage</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Source\Fish\Enemy\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyAnomalocaris.cpp">
-      <Filter>Source\Fish\Enemy\Anomalocaris</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyAnomalocaris_hurtle.cpp">
-      <Filter>Source\Fish\Enemy\Anomalocaris</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyAnomalocaris_shot1.cpp">
-      <Filter>Source\Fish\Enemy\Anomalocaris</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyAnomalocaris_standby.cpp">
-      <Filter>Source\Fish\Enemy\Anomalocaris</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyHallucigenia.cpp">
-      <Filter>Source\Fish\Enemy\Hallucigenia</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyKurage.cpp">
-      <Filter>Source\Fish\Enemy\Kurage</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyOpabinia.cpp">
-      <Filter>Source\Fish\Enemy\Opabinia</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyPikaia.cpp">
-      <Filter>Source\Fish\Enemy\Pikaia</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyShot.cpp">
-      <Filter>Source\Fish\Enemy\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyShotAnomalocaris1.cpp">
-      <Filter>Source\Fish\Enemy\Anomalocaris</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyShotHallucigenia.cpp">
-      <Filter>Source\Fish\Enemy\Hallucigenia</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyShotKurage.cpp">
-      <Filter>Source\Fish\Enemy\Kurage</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyShotOpabinia.cpp">
-      <Filter>Source\Fish\Enemy\Opabinia</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyShotPikaia.cpp">
-      <Filter>Source\Fish\Enemy\Pikaia</Filter>
-    </ClCompile>
-    <ClCompile Include="Option.cpp">
-      <Filter>Source\Fish\Option\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="OptionAnnkou.cpp">
-      <Filter>Source\Fish\Option\Annkou</Filter>
-    </ClCompile>
-    <ClCompile Include="OptionAnnkouShot.cpp">
-      <Filter>Source\Fish\Option\Annkou</Filter>
-    </ClCompile>
-    <ClCompile Include="OptionCupinlaoyui.cpp">
-      <Filter>Source\Fish\Option\Cupinlaoyui</Filter>
-    </ClCompile>
-    <ClCompile Include="OptionCupinlaoyuiShot.cpp">
-      <Filter>Source\Fish\Option\Cupinlaoyui</Filter>
-    </ClCompile>
-    <ClCompile Include="OptionHarisenbong.cpp">
-      <Filter>Source\Fish\Option\Harisenbong</Filter>
-    </ClCompile>
-    <ClCompile Include="OptionHarisenbongShot.cpp">
-      <Filter>Source\Fish\Option\Harisenbong</Filter>
-    </ClCompile>
-    <ClCompile Include="OptionPoseidon.cpp">
-      <Filter>Source\Fish\Option\Poseidon</Filter>
-    </ClCompile>
-    <ClCompile Include="OptionPoseidonShot.cpp">
-      <Filter>Source\Fish\Option\Poseidon</Filter>
-    </ClCompile>
-    <ClCompile Include="OptionPoseidonShot2.cpp">
-      <Filter>Source\Fish\Option\Poseidon</Filter>
-    </ClCompile>
-    <ClCompile Include="OptionSeahorse.cpp">
-      <Filter>Source\Fish\Option\Seahorse</Filter>
-    </ClCompile>
-    <ClCompile Include="OptionSeahorseShot.cpp">
-      <Filter>Source\Fish\Option\Seahorse</Filter>
-    </ClCompile>
-    <ClCompile Include="OptionShirous.cpp">
-      <Filter>Source\Fish\Option\Shirous</Filter>
-    </ClCompile>
-    <ClCompile Include="OptionShirousShot.cpp">
-      <Filter>Source\Fish\Option\Shirous</Filter>
-    </ClCompile>
-    <ClCompile Include="OptionShot.cpp">
-      <Filter>Source\Fish\Option\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Fish.cpp">
-      <Filter>Source\Fish\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Shot.cpp">
-      <Filter>Source\Fish\Base</Filter>
-    </ClCompile>
+    <ClCompile Include="Background.cpp" />
+    <ClCompile Include="Battle.cpp" />
+    <ClCompile Include="BattleObject.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyAnomalocaris.cpp" />
+    <ClCompile Include="EnemyAnomalocaris_shot1.cpp" />
+    <ClCompile Include="EnemyAnomalocaris_hurtle.cpp" />
+    <ClCompile Include="EnemyAnomalocaris_standby.cpp" />
+    <ClCompile Include="EnemyHallucigenia.cpp" />
+    <ClCompile Include="EnemyKurage.cpp" />
+    <ClCompile Include="EnemyOpabinia.cpp" />
+    <ClCompile Include="EnemyPikaia.cpp" />
+    <ClCompile Include="EnemyShot.cpp" />
+    <ClCompile Include="EnemyShotAnomalocaris1.cpp" />
+    <ClCompile Include="EnemyShotHallucigenia.cpp" />
+    <ClCompile Include="EnemyShotKurage.cpp" />
+    <ClCompile Include="EnemyShotOpabinia.cpp" />
+    <ClCompile Include="EnemyShotPikaia.cpp" />
+    <ClCompile Include="Fish.cpp" />
+    <ClCompile Include="ItemLP.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="myCamera.cpp" />
+    <ClCompile Include="myIEffectAfterimage.cpp" />
+    <ClCompile Include="myIEffectBubble.cpp" />
+    <ClCompile Include="myIEffectCirclestar.cpp" />
+    <ClCompile Include="myIEffectClash.cpp" />
+    <ClCompile Include="myInput.cpp" />
+    <ClCompile Include="myScene.cpp" />
+    <ClCompile Include="Option.cpp" />
+    <ClCompile Include="OptionAnnkou.cpp" />
+    <ClCompile Include="OptionAnnkouShot.cpp" />
+    <ClCompile Include="OptionCupinlaoyui.cpp" />
+    <ClCompile Include="OptionCupinlaoyuiShot.cpp" />
+    <ClCompile Include="OptionHarisenbong.cpp" />
+    <ClCompile Include="OptionHarisenbongShot.cpp" />
+    <ClCompile Include="OptionPoseidon.cpp" />
+    <ClCompile Include="OptionPoseidonShot.cpp" />
+    <ClCompile Include="OptionPoseidonShot2.cpp" />
+    <ClCompile Include="OptionSeahorse.cpp" />
+    <ClCompile Include="OptionSeahorseShot.cpp" />
+    <ClCompile Include="OptionShirous.cpp" />
+    <ClCompile Include="OptionShirousShot.cpp" />
+    <ClCompile Include="OptionShot.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Shot.cpp" />
+    <ClCompile Include="StageObject.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="myIEffectAdditiveBlendRect.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AssetTexture.h">
-      <Filter>Source</Filter>
-    </ClInclude>
-    <ClInclude Include="BattleObject.h">
-      <Filter>Source</Filter>
-    </ClInclude>
-    <ClInclude Include="myInput.h">
-      <Filter>Source</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>Source</Filter>
-    </ClInclude>
-    <ClInclude Include="Background.h">
-      <Filter>Source\Stage</Filter>
-    </ClInclude>
-    <ClInclude Include="Battle.h">
-      <Filter>Source\myScene</Filter>
-    </ClInclude>
-    <ClInclude Include="Item.h">
-      <Filter>Source\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="ItemLP.h">
-      <Filter>Source\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Source\myScene</Filter>
-    </ClInclude>
-    <ClInclude Include="myCamera.h">
-      <Filter>Source\myCamera</Filter>
-    </ClInclude>
-    <ClInclude Include="myIEffect.h">
-      <Filter>Source\myEffect</Filter>
-    </ClInclude>
-    <ClInclude Include="myIEffectAfterimage.h">
-      <Filter>Source\myEffect</Filter>
-    </ClInclude>
-    <ClInclude Include="myIEffectBubble.h">
-      <Filter>Source\myEffect</Filter>
-    </ClInclude>
-    <ClInclude Include="myIEffectCirclestar.h">
-      <Filter>Source\myEffect</Filter>
-    </ClInclude>
-    <ClInclude Include="myIEffectClash.h">
-      <Filter>Source\myEffect</Filter>
-    </ClInclude>
-    <ClInclude Include="myScene.h">
-      <Filter>Source\myScene</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Source\Fish\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="StageObject.h">
-      <Filter>Source\Stage</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Source\Fish\Enemy\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyAnomalocaris.h">
-      <Filter>Source\Fish\Enemy\Anomalocaris</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyHallucigenia.h">
-      <Filter>Source\Fish\Enemy\Hallucigenia</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyKurage.h">
-      <Filter>Source\Fish\Enemy\Kurage</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyOpabinia.h">
-      <Filter>Source\Fish\Enemy\Opabinia</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyPikaia.h">
-      <Filter>Source\Fish\Enemy\Pikaia</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyShot.h">
-      <Filter>Source\Fish\Enemy\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyShotAnomalocaris1.h">
-      <Filter>Source\Fish\Enemy\Anomalocaris</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyShotHallucigenia.h">
-      <Filter>Source\Fish\Enemy\Hallucigenia</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyShotKurage.h">
-      <Filter>Source\Fish\Enemy\Kurage</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyShotOpabinia.h">
-      <Filter>Source\Fish\Enemy\Opabinia</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyShotPikaia.h">
-      <Filter>Source\Fish\Enemy\Pikaia</Filter>
-    </ClInclude>
-    <ClInclude Include="Option.h">
-      <Filter>Source\Fish\Option\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="OptionAnnkou.h">
-      <Filter>Source\Fish\Option\Annkou</Filter>
-    </ClInclude>
-    <ClInclude Include="OptionAnnkouShot.h">
-      <Filter>Source\Fish\Option\Annkou</Filter>
-    </ClInclude>
-    <ClInclude Include="OptionCupinlaoyui.h">
-      <Filter>Source\Fish\Option\Cupinlaoyui</Filter>
-    </ClInclude>
-    <ClInclude Include="OptionCupinlaoyuiShot.h">
-      <Filter>Source\Fish\Option\Cupinlaoyui</Filter>
-    </ClInclude>
-    <ClInclude Include="OptionHarisenbong.h">
-      <Filter>Source\Fish\Option\Harisenbong</Filter>
-    </ClInclude>
-    <ClInclude Include="OptionHarisenbongShot.h">
-      <Filter>Source\Fish\Option\Harisenbong</Filter>
-    </ClInclude>
-    <ClInclude Include="OptionPoseidon.h">
-      <Filter>Source\Fish\Option\Poseidon</Filter>
-    </ClInclude>
-    <ClInclude Include="OptionPoseidonShot.h">
-      <Filter>Source\Fish\Option\Poseidon</Filter>
-    </ClInclude>
-    <ClInclude Include="OptionPoseidonShot2.h">
-      <Filter>Source\Fish\Option\Poseidon</Filter>
-    </ClInclude>
-    <ClInclude Include="OptionSeahorse.h">
-      <Filter>Source\Fish\Option\Seahorse</Filter>
-    </ClInclude>
-    <ClInclude Include="OptionSeahorseShot.h">
-      <Filter>Source\Fish\Option\Seahorse</Filter>
-    </ClInclude>
-    <ClInclude Include="OptionShirous.h">
-      <Filter>Source\Fish\Option\Shirous</Filter>
-    </ClInclude>
-    <ClInclude Include="OptionShirousShot.h">
-      <Filter>Source\Fish\Option\Shirous</Filter>
-    </ClInclude>
-    <ClInclude Include="OptionShot.h">
-      <Filter>Source\Fish\Option\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Fish.h">
-      <Filter>Source\Fish\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Shot.h">
-      <Filter>Source\Fish\Base</Filter>
-    </ClInclude>
+    <ClInclude Include="AssetTexture.h" />
+    <ClInclude Include="Background.h" />
+    <ClInclude Include="Battle.h" />
+    <ClInclude Include="BattleObject.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyAnomalocaris.h" />
+    <ClInclude Include="EnemyHallucigenia.h" />
+    <ClInclude Include="EnemyKurage.h" />
+    <ClInclude Include="EnemyOpabinia.h" />
+    <ClInclude Include="EnemyPikaia.h" />
+    <ClInclude Include="EnemyShot.h" />
+    <ClInclude Include="EnemyShotAnomalocaris1.h" />
+    <ClInclude Include="EnemyShotHallucigenia.h" />
+    <ClInclude Include="EnemyShotKurage.h" />
+    <ClInclude Include="EnemyShotOpabinia.h" />
+    <ClInclude Include="EnemyShotPikaia.h" />
+    <ClInclude Include="Fish.h" />
+    <ClInclude Include="ItemLP.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="myCamera.h" />
+    <ClInclude Include="myIEffect.h" />
+    <ClInclude Include="myIEffectAfterimage.h" />
+    <ClInclude Include="myIEffectBubble.h" />
+    <ClInclude Include="myIEffectCirclestar.h" />
+    <ClInclude Include="myIEffectClash.h" />
+    <ClInclude Include="myInput.h" />
+    <ClInclude Include="myScene.h" />
+    <ClInclude Include="Option.h" />
+    <ClInclude Include="OptionAnnkou.h" />
+    <ClInclude Include="OptionAnnkouShot.h" />
+    <ClInclude Include="OptionCupinlaoyui.h" />
+    <ClInclude Include="OptionCupinlaoyuiShot.h" />
+    <ClInclude Include="OptionHarisenbong.h" />
+    <ClInclude Include="OptionHarisenbongShot.h" />
+    <ClInclude Include="OptionPoseidon.h" />
+    <ClInclude Include="OptionPoseidonShot.h" />
+    <ClInclude Include="OptionPoseidonShot2.h" />
+    <ClInclude Include="OptionSeahorse.h" />
+    <ClInclude Include="OptionSeahorseShot.h" />
+    <ClInclude Include="OptionShirous.h" />
+    <ClInclude Include="OptionShirousShot.h" />
+    <ClInclude Include="OptionShot.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Shot.h" />
+    <ClInclude Include="StageObject.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="myIEffectAdditiveBlendRect.h" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="App\example\xml\config.xml">
-      <Filter>BlackBox</Filter>
-    </Xml>
-    <Xml Include="App\example\objdetect\haarcascade\eye.xml">
-      <Filter>BlackBox</Filter>
-    </Xml>
-    <Xml Include="App\example\objdetect\haarcascade\face_anime.xml">
-      <Filter>BlackBox</Filter>
-    </Xml>
-    <Xml Include="App\example\objdetect\haarcascade\frontal_catface.xml">
-      <Filter>BlackBox</Filter>
-    </Xml>
-    <Xml Include="App\example\objdetect\haarcascade\frontal_face_alt2.xml">
-      <Filter>BlackBox</Filter>
-    </Xml>
-    <Xml Include="App\example\xml\test.xml">
-      <Filter>BlackBox</Filter>
-    </Xml>
+    <ResourceCompile Include="App\Resource.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Media Include="App\example\video\river.mp4">
-      <Filter>BlackBox</Filter>
-    </Media>
-    <Media Include="App\example\shot.mp3">
-      <Filter>BlackBox</Filter>
-    </Media>
-    <Media Include="App\example\test.mp3">
-      <Filter>BlackBox</Filter>
-    </Media>
+    <Xml Include="App\example\objdetect\haarcascade\eye.xml" />
+    <Xml Include="App\example\objdetect\haarcascade\face_anime.xml" />
+    <Xml Include="App\example\objdetect\haarcascade\frontal_catface.xml" />
+    <Xml Include="App\example\objdetect\haarcascade\frontal_face_alt2.xml" />
+    <Xml Include="App\example\xml\config.xml" />
+    <Xml Include="App\example\xml\test.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="App\engine\texture\box-shadow\8.png">
-      <Filter>BlackBox</Filter>
-    </Image>
-    <Image Include="App\engine\texture\box-shadow\16.png">
-      <Filter>BlackBox</Filter>
-    </Image>
-    <Image Include="App\engine\texture\box-shadow\32.png">
-      <Filter>BlackBox</Filter>
-    </Image>
-    <Image Include="App\engine\texture\box-shadow\64.png">
-      <Filter>BlackBox</Filter>
-    </Image>
-    <Image Include="App\engine\texture\box-shadow\128.png">
-      <Filter>BlackBox</Filter>
-    </Image>
-    <Image Include="App\engine\texture\box-shadow\256.png">
-      <Filter>BlackBox</Filter>
-    </Image>
-    <Image Include="App\example\obj\bark.jpg">
-      <Filter>BlackBox</Filter>
-    </Image>
-    <Image Include="App\example\bay.jpg">
-      <Filter>BlackBox</Filter>
-    </Image>
-    <Image Include="App\example\texture\earth.jpg">
-      <Filter>BlackBox</Filter>
-    </Image>
-    <Image Include="App\example\texture\grass.jpg">
-      <Filter>BlackBox</Filter>
-    </Image>
-    <Image Include="App\example\texture\ground.jpg">
-      <Filter>BlackBox</Filter>
-    </Image>
-    <Image Include="App\icon.ico">
-      <Filter>BlackBox</Filter>
-    </Image>
-    <Image Include="App\example\obj\leaves.png">
-      <Filter>BlackBox</Filter>
-    </Image>
-    <Image Include="App\example\particle.png">
-      <Filter>BlackBox</Filter>
-    </Image>
-    <Image Include="App\example\obj\pine_leaves_red.png">
-      <Filter>BlackBox</Filter>
-    </Image>
-    <Image Include="App\example\texture\rock.jpg">
-      <Filter>BlackBox</Filter>
-    </Image>
-    <Image Include="App\example\siv3d-kun.png">
-      <Filter>BlackBox</Filter>
-    </Image>
-    <Image Include="App\example\obj\siv3d-kun.png">
-      <Filter>BlackBox</Filter>
-    </Image>
-    <Image Include="App\example\spritesheet\siv3d-kun-16.png">
-      <Filter>BlackBox</Filter>
-    </Image>
-    <Image Include="App\example\obj\siv3d-kun-eye.png">
-      <Filter>BlackBox</Filter>
-    </Image>
-    <Image Include="App\example\gif\test.gif">
-      <Filter>BlackBox</Filter>
-    </Image>
-    <Image Include="App\example\texture\uv.png">
-      <Filter>BlackBox</Filter>
-    </Image>
-    <Image Include="App\example\windmill.png">
-      <Filter>BlackBox</Filter>
-    </Image>
-    <Image Include="App\example\texture\wood.jpg">
-      <Filter>BlackBox</Filter>
-    </Image>
+    <Media Include="App\example\shot.mp3" />
+    <Media Include="App\example\test.mp3" />
+    <Media Include="App\example\video\river.mp4" />
   </ItemGroup>
   <ItemGroup>
-    <Font Include="App\example\font\DotGothic16\DotGothic16-Regular.ttf">
-      <Filter>BlackBox</Filter>
-    </Font>
-    <Font Include="App\example\font\RocknRoll\RocknRollOne-Regular.ttf">
-      <Filter>BlackBox</Filter>
-    </Font>
+    <Image Include="App\engine\texture\box-shadow\128.png" />
+    <Image Include="App\engine\texture\box-shadow\16.png" />
+    <Image Include="App\engine\texture\box-shadow\256.png" />
+    <Image Include="App\engine\texture\box-shadow\32.png" />
+    <Image Include="App\engine\texture\box-shadow\64.png" />
+    <Image Include="App\engine\texture\box-shadow\8.png" />
+    <Image Include="App\example\bay.jpg" />
+    <Image Include="App\example\gif\test.gif" />
+    <Image Include="App\example\obj\bark.jpg" />
+    <Image Include="App\example\obj\leaves.png" />
+    <Image Include="App\example\obj\pine_leaves_red.png" />
+    <Image Include="App\example\obj\siv3d-kun-eye.png" />
+    <Image Include="App\example\obj\siv3d-kun.png" />
+    <Image Include="App\example\particle.png" />
+    <Image Include="App\example\siv3d-kun.png" />
+    <Image Include="App\example\spritesheet\siv3d-kun-16.png" />
+    <Image Include="App\example\texture\earth.jpg" />
+    <Image Include="App\example\texture\grass.jpg" />
+    <Image Include="App\example\texture\ground.jpg" />
+    <Image Include="App\example\texture\rock.jpg" />
+    <Image Include="App\example\texture\uv.png" />
+    <Image Include="App\example\texture\wood.jpg" />
+    <Image Include="App\example\windmill.png" />
+    <Image Include="App\icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include=".editorconfig">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\apply_srgb_curve.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\apply_srgb_curve.ps">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\bitmapfont.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\bitmapfont.ps">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\obj\blacksmith.mtl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\obj\blacksmith.obj">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\script\breakout.as">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\svg\cat.svg">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\csv\config.csv">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\ini\config.ini">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\json\config.json">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\toml\config.toml">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\copy.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\copy.ps">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\geojson\countries.geojson">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\obj\crystal1.mtl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\obj\crystal1.obj">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\obj\crystal2.mtl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\obj\crystal2.obj">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\obj\crystal3.mtl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\obj\crystal3.obj">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\hlsl\default2d.hlsl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\glsl\default2d.vert">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\glsl\default2d_shape.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\glsl\default2d_texture.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\glsl\default3d_forward.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\hlsl\default3d_forward.hlsl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\glsl\default3d_forward.vert">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\json\empty.json">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\glsl\extract_bright_linear.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\hlsl\extract_bright_linear.hlsl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\font\fontawesome\fontawesome-brands.otf.zstdcmp">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\font\fontawesome\fontawesome-solid.otf.zstdcmp">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\glsl\forward_fog.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\hlsl\forward_fog.hlsl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\glsl\forward_triplanar.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\hlsl\forward_triplanar.hlsl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\forward3d.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\forward3d.ps">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\forward3d.vert">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\forward3d.vs">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\fullscreen_triangle.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\fullscreen_triangle.ps">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\fullscreen_triangle.vert">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\fullscreen_triangle.vs">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\glsl\game_of_life.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\hlsl\game_of_life.hlsl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\gaussian_blur_9.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\gaussian_blur_9.ps">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\soundfont\GMGSx.sf2.zstdcmp">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\glsl\grayscale.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\hlsl\grayscale.hlsl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\script\hello.as">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\glsl\homography.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\hlsl\homography.hlsl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\glsl\homography.vert">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\json\invalid-blank.json">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\json\invalid-syntax.json">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\font\noto-cjk\LICENSE">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\font\noto-emoji\LICENSE">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\font\min\LICENSE">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\font\materialdesignicons\license.md">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\font\mplus\LICENSE_E">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\line3d.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\line3d.ps">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\line3d.vert">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\line3d.vs">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\obj\mill.mtl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\obj\mill.obj">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\font\mplus\mplus-1p-black.ttf.zstdcmp">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\font\mplus\mplus-1p-bold.ttf.zstdcmp">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\font\mplus\mplus-1p-heavy.ttf.zstdcmp">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\font\mplus\mplus-1p-light.ttf.zstdcmp">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\font\mplus\mplus-1p-medium.ttf.zstdcmp">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\font\mplus\mplus-1p-regular.ttf.zstdcmp">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\font\mplus\mplus-1p-thin.ttf.zstdcmp">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\msdffont.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\msdffont.ps">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\msdffont_outline.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\msdffont_outline.ps">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\msdffont_outlineshadow.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\msdffont_outlineshadow.ps">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\msdffont_shadow.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\msdffont_shadow.ps">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\msdfprint.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\msdfprint.ps">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\glsl\multi_texture_blend.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\hlsl\multi_texture_blend.hlsl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\glsl\multi_texture_mask.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\hlsl\multi_texture_mask.hlsl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\font\materialdesignicons\materialdesignicons-webfont.ttf.zstdcmp">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\font\noto-emoji\NotoColorEmoji.ttf.zstdcmp">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\font\noto-emoji\NotoEmoji-Regular.ttf.zstdcmp">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\font\noto-cjk\NotoSansCJK-Regular.ttc.zstdcmp">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\font\noto-cjk\NotoSansJP-Regular.otf.zstdcmp">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\script\paint.as">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\script\piano.as">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\obj\pine.mtl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\obj\pine.obj">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\glsl\poisson_disk.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\hlsl\poisson_disk.hlsl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\glsl\posterize.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\hlsl\posterize.hlsl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\font\DotGothic16\README.md">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\font\RocknRoll\README.md">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\font\DotGothic16\README-JP.md">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\font\RocknRoll\README-JP.md">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\glsl\rgb_shift.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\hlsl\rgb_shift.hlsl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\glsl\rgb_to_bgr.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\hlsl\rgb_to_bgr.hlsl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\round_dot.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\round_dot.ps">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\sdffont.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\sdffont.ps">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\sdffont_outline.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\sdffont_outline.ps">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\sdffont_outlineshadow.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\sdffont_outlineshadow.ps">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\sdffont_shadow.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\sdffont_shadow.ps">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\shape.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\shape.ps">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\obj\siv3d-kun.mtl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\obj\siv3d-kun.obj">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\font\min\siv3d-min.woff">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\sky.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\sky.ps">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\hlsl\soft_shape.hlsl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\glsl\soft_shape.vert">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\dll\soundtouch\SoundTouch_x64.dll">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\sprite.vert">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\sprite.vs">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\square_dot.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\square_dot.ps">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\glsl\swirl.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\hlsl\swirl.hlsl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\glsl\terrain_forward.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\hlsl\terrain_forward.hlsl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\glsl\terrain_forward.vert">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\glsl\terrain_normal.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\shader\hlsl\terrain_normal.hlsl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\script\test.as">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\json\test.json">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\midi\test.mid">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\toml\test.toml">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\glsl\texture.frag">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\engine\shader\d3d11\texture.ps">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\obj\tree.mtl">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\obj\tree.obj">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\svg\turtle.svg">
-      <Filter>BlackBox</Filter>
-    </None>
-    <None Include="App\example\zip\zip_test.zip">
-      <Filter>BlackBox</Filter>
-    </None>
+    <Font Include="App\example\font\DotGothic16\DotGothic16-Regular.ttf" />
+    <Font Include="App\example\font\RocknRoll\RocknRollOne-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="App\dll\soundtouch\COPYING.TXT">
-      <Filter>BlackBox</Filter>
-    </Text>
-    <Text Include="App\example\texture\credit.txt">
-      <Filter>BlackBox</Filter>
-    </Text>
-    <Text Include="App\example\obj\credit.txt">
-      <Filter>BlackBox</Filter>
-    </Text>
-    <Text Include="App\example\txt\en.txt">
-      <Filter>BlackBox</Filter>
-    </Text>
-    <Text Include="App\engine\soundfont\GMGSx.sf2.txt">
-      <Filter>BlackBox</Filter>
-    </Text>
-    <Text Include="App\example\txt\jp.txt">
-      <Filter>BlackBox</Filter>
-    </Text>
-    <Text Include="App\example\txt\kr.txt">
-      <Filter>BlackBox</Filter>
-    </Text>
-    <Text Include="App\example\LICENSE.txt">
-      <Filter>BlackBox</Filter>
-    </Text>
-    <Text Include="App\engine\font\fontawesome\LICENSE.txt">
-      <Filter>BlackBox</Filter>
-    </Text>
-    <Text Include="App\example\font\RocknRoll\OFL.txt">
-      <Filter>BlackBox</Filter>
-    </Text>
-    <Text Include="App\example\font\DotGothic16\OFL.txt">
-      <Filter>BlackBox</Filter>
-    </Text>
-    <Text Include="App\example\svg\README.txt">
-      <Filter>BlackBox</Filter>
-    </Text>
-    <Text Include="App\example\video\river.txt">
-      <Filter>BlackBox</Filter>
-    </Text>
-    <Text Include="App\example\txt\sc.txt">
-      <Filter>BlackBox</Filter>
-    </Text>
-    <Text Include="App\example\spritesheet\siv3d-kun-16.txt">
-      <Filter>BlackBox</Filter>
-    </Text>
-    <Text Include="App\example\midi\test.txt">
-      <Filter>BlackBox</Filter>
-    </Text>
+    <None Include=".editorconfig" />
+    <None Include="App\dll\soundtouch\SoundTouch_x64.dll" />
+    <None Include="App\engine\font\fontawesome\fontawesome-brands.otf.zstdcmp" />
+    <None Include="App\engine\font\fontawesome\fontawesome-solid.otf.zstdcmp" />
+    <None Include="App\engine\font\materialdesignicons\license.md" />
+    <None Include="App\engine\font\materialdesignicons\materialdesignicons-webfont.ttf.zstdcmp" />
+    <None Include="App\engine\font\min\LICENSE" />
+    <None Include="App\engine\font\min\siv3d-min.woff" />
+    <None Include="App\engine\font\mplus\LICENSE_E" />
+    <None Include="App\engine\font\mplus\mplus-1p-black.ttf.zstdcmp" />
+    <None Include="App\engine\font\mplus\mplus-1p-bold.ttf.zstdcmp" />
+    <None Include="App\engine\font\mplus\mplus-1p-heavy.ttf.zstdcmp" />
+    <None Include="App\engine\font\mplus\mplus-1p-light.ttf.zstdcmp" />
+    <None Include="App\engine\font\mplus\mplus-1p-medium.ttf.zstdcmp" />
+    <None Include="App\engine\font\mplus\mplus-1p-regular.ttf.zstdcmp" />
+    <None Include="App\engine\font\mplus\mplus-1p-thin.ttf.zstdcmp" />
+    <None Include="App\engine\font\noto-cjk\LICENSE" />
+    <None Include="App\engine\font\noto-cjk\NotoSansCJK-Regular.ttc.zstdcmp" />
+    <None Include="App\engine\font\noto-cjk\NotoSansJP-Regular.otf.zstdcmp" />
+    <None Include="App\engine\font\noto-emoji\LICENSE" />
+    <None Include="App\engine\font\noto-emoji\NotoColorEmoji.ttf.zstdcmp" />
+    <None Include="App\engine\font\noto-emoji\NotoEmoji-Regular.ttf.zstdcmp" />
+    <None Include="App\engine\shader\d3d11\apply_srgb_curve.ps" />
+    <None Include="App\engine\shader\d3d11\bitmapfont.ps" />
+    <None Include="App\engine\shader\d3d11\copy.ps" />
+    <None Include="App\engine\shader\d3d11\forward3d.ps" />
+    <None Include="App\engine\shader\d3d11\forward3d.vs" />
+    <None Include="App\engine\shader\d3d11\fullscreen_triangle.ps" />
+    <None Include="App\engine\shader\d3d11\fullscreen_triangle.vs" />
+    <None Include="App\engine\shader\d3d11\gaussian_blur_9.ps" />
+    <None Include="App\engine\shader\d3d11\line3d.ps" />
+    <None Include="App\engine\shader\d3d11\line3d.vs" />
+    <None Include="App\engine\shader\d3d11\msdffont.ps" />
+    <None Include="App\engine\shader\d3d11\msdffont_outline.ps" />
+    <None Include="App\engine\shader\d3d11\msdffont_outlineshadow.ps" />
+    <None Include="App\engine\shader\d3d11\msdffont_shadow.ps" />
+    <None Include="App\engine\shader\d3d11\msdfprint.ps" />
+    <None Include="App\engine\shader\d3d11\round_dot.ps" />
+    <None Include="App\engine\shader\d3d11\sdffont.ps" />
+    <None Include="App\engine\shader\d3d11\sdffont_outline.ps" />
+    <None Include="App\engine\shader\d3d11\sdffont_outlineshadow.ps" />
+    <None Include="App\engine\shader\d3d11\sdffont_shadow.ps" />
+    <None Include="App\engine\shader\d3d11\shape.ps" />
+    <None Include="App\engine\shader\d3d11\sky.ps" />
+    <None Include="App\engine\shader\d3d11\sprite.vs" />
+    <None Include="App\engine\shader\d3d11\square_dot.ps" />
+    <None Include="App\engine\shader\d3d11\texture.ps" />
+    <None Include="App\engine\shader\glsl\apply_srgb_curve.frag" />
+    <None Include="App\engine\shader\glsl\bitmapfont.frag" />
+    <None Include="App\engine\shader\glsl\copy.frag" />
+    <None Include="App\engine\shader\glsl\forward3d.frag" />
+    <None Include="App\engine\shader\glsl\forward3d.vert" />
+    <None Include="App\engine\shader\glsl\fullscreen_triangle.frag" />
+    <None Include="App\engine\shader\glsl\fullscreen_triangle.vert" />
+    <None Include="App\engine\shader\glsl\gaussian_blur_9.frag" />
+    <None Include="App\engine\shader\glsl\line3d.frag" />
+    <None Include="App\engine\shader\glsl\line3d.vert" />
+    <None Include="App\engine\shader\glsl\msdffont.frag" />
+    <None Include="App\engine\shader\glsl\msdffont_outline.frag" />
+    <None Include="App\engine\shader\glsl\msdffont_outlineshadow.frag" />
+    <None Include="App\engine\shader\glsl\msdffont_shadow.frag" />
+    <None Include="App\engine\shader\glsl\msdfprint.frag" />
+    <None Include="App\engine\shader\glsl\round_dot.frag" />
+    <None Include="App\engine\shader\glsl\sdffont.frag" />
+    <None Include="App\engine\shader\glsl\sdffont_outline.frag" />
+    <None Include="App\engine\shader\glsl\sdffont_outlineshadow.frag" />
+    <None Include="App\engine\shader\glsl\sdffont_shadow.frag" />
+    <None Include="App\engine\shader\glsl\shape.frag" />
+    <None Include="App\engine\shader\glsl\sky.frag" />
+    <None Include="App\engine\shader\glsl\sprite.vert" />
+    <None Include="App\engine\shader\glsl\square_dot.frag" />
+    <None Include="App\engine\shader\glsl\texture.frag" />
+    <None Include="App\engine\soundfont\GMGSx.sf2.zstdcmp" />
+    <None Include="App\example\csv\config.csv" />
+    <None Include="App\example\font\DotGothic16\README-JP.md" />
+    <None Include="App\example\font\DotGothic16\README.md" />
+    <None Include="App\example\font\RocknRoll\README-JP.md" />
+    <None Include="App\example\font\RocknRoll\README.md" />
+    <None Include="App\example\geojson\countries.geojson" />
+    <None Include="App\example\ini\config.ini" />
+    <None Include="App\example\json\config.json" />
+    <None Include="App\example\json\empty.json" />
+    <None Include="App\example\json\invalid-blank.json" />
+    <None Include="App\example\json\invalid-syntax.json" />
+    <None Include="App\example\json\test.json" />
+    <None Include="App\example\midi\test.mid" />
+    <None Include="App\example\obj\blacksmith.mtl" />
+    <None Include="App\example\obj\crystal1.mtl" />
+    <None Include="App\example\obj\crystal2.mtl" />
+    <None Include="App\example\obj\crystal3.mtl" />
+    <None Include="App\example\obj\mill.mtl" />
+    <None Include="App\example\obj\pine.mtl" />
+    <None Include="App\example\obj\siv3d-kun.mtl" />
+    <None Include="App\example\obj\tree.mtl" />
+    <None Include="App\example\script\breakout.as" />
+    <None Include="App\example\script\hello.as" />
+    <None Include="App\example\script\paint.as" />
+    <None Include="App\example\script\piano.as" />
+    <None Include="App\example\script\test.as" />
+    <None Include="App\example\shader\glsl\default2d.vert" />
+    <None Include="App\example\shader\glsl\default2d_shape.frag" />
+    <None Include="App\example\shader\glsl\default2d_texture.frag" />
+    <None Include="App\example\shader\glsl\default3d_forward.frag" />
+    <None Include="App\example\shader\glsl\default3d_forward.vert" />
+    <None Include="App\example\shader\glsl\extract_bright_linear.frag" />
+    <None Include="App\example\shader\glsl\forward_fog.frag" />
+    <None Include="App\example\shader\glsl\forward_triplanar.frag" />
+    <None Include="App\example\shader\glsl\game_of_life.frag" />
+    <None Include="App\example\shader\glsl\grayscale.frag" />
+    <None Include="App\example\shader\glsl\homography.frag" />
+    <None Include="App\example\shader\glsl\homography.vert" />
+    <None Include="App\example\shader\glsl\multi_texture_blend.frag" />
+    <None Include="App\example\shader\glsl\multi_texture_mask.frag" />
+    <None Include="App\example\shader\glsl\poisson_disk.frag" />
+    <None Include="App\example\shader\glsl\posterize.frag" />
+    <None Include="App\example\shader\glsl\rgb_shift.frag" />
+    <None Include="App\example\shader\glsl\rgb_to_bgr.frag" />
+    <None Include="App\example\shader\glsl\soft_shape.vert" />
+    <None Include="App\example\shader\glsl\swirl.frag" />
+    <None Include="App\example\shader\glsl\terrain_forward.frag" />
+    <None Include="App\example\shader\glsl\terrain_forward.vert" />
+    <None Include="App\example\shader\glsl\terrain_normal.frag" />
+    <None Include="App\example\svg\cat.svg" />
+    <None Include="App\example\svg\turtle.svg" />
+    <None Include="App\example\toml\config.toml" />
+    <None Include="App\example\toml\test.toml" />
+    <None Include="App\example\zip\zip_test.zip" />
+    <None Include="App\example\obj\blacksmith.obj" />
+    <None Include="App\example\obj\crystal1.obj" />
+    <None Include="App\example\obj\crystal2.obj" />
+    <None Include="App\example\obj\crystal3.obj" />
+    <None Include="App\example\obj\mill.obj" />
+    <None Include="App\example\obj\pine.obj" />
+    <None Include="App\example\obj\siv3d-kun.obj" />
+    <None Include="App\example\obj\tree.obj" />
+    <None Include="App\example\shader\hlsl\default2d.hlsl" />
+    <None Include="App\example\shader\hlsl\default3d_forward.hlsl" />
+    <None Include="App\example\shader\hlsl\extract_bright_linear.hlsl" />
+    <None Include="App\example\shader\hlsl\forward_fog.hlsl" />
+    <None Include="App\example\shader\hlsl\forward_triplanar.hlsl" />
+    <None Include="App\example\shader\hlsl\game_of_life.hlsl" />
+    <None Include="App\example\shader\hlsl\grayscale.hlsl" />
+    <None Include="App\example\shader\hlsl\homography.hlsl" />
+    <None Include="App\example\shader\hlsl\multi_texture_blend.hlsl" />
+    <None Include="App\example\shader\hlsl\multi_texture_mask.hlsl" />
+    <None Include="App\example\shader\hlsl\poisson_disk.hlsl" />
+    <None Include="App\example\shader\hlsl\posterize.hlsl" />
+    <None Include="App\example\shader\hlsl\rgb_shift.hlsl" />
+    <None Include="App\example\shader\hlsl\rgb_to_bgr.hlsl" />
+    <None Include="App\example\shader\hlsl\soft_shape.hlsl" />
+    <None Include="App\example\shader\hlsl\swirl.hlsl" />
+    <None Include="App\example\shader\hlsl\terrain_forward.hlsl" />
+    <None Include="App\example\shader\hlsl\terrain_normal.hlsl" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="BlackBox">
-      <UniqueIdentifier>{aeb80201-9d23-405c-8888-2be3476be0dc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source">
-      <UniqueIdentifier>{98cf5be4-19fb-47b7-af4b-cbf5e9187eb1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Fish">
-      <UniqueIdentifier>{a65d0f3f-285d-495b-8a86-25c77e56e39c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Fish\Enemy">
-      <UniqueIdentifier>{b3911b84-88f5-407a-83a6-69af92fc912e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Fish\Player">
-      <UniqueIdentifier>{96080271-1a92-44d7-a4e2-1b1f70582c5d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Fish\Option">
-      <UniqueIdentifier>{06c88e8c-7569-4672-bf28-189f07bad407}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\myScene">
-      <UniqueIdentifier>{59543b9f-28a0-4de2-8f94-da0706492082}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\myCamera">
-      <UniqueIdentifier>{a29fceb7-ded7-49ea-bd8a-28febd1bc148}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Stage">
-      <UniqueIdentifier>{b5c56975-1f85-4128-b8ea-1853c9bd31fe}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Item">
-      <UniqueIdentifier>{179c4ec8-cd3d-4990-8434-8a63be64c80a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\myEffect">
-      <UniqueIdentifier>{5f16c0a1-8b04-4a61-b45d-ac2fbb2562da}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Fish\Enemy\Base">
-      <UniqueIdentifier>{b9656fa7-628e-4d9e-9214-1a50873361f9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Fish\Enemy\Anomalocaris">
-      <UniqueIdentifier>{81ecdef8-a69c-4927-9608-8c485c024858}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Fish\Enemy\Hallucigenia">
-      <UniqueIdentifier>{7a07d738-2e98-47fb-824d-9a5aefe2ea5d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Fish\Enemy\Kurage">
-      <UniqueIdentifier>{5d12797b-2d2f-42b6-bbb0-0116e3a334cd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Fish\Enemy\Opabinia">
-      <UniqueIdentifier>{ed1f74c3-1557-480b-b85e-1cdb864739ac}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Fish\Enemy\Pikaia">
-      <UniqueIdentifier>{8691c69b-4dc8-4add-a2a4-23e56b5832a6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Fish\Option\Base">
-      <UniqueIdentifier>{11f4736e-7612-4cd5-9da0-d343a291d61e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Fish\Option\Annkou">
-      <UniqueIdentifier>{e72e0a53-c5fb-49c7-ad0c-7bf4c22880b8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Fish\Option\Cupinlaoyui">
-      <UniqueIdentifier>{71b3d090-d109-4cf0-9e5b-c4a4f460b710}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Fish\Option\Harisenbong">
-      <UniqueIdentifier>{9ad23ae7-4332-4962-86fb-ea3dc83b9709}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Fish\Option\Poseidon">
-      <UniqueIdentifier>{6a75c267-7a65-4df2-8358-38e7dff5cb5d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Fish\Option\Seahorse">
-      <UniqueIdentifier>{151fcbb2-fb87-4011-9f93-1c27c868dfef}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Fish\Option\Shirous">
-      <UniqueIdentifier>{28f86d28-db0f-4179-a873-50f6c27b2422}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Fish\Base">
-      <UniqueIdentifier>{adec60e6-3676-4ff0-8793-4585fd2ab980}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="App\Resource.rc">
-      <Filter>Source</Filter>
-    </ResourceCompile>
+    <Text Include="App\dll\soundtouch\COPYING.TXT" />
+    <Text Include="App\engine\font\fontawesome\LICENSE.txt" />
+    <Text Include="App\engine\soundfont\GMGSx.sf2.txt" />
+    <Text Include="App\example\font\DotGothic16\OFL.txt" />
+    <Text Include="App\example\font\RocknRoll\OFL.txt" />
+    <Text Include="App\example\LICENSE.txt" />
+    <Text Include="App\example\midi\test.txt" />
+    <Text Include="App\example\obj\credit.txt" />
+    <Text Include="App\example\spritesheet\siv3d-kun-16.txt" />
+    <Text Include="App\example\svg\README.txt" />
+    <Text Include="App\example\texture\credit.txt" />
+    <Text Include="App\example\txt\en.txt" />
+    <Text Include="App\example\txt\jp.txt" />
+    <Text Include="App\example\txt\kr.txt" />
+    <Text Include="App\example\txt\sc.txt" />
+    <Text Include="App\example\video\river.txt" />
   </ItemGroup>
 </Project>

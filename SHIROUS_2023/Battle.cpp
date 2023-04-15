@@ -5,7 +5,7 @@
 #include"EnemyHallucigenia.h"
 #include"EnemyOpabinia.h"
 #include"EnemyAnomalocaris.h"
-
+#include"myIEffectAdditiveBlendRect.h"
 
 Battle::Battle()
 {
@@ -43,7 +43,10 @@ void Battle::update()
 		now_map_make = not now_map_make;
 	}
 
-
+	if (KeyR.down()) {
+		Vec2 randomv = RandomVec2(Random(20,100));
+		effects << std::make_unique<myIEffectAdditiveBlendRect>(this, camera.windowpos_in_camera(Cursor::Pos()), randomv, Color(50, 150, Random<int>(128, 255), 200));
+	}
 
 
 	scene_del = Scene::DeltaTime();

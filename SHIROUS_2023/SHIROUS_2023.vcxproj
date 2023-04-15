@@ -136,6 +136,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="myCamera.cpp" />
+    <ClCompile Include="myIEffectAdditiveBlendRect.cpp" />
     <ClCompile Include="myIEffectAfterimage.cpp" />
     <ClCompile Include="myIEffectBubble.cpp" />
     <ClCompile Include="myIEffectCirclestar.cpp" />
@@ -381,6 +382,7 @@
     <ClInclude Include="Menu.h" />
     <ClInclude Include="myCamera.h" />
     <ClInclude Include="myIEffect.h" />
+    <ClInclude Include="myIEffectAdditiveBlendRect.h" />
     <ClInclude Include="myIEffectAfterimage.h" />
     <ClInclude Include="myIEffectBubble.h" />
     <ClInclude Include="myIEffectCirclestar.h" />

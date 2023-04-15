@@ -3,6 +3,7 @@
 #include"Battle.h"
 #include"Fish.h"
 #include"myIEffectBubble.h"
+#include"myIEffectAdditiveBlendRect.h"
 
 EnemyShotPikaia::EnemyShotPikaia(Battle* battle, const Vec2& p):EnemyShot(battle,p)
 {
@@ -52,9 +53,10 @@ void EnemyShotPikaia::update()
 	move();
 	hit_boxs = hit_box_origins.rotated(angle).movedBy(pos);
 
-	
+	bool dead = false;
 	if (battle->get_player().get_rect().intersects(hit_boxs)) {
 		battle->get_player().damage(30);
+		dead = true;
 		over = true;
 	}
 	if (not battle->get_camera().in_camera(hit_boxs)) {
@@ -64,7 +66,14 @@ void EnemyShotPikaia::update()
 	{
 		if (hit_boxs.intersects(stage_object.get_rect()))
 		{
+
+			dead = true;
 			over = true;
+		}
+	}
+	if (dead) {
+		for (size_t i : step(10)) {
+			battle->get_effects() << std::make_unique<myIEffectAdditiveBlendRect>(battle,RandomVec2(hit_boxs.computeBoundingRect().scaled(0.7)), Vec2(Random(50, 70), Random(50, 70)), Color(50, 150, Random<int>(128, 255), 200));
 		}
 	}
 	time++;
