@@ -13,8 +13,7 @@ void Battle::init_battle()
 }
 
 void Battle::update_battle()
-{
-	
+{	
 	//状態の更新。
 	//プレイヤーの更新。
 	player.update();

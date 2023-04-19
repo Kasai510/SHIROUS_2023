@@ -6,9 +6,9 @@
 class myScene
 {
 private:
-	int scene_num = 2;//現在動いているシーン
+	int scene_num = 0;//現在動いているシーン
 	//0:Manu
-	//1:Character_sellect
+	//1:操作練習(仮)
 	//2:Battle
 	//
 
@@ -18,7 +18,6 @@ private:
 
 	//ゲーム中のそれぞれのシーン
 	Menu menu;
-	//Character_sellect character_sellect;
 	Battle battle;
 
 

@@ -41,4 +41,6 @@ void asset_texture()
 	TextureAsset::Register(U"kaimen_1", U"data/image/object/living/kaimen_1.png");
 	TextureAsset::Register(U"bubble", U"data/image/object/bubble/bubble.png");
 	TextureAsset::Register(U"heart", U"data/image/object/heart/heart.png");
+
+
 }

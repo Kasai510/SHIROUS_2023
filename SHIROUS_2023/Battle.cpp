@@ -40,18 +40,53 @@ void Battle::update()
 {
 	scene_del = Scene::DeltaTime();
 
-
-	switch (now_battle_scene)
+	if (playing)
 	{
-	case Battle::Battle_Scene::battle:
-		update_battle();
-		break;
-	case Battle::Battle_Scene::map_make:
-		update_map_make();
-		break;
-	default:
-		break;
+		if (KeyQ.down())
+		{
+			playing = false;
+			pose_sellect = 0;
+		}
+
+		switch (now_battle_scene)
+		{
+		case Battle::Battle_Scene::battle:
+			update_battle();
+			break;
+		case Battle::Battle_Scene::map_make:
+			update_map_make();
+			break;
+		default:
+			break;
+		}
 	}
+	else
+	{
+		if (KeyQ.down())
+		{
+			playing = true;
+		}
+		else if (KeyEnter.down() || KeyZ.down())
+		{
+			if (pose_sellect == 0)playing = true;
+			if (pose_sellect == 1)
+			{
+				//ゲームの中断処理(未実装)
+				change_scene_to = 0;
+			}
+		}
+		else
+		{
+			if (KeyUp.down())pose_sellect--;
+			else if (KeyDown.down())pose_sellect++;
+			if (pose_sellect < 0)pose_sellect = 1;
+			if (pose_sellect > 1)pose_sellect = 0;
+		}
+		
+
+	}
+
+	
 }
 
 
@@ -68,6 +103,15 @@ void Battle::draw()
 		break;
 	default:
 		break;
+	}
+
+	if (!playing)
+	{
+		Rect(Arg::center(Scene::Center()), 1000, 700).draw(Palette::White);
+		font50(U"ゲームに戻る").drawAt(Scene::Center().movedBy(0, -100), Palette::Black);
+		font50(U"タイトルに戻る").drawAt(Scene::Center().movedBy(0, 100), Palette::Black);
+		if (pose_sellect == 0)Triangle(Scene::Center().movedBy(-200, -105), 40, 180_deg).draw(Palette::Skyblue);
+		if (pose_sellect == 1)Triangle(Scene::Center().movedBy(-210, 95), 40, 180_deg).draw(Palette::Skyblue);
 	}
 
 	

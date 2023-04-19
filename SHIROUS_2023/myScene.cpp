@@ -59,7 +59,10 @@ void myScene::change_scene(int n)
 void myScene::change_scene_update()
 {
 	if (change_scene_count > 30)change_scene_fade += 0.03;
-	if (change_scene_count == 30)scene_num = change_scene_to;
+	if (change_scene_count == 30)
+	{
+		scene_num = change_scene_to;
+	}
 	if (change_scene_count <= 30)change_scene_fade -= 0.03;
 	change_scene_count--;
 }

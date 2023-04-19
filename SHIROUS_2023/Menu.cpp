@@ -32,35 +32,32 @@ void Menu::update()
 
 void Menu::draw()
 {
-	if (!instruction)
-	{
-		//タイトル画面の画像
-		//TextureAsset(U"title1").scaled(0.8).drawAt(Scene::CenterF(), ColorF(1.0, 1.0, 1.0, screen / 30.0));
-		//TextureAsset(U"title2").scaled(0.8).drawAt(Scene::CenterF(), ColorF(1.0, 1.0, 1.0, 1.0 - screen / 30.0));
-	}
+	//タイトル画面の画像(未実装)
+	font100(U"SHIROUS").drawAt(Scene::Center().movedBy(0,-300), Palette::White);
+	font100(U"SHIROUS").drawAt(Scene::Center().movedBy(-3,-303), Palette::Black);
 
-
-	fontBlack(U"SHIROUS").drawAt(Scene::CenterF().movedBy(0, -300).movedBy(1, 1));
-	fontBlack(U"SHIROUS").drawAt(Scene::CenterF().movedBy(0, -300), Palette::Black);
 
 	if (!instruction)
 	{
-		font50(U"ゲームスタート").drawAt(start_game.center(), Palette::Black);
-		font50(U"操作説明").drawAt(start_explain.center(), Palette::Black);
-		font50(U"Enterでスタート").drawAt(Scene::CenterF().movedBy(0, 350), Palette::Black);
-
 		if (sellect == 0)
 		{
-			if ((frame % 100) < 50)start_game.draw(ColorF(1.0, 1.0, 1.0, (frame % 100) / 60.0));
-			else start_game.draw(ColorF(1.0, 1.0, 1.0, 5.0 / 6.0 - ((frame - 50) % 100) / 60.0));
+			font50(U"ゲームスタート").drawAt(Scene::Center().movedBy(0, 300).movedBy(2,2), ColorF(1.0, 1.0, 1.0, Min(frame%100,100-frame%100)/50.0));
+			Triangle(Scene::Center().movedBy(-200, 295), 35+5.0* Min(frame % 100, 100 - frame % 100) / 50.0, 180_deg).draw(Palette::White);
 		}
 		else if (sellect == 1)
 		{
-			if ((frame % 100) < 50)start_explain.draw(ColorF(1.0, 1.0, 1.0, (frame % 100) / 60.0));
-			else start_explain.draw(ColorF(1.0, 1.0, 1.0, 5.0/6.0 - ((frame - 50) % 100) / 60.0));
+			font50(U"操作練習").drawAt(Scene::Center().movedBy(0, 400).movedBy(2, 2), ColorF(1.0, 1.0, 1.0, Min(frame % 100, 100 - frame % 100) / 50.0));
+			Triangle(Scene::Center().movedBy(-125, 395), 35 + 5.0 * Min(frame % 100, 100 - frame % 100) / 50.0, 180_deg).draw(Palette::White);
 		}
+
+		font50(U"ゲームスタート").drawAt(Scene::Center().movedBy(0, 300), Palette::Black);
+		font50(U"操作練習").drawAt(Scene::Center().movedBy(0, 400), Palette::Black);
+
+		font50(U"なんかいい感じの背景が欲しい").drawAt(Scene::Center().movedBy(0, 0), Palette::Black);
+		
 	}
 
+	//操作練習Sceneを実装したい
 	if (instruction)
 	{
 		//font50(U"↑↓←→：移動\n１キー または □ボタン：遠距離攻撃\n２キー または △ボタン：近距離攻撃\n３キー または Rボタン：ガード\n４キー または ×ボタン：回避\n\nEnterで戻る").draw(50, 200, Palette::Black);

@@ -48,6 +48,8 @@ private:
 	};
 
 	Battle_Scene now_battle_scene{ Battle_Scene::battle };
+	bool playing{ true };//ポーズ機能用
+	int pose_sellect = 0;//0:ゲームに戻る。1:タイトルに戻る。
 
 	double scene_del;//前のフレームからの経過時間
 	Vec2 scene_size{ Scene::Size() };//シーンの大きさ
