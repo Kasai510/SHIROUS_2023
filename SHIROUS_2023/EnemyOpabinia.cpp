@@ -68,7 +68,7 @@ void EnemyOpabinia::move()
 	}
 
 	if (is_doing_attack) {
-		Print <<U"atac:" << Min(attack_start_time / 30, 4);
+		//Print <<U"atac:" << Min(attack_start_time / 30, 4);
 		if (attack_from_down) {
 			mouth_go_local_pos = attack_points[Min(attack_start_time / 30, 4)];
 		}

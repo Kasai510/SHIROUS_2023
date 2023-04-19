@@ -9,7 +9,7 @@ EnemyAnomalocaris::EnemyAnomalocaris(Battle* battle, const Vec2& p) :Enemy(battl
 	speed = { -5,0 };
 	width = 400;
 	height = 500;
-	hp = 2000;
+	hp = 3000;
 	start_pos = pos;
 
 	//モーションパターンの作成

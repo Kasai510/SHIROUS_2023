@@ -13,7 +13,7 @@ void myCamera::scroll(Vec2 v)
 	//scaleの更新
 	if (true)
 	{
-		double r = 0.9;
+		double r = 1.0;//開発中は0.9
 		scale += (r - scale) / 1;
 	}
 	//centerの更新

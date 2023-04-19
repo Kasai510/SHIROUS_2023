@@ -6,9 +6,9 @@ class myCamera:public BattleObject
 {
 private:
 	Vec2 center = { 1920/2,1080/2 };//中心座標
-	double scale = 0.9;//拡大・縮小倍率。今回は１で固定。開発時は0.9で描画範囲を広げる。
-	double min_scale = 0.9;//最小縮小倍率(min_scale倍で描画されるので、1/min_scale倍の範囲が描画される)
-	double max_scale = 0.9;//最大拡大倍率(max_scale倍で描画されるので、1/max_scale倍の範囲が描画される)
+	double scale = 1.0;//拡大・縮小倍率。今回は１で固定。開発時は0.9で描画範囲を広げる。
+	double min_scale = 1.0;//最小縮小倍率(min_scale倍で描画されるので、1/min_scale倍の範囲が描画される)
+	double max_scale = 1.0;//最大拡大倍率(max_scale倍で描画されるので、1/max_scale倍の範囲が描画される)
 	double std_width = 1200.0;//scaleが１になるときの幅
 	double std_height = 550.0;//scaleが１になるときの幅
 

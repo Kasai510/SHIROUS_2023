@@ -94,7 +94,7 @@ void Battle::save()
 void Battle::debug_draw()
 {
 	//Print << player_shots.size();
-	font30(camera.windowpos_in_camera(Cursor::Pos()).asPoint()).draw(Cursor::Pos());
+	//font30(camera.windowpos_in_camera(Cursor::Pos()).asPoint()).draw(Cursor::Pos());
 }
 
 void Battle::camera_control()

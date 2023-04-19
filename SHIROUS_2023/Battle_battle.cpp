@@ -28,7 +28,7 @@ void Battle::update_battle()
 		stages[i].update();
 	}
 	//アイテムの更新。
-	if (MouseL.down())items << std::make_shared<ItemLP>(this, camera.windowpos_in_camera(Cursor::Pos()), 10);
+	//if (MouseL.down())items << std::make_shared<ItemLP>(this, camera.windowpos_in_camera(Cursor::Pos()), 10);
 	for (auto& item : items) {
 		item->update();
 	}
@@ -93,6 +93,7 @@ void Battle::update_battle()
 	//item削除
 	items.remove_if([](const std::shared_ptr<Item>& item) {return item->is_dead(); });
 
+
 	camera.scroll(Vec2(2,0));//強制横スクロール
 	//camera.set(player.get_pos());
 
@@ -103,7 +104,7 @@ void Battle::update_battle()
 	if (KeyM.down())
 	{
 		//map_make
-		change_battle_scene(Battle_Scene::map_make);
+		//change_battle_scene(Battle_Scene::map_make);
 	}
 }
 
@@ -112,7 +113,7 @@ void Battle::draw_battle()
 	//背景
 	background.draw();
 
-	font50(U"[M]でmap_make").draw(0, 0, Palette::Black);
+	//font50(U"[M]でmap_make").draw(0, 0, Palette::Black);
 
 	for (int i = 0; i < stages.size(); i++)
 	{

@@ -47,7 +47,7 @@ void EnemyShotAnomalocaris1::update()
 	//player
 	if (battle->get_player().get_rect().intersects(hit_c))
 	{
-		battle->get_player().damage(10);
+		battle->get_player().damage(50);
 		battle->get_effects() << std::make_unique<myIEffectClash>(battle, pos, HSV(272, 1, 1));
 		over = true;
 	}
