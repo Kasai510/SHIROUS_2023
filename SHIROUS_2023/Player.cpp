@@ -21,10 +21,10 @@ Player::Player(Battle* battle, Vec2 p):Fish(battle, p)
 {
 	set_name(U"シラス");
 	set_image_name(U"shirous");
-	Max_HP = 500;
-	Max_LP = 500;
+	Max_HP = 100 * generation;
+	Max_LP = 100 * generation;
 	hp = Max_HP;
-	LP = Max_LP / 2;
+	LP = Max_LP;
 	draw_HP = hp;
 	draw_LP = LP;
 	for (int i = 0; i < 1;i++) {
@@ -223,13 +223,6 @@ void Player::spawn()
 					for (int i = 0; i < 5; i++)
 						battle->get_effects() << std::make_unique<myIEffectHeart>(battle, pos + RandomVec2() * Random() * 30, RandomVec2() * (1.0 + Random()) * 5, 15);
 				}
-				if (select_spawn == (int)FishType::Seahorse && LP >= 200)
-				{
-					options << std::make_shared<OptionSeahorse>(battle, get_pos());
-					LP -= 200;
-					for (int i = 0; i < 5; i++)
-						battle->get_effects() << std::make_unique<myIEffectHeart>(battle, pos + RandomVec2() * Random() * 30, RandomVec2() * (1.0 + Random()) * 5, 15);
-				}
 				if (select_spawn == (int)FishType::Harisenbong && LP >= 200)
 				{
 					options << std::make_shared<OptionHarisenbong>(battle, get_pos());
@@ -237,7 +230,21 @@ void Player::spawn()
 					for (int i = 0; i < 5; i++)
 						battle->get_effects() << std::make_unique<myIEffectHeart>(battle, pos + RandomVec2() * Random() * 30, RandomVec2() * (1.0 + Random()) * 5, 15);
 				}
-				if (select_spawn == (int)FishType::Poseidon && LP >= 300)
+				if (select_spawn == (int)FishType::Seahorse && LP >= 250)
+				{
+					options << std::make_shared<OptionSeahorse>(battle, get_pos());
+					LP -= 200;
+					for (int i = 0; i < 5; i++)
+						battle->get_effects() << std::make_unique<myIEffectHeart>(battle, pos + RandomVec2() * Random() * 30, RandomVec2() * (1.0 + Random()) * 5, 15);
+				}
+				if (select_spawn == (int)FishType::Annkou && LP >= 200)
+				{
+					options << std::make_shared<OptionAnnkou>(battle, get_pos());
+					LP -= 200;
+					for (int i = 0; i < 5; i++)
+						battle->get_effects() << std::make_unique<myIEffectHeart>(battle, pos + RandomVec2() * Random() * 30, RandomVec2() * (1.0 + Random()) * 5, 15);
+				}
+				if (select_spawn == (int)FishType::Poseidon && LP >= 500)
 				{
 					options << std::make_shared<OptionPoseidon>(battle, get_pos());
 					LP -= 300;
@@ -349,8 +356,9 @@ Texture Player::get_fish_texture(int type)
 	while (type >= (int)FishType::size)type -= (int)FishType::size;
 
 	if (type == (int)FishType::Shirous)return TextureAsset(U"shirous_opt");
-	if (type == (int)FishType::Seahorse)return TextureAsset(U"seahorse");
 	if (type == (int)FishType::Harisenbong)return TextureAsset(U"harisenbong");
+	if (type == (int)FishType::Seahorse)return TextureAsset(U"seahorse");
+	if (type == (int)FishType::Annkou)return TextureAsset(U"annkou");
 	if (type == (int)FishType::Poseidon)return TextureAsset(U"poseidon");
 
 	return TextureAsset(U"shirous");

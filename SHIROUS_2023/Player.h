@@ -14,13 +14,14 @@ protected:
 	enum class FishType
 	{
 		Shirous,
-		Seahorse,
 		Harisenbong,
+		Seahorse,
+		Annkou,
 		Poseidon,
 		size
 	};
 
-	int generation = 5;//世代数。レベルみたいなもの。
+	int generation = 2;//世代数。レベルみたいなもの。
 	double Max_HP = 1000;
 	double Max_LP = 1000;
 	double draw_HP = Max_HP;

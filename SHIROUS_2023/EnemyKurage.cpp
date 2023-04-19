@@ -11,6 +11,7 @@ EnemyKurage::EnemyKurage(Battle* battle,const Vec2& p):Enemy(battle,p)
 	width = 150;
 	height = 150;
 	first_level = pos.y;
+	hp = 30;
 
 	enemy_kind = enemy_kind_kurage;
 }

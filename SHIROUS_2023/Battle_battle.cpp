@@ -93,8 +93,8 @@ void Battle::update_battle()
 	//item削除
 	items.remove_if([](const std::shared_ptr<Item>& item) {return item->is_dead(); });
 
-	//camera.scroll(Vec2(2,0));//強制横スクロール
-	camera.set(player.get_pos());
+	camera.scroll(Vec2(2,0));//強制横スクロール
+	//camera.set(player.get_pos());
 
 	//for debug
 	camera_control();

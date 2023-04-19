@@ -21,6 +21,7 @@ void myCamera::scroll(Vec2 v)
 	{
 		//強制横スクロール
 		center += v;
+		center.x = Min(center.x, limit_stage_max.x - 1920/2);
 	}
 
 	//戻れないタイプの横スクロール
@@ -29,7 +30,7 @@ void myCamera::scroll(Vec2 v)
 		limit_camera_min.x = center.x;
 		limit_stage_min.x = Max(limit_stage_min.x, center.x - 1920 / 2);
 	}
-
+	calc_mat();
 }
 void myCamera::set(Vec2 v)
 {
@@ -61,7 +62,6 @@ void myCamera::set(Vec2 v)
 	{
 		//カメラのセンターが遅れすぎないようにリミッターをかけたい
 		center += ((min + max) / 2.0 - center) / 1.0;
-
 
 	}
 

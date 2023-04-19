@@ -61,7 +61,7 @@ void OptionAnnkou::move(int index)
 	if (option_pos_timer > 2 * Math::Pi * 60 * 2 * i * j)option_pos_timer -= 2 * Math::Pi * 60 * 2 * i * j;
 
 	double dx = -100 * (i - 1) + 10 * sin(option_pos_timer / 60.0 / (2 * i));
-	double dy =battle->get_camera().get_limit_stage_max().y - battle->get_player().get_pos().y - 200 + 100 * (j - 0.5 * (i + 1)) + 20 * sin(option_pos_timer / 60.0 / (2 * j));
+	double dy =battle->get_camera().get_limit_stage_max().y - battle->get_player().get_pos().y - 150 + 20 * sin(option_pos_timer / 60.0 / (2 * j));
 
 	place = battle->get_player().get_pos().movedBy(dx, dy);
 	speed += (place - get_pos()) / slowness;

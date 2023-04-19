@@ -11,7 +11,7 @@ EnemyOpabinia::EnemyOpabinia(Battle* battle, const Vec2& p):Enemy(battle,p)
 	speed = { -15,0 };
 	width = 220;
 	height = 90;
-	hp = 300;
+	hp = 100;
 
 	find_player = false;
 	mouth_local_pos = { -150,50 };
@@ -48,6 +48,7 @@ void EnemyOpabinia::update()
 		}
 		if (hp <= 0) {
 			dead = true;
+			drop_item();
 		}
 		time++;
 	}

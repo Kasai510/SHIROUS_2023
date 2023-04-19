@@ -17,7 +17,7 @@ OptionAnnkouShot::OptionAnnkouShot(Battle* battle, const std::shared_ptr<class F
 	shot_timer = 0;
 	pos = master->get_pos_top() + Vec2{ master->get_width()/2,0 };
 
-	damage = 1;
+	damage = 3;
 
 	hit_box_origins << Circle(0, 0, width/2).asPolygon();
 

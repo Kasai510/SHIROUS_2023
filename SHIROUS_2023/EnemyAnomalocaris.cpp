@@ -9,7 +9,7 @@ EnemyAnomalocaris::EnemyAnomalocaris(Battle* battle, const Vec2& p) :Enemy(battl
 	speed = { -5,0 };
 	width = 400;
 	height = 500;
-	hp = 100;
+	hp = 2000;
 	start_pos = pos;
 
 	//モーションパターンの作成
@@ -27,13 +27,20 @@ EnemyAnomalocaris::EnemyAnomalocaris(Battle* battle, const Vec2& p) :Enemy(battl
 
 void EnemyAnomalocaris::update()
 {
-
-	update_motion();//モーションの更新
-
-	if (hp <= 0) {
-		dead = true;
+	if (!active)
+	{
+		if (battle->get_camera().in_camera(get_pos()))active = true;
 	}
-	time++;
+	if (active)
+	{
+
+		update_motion();//モーションの更新
+
+		if (hp <= 0) {
+			dead = true;
+		}
+		time++;
+	}
 }
 
 

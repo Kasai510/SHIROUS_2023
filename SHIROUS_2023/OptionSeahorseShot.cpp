@@ -14,7 +14,7 @@ OptionSeahorseShot::OptionSeahorseShot(Battle* battle, const std::shared_ptr<cla
 
 	shot_timer = 0;
 
-	damage = 15;
+	damage = 25;
 
 	hit_box_origins << Circle(0, 0, 30).asPolygon();
 
