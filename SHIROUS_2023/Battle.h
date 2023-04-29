@@ -43,11 +43,16 @@ class Battle
 private:
 	enum class Battle_Scene
 	{
+		select_stage,
 		battle,
 		map_make,
 	};
 
-	Battle_Scene now_battle_scene{ Battle_Scene::battle };
+	const int stage_num{ 8 };
+	const int stage_select_rect_num{ 4 };//横に何個四角形を置くか
+	int clear_stage{ 4 };//何ステージまでクリアしたかどうか
+
+	Battle_Scene now_battle_scene{ Battle_Scene::select_stage };
 	bool playing{ true };//ポーズ機能用
 	int pose_sellect = 0;//0:ゲームに戻る。1:タイトルに戻る。
 
@@ -123,6 +128,11 @@ public:
 	void save_stage_object();
 
 	void change_battle_scene(Battle_Scene battle_scene);
+
+	//select_stage
+	void init_select_stage();
+	void update_select_stage();
+	void draw_select_stage();
 
 	//battle
 	void init_battle();

@@ -103,7 +103,14 @@ void Battle::update_battle()
 	if (KeyM.down())
 	{
 		//map_make
-		//change_battle_scene(Battle_Scene::map_make);
+		change_battle_scene(Battle_Scene::map_make);
+	}
+
+
+	if (KeyB.down())
+	{
+		//select_stage
+		change_battle_scene(Battle_Scene::select_stage);
 	}
 }
 
@@ -112,8 +119,7 @@ void Battle::draw_battle()
 	//背景
 	background.draw();
 
-	//font50(U"[M]でmap_make").draw(0, 0, Palette::Black);
-
+	
 	for (int i = 0; i < stages.size(); i++)
 	{
 		stages[i].draw(camera);
@@ -148,6 +154,11 @@ void Battle::draw_battle()
 
 	draw_battle_UI();
 	debug_draw();
+
+	font50(U"[M]でmap_make").draw(0, 150, Palette::Black);
+	font50(U"[B]でselect_stage").draw(0, 200, Palette::Black);
+
+
 }
 
 void Battle::draw_battle_UI()

@@ -29,7 +29,7 @@ void Battle::update_map_make()
 
 	if (KeyM.down())
 	{
-		//map_make
+		//battle
 		change_battle_scene(Battle_Scene::battle);
 	
 	}

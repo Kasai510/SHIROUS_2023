@@ -9,8 +9,6 @@
 
 Battle::Battle()
 {
-	now_battle_scene = Battle_Scene::battle;
-
 	
 
 	init();
@@ -30,6 +28,9 @@ void Battle::init()
 		break;
 	case Battle::Battle_Scene::map_make:
 		init_map_make();
+		break;
+	case Battle::Battle_Scene::select_stage:
+		init_select_stage();
 		break;
 	default:
 		break;
@@ -55,6 +56,9 @@ void Battle::update()
 			break;
 		case Battle::Battle_Scene::map_make:
 			update_map_make();
+			break;
+		case Battle::Battle_Scene::select_stage:
+			update_select_stage();
 			break;
 		default:
 			break;
@@ -100,6 +104,9 @@ void Battle::draw()
 		break;
 	case Battle::Battle_Scene::map_make:
 		draw_map_make();
+		break;
+	case Battle::Battle_Scene::select_stage:
+		draw_select_stage();
 		break;
 	default:
 		break;
